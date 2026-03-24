@@ -1,0 +1,150 @@
+{
+  "sections": {
+    "cart-items": {
+      "disabled": false,
+      "type": "main-cart-items",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {}
+    },
+    "cart-footer": {
+      "disabled": false,
+      "type": "main-cart-footer",
+      "settings": {},
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ]
+    },
+    "1740130996446f523832": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "1740130996446b6a071e": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "logistics",
+            "title": "Free shipping",
+            "sub_title": "Capped at $50 per order."
+          },
+          "blockId": "1740130996446b6a071e"
+        },
+        "1740130996446113bcf8": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "customer",
+            "title": "Chat with us",
+            "sub_title": "We offer 24-hour chat support."
+          },
+          "blockId": "1740130996446113bcf8"
+        },
+        "174013099644639e1ffc": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "pay",
+            "title": "securety payments",
+            "sub_title": "Up to 12 months installments."
+          },
+          "blockId": "174013099644639e1ffc"
+        },
+        "174013099644688f2cdb": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "package",
+            "title": "14-day returns",
+            "sub_title": "Shop with confidence."
+          },
+          "blockId": "174013099644688f2cdb"
+        }
+      },
+      "block_order": [
+        "1740130996446b6a071e",
+        "1740130996446113bcf8",
+        "174013099644639e1ffc",
+        "174013099644688f2cdb"
+      ]
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer",
+    "1740130996446f523832"
+  ]
+}

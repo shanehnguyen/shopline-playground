@@ -1,0 +1,589 @@
+.collapsible-content {
+  position: relative;
+  z-index: 0;
+}
+.faq-questions-container {
+  width: 100%;
+}
+.faq-contact-container{
+  width: 100%;
+}
+.collapsible-section-layout {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+@media screen and (min-width: 960px) {
+  .collapsible-section-layout {
+    padding-bottom: 70px;
+    padding-top: 70px;
+  }
+}
+
+.collapsible-content__media--small {
+  height: 194px;
+}
+
+.collapsible-content__media--large {
+  height: 435px;
+}
+
+@media screen and (min-width: 960px) {
+  .collapsible-content__media--small {
+    height: 314px;
+  }
+
+  .collapsible-content__media--large {
+    height: 695px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .collapsible-content__grid--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.collapsible-content-wrapper-narrow {
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 734px;
+}
+
+.collapsible-content__header {
+  word-break: break-word;
+}
+
+.collapsible-content__heading {
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 960px) {
+  .collapsible-content__heading {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .collapsible-content
+    .grid-cols-2.collapsible-content__grid--reverse
+    .grid__item:first-child {
+    padding-left: 20px;
+  }
+  .collapsible-content
+    .grid-cols-2.collapsible-content__grid--reverse
+    .grid__item:last-child {
+    padding-right: 20px;
+  }
+  .collapsible-content
+    .grid-cols-2:not(.collapsible-content__grid--reverse)
+    .grid__item:first-child {
+    padding-right: 20px;
+  }
+  .collapsible-content
+    .grid-cols-2:not(.collapsible-content__grid--reverse)
+    .grid__item:last-child {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .collapsible-content .accordion summary {
+    padding: 27px 0;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .collapsible-content .accordion summary {
+    padding: 20px 0;
+  }
+}
+
+.collapsible-none-layout .accordion + .accordion {
+  border-top: 0;
+}
+
+.collapsible-content .accordion {
+  margin-top: 0;
+}
+
+.collapsible-content summary:hover .accordion__title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* check for flexbox gap in older Safari versions */
+
+@supports not (inset: 10px) {
+  @media screen and (min-width: 960px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse)
+      .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 70px;
+    }
+    .collapsible-content__grid .grid-cols-2 {
+      padding-left: 70px;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .collapsible-content .grid-cols-2 > * {
+    width: 100%;
+  }
+}
+
+.collapsible-content .grid:last-child {
+  margin-bottom: 0;
+}
+
+.collapsible-content .rte > p:last-child {
+  margin-bottom: 0;
+}
+
+.collapsible-content .rte > p:first-child {
+  margin-top: 0;
+}
+
+.collapsible-content .media > *:not(.zoom):not(.deferred-media__poster-button),
+.collapsible-content .media model-viewer {
+  display: block;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.collapsible-content .media {
+  position: relative;
+}
+
+.collapsible-content .gradient {
+  background-attachment: fixed;
+}
+
+.collapsible-content .media > img {
+  object-fit: cover;
+  object-position: center center;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collapsible-content__layout-inline .accordion,
+.collapsible-content__layout-block .accordion {
+  background-color: rgba(var(--box-background-color));
+  padding: 20px;
+  border: none;
+}
+
+.collapsible-content__layout-inline .accordion summary,
+.collapsible-content__layout-block .accordion summary {
+  padding: 0;
+}
+
+.collapsible-content__layout-inline .accordion .accordion__content,
+.collapsible-content__layout-block .accordion .accordion__content {
+  padding: 0;
+  padding-top: 20px;
+  margin-bottom: 0;
+}
+
+.collapsible-content__layout-inline .accordion + .accordion {
+  margin-top: 12px;
+}
+
+.collapsible-content__layout-block .accordion + .accordion {
+  border-top: 1px solid rgba(var(--color-text), 0.08);
+}
+
+.collapsible-content__layout-block .accordion:first-child {
+  border-top-left-radius: var(--content-border-radius);
+  border-top-right-radius: var(--content-border-radius);
+}
+
+.collapsible-content__layout-block .accordion:last-child {
+  border-bottom-left-radius: var(--content-border-radius);
+  border-bottom-right-radius: var(--content-border-radius);
+}
+
+/* The ipad end responds to the mobile end in vertical screen */
+
+/* @custom-media --tablet (max-width: 959px); */
+
+/* @custom-media --gt-mobile (min-width: 751px); */
+
+/* detectingScreen need to consider the configuration of the tablet */
+
+/* FAQ布局样式优化 */
+.faq-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.faq-main-heading {
+  margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.faq-description {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.faq-content-container {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 20px;
+}
+
+/* 改进网格布局比例 */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* 调整左右区域比例 */
+  gap: 50px;
+}
+
+/* 美化FAQ问题区域 */
+.faq-questions-container {
+  padding-right: 20px;
+}
+
+.faq-questions-container .accordion {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  margin: 0;
+}
+
+.faq-questions-container .accordion:first-child {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.faq-questions-container .accordion summary {
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.faq-questions-container .accordion__title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.faq-questions-container .icon-fold {
+  color: #333;
+}
+
+/* 改进联系信息区域 */
+.faq-contact-container {
+  background-color: #f9f9f9;
+  padding: 30px 25px;
+  border-radius: 6px;
+  height: fit-content;
+}
+
+.faq-contact-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.faq-contact-subheading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.faq-contact-description {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* 联系图标区域布局优化 - 每行显示两个图标 */
+.faq-contact-items {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 两列布局 */
+  gap: 16px 20px; /* 行间距和列间距 */
+}
+
+.faq-contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0; 
+}
+.faq-contact-icon {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  min-width: 36px; /* 确保图标不被压缩 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  margin-top: 3px; /* 略微下调图标位置 */
+}
+
+.faq-contact-icon img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.faq-contact-item-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.faq-contact-item-value {
+  display: flex;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.faq-contact-link {
+  color: #e4492e;
+  text-decoration: none;
+}
+
+.faq-contact-link:hover {
+  text-decoration: underline;
+}
+
+/* 响应式样式优化 */
+@media screen and (max-width: 768px) {
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faq-questions-container {
+    padding-right: 0;
+    order: 1; /* 确保问题部分在上方显示 */
+  }
+  
+  .faq-contact-container {
+    margin-top: 20px;
+    order: 2; /* 确保联系信息在下方显示 */
+    margin-bottom: 30px;
+  }
+  
+  /* 调整联系信息在移动端的网格布局 */
+  .faq-contact-items {
+    grid-template-columns: 1fr; /* 在移动端改为单列布局 */
+    gap: 16px; 
+  }
+  
+  .faq-main-heading {
+    font-size: 24px;
+  }
+  
+  .faq-label {
+    font-size: 13px;
+  }
+  
+  .faq-contact-heading {
+    font-size: 18px;
+  }
+  
+  .faq-contact-subheading {
+    font-size: 18px;
+  }
+  
+  .faq-contact-item {
+    margin-bottom: 8px;
+  }
+}
+
+/* 更小屏幕的手机优化 */
+@media screen and (max-width: 480px) {
+  .faq-header {
+    margin-bottom: 25px;
+  }
+  
+  .faq-main-heading {
+    font-size: 22px;
+  }
+  
+  .faq-description {
+    font-size: 14px;
+  }
+  
+  .faq-contact-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+  
+  .faq-content-container {
+    padding: 0 15px;
+  }
+  
+  .faq-contact-item-title {
+    font-size: 14px;
+  }
+  
+  .faq-contact-item-value {
+    font-size: 13px;
+  }
+  
+  /* 调整手风琴标题在小屏幕上的大小 */
+  .faq-questions-container .accordion__title {
+    font-size: 15px;
+  }
+  
+  .faq-questions-container .accordion summary {
+    padding: 15px 0;
+  }
+}
+
+/* 社交媒体样式 */
+.faq-social-container {
+  margin-top: 25px;
+  border-top: 1px solid rgba(var(--color-foreground), 0.08);
+  padding-top: 20px;
+}
+
+.faq-social-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.faq-social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.faq-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgba(var(--color-foreground), 0.04);
+  transition: all 0.3s ease;
+}
+
+.faq-social-link:hover {
+  background-color: rgba(var(--color-foreground), 0.1);
+  transform: translateY(-2px);
+}
+
+.faq-social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .faq-social-container {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
+  
+  .faq-social-link {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .faq-social-link svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 社交媒体图标链接样式，与联系项目一致 */
+.faq-social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.faq-social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  transition: all 0.2s ease;
+}
+
+.faq-social-icon-link:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.faq-social-icon-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 确保在移动端也保持联系项目的样式 */
+@media screen and (max-width: 768px) {
+  .faq-social-icon-link {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .faq-social-icon-link svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* 修改社交媒体链接样式 */
+.faq-social-links-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.faq-social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(var(--color-foreground), 0.04);
+  transition: transform 0.2s ease;
+}
+
+.faq-social-icon-link:hover {
+  transform: translateY(-2px);
+  background-color: rgba(var(--color-foreground), 0.08);
+}
+
+.faq-social-icon-link svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(var(--color-foreground));
+}
+
+/* 确保联系项目和社交媒体的标题对齐 */
+.faq-contact-item-title {
+  margin-bottom: 8px;
+}
+
+/* 调整社交媒体项目的底部间距，与其他联系项目一致 */
+.faq-contact-item:last-child {
+  margin-bottom: 0;
+}

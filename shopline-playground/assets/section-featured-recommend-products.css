@@ -1,0 +1,199 @@
+.featured-recommend-products {
+  display: flex;
+}
+.featured-recommend-products .featured-recommend-products__body {
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+.featured-recommend-products__image {
+  width: 33.33%;
+  flex-shrink: 0;
+  position: relative;
+  box-sizing: border-box;
+  align-items: center;
+  padding-bottom: calc(
+    var(--product-card-shadow-offset-y) + var(--product-card-shadow-blur)
+  );
+}
+
+.featured-recommend-products.image-position-right .featured-recommend-products__body {
+  flex-direction: row-reverse;
+}
+
+.featured-recommend-products__image .main {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.featured-recommend-products__image .main img {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--featured-recommend-products-product-image-style);
+}
+
+.featured-recommend-products__image .default-image {
+  height: 200%;
+  background-color: rgb(var(--color-image-background));
+  width: 200%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.featured-recommend-products__image .line {
+  display: block;
+  width: 90%;
+  height: 95%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+.featured-recommend-products__products-list {
+  width: 66.67%;
+  flex-shrink: 0;
+  padding-left: 40px;
+}
+
+.featured-recommend-products-slider {
+  --gap: 40px;
+  --cols: 2;
+  --preview-col: 0.5;
+  --preview-col-gap: 1;
+  --gaps-of-screen: calc(
+    var(--gap) * (var(--cols) - 1 + var(--preview-col-gap))
+  );
+
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.featured-recommend-products-slider .product-card-wrapper .card__colors {
+  padding-left: 2px;
+}
+
+.featured-recommend-products-slider .fd-slider {
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+  gap: var(--gap);
+}
+
+.featured-recommend-products-slider .featured-recommend-products-slider-slide {
+  width: calc(
+    (100% - var(--gaps-of-screen)) / (var(--cols) + var(--preview-col))
+  );
+}
+
+@media screen and (max-width: 989px) {
+  .featured-recommend-products__body {
+    flex-direction: column;
+  }
+  
+  .featured-recommend-products.image-position-right .featured-recommend-products__body {
+    flex-direction: column;
+  }
+
+  .featured-recommend-products__image,
+  .featured-recommend-products__products-list {
+    width: 100%;
+  }
+
+  .featured-recommend-products__products-list {
+    padding-left: 0;
+  }
+
+  .featured-recommend-products-slider {
+    --gap: 20px;
+    --cols: var(--m-cols, 2);
+    --preview-col: 0.5;
+  }
+
+  .featured-recommend-products-slider[data-m-slice="false"] {
+    --preview-col: 0;
+    --preview-col-gap: 0;
+  }
+
+  .featured-recommend-products-slider[data-m-slice="false"] .fd-slider {
+    flex-wrap: wrap;
+  }
+  .featured-recommend-products-slider .fd-slider {
+    margin-top: 20px;
+  }
+
+  .featured-recommend-products__mobile--image {
+    margin-top: 20px;
+  }
+  .featured-recommend-products__mobile--image img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--featured-recommend-products-product-image-style);
+  }
+  .featured-recommend-products__mobile--image .default-image {
+    height: 100%;
+    background-color: rgb(var(--color-image-background));
+    width: 100%;
+  }
+}
+
+.fd-content-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fd-content-btn-container .featured-control__arrow-buttons {
+  gap: 20px;
+}
+
+.fd-content-btn-container .featured-recommend-products__control {
+  border: 1px solid currentColor;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(var(--color-page-background));
+  color: rgb(var(--color-text));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fd-content-btn-container .featured-recommend-products__control svg {
+  width: 10px;
+  height: 18px;
+}
+
+.fd-content-btn-container .featured-recommend-products__control svg path {
+  stroke: currentColor !important;
+}
+
+.fd-content-btn-container .featured-recommend-products__control[name="next"] {
+  transform: rotate(-180deg);
+}
+
+.fd-content-btn-container .featured-recommend-products__control[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.featured-control__arrow-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The ipad end responds to the mobile end in vertical screen */
+
+/* @custom-media --tablet (max-width: 959px); */
+
+/* @custom-media --gt-mobile (min-width: 751px); */
+
+/* detectingScreen need to consider the configuration of the tablet */

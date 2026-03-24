@@ -1,0 +1,287 @@
+{
+  "sections": {
+    "main": {
+      "disabled": false,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
+    "17414293276287780a91": {
+      "disabled": false,
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      },
+      "blocks": {
+        "1741429327628673e2df": {
+          "name": "t:appBlock.block.name",
+          "type": "shopline://apps/Form Builder - Elsner/blocks/app-block/a0c80987-f216-46dc-8cdd-8cc32a8ac49b",
+          "settings": {
+            "show_form": true,
+            "form_id": "35c099f0-2797-4131-8bcf-28b21f009a29"
+          },
+          "blockId": "1741429327628673e2df"
+        }
+      },
+      "block_order": [
+        "1741429327628673e2df"
+      ],
+      "custom_css": []
+    },
+    "1741429830739a59d783": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/splicing-image-with-text/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "pc_show": true,
+        "mb_show": true,
+        "ratio": "16:9",
+        "loop": false,
+        "quiet": true,
+        "autoplay": false,
+        "video_url": "",
+        "background_position": "center",
+        "splicing_style": "pic_on_bottom",
+        "text_position": "right",
+        "mask_opacity": 100,
+        "container_bg_color": "#EAEDF1",
+        "content_bg_color": "#FFFFFF",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#434343",
+        "title_pc_font_size": 36,
+        "title_m_font_size": 20,
+        "title_letter_spacing": 0,
+        "title_line_height": 1.2,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#434343",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 12,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "sub_title_font_family": "Montserrat:400",
+        "sub_title_font_color": "#434343",
+        "sub_title_pc_font_size": 16,
+        "sub_title_m_font_size": 14,
+        "sub_title_letter_spacing": 30,
+        "sub_title_line_height": 1.6,
+        "btn_font_family": "Montserrat:600",
+        "btn_font_color": "#000000",
+        "btn_pc_font_size": 13,
+        "btn_m_font_size": 12,
+        "btn_letter_spacing": 0,
+        "btn_line_height": 1.6,
+        "btn_background": "#ffffff",
+        "btn_style": "secondary",
+        "btn_hover_animation": "1",
+        "btn_border_thickness": 1,
+        "btn_border_opacity": 100,
+        "btn_border_radius": 0,
+        "btn_border_color": "#000000",
+        "btn_shadow_opacity": 0,
+        "btn_shadow_offset_x": 0,
+        "btn_shadow_offset_y": 4,
+        "btn_shadow_blur": 5,
+        "btn_shadow_color": "#000000",
+        "content_border_thickness": 0,
+        "content_border_opacity": 100,
+        "content_border_radius": 0,
+        "content_border_color": "#000000",
+        "content_shadow_opacity": 0,
+        "content_shadow_offset_x": 0,
+        "content_shadow_offset_y": 4,
+        "content_shadow_blur": 5,
+        "content_shadow_color": "#000000",
+        "mg_border_thickness": 0,
+        "mg_border_opacity": 100,
+        "mg_border_radius": 0,
+        "mg_border_color": "#000000",
+        "mg_shadow_opacity": 0,
+        "mg_shadow_offset_x": 0,
+        "mg_shadow_offset_y": 4,
+        "mg_shadow_blur": 5,
+        "mg_shadow_color": "#000000",
+        "cover": {},
+        "mb_image": {},
+        "pc_image": "shopline://shop_images/1149_1_555bc5cb-0c56-4a1f-9d57-e9a7ec15a35d.webp"
+      },
+      "blocks": {
+        "17414298307396ea035f": {
+          "type": "title",
+          "settings": {
+            "title": "Registered Contractor?"
+          },
+          "blockId": "17414298307396ea035f"
+        },
+        "1741429830739424724f": {
+          "type": "content",
+          "settings": {
+            "content": "PK Cabinet brings together cabinetry professionals from diverse backgrounds across the industry. This wealth of knowledge and experience enables us to truly understand and meet the needs of our customers."
+          },
+          "blockId": "1741429830739424724f"
+        }
+      },
+      "block_order": [
+        "17414298307396ea035f",
+        "1741429830739424724f"
+      ],
+      "custom_css": []
+    },
+    "1741430012490963837a": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "174143001249082fec82": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "package",
+            "title": "We make it Simple",
+            "sub_title": "Online ordering system and easy assembly process"
+          },
+          "blockId": "174143001249082fec82"
+        },
+        "17414300124900256d57": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "logistics",
+            "title": "We make it Quick",
+            "sub_title": "48-hour lead times and fully stocked nationwide warehouses"
+          },
+          "blockId": "17414300124900256d57"
+        },
+        "17414300124906ec4003": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "discount",
+            "title": "We make it Smart",
+            "sub_title": "Loyalty to dealers and focus on great service"
+          },
+          "blockId": "17414300124906ec4003"
+        },
+        "1741430012490f5dc288": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "phone",
+            "title": "We make it Connected",
+            "sub_title": "Industry involvement on social media and 24/7 access to ordering"
+          },
+          "blockId": "1741430012490f5dc288"
+        },
+        "1741430236659131f5fc": {
+          "type": "icon",
+          "settings": {
+            "icon": "pay",
+            "title": "We make it a Big Deal",
+            "sub_title": "Loyalty to dealers and focus on great service"
+          }
+        }
+      },
+      "block_order": [
+        "174143001249082fec82",
+        "17414300124900256d57",
+        "17414300124906ec4003",
+        "1741430012490f5dc288",
+        "1741430236659131f5fc"
+      ],
+      "custom_css": []
+    }
+  },
+  "order": [
+    "main",
+    "1741429830739a59d783",
+    "1741430012490963837a",
+    "17414293276287780a91"
+  ]
+}

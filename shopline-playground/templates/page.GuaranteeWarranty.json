@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "disabled": false,
+      "type": "main-page",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {},
+      "custom_css": [
+        ".rte {font-size: 18px;}"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

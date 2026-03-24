@@ -1,0 +1,19 @@
+.catalog {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  .catalog-pdf-container {
+    padding-right: min(6.5rem, 8vw);
+    padding-left: min(6.5rem, 8vw);
+    width: 100%;
+    height: 630px;
+    display: flex;
+    justify-content: center;
+  }
+  .catalog-pdf-wrapper {
+    max-width: 620px;
+
+    width: 100%;
+    height: 100%;
+  }
+}

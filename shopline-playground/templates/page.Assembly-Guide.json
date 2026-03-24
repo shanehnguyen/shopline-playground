@@ -1,0 +1,131 @@
+{
+  "sections": {
+    "main": {
+      "disabled": true,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
+    "1742209080432ca8e88f": {
+      "disabled": false,
+      "type": "featured-slideshow",
+      "settings": {
+        "content_height": 100,
+        "show_arrows": true,
+        "switch": true,
+        "autoplay": true,
+        "autoplay_speed": 7
+      },
+      "blocks": {
+        "1742209080433c1f791e": {
+          "type": "image",
+          "icon": "image",
+          "settings": {
+            "image_text_layout": "50%",
+            "image_layout_style": "row-reverse",
+            "show_content_line": true,
+            "overlay_opacity": 50,
+            "text_mask": false,
+            "text_mask_color": "deep",
+            "text_font_color": "#ffffff",
+            "text_background_color": "#2C2924",
+            "image": "shopline://shop_images/3.webp",
+            "content_vertical_layout": "flex-end",
+            "content_horizontal_layout": "start",
+            "title": "",
+            "title_font_size": "title4",
+            "content": "",
+            "button_text": "",
+            "button_style": "button",
+            "text_content_horizontal_layout": "center",
+            "text_title": "Assembly Instructions",
+            "text_title_font_size": "title3",
+            "text_content": "If you already purchased cabinets from us, please check out assembly videos for specific cabinet lines here.",
+            "text_button_text": "",
+            "text_button_style": "button"
+          },
+          "blockId": "1742209080433c1f791e"
+        }
+      },
+      "block_order": [
+        "1742209080433c1f791e"
+      ],
+      "custom_css": []
+    },
+    "17422092115368eb634a": {
+      "disabled": false,
+      "type": "collapsible-content",
+      "settings": {
+        "heading": "Collapsible content",
+        "heading_size": "title3",
+        "heading_alignment": "center",
+        "layout_style": "none",
+        "color_scheme": "none",
+        "open_first_collapsible_row": false,
+        "image": {},
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "background_color": "rgba(0,0,0,0)"
+      },
+      "blocks": {
+        "1742209211536b3165a4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "icon_width": 16,
+            "page": ""
+          },
+          "blockId": "1742209211536b3165a4"
+        },
+        "1742209211536790ac58": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "icon_width": 16,
+            "page": ""
+          },
+          "blockId": "1742209211536790ac58"
+        },
+        "1742209211536caff54d": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "icon_width": 16,
+            "page": ""
+          },
+          "blockId": "1742209211536caff54d"
+        },
+        "1742209211536bfff1ca": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "icon_width": 16,
+            "page": ""
+          },
+          "blockId": "1742209211536bfff1ca"
+        }
+      },
+      "block_order": [
+        "1742209211536b3165a4",
+        "1742209211536790ac58",
+        "1742209211536caff54d",
+        "1742209211536bfff1ca"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "1742209080432ca8e88f",
+    "17422092115368eb634a"
+  ]
+}

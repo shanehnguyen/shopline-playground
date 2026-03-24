@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "catalog",
+      "settings": {
+        "pdf_link": "https://cdn-files.myshopline.com/file/store/1736838390436/pk-cabinet-catalog.pdf"
+      }
+    }
+  },
+  "order": ["main"]
+}

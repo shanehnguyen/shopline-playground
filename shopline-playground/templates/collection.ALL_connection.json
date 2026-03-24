@@ -1,0 +1,170 @@
+{
+  "sections": {
+    "main-collection-banner": {
+      "disabled": false,
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_name": true,
+        "show_collection_cover": false,
+        "pc_collection_img_height": 470,
+        "md_collection_img_height": 250,
+        "collection_cover_area": "center",
+        "mask_color": "#000000",
+        "mask_color_opacity": 20,
+        "parallax_scroll": false,
+        "banner_image_mobile": null
+      },
+      "blocks": {},
+      "custom_css": [
+        "h1.title4.collection-hero__title {text-align: center;}"
+      ]
+    },
+    "main-collection-product-list": {
+      "disabled": false,
+      "type": "main-collection-product-list",
+      "settings": {
+        "products_per_page": 30,
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "pagination_style": "simple",
+        "enable_infinite_scroll": true,
+        "enable_infinite_scroll_button": true,
+        "price_show_type": "from_lowest_price",
+        "show_origin_price": true,
+        "product_image_ratio": "150",
+        "image_fill_type": "contain",
+        "image_display_area": "center center",
+        "show_secondary_image": true,
+        "mobile_show_secondary_image": false,
+        "sticky_filtering": false,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 40,
+        "padding_bottom": 80,
+        "display_style": "grid"
+      },
+      "blocks": {},
+      "custom_css": []
+    },
+    "1740129743218d3361f9": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "1740129743218ff2d695": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "logistics",
+            "title": "Free shipping",
+            "sub_title": "Capped at $50 per order."
+          },
+          "blockId": "1740129743218ff2d695"
+        },
+        "1740129743218c3aae5c": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "customer",
+            "title": "Chat with us",
+            "sub_title": "We offer 24-hour chat support."
+          },
+          "blockId": "1740129743218c3aae5c"
+        },
+        "1740129743218d6e83a4": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "pay",
+            "title": "securety payments",
+            "sub_title": "Up to 12 months installments."
+          },
+          "blockId": "1740129743218d6e83a4"
+        },
+        "17401297432184000710": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "package",
+            "title": "14-day returns",
+            "sub_title": "Shop with confidence."
+          },
+          "blockId": "17401297432184000710"
+        }
+      },
+      "block_order": [
+        "1740129743218ff2d695",
+        "1740129743218c3aae5c",
+        "1740129743218d6e83a4",
+        "17401297432184000710"
+      ]
+    }
+  },
+  "order": [
+    "main-collection-banner",
+    "main-collection-product-list",
+    "1740129743218d3361f9"
+  ]
+}
