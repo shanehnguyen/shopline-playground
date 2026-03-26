@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "pk-contractor-page": {
+      "type": "pk-contractor-page",
+      "settings": {}
+    }
+  },
+  "order": ["pk-contractor-page"]
+}
