@@ -6,7 +6,7 @@
 .pk-doors__inner { max-width: 1280px; margin: 0 auto; }
 .pk-doors__hd {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 .pk-doors__label {
   font-size: 11px;
@@ -22,16 +22,19 @@
   gap: 16px;
 }
 .pk-door__link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-decoration: none;
   color: #1a1a1a;
 }
 .pk-door__img-wrap {
   position: relative;
+  width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   background: #eeebe6;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .pk-door__bg,
 .pk-door__front {
@@ -42,9 +45,9 @@
   transition: opacity 0.5s ease;
   display: block;
 }
-.pk-door__bg { object-fit: cover; opacity: 1; }
+.pk-door__bg   { object-fit: cover; opacity: 1; }
 .pk-door__front { object-fit: contain; padding: 12px; opacity: 0; }
-.pk-door__link:hover .pk-door__bg  { opacity: 0; }
+.pk-door__link:hover .pk-door__bg   { opacity: 0; }
 .pk-door__link:hover .pk-door__front { opacity: 1; }
 .pk-door__name {
   font-size: 13px;
@@ -52,21 +55,22 @@
   color: #1a1a1a;
   line-height: 1.4;
   margin: 0 0 4px;
-  transition: color 0.2s;
-  font-family: 'Inter', sans-serif;
   text-align: center;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
 }
 .pk-door__link:hover .pk-door__name { color: #a89060; }
 .pk-door__price {
   font-size: 13px;
   color: #6b6258;
   margin: 0;
-  font-family: 'Inter', sans-serif;
   text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 @media (max-width: 959px) {
   .pk-doors { padding: 48px 16px; }
   .pk-doors__grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .pk-doors__hd { margin-bottom: 40px; }
 }
 @media (max-width: 480px) {
   .pk-doors__grid { grid-template-columns: repeat(2, 1fr); }
@@ -80,22 +84,20 @@
     </div>
     <div class="pk-doors__grid">
       {{#each section.blocks}}
-      <div>
-        <a class="pk-door__link" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">
-          <div class="pk-door__img-wrap">
-            {{#if settings.bg_image}}
-              {{snippet "image" data=settings.bg_image class="pk-door__bg"}}
-            {{else}}
-              <div class="pk-door__bg" style="background:#eeebe6;"></div>
-            {{/if}}
-            {{#if settings.door_image}}
-              {{snippet "image" data=settings.door_image class="pk-door__front"}}
-            {{/if}}
-          </div>
-          <p class="pk-door__name">{{settings.name}}</p>
-          <p class="pk-door__price">{{#if settings.price}}{{settings.price}}{{else}}$25.00{{/if}}</p>
-        </a>
-      </div>
+      <a class="pk-door__link" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">
+        <div class="pk-door__img-wrap">
+          {{#if settings.bg_image}}
+            {{snippet "image" data=settings.bg_image class="pk-door__bg"}}
+          {{else}}
+            <div class="pk-door__bg" style="background:#eeebe6;"></div>
+          {{/if}}
+          {{#if settings.door_image}}
+            {{snippet "image" data=settings.door_image class="pk-door__front"}}
+          {{/if}}
+        </div>
+        <p class="pk-door__name">{{settings.name}}</p>
+        <p class="pk-door__price">{{#if settings.price}}{{settings.price}}{{else}}$25.00{{/if}}</p>
+      </a>
       {{/each}}
     </div>
   </div>
@@ -123,12 +125,12 @@
     "name": "PK Sample Doors",
     "category": "Custom",
     "blocks": [
-      { "type": "door", "settings": { "name": "Franco — White Shaker",   "price": "$25.00" } },
-      { "type": "door", "settings": { "name": "Mallorca — Dolphin Gray", "price": "$25.00" } },
-      { "type": "door", "settings": { "name": "Newport — Shoreline",     "price": "$25.00" } },
-      { "type": "door", "settings": { "name": "Aspen — Stone Gray",      "price": "$25.00" } },
-      { "type": "door", "settings": { "name": "Franco — Slim Black",     "price": "$25.00" } },
-      { "type": "door", "settings": { "name": "Newport — Natural Oak",   "price": "$25.00" } }
+      { "type": "door", "settings": { "name": "Franco Collection — White Shaker Sample Door",    "price": "$25.00" } },
+      { "type": "door", "settings": { "name": "Mallorca Collection — Dolphin Gray Sample Door",  "price": "$25.00" } },
+      { "type": "door", "settings": { "name": "Newport Collection — Shoreline Sample Door",      "price": "$25.00" } },
+      { "type": "door", "settings": { "name": "Aspen Collection — Stone Gray Sample Door",       "price": "$25.00" } },
+      { "type": "door", "settings": { "name": "Franco Collection — Slim Black Sample Door",      "price": "$25.00" } },
+      { "type": "door", "settings": { "name": "Newport Collection — Natural Oak Sample Door",    "price": "$25.00" } }
     ]
   }]
 }

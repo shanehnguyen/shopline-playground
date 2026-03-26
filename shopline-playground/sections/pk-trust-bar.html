@@ -1,24 +1,25 @@
 <style>
-.pk-trust-bar {
+.pk-trustbar {
   background: #ffffff;
   border-top: 1px solid #e0dcd5;
   border-bottom: 1px solid #e0dcd5;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.pk-trust-bar::-webkit-scrollbar { display: none; }
-.pk-trust-bar__inner {
+.pk-trustbar::-webkit-scrollbar { display: none; }
+.pk-trustbar__inner {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 48px;
-  padding: 0 32px;
-  min-height: 80px;
   min-width: max-content;
   margin: 0 auto;
 }
-.pk-trust-bar__headline {
+.pk-trustbar__label {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -27,75 +28,71 @@
   white-space: nowrap;
   font-family: 'Inter', sans-serif;
 }
-.pk-trust-bar__divider {
+.pk-trustbar__divider {
   width: 1px;
   height: 32px;
   background: #e0dcd5;
   flex-shrink: 0;
 }
-.pk-trust-bar__items {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-.pk-trust-bar__item {
+.pk-trustbar__item {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
-.pk-trust-bar__value {
+.pk-trustbar__value {
   font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 400;
   color: #1a1a1a;
   line-height: 1;
 }
-.pk-trust-bar__label {
+.pk-trustbar__sub {
   font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   color: #a89060;
+  margin-top: 4px;
   font-family: 'Inter', sans-serif;
 }
-@media (max-width: 749px) {
-  .pk-trust-bar__inner { padding: 24px 16px; min-height: auto; gap: 24px; }
-  .pk-trust-bar__headline { display: none; }
-  .pk-trust-bar__divider--headline { display: none; }
-  .pk-trust-bar__items { gap: 24px; }
-  .pk-trust-bar__value { font-size: 20px; }
+@media (max-width: 959px) {
+  .pk-trustbar {
+    height: auto;
+    padding: 24px 16px;
+  }
+  .pk-trustbar__label { display: none; }
+  .pk-trustbar__divider--first { display: none; }
+  .pk-trustbar__inner { gap: 32px; }
+  .pk-trustbar__value { font-size: 20px; }
 }
 </style>
 
-<div class="pk-trust-bar">
-  <div class="pk-trust-bar__inner">
-    <span class="pk-trust-bar__headline">In Stock and Ready to Ship in 3 Days</span>
-    <div class="pk-trust-bar__divider pk-trust-bar__divider--headline"></div>
-    <div class="pk-trust-bar__items">
-      <div class="pk-trust-bar__item">
-        <span class="pk-trust-bar__value">3-Day</span>
-        <span class="pk-trust-bar__label">Quick Ship</span>
-      </div>
-      <div class="pk-trust-bar__divider"></div>
-      <div class="pk-trust-bar__item">
-        <span class="pk-trust-bar__value">Free</span>
-        <span class="pk-trust-bar__label">Shipping over $5k</span>
-      </div>
-      <div class="pk-trust-bar__divider"></div>
-      <div class="pk-trust-bar__item">
-        <span class="pk-trust-bar__value">Best Price</span>
-        <span class="pk-trust-bar__label">Guarantee</span>
-      </div>
-      <div class="pk-trust-bar__divider"></div>
-      <div class="pk-trust-bar__item">
-        <span class="pk-trust-bar__value">5-Year</span>
-        <span class="pk-trust-bar__label">Warranty</span>
-      </div>
-      <div class="pk-trust-bar__divider"></div>
-      <div class="pk-trust-bar__item">
-        <span class="pk-trust-bar__value">30-Day</span>
-        <span class="pk-trust-bar__label">Returns</span>
-      </div>
+<div class="pk-trustbar">
+  <div class="pk-trustbar__inner">
+    <span class="pk-trustbar__label">In Stock and Ready to Ship in 3 Days</span>
+    <div class="pk-trustbar__divider pk-trustbar__divider--first"></div>
+    <div class="pk-trustbar__item">
+      <span class="pk-trustbar__value">3-Day</span>
+      <span class="pk-trustbar__sub">Quick Ship</span>
+    </div>
+    <div class="pk-trustbar__divider"></div>
+    <div class="pk-trustbar__item">
+      <span class="pk-trustbar__value">Free</span>
+      <span class="pk-trustbar__sub">Shipping over $5k</span>
+    </div>
+    <div class="pk-trustbar__divider"></div>
+    <div class="pk-trustbar__item">
+      <span class="pk-trustbar__value">Best Price</span>
+      <span class="pk-trustbar__sub">Guarantee</span>
+    </div>
+    <div class="pk-trustbar__divider"></div>
+    <div class="pk-trustbar__item">
+      <span class="pk-trustbar__value">5-Year</span>
+      <span class="pk-trustbar__sub">Warranty</span>
+    </div>
+    <div class="pk-trustbar__divider"></div>
+    <div class="pk-trustbar__item">
+      <span class="pk-trustbar__value">30-Day</span>
+      <span class="pk-trustbar__sub">Returns</span>
     </div>
   </div>
 </div>

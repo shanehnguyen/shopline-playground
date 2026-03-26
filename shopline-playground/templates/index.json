@@ -9,7 +9,85 @@
       },
       "block_order": ["slide-1", "slide-2", "slide-3"],
       "settings": {}
+    },
+    "pk-trust-bar": {
+      "type": "pk-trust-bar",
+      "settings": {}
+    },
+    "pk-collections-grid": {
+      "type": "pk-collections-grid",
+      "blocks": {
+        "coll-1": { "type": "collection", "settings": { "name": "Mallorca" } },
+        "coll-2": { "type": "collection", "settings": { "name": "Shady"    } },
+        "coll-3": { "type": "collection", "settings": { "name": "Franco"   } },
+        "coll-4": { "type": "collection", "settings": { "name": "Irena"    } },
+        "coll-5": { "type": "collection", "settings": { "name": "Newport"  } },
+        "coll-6": { "type": "collection", "settings": { "name": "Aspen"    } }
+      },
+      "block_order": ["coll-1", "coll-2", "coll-3", "coll-4", "coll-5", "coll-6"],
+      "settings": {}
+    },
+    "pk-featured-products": {
+      "type": "pk-featured-products",
+      "blocks": {
+        "prod-1": { "type": "product", "settings": { "name": "Franco White Shaker Base Cabinet",   "price": "249.00", "rating": "4.9", "reviews": "312" } },
+        "prod-2": { "type": "product", "settings": { "name": "Mallorca Dolphin Gray Wall Cabinet", "price": "189.00", "rating": "4.8", "reviews": "198" } },
+        "prod-3": { "type": "product", "settings": { "name": "Newport Shoreline Base Cabinet",     "price": "269.00", "rating": "5.0", "reviews": "87"  } },
+        "prod-4": { "type": "product", "settings": { "name": "Aspen Stone Gray Tall Cabinet",      "price": "399.00", "rating": "4.9", "reviews": "143" } },
+        "prod-5": { "type": "product", "settings": { "name": "Irena Natural Oak Base Cabinet",     "price": "299.00", "rating": "4.7", "reviews": "256" } },
+        "prod-6": { "type": "product", "settings": { "name": "Franco Slim Black Wall Cabinet",     "price": "219.00", "rating": "4.8", "reviews": "174" } }
+      },
+      "block_order": ["prod-1", "prod-2", "prod-3", "prod-4", "prod-5", "prod-6"],
+      "settings": {}
+    },
+    "pk-promo-banner": {
+      "type": "pk-promo-banner",
+      "settings": {
+        "title": "Shady Collection",
+        "subtitle": "Gray Shaker — Modern Minimalist Elegance",
+        "link_text": "Explore Collection"
+      }
+    },
+    "pk-sample-doors": {
+      "type": "pk-sample-doors",
+      "blocks": {
+        "door-1": { "type": "door", "settings": { "name": "Franco Collection — White Shaker Sample Door",   "price": "$25.00" } },
+        "door-2": { "type": "door", "settings": { "name": "Mallorca Collection — Dolphin Gray Sample Door", "price": "$25.00" } },
+        "door-3": { "type": "door", "settings": { "name": "Newport Collection — Shoreline Sample Door",     "price": "$25.00" } },
+        "door-4": { "type": "door", "settings": { "name": "Aspen Collection — Stone Gray Sample Door",      "price": "$25.00" } },
+        "door-5": { "type": "door", "settings": { "name": "Franco Collection — Slim Black Sample Door",     "price": "$25.00" } },
+        "door-6": { "type": "door", "settings": { "name": "Newport Collection — Natural Oak Sample Door",   "price": "$25.00" } }
+      },
+      "block_order": ["door-1", "door-2", "door-3", "door-4", "door-5", "door-6"],
+      "settings": {}
+    },
+    "pk-testimonials": {
+      "type": "pk-testimonials",
+      "settings": {}
+    },
+    "pk-trade-cta": {
+      "type": "pk-trade-cta",
+      "settings": {}
+    },
+    "pk-contact-form": {
+      "type": "pk-contact-form",
+      "settings": {}
+    },
+    "pk-trust-icons": {
+      "type": "pk-trust-icons",
+      "settings": {}
     }
   },
-  "order": ["pk-hero"]
+  "order": [
+    "pk-hero",
+    "pk-trust-bar",
+    "pk-collections-grid",
+    "pk-featured-products",
+    "pk-promo-banner",
+    "pk-sample-doors",
+    "pk-testimonials",
+    "pk-trade-cta",
+    "pk-contact-form",
+    "pk-trust-icons"
+  ]
 }
