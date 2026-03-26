@@ -1,7 +1,6 @@
 {
   "sections": {
     "pk-about-page": {
-      "disabled": false,
       "type": "pk-about-page",
       "settings": {}
     }
