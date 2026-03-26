@@ -1,0 +1,59 @@
+{{snippet "stylesheet" href=(asset_url "section-pk-collections-grid.css")}}
+
+<section class="pk-collections-grid">
+  <div class="pk-collections-grid__header">
+    <span class="pk-label">Collections</span>
+    <h2 class="pk-collections-grid__title">Our Signature Series</h2>
+  </div>
+  <div class="pk-collections-grid__items">
+    {{#each section.blocks}}
+      <a class="pk-collection-card" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">
+        <div class="pk-collection-card__image-wrap">
+          {{#if settings.image}}
+            {{snippet "image" data=settings.image class="pk-collection-card__image"}}
+          {{else}}
+            {{placeholder_svg_tag "collection-1" "pk-collection-card__image"}}
+          {{/if}}
+          <div class="pk-collection-card__overlay"></div>
+        </div>
+        <div class="pk-collection-card__footer">
+          <span class="pk-collection-card__name">{{settings.name}}</span>
+          <span class="pk-collection-card__arrow">→</span>
+        </div>
+      </a>
+    {{/each}}
+  </div>
+</section>
+
+{{#schema}}
+{
+  "name": "PK Collections Grid",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        { "id": "name", "type": "text", "label": "Name", "default": "Collection" },
+        { "id": "image", "type": "image_picker", "label": "Image" },
+        { "id": "link", "type": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PK Collections Grid",
+      "category": "Custom",
+      "blocks": [
+        { "type": "collection", "settings": { "name": "Mallorca" } },
+        { "type": "collection", "settings": { "name": "Shady" } },
+        { "type": "collection", "settings": { "name": "Franco" } },
+        { "type": "collection", "settings": { "name": "Irena" } },
+        { "type": "collection", "settings": { "name": "Newport" } },
+        { "type": "collection", "settings": { "name": "Aspen" } }
+      ]
+    }
+  ]
+}
+{{/schema}}

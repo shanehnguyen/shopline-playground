@@ -1,0 +1,68 @@
+{{snippet "stylesheet" href=(asset_url "section-pk-sample-doors.css")}}
+
+<section class="pk-sample-doors">
+  <div class="pk-sample-doors__inner">
+    <div class="pk-sample-doors__header">
+      <span class="pk-label">Popular Sample Doors</span>
+    </div>
+    <div class="pk-sample-doors__grid">
+
+      {{#each section.blocks}}
+      <div class="pk-door-card">
+        <a href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}" class="pk-door-card__link">
+          <div class="pk-door-card__image-wrap">
+            {{#if settings.bg_image}}
+              {{snippet "image" data=settings.bg_image class="pk-door-card__bg"}}
+            {{else}}
+              {{placeholder_svg_tag "product-1" "pk-door-card__bg"}}
+            {{/if}}
+            {{#if settings.door_image}}
+              {{snippet "image" data=settings.door_image class="pk-door-card__door"}}
+            {{/if}}
+          </div>
+          <div class="pk-door-card__info">
+            <h3 class="pk-door-card__name">{{settings.name}}</h3>
+            <p class="pk-door-card__price">{{settings.price}}</p>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
+</section>
+
+{{#schema}}
+{
+  "name": "PK Sample Doors",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "door",
+      "name": "Sample Door",
+      "settings": [
+        { "id": "name", "type": "text", "label": "Name", "default": "Sample Door" },
+        { "id": "price", "type": "text", "label": "Price", "default": "$25.00" },
+        { "id": "bg_image", "type": "image_picker", "label": "Background Image" },
+        { "id": "door_image", "type": "image_picker", "label": "Door Image (shown on hover)" },
+        { "id": "link", "type": "url", "label": "Product Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PK Sample Doors",
+      "category": "Custom",
+      "blocks": [
+        { "type": "door", "settings": { "name": "Franco — White Shaker", "price": "$25.00" } },
+        { "type": "door", "settings": { "name": "Mallorca — Dolphin Gray", "price": "$25.00" } },
+        { "type": "door", "settings": { "name": "Newport — Shoreline", "price": "$25.00" } },
+        { "type": "door", "settings": { "name": "Aspen — Stone Gray", "price": "$25.00" } },
+        { "type": "door", "settings": { "name": "Franco — Slim Black", "price": "$25.00" } },
+        { "type": "door", "settings": { "name": "Newport — Natural Oak", "price": "$25.00" } }
+      ]
+    }
+  ]
+}
+{{/schema}}
