@@ -107,7 +107,7 @@
       "custom_css": []
     },
     "1739178268659a4b119b": {
-      "disabled": true,
+      "disabled": false,
       "type": "featured-recommend-products",
       "settings": {
         "show_line": false,
@@ -969,7 +969,7 @@
       ]
     },
     "174366660934233d4e2f": {
-      "disabled": true,
+      "disabled": false,
       "type": "contact-form",
       "settings": {
         "heading": "Contact us",
@@ -1244,30 +1244,51 @@
       "type": "pk-trust-bar",
       "settings": {},
       "blocks": {}
+    },
+    "pk-collections-grid": {
+      "disabled": false,
+      "type": "pk-collections-grid",
+      "settings": {},
+      "blocks": {}
+    },
+    "pk-testimonials": {
+      "disabled": false,
+      "type": "pk-testimonials",
+      "settings": {},
+      "blocks": {}
+    },
+    "pk-sample-doors": {
+      "disabled": false,
+      "type": "pk-sample-doors",
+      "settings": {},
+      "blocks": {}
+    },
+    "pk-trade-cta": {
+      "disabled": false,
+      "type": "pk-trade-cta",
+      "settings": {},
+      "blocks": {}
     }
   },
   "order": [
     "1738926858728c46ee3c",
     "pk-trust-bar",
+    "pk-collections-grid",
+    "1739178268659a4b119b",
+    "pk-sample-doors",
+    "pk-testimonials",
+    "pk-trade-cta",
+    "174366660934233d4e2f",
     "1772152496987c4000a0",
     "177206738708575b211a",
     "1772312475786eb827b2",
-    "1743660476935c577b6d",
-    "1772317559873e5afb87",
     "174012500217883d3194",
     "1773079037914985fb99",
-    "1739178268659a4b119b",
-    "1742188329787963821c",
-    "1740125221285498654d",
-    "17421885063794fdb69c",
     "176475323542532d7760",
-    "173917852446415b4e5c",
     "173918000200888c84bf",
-    "174366660934233d4e2f",
     "1744269455272e4ed8f2",
     "173935845690947a66b4",
     "17442677050464fc654e",
-    "1743596742133abe7e74",
     "1740363439818db82b80"
   ]
 }

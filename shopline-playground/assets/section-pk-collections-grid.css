@@ -1,0 +1,122 @@
+.pk-collections-grid {
+  padding: 72px 32px;
+  background: #ffffff;
+}
+
+.pk-collections-grid__header {
+  max-width: 1280px;
+  margin: 0 auto 48px;
+}
+
+.pk-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a89060;
+  margin-bottom: 12px;
+}
+
+.pk-collections-grid__title {
+  font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.pk-collections-grid__items {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.pk-collection-card {
+  display: block;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  text-decoration: none;
+  background: #eeebe6;
+}
+
+.pk-collection-card__image-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.pk-collection-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.pk-collection-card:hover .pk-collection-card__image {
+  transform: scale(1.08);
+}
+
+.pk-collection-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: background 0.5s ease;
+}
+
+.pk-collection-card:hover .pk-collection-card__overlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.pk-collection-card__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.pk-collection-card__name {
+  font-size: 18px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.pk-collection-card__arrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.pk-collection-card:hover .pk-collection-card__arrow {
+  transform: translateX(6px);
+}
+
+@media screen and (max-width: 959px) {
+  .pk-collections-grid {
+    padding: 48px 16px;
+  }
+
+  .pk-collections-grid__title {
+    font-size: 32px;
+  }
+
+  .pk-collections-grid__items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pk-collections-grid__items {
+    grid-template-columns: 1fr;
+  }
+}

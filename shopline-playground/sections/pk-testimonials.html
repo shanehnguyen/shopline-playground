@@ -1,0 +1,75 @@
+{{snippet "stylesheet" href=(asset_url "section-pk-testimonials.css")}}
+
+<section class="pk-testimonials">
+  <div class="pk-testimonials__inner">
+
+    <div class="pk-testimonials__left">
+      <span class="pk-label">Testimonials</span>
+      <h2 class="pk-testimonials__title">A Few Words from<br> Happy Clients</h2>
+      <p class="pk-testimonials__sub">Trusted by contractors and builders nationwide.</p>
+      <p class="pk-testimonials__body">We pride ourselves on the relationships we build with our clients. Every project is a collaboration.</p>
+      <a href="/pages/contact" class="pk-testimonials__btn">Contact Us →</a>
+    </div>
+
+    <div class="pk-testimonials__right">
+      <div class="pk-testimonials__slideshow" id="pk-testimonials-slideshow">
+
+        <div class="pk-testimonial pk-testimonial--active">
+          <span class="pk-testimonial__quote-mark">"</span>
+          <p class="pk-testimonial__text">"We were honestly surprised by how solid and well-made these cabinets are. The materials feel premium, and the finish looks beautiful in our kitchen. Delivery arrived in just a few days, packed carefully and in perfect condition."</p>
+          <p class="pk-testimonial__author">— Jean Goolsby</p>
+        </div>
+
+        <div class="pk-testimonial">
+          <span class="pk-testimonial__quote-mark">"</span>
+          <p class="pk-testimonial__text">"From start to finish, the experience was smooth and professional. The cabinets are sturdy, well-constructed, and look far more expensive than they are. The 3 to 5 day delivery helped keep our renovation on schedule."</p>
+          <p class="pk-testimonial__author">— Jessica Lopez</p>
+        </div>
+
+        <div class="pk-testimonial">
+          <span class="pk-testimonial__quote-mark">"</span>
+          <p class="pk-testimonial__text">"These cabinets exceeded our expectations. The craftsmanship is excellent with clean lines and durable construction. Delivery was incredibly fast and installation was easy. Great quality, great value, reliable service."</p>
+          <p class="pk-testimonial__author">— Jason Yoon</p>
+        </div>
+
+      </div>
+      <div class="pk-testimonials__dots" id="pk-testimonials-dots">
+        <button class="pk-testimonials__dot pk-testimonials__dot--active" data-index="0"></button>
+        <button class="pk-testimonials__dot" data-index="1"></button>
+        <button class="pk-testimonials__dot" data-index="2"></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('#pk-testimonials-slideshow .pk-testimonial');
+  var dots = document.querySelectorAll('#pk-testimonials-dots .pk-testimonials__dot');
+  var current = 0;
+
+  function goTo(index) {
+    slides[current].classList.remove('pk-testimonial--active');
+    dots[current].classList.remove('pk-testimonials__dot--active');
+    current = index;
+    slides[current].classList.add('pk-testimonial--active');
+    dots[current].classList.add('pk-testimonials__dot--active');
+  }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() { goTo(parseInt(this.dataset.index)); });
+  });
+
+  setInterval(function() { goTo((current + 1) % slides.length); }, 6000);
+})();
+</script>
+
+{{#schema}}
+{
+  "name": "PK Testimonials",
+  "class": "section",
+  "settings": [],
+  "presets": [{ "name": "PK Testimonials", "category": "Custom" }]
+}
+{{/schema}}
