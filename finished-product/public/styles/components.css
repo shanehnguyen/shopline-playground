@@ -1,0 +1,25 @@
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.btn-primary {
+  background-color: var(--color-pk-gold);
+  color: white;
+  border-radius: 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 13px 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-pk-gold-dark);
+}

@@ -1,0 +1,27 @@
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Cabinet Grotesk", "Inter", sans-serif;
+  --font-display: "Cabinet Grotesk", sans-serif;
+  
+  --color-pk-dark: #1a1a1a;
+  --color-pk-muted: #6b6258;
+  --color-pk-gold: #a89060;
+  --color-pk-gold-dark: #8a7248;
+  --color-pk-border: #e0dcd5;
+  --color-pk-input-border: #c8c0b4;
+  --color-pk-placeholder-bg: #eeebe6;
+  --color-pk-bg: #f9f9f7;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-pk-dark);
+  background-color: var(--color-pk-bg);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
