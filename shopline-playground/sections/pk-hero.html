@@ -8,24 +8,32 @@
   background: #1a1a1a;
 }
 .pk-hero__slide {
+  display: none;
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
+  width: 100%;
+  height: 100%;
 }
 .pk-hero__slide.is-active {
-  opacity: 1;
+  display: block;
+  animation: pk-hero-fade 1s ease;
+}
+@keyframes pk-hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .pk-hero__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.pk-hero__gradient {
+.pk-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top right, rgba(0,0,0,0.8), rgba(0,0,0,0.2) 50%, transparent);
+  background: linear-gradient(to top right, rgba(0,0,0,0.8), rgba(0,0,0,0.2), transparent);
 }
 .pk-hero__content {
   position: absolute;
@@ -43,8 +51,8 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: rgba(255,255,255,0.9);
-  margin-bottom: 12px;
   font-family: 'Inter', sans-serif;
+  margin-bottom: 12px;
 }
 .pk-hero__title {
   font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
@@ -53,23 +61,22 @@
   color: #ffffff;
   line-height: 1.1;
   margin: 0 0 16px;
-  max-width: 700px;
+  max-width: 640px;
 }
 .pk-hero__link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  color: #ffffff;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #ffffff;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
-  transition: gap 0.3s ease;
+  transition: gap 0.2s;
 }
 .pk-hero__link:hover { gap: 12px; color: #ffffff; }
-/* Arrows */
 .pk-hero__arrow {
   position: absolute;
   top: 0;
@@ -82,22 +89,32 @@
   border: none;
   cursor: pointer;
   color: rgba(255,255,255,0.3);
-  z-index: 3;
+  z-index: 10;
   transition: color 0.2s, background 0.2s;
-  font-size: 32px;
-  line-height: 1;
+  padding: 0;
 }
-.pk-hero__arrow:hover { color: #ffffff; background: rgba(0,0,0,0.05); }
+.pk-hero__arrow:hover {
+  color: #ffffff;
+  background: rgba(0,0,0,0.05);
+}
 .pk-hero__arrow--prev { left: 0; }
 .pk-hero__arrow--next { right: 0; }
-/* Dots */
+.pk-hero__arrow svg {
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .pk-hero__dots {
   position: absolute;
   bottom: 24px;
   right: 40px;
   display: flex;
   gap: 12px;
-  z-index: 3;
+  z-index: 10;
 }
 .pk-hero__dot {
   width: 6px;
@@ -107,54 +124,61 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
-.pk-hero__dot.is-active { background: #ffffff; width: 24px; }
-@media (max-width: 749px) {
+.pk-hero__dot.is-active {
+  width: 24px;
+  background: #ffffff;
+}
+@media (max-width: 959px) {
   .pk-hero__content { padding: 24px; }
+  .pk-hero__title { font-size: 36px; }
+}
+@media (max-width: 480px) {
   .pk-hero__title { font-size: 28px; }
-  .pk-hero__subtitle { font-size: 10px; }
 }
 </style>
 
 <div class="pk-hero" id="pk-hero">
-  {{#each section.blocks}}
-  <div class="pk-hero__slide{{#if @first}} is-active{{/if}}" data-slide="{{@index}}">
-    {{#if settings.image}}
-      {{snippet "image" data=settings.image class="pk-hero__img"}}
-    {{else}}
-      <div style="width:100%;height:100%;background:#333;"></div>
-    {{/if}}
-    <div class="pk-hero__gradient"></div>
-    <div class="pk-hero__content">
-      <span class="pk-hero__subtitle">{{settings.subtitle}}</span>
-      <h1 class="pk-hero__title">{{settings.title}}</h1>
-      <a class="pk-hero__link" href="{{#if settings.link}}{{settings.link}}{{else}}/collections/all{{/if}}">
-        <span>{{#if settings.link_text}}{{settings.link_text}}{{else}}Explore Collection{{/if}}</span>
-        <span>→</span>
-      </a>
+  <div id="pk-hero-slides">
+    {{#each section.blocks}}
+    <div class="pk-hero__slide{{#if @first}} is-active{{/if}}">
+      {{#if settings.image}}
+        {{snippet "image" data=settings.image class="pk-hero__img"}}
+      {{else}}
+        <div class="pk-hero__img" style="background:#1a1a1a;"></div>
+      {{/if}}
+      <div class="pk-hero__overlay"></div>
+      <div class="pk-hero__content">
+        <span class="pk-hero__subtitle">{{#if settings.subtitle}}{{settings.subtitle}}{{else}}Premium Series{{/if}}</span>
+        <h1 class="pk-hero__title">{{#if settings.title}}{{settings.title}}{{else}}Discover Modern Kitchen Luxury{{/if}}</h1>
+        <a class="pk-hero__link" href="{{#if settings.link}}{{settings.link}}{{else}}/collections/all{{/if}}">
+          Explore Collection <span>→</span>
+        </a>
+      </div>
     </div>
+    {{/each}}
   </div>
-  {{/each}}
 
-  <button class="pk-hero__arrow pk-hero__arrow--prev" id="pk-hero-prev">&#8249;</button>
-  <button class="pk-hero__arrow pk-hero__arrow--next" id="pk-hero-next">&#8250;</button>
+  <button class="pk-hero__arrow pk-hero__arrow--prev" id="pk-hero-prev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="pk-hero__arrow pk-hero__arrow--next" id="pk-hero-next" aria-label="Next slide">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
 
   <div class="pk-hero__dots" id="pk-hero-dots">
     {{#each section.blocks}}
-    <button class="pk-hero__dot{{#if @first}} is-active{{/if}}" data-dot="{{@index}}"></button>
+    <button class="pk-hero__dot{{#if @first}} is-active{{/if}}" data-i="{{@index}}"></button>
     {{/each}}
   </div>
 </div>
 
 <script>
 (function(){
-  var hero = document.getElementById('pk-hero');
-  if (!hero) return;
-  var slides = hero.querySelectorAll('.pk-hero__slide');
-  var dots   = hero.querySelectorAll('.pk-hero__dot');
-  var cur = 0, timer;
-
+  var slides = document.querySelectorAll('#pk-hero-slides .pk-hero__slide');
+  var dots   = document.querySelectorAll('#pk-hero-dots .pk-hero__dot');
+  var cur = 0;
   function goTo(n) {
     slides[cur].classList.remove('is-active');
     dots[cur].classList.remove('is-active');
@@ -162,20 +186,16 @@
     slides[cur].classList.add('is-active');
     dots[cur].classList.add('is-active');
   }
-
-  function start() { timer = setInterval(function(){ goTo(cur + 1); }, 5000); }
-  function reset() { clearInterval(timer); start(); }
-
-  hero.querySelector('#pk-hero-prev').addEventListener('click', function(){ goTo(cur - 1); reset(); });
-  hero.querySelector('#pk-hero-next').addEventListener('click', function(){ goTo(cur + 1); reset(); });
-  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+this.dataset.dot); reset(); }); });
-  start();
+  document.getElementById('pk-hero-prev').addEventListener('click', function(){ goTo(cur - 1); });
+  document.getElementById('pk-hero-next').addEventListener('click', function(){ goTo(cur + 1); });
+  dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+this.dataset.i); }); });
+  setInterval(function(){ goTo(cur + 1); }, 5000);
 })();
 </script>
 
 {{#schema}}
 {
-  "name": "PK Hero Slideshow",
+  "name": "PK Hero",
   "class": "section",
   "settings": [],
   "blocks": [
@@ -183,21 +203,20 @@
       "type": "slide",
       "name": "Slide",
       "settings": [
-        { "id": "image",     "type": "image_picker", "label": "Background Image" },
-        { "id": "subtitle",  "type": "text", "label": "Subtitle",  "default": "Premium Series" },
-        { "id": "title",     "type": "text", "label": "Heading",   "default": "Discover Modern Kitchen Luxury" },
-        { "id": "link_text", "type": "text", "label": "Link Text", "default": "Explore Collection" },
-        { "id": "link",      "type": "url",  "label": "Link URL" }
+        { "id": "title",    "type": "text",         "label": "Heading",   "default": "Discover Modern Kitchen Luxury" },
+        { "id": "subtitle", "type": "text",         "label": "Subtitle",  "default": "Premium Series" },
+        { "id": "image",    "type": "image_picker", "label": "Image" },
+        { "id": "link",     "type": "url",          "label": "Link URL" }
       ]
     }
   ],
   "presets": [{
-    "name": "PK Hero Slideshow",
+    "name": "PK Hero",
     "category": "Custom",
     "blocks": [
-      { "type": "slide", "settings": { "subtitle": "Premium Series",  "title": "Discover Modern Kitchen Luxury" } },
-      { "type": "slide", "settings": { "subtitle": "Classic Series",  "title": "Timeless White Shaker Elegance" } },
-      { "type": "slide", "settings": { "subtitle": "Modern Series",   "title": "Bespoke Minimalist Design" } }
+      { "type": "slide", "settings": { "title": "Discover Modern Kitchen Luxury",  "subtitle": "Premium Series" } },
+      { "type": "slide", "settings": { "title": "Timeless White Shaker Elegance",  "subtitle": "Classic Series" } },
+      { "type": "slide", "settings": { "title": "Bespoke Minimalist Design",        "subtitle": "Modern Series" } }
     ]
   }]
 }
