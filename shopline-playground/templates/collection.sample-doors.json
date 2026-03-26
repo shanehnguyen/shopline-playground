@@ -1,7 +1,6 @@
 {
   "sections": {
     "pk-sample-doors": {
-      "disabled": false,
       "type": "pk-sample-doors",
       "settings": {}
     }
