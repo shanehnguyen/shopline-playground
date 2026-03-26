@@ -19,7 +19,7 @@
       "blocks": {}
     },
     "1738926858728c46ee3c": {
-      "disabled": false,
+      "disabled": true,
       "type": "slideshow",
       "settings": {
         "section_height": "600px",
@@ -1268,13 +1268,30 @@
       "type": "pk-trade-cta",
       "settings": {},
       "blocks": {}
+    },
+    "pk-hero": {
+      "disabled": false,
+      "type": "pk-hero",
+      "settings": {},
+      "blocks": {}
+    },
+    "pk-promo-banner": {
+      "disabled": false,
+      "type": "pk-promo-banner",
+      "settings": {
+        "title": "Shady Collection",
+        "subtitle": "Gray Shaker — Modern Minimalist Elegance",
+        "link_text": "Explore Collection"
+      },
+      "blocks": {}
     }
   },
   "order": [
-    "1738926858728c46ee3c",
+    "pk-hero",
     "pk-trust-bar",
     "pk-collections-grid",
     "1739178268659a4b119b",
+    "pk-promo-banner",
     "pk-sample-doors",
     "pk-testimonials",
     "pk-trade-cta",

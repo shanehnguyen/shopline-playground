@@ -1,30 +1,97 @@
-{{snippet "stylesheet" href=(asset_url "section-pk-trust-bar.css")}}
+<style>
+.pk-trust-bar {
+  background: #ffffff;
+  border-top: 1px solid #e0dcd5;
+  border-bottom: 1px solid #e0dcd5;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.pk-trust-bar::-webkit-scrollbar { display: none; }
+.pk-trust-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 0 32px;
+  min-height: 80px;
+  min-width: max-content;
+  margin: 0 auto;
+}
+.pk-trust-bar__headline {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #a89060;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+.pk-trust-bar__divider {
+  width: 1px;
+  height: 32px;
+  background: #e0dcd5;
+  flex-shrink: 0;
+}
+.pk-trust-bar__items {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.pk-trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pk-trust-bar__value {
+  font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1;
+}
+.pk-trust-bar__label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a89060;
+  font-family: 'Inter', sans-serif;
+}
+@media (max-width: 749px) {
+  .pk-trust-bar__inner { padding: 24px 16px; min-height: auto; gap: 24px; }
+  .pk-trust-bar__headline { display: none; }
+  .pk-trust-bar__divider--headline { display: none; }
+  .pk-trust-bar__items { gap: 24px; }
+  .pk-trust-bar__value { font-size: 20px; }
+}
+</style>
 
 <div class="pk-trust-bar">
   <div class="pk-trust-bar__inner">
     <span class="pk-trust-bar__headline">In Stock and Ready to Ship in 3 Days</span>
-    <div class="pk-trust-bar__divider"></div>
+    <div class="pk-trust-bar__divider pk-trust-bar__divider--headline"></div>
     <div class="pk-trust-bar__items">
       <div class="pk-trust-bar__item">
         <span class="pk-trust-bar__value">3-Day</span>
         <span class="pk-trust-bar__label">Quick Ship</span>
       </div>
-      <div class="pk-trust-bar__divider pk-trust-bar__divider--vertical"></div>
+      <div class="pk-trust-bar__divider"></div>
       <div class="pk-trust-bar__item">
         <span class="pk-trust-bar__value">Free</span>
         <span class="pk-trust-bar__label">Shipping over $5k</span>
       </div>
-      <div class="pk-trust-bar__divider pk-trust-bar__divider--vertical"></div>
+      <div class="pk-trust-bar__divider"></div>
       <div class="pk-trust-bar__item">
         <span class="pk-trust-bar__value">Best Price</span>
         <span class="pk-trust-bar__label">Guarantee</span>
       </div>
-      <div class="pk-trust-bar__divider pk-trust-bar__divider--vertical"></div>
+      <div class="pk-trust-bar__divider"></div>
       <div class="pk-trust-bar__item">
         <span class="pk-trust-bar__value">5-Year</span>
         <span class="pk-trust-bar__label">Warranty</span>
       </div>
-      <div class="pk-trust-bar__divider pk-trust-bar__divider--vertical"></div>
+      <div class="pk-trust-bar__divider"></div>
       <div class="pk-trust-bar__item">
         <span class="pk-trust-bar__value">30-Day</span>
         <span class="pk-trust-bar__label">Returns</span>
@@ -38,11 +105,6 @@
   "name": "PK Trust Bar",
   "class": "section",
   "settings": [],
-  "presets": [
-    {
-      "name": "PK Trust Bar",
-      "category": "Custom"
-    }
-  ]
+  "presets": [{ "name": "PK Trust Bar", "category": "Custom" }]
 }
 {{/schema}}
