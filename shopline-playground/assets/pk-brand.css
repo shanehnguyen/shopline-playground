@@ -1,0 +1,184 @@
+/* PK Cabinets Brand Override
+   Loaded after base.css to apply brand colors, fonts, and design tokens
+   across the entire Shopline theme.
+------------------------------------------------- */
+
+/* --- Fonts --- */
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* --- Design Tokens --- */
+:root {
+  /* Colors (Shopline uses RGB components for rgba() calls) */
+  --color-page-background: 249, 249, 247;   /* #f9f9f7 */
+  --color-text: 26, 26, 26;                 /* #1a1a1a */
+  --color-light-text: 107, 98, 88;          /* #6b6258 */
+  --color-entry-line: 224, 220, 213;        /* #e0dcd5 border color */
+  --color-image-background: 238, 235, 230;  /* #eeebe6 product image bg */
+
+  /* Primary button — gold */
+  --color-button-background: 168, 144, 96;  /* #a89060 */
+  --color-button-text: 255, 255, 255;
+
+  /* Secondary button — outlined dark */
+  --color-button-secondary-background: 249, 249, 247;
+  --color-button-secondary-text: 26, 26, 26;
+  --color-button-secondary-border: 26, 26, 26;
+
+  /* Fonts */
+  --title-font: 'Cabinet Grotesk', 'Inter', sans-serif;
+  --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Buttons — square corners, no shadow */
+  --btn-border-radius: 0px;
+  --btn-border-radius-outset: 0px;
+  --btn-shadow-opacity: 0%;
+
+  /* Cards — clean/flat */
+  --card-border-radius: 0px;
+  --card-border-radius-outset: 0px;
+  --card-shadow-opacity: 0%;
+  --product-card-border-radius: 0px;
+  --product-card-border-radius-outset: 0px;
+  --product-card-shadow-opacity: 0%;
+
+  /* Media */
+  --media-border-radius: 0px;
+  --media-border-radius-outset: 0px;
+  --media-shadow-opacity: 0%;
+}
+
+/* --- Body --- */
+body {
+  background-color: #f9f9f7;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6,
+.title1, .title2, .title3, .title4, .title5 {
+  font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* --- Primary Button --- */
+.button:not(.button--secondary):not(.button--link) {
+  background-color: #a89060;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 0;
+}
+
+.button:not(.button--secondary):not(.button--link):hover {
+  background-color: #8a7248;
+}
+
+/* --- Secondary Button --- */
+.button--secondary {
+  background-color: transparent;
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.button--secondary:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* --- Links --- */
+a:not(.button) {
+  color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+a:not(.button):hover {
+  color: #a89060;
+}
+
+/* --- Product Card --- */
+.card__inner--wrapper,
+.card .card__inner--wrapper {
+  background-color: #eeebe6;
+  border-radius: 0;
+}
+
+.card-information__text,
+.card-information .price {
+  font-family: 'Inter', sans-serif;
+}
+
+.card-information__text a:hover,
+.full-unstyled-link:hover + .card-information .card-information__text a {
+  color: #a89060;
+}
+
+/* --- Price --- */
+.price--sale .price-item--sale {
+  color: #1a1a1a;
+}
+
+.price--sale .price-item--regular {
+  color: #6b6258;
+}
+
+/* --- Header accent --- */
+.header__menu-item:hover,
+.header__menu-item:hover span {
+  color: #a89060;
+}
+
+/* --- Forms & Inputs --- */
+.field__input,
+.select__select {
+  border-color: #e0dcd5;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+.field__input:focus,
+.select__select:focus {
+  border-color: #a89060;
+  outline: none;
+  box-shadow: none;
+}
+
+/* --- Announcement bar --- */
+.announcement-bar {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.announcement-bar a {
+  color: #a89060;
+}
+
+/* --- Pagination --- */
+.pagination .page-link.active,
+.pagination .page-link:hover {
+  background-color: #a89060;
+  border-color: #a89060;
+  color: #ffffff;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb__item a:hover {
+  color: #a89060;
+}
+
+/* --- Swatches --- */
+.swatch--active,
+.swatch:hover {
+  border-color: #a89060;
+}
