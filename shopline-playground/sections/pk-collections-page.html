@@ -1,0 +1,552 @@
+<style>
+/* ---- PK Collections Page (FurniturePage) ---- */
+.pk-furn {
+  background: #ffffff;
+  padding: 48px 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.pk-furn *,
+.pk-furn *::before,
+.pk-furn *::after { box-sizing: border-box; }
+
+.pk-furn__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* Breadcrumbs */
+.pk-furn__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6b6258;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0;
+}
+.pk-furn__crumbs a { color: #6b6258; text-decoration: none; transition: color 0.2s; }
+.pk-furn__crumbs a:hover { color: #a89060; }
+
+/* Each collection block */
+.pk-furn__collection { display: flex; flex-direction: column; gap: 32px; }
+
+/* Collection heading + hr */
+.pk-furn__coll-hd { display: flex; flex-direction: column; gap: 16px; }
+.pk-furn__coll-name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a89060;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+}
+.pk-furn__coll-name:hover { color: #1a1a1a; }
+.pk-furn__divider {
+  border: none;
+  border-top: 1px solid #e0dcd5;
+  margin: 0;
+}
+
+/* Variant grids */
+.pk-furn__grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.pk-furn__grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.pk-furn__grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.pk-furn__grid-franco {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.pk-furn__grid-franco-top  { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.pk-furn__grid-franco-bot  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.pk-furn__grid-irena {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.pk-furn__grid-irena-top   { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.pk-furn__grid-irena-bot   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+
+/* Variant card */
+.pk-furn__card { display: block; text-decoration: none; color: inherit; }
+.pk-furn__img-wrap {
+  position: relative;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  background: #eeebe6;
+  width: 100%;
+}
+.pk-furn__img-wrap img,
+.pk-furn__img-wrap picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pk-furn__img-wrap img {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.pk-furn__card:hover .pk-furn__img-wrap img { transform: scale(1.05); }
+.pk-furn__card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+}
+.pk-furn__card-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
+}
+.pk-furn__card:hover .pk-furn__card-name { color: #a89060; }
+.pk-furn__card-arrow {
+  font-size: 20px;
+  color: #a89060;
+  transition: transform 0.2s;
+}
+.pk-furn__card:hover .pk-furn__card-arrow { transform: translateX(4px); }
+
+@media (min-width: 960px) {
+  .pk-furn { padding: 72px 32px; }
+  .pk-furn__inner { gap: 96px; }
+}
+@media (max-width: 959px) {
+  .pk-furn__grid-2,
+  .pk-furn__grid-3,
+  .pk-furn__grid-4,
+  .pk-furn__grid-franco-top,
+  .pk-furn__grid-franco-bot,
+  .pk-furn__grid-irena-top,
+  .pk-furn__grid-irena-bot { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (max-width: 480px) {
+  .pk-furn__grid-2,
+  .pk-furn__grid-3,
+  .pk-furn__grid-4,
+  .pk-furn__grid-franco-top,
+  .pk-furn__grid-franco-bot,
+  .pk-furn__grid-irena-top,
+  .pk-furn__grid-irena-bot { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="pk-furn">
+  <div class="pk-furn__inner">
+
+    <!-- Breadcrumbs -->
+    <nav class="pk-furn__crumbs">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>Furniture Collections</span>
+    </nav>
+
+    <!-- MALLORCA -->
+    <div class="pk-furn__collection">
+      <div class="pk-furn__coll-hd">
+        <a class="pk-furn__coll-name" href="/collections/mallorca">Mallorca</a>
+        <hr class="pk-furn__divider" />
+      </div>
+      <div class="pk-furn__grid-2">
+        <a class="pk-furn__card" href="/collections/mallorca-collection-white-shaker">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.mallorca_white_img}}
+              {{snippet "image" data=section.settings.mallorca_white_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">White</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/mallorca-collection-dolphin-gray-shaker">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.mallorca_gray_img}}
+              {{snippet "image" data=section.settings.mallorca_gray_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Dolphin Gray</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SHADY -->
+    <div class="pk-furn__collection">
+      <div class="pk-furn__coll-hd">
+        <a class="pk-furn__coll-name" href="/collections/shady">Shady</a>
+        <hr class="pk-furn__divider" />
+      </div>
+      <div class="pk-furn__grid-3">
+        <a class="pk-furn__card" href="/collections/shady-collection-slim-white-shaker">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.shady_white_img}}
+              {{snippet "image" data=section.settings.shady_white_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">White</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/shady-collection-slim-gray-shaker">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.shady_gray_img}}
+              {{snippet "image" data=section.settings.shady_gray_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Gray</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/shady-collection-slim-natural-shaker">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.shady_natural_img}}
+              {{snippet "image" data=section.settings.shady_natural_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Neutral</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- FRANCO -->
+    <div class="pk-furn__collection">
+      <div class="pk-furn__coll-hd">
+        <a class="pk-furn__coll-name" href="/collections/franco">Franco</a>
+        <hr class="pk-furn__divider" />
+      </div>
+      <div class="pk-furn__grid-franco">
+        <div class="pk-furn__grid-franco-top">
+          <a class="pk-furn__card" href="/collections/franco-collection-white-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.franco_white_img}}
+                {{snippet "image" data=section.settings.franco_white_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">White</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/franco-collection-gray-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.franco_gray_img}}
+                {{snippet "image" data=section.settings.franco_gray_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Gray</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+        <div class="pk-furn__grid-franco-bot">
+          <a class="pk-furn__card" href="/collections/franco-collection-oak-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.franco_oak_img}}
+                {{snippet "image" data=section.settings.franco_oak_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Oak</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/franco-collection-slim-white-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.franco_slim_white_img}}
+                {{snippet "image" data=section.settings.franco_slim_white_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Slim White</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/franco-collection-slim-black-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.franco_black_img}}
+                {{snippet "image" data=section.settings.franco_black_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Slim Black</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/franco-collection-slim-oak-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.franco_slim_oak_img}}
+                {{snippet "image" data=section.settings.franco_slim_oak_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Slim Oak</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- IRENA -->
+    <div class="pk-furn__collection">
+      <div class="pk-furn__coll-hd">
+        <a class="pk-furn__coll-name" href="/collections/irena">Irena</a>
+        <hr class="pk-furn__divider" />
+      </div>
+      <div class="pk-furn__grid-irena">
+        <div class="pk-furn__grid-irena-top">
+          <a class="pk-furn__card" href="/collections/irena-collection-white-dual-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.irena_white_img}}
+                {{snippet "image" data=section.settings.irena_white_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">White</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/irena-collection-gray-dual-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.irena_gray_img}}
+                {{snippet "image" data=section.settings.irena_gray_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Gray</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+        <div class="pk-furn__grid-irena-bot">
+          <a class="pk-furn__card" href="/collections/irena-collection-olive-dual-shaker">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.irena_olive_img}}
+                {{snippet "image" data=section.settings.irena_olive_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Olive</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/irena-collection-flat-glossy-white">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.irena_glossy_img}}
+                {{snippet "image" data=section.settings.irena_glossy_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Glossy White</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+          <a class="pk-furn__card" href="/collections/irena-collection-flat-woodgrains">
+            <div class="pk-furn__img-wrap">
+              {{#if section.settings.irena_wood_img}}
+                {{snippet "image" data=section.settings.irena_wood_img}}
+              {{else}}
+                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <div class="pk-furn__card-foot">
+              <span class="pk-furn__card-name">Woodgrains</span>
+              <span class="pk-furn__card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWPORT -->
+    <div class="pk-furn__collection">
+      <div class="pk-furn__coll-hd">
+        <a class="pk-furn__coll-name" href="/collections/newport">Newport</a>
+        <hr class="pk-furn__divider" />
+      </div>
+      <div class="pk-furn__grid-3">
+        <a class="pk-furn__card" href="/collections/newport-collection-natural-oak">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.newport_oak_img}}
+              {{snippet "image" data=section.settings.newport_oak_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Natural</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/newport-collection-umbria-elm">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.newport_umbria_img}}
+              {{snippet "image" data=section.settings.newport_umbria_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Umbria Elm</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/newport-collection-shoreline">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.newport_shore_img}}
+              {{snippet "image" data=section.settings.newport_shore_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Shoreline</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ASPEN -->
+    <div class="pk-furn__collection">
+      <div class="pk-furn__coll-hd">
+        <a class="pk-furn__coll-name" href="/collections/aspen">Aspen</a>
+        <hr class="pk-furn__divider" />
+      </div>
+      <div class="pk-furn__grid-3">
+        <a class="pk-furn__card" href="/collections/aspen-collection-stone-gray-solids">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.aspen_gray_img}}
+              {{snippet "image" data=section.settings.aspen_gray_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Stone Gray</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/aspen-collection-emerald-solids">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.aspen_emerald_img}}
+              {{snippet "image" data=section.settings.aspen_emerald_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Emerald</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+        <a class="pk-furn__card" href="/collections/aspen-collection-raven-solids">
+          <div class="pk-furn__img-wrap">
+            {{#if section.settings.aspen_raven_img}}
+              {{snippet "image" data=section.settings.aspen_raven_img}}
+            {{else}}
+              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            {{/if}}
+          </div>
+          <div class="pk-furn__card-foot">
+            <span class="pk-furn__card-name">Raven</span>
+            <span class="pk-furn__card-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "PK Collections Page",
+  "class": "section",
+  "settings": [
+    { "type": "header", "content": "Mallorca" },
+    { "id": "mallorca_white_img", "type": "image_picker", "label": "Mallorca — White" },
+    { "id": "mallorca_gray_img",  "type": "image_picker", "label": "Mallorca — Dolphin Gray" },
+
+    { "type": "header", "content": "Shady" },
+    { "id": "shady_white_img",   "type": "image_picker", "label": "Shady — White" },
+    { "id": "shady_gray_img",    "type": "image_picker", "label": "Shady — Gray" },
+    { "id": "shady_natural_img", "type": "image_picker", "label": "Shady — Neutral" },
+
+    { "type": "header", "content": "Franco" },
+    { "id": "franco_white_img",     "type": "image_picker", "label": "Franco — White" },
+    { "id": "franco_gray_img",      "type": "image_picker", "label": "Franco — Gray" },
+    { "id": "franco_oak_img",       "type": "image_picker", "label": "Franco — Oak" },
+    { "id": "franco_slim_white_img","type": "image_picker", "label": "Franco — Slim White" },
+    { "id": "franco_black_img",     "type": "image_picker", "label": "Franco — Slim Black" },
+    { "id": "franco_slim_oak_img",  "type": "image_picker", "label": "Franco — Slim Oak" },
+
+    { "type": "header", "content": "Irena" },
+    { "id": "irena_white_img",  "type": "image_picker", "label": "Irena — White" },
+    { "id": "irena_gray_img",   "type": "image_picker", "label": "Irena — Gray" },
+    { "id": "irena_olive_img",  "type": "image_picker", "label": "Irena — Olive" },
+    { "id": "irena_glossy_img", "type": "image_picker", "label": "Irena — Glossy White" },
+    { "id": "irena_wood_img",   "type": "image_picker", "label": "Irena — Woodgrains" },
+
+    { "type": "header", "content": "Newport" },
+    { "id": "newport_oak_img",    "type": "image_picker", "label": "Newport — Natural" },
+    { "id": "newport_umbria_img", "type": "image_picker", "label": "Newport — Umbria Elm" },
+    { "id": "newport_shore_img",  "type": "image_picker", "label": "Newport — Shoreline" },
+
+    { "type": "header", "content": "Aspen" },
+    { "id": "aspen_gray_img",    "type": "image_picker", "label": "Aspen — Stone Gray" },
+    { "id": "aspen_emerald_img", "type": "image_picker", "label": "Aspen — Emerald" },
+    { "id": "aspen_raven_img",   "type": "image_picker", "label": "Aspen — Raven" }
+  ],
+  "presets": [{ "name": "PK Collections Page", "category": "Custom" }]
+}
+{{/schema}}
