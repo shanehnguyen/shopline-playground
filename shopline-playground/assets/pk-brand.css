@@ -1,184 +1,88 @@
-/* PK Cabinets Brand Override
-   Loaded after base.css to apply brand colors, fonts, and design tokens
-   across the entire Shopline theme.
-------------------------------------------------- */
+/* =============================================
+   PK Cabinets — Global Brand CSS
+   Loaded after base.css in theme.html
+   Uses !important where needed to beat Shopline's
+   inline theme-css-var style block.
+============================================= */
 
-/* --- Fonts --- */
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
-/* --- Design Tokens --- */
+/* --- CSS Variables (override theme-css-var) --- */
 :root {
-  /* Colors (Shopline uses RGB components for rgba() calls) */
-  --color-page-background: 249, 249, 247;   /* #f9f9f7 */
-  --color-text: 26, 26, 26;                 /* #1a1a1a */
-  --color-light-text: 107, 98, 88;          /* #6b6258 */
-  --color-entry-line: 224, 220, 213;        /* #e0dcd5 border color */
-  --color-image-background: 238, 235, 230;  /* #eeebe6 product image bg */
+  --pk-dark:   #1a1a1a;
+  --pk-gold:   #a89060;
+  --pk-gold-d: #8a7248;
+  --pk-muted:  #6b6258;
+  --pk-border: #e0dcd5;
+  --pk-bg:     #f9f9f7;
+  --pk-img-bg: #eeebe6;
 
-  /* Primary button — gold */
-  --color-button-background: 168, 144, 96;  /* #a89060 */
-  --color-button-text: 255, 255, 255;
-
-  /* Secondary button — outlined dark */
-  --color-button-secondary-background: 249, 249, 247;
-  --color-button-secondary-text: 26, 26, 26;
-  --color-button-secondary-border: 26, 26, 26;
+  /* Override Shopline color vars (RGB format) */
+  --color-page-background: 249, 249, 247 !important;
+  --color-text: 26, 26, 26 !important;
+  --color-light-text: 107, 98, 88 !important;
+  --color-entry-line: 224, 220, 213 !important;
+  --color-image-background: 238, 235, 230 !important;
+  --color-button-background: 168, 144, 96 !important;
+  --color-button-text: 255, 255, 255 !important;
+  --color-button-secondary-background: 249, 249, 247 !important;
+  --color-button-secondary-text: 26, 26, 26 !important;
+  --color-button-secondary-border: 26, 26, 26 !important;
 
   /* Fonts */
-  --title-font: 'Cabinet Grotesk', 'Inter', sans-serif;
-  --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --title-font: 'Cabinet Grotesk', 'Inter', sans-serif !important;
+  --body-font: 'Inter', sans-serif !important;
 
-  /* Buttons — square corners, no shadow */
-  --btn-border-radius: 0px;
-  --btn-border-radius-outset: 0px;
-  --btn-shadow-opacity: 0%;
+  /* Buttons — square, no shadow */
+  --btn-border-radius: 0px !important;
+  --btn-border-radius-outset: 0px !important;
+  --btn-shadow-opacity: 0% !important;
 
-  /* Cards — clean/flat */
-  --card-border-radius: 0px;
-  --card-border-radius-outset: 0px;
-  --card-shadow-opacity: 0%;
-  --product-card-border-radius: 0px;
-  --product-card-border-radius-outset: 0px;
-  --product-card-shadow-opacity: 0%;
-
-  /* Media */
-  --media-border-radius: 0px;
-  --media-border-radius-outset: 0px;
-  --media-shadow-opacity: 0%;
+  /* Cards — flat */
+  --card-border-radius: 0px !important;
+  --product-card-border-radius: 0px !important;
+  --card-shadow-opacity: 0% !important;
+  --product-card-shadow-opacity: 0% !important;
+  --media-border-radius: 0px !important;
+  --media-shadow-opacity: 0% !important;
 }
 
-/* --- Body --- */
-body {
-  background-color: #f9f9f7;
-  color: #1a1a1a;
-  font-family: 'Inter', sans-serif;
+/* --- Global base --- */
+html, body {
+  background-color: #f9f9f7 !important;
+  color: #1a1a1a !important;
+  font-family: 'Inter', sans-serif !important;
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Headings --- */
 h1, h2, h3, h4, h5, h6,
 .title1, .title2, .title3, .title4, .title5 {
-  font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-family: 'Cabinet Grotesk', 'Inter', sans-serif !important;
+  font-weight: 500 !important;
 }
 
-/* --- Primary Button --- */
-.button:not(.button--secondary):not(.button--link) {
-  background-color: #a89060;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 12px;
-  font-weight: 700;
-  border: none;
-  border-radius: 0;
+/* --- Buttons --- */
+.button,
+.shopline-element-buy-now {
+  background-color: #a89060 !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  border: none !important;
 }
 
-.button:not(.button--secondary):not(.button--link):hover {
-  background-color: #8a7248;
+.button:hover,
+.shopline-element-buy-now:hover {
+  background-color: #8a7248 !important;
+  opacity: 1 !important;
 }
 
-/* --- Secondary Button --- */
-.button--secondary {
-  background-color: transparent;
-  color: #1a1a1a;
-  border-color: #1a1a1a;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: 0;
-}
-
-.button--secondary:hover {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
-
-/* --- Links --- */
-a:not(.button) {
-  color: #1a1a1a;
-  transition: color 0.2s ease;
-}
-
-a:not(.button):hover {
-  color: #a89060;
-}
-
-/* --- Product Card --- */
+/* --- Product image background --- */
 .card__inner--wrapper,
 .card .card__inner--wrapper {
-  background-color: #eeebe6;
-  border-radius: 0;
-}
-
-.card-information__text,
-.card-information .price {
-  font-family: 'Inter', sans-serif;
-}
-
-.card-information__text a:hover,
-.full-unstyled-link:hover + .card-information .card-information__text a {
-  color: #a89060;
-}
-
-/* --- Price --- */
-.price--sale .price-item--sale {
-  color: #1a1a1a;
-}
-
-.price--sale .price-item--regular {
-  color: #6b6258;
-}
-
-/* --- Header accent --- */
-.header__menu-item:hover,
-.header__menu-item:hover span {
-  color: #a89060;
-}
-
-/* --- Forms & Inputs --- */
-.field__input,
-.select__select {
-  border-color: #e0dcd5;
-  border-radius: 0;
-  background: #ffffff;
-}
-
-.field__input:focus,
-.select__select:focus {
-  border-color: #a89060;
-  outline: none;
-  box-shadow: none;
-}
-
-/* --- Announcement bar --- */
-.announcement-bar {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
-
-.announcement-bar a {
-  color: #a89060;
-}
-
-/* --- Pagination --- */
-.pagination .page-link.active,
-.pagination .page-link:hover {
-  background-color: #a89060;
-  border-color: #a89060;
-  color: #ffffff;
-}
-
-/* --- Breadcrumb --- */
-.breadcrumb__item a:hover {
-  color: #a89060;
-}
-
-/* --- Swatches --- */
-.swatch--active,
-.swatch:hover {
-  border-color: #a89060;
+  background-color: #eeebe6 !important;
 }
