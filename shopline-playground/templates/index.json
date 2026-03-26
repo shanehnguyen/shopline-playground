@@ -1238,10 +1238,17 @@
       "blocks": {},
       "block_order": [],
       "custom_css": []
+    },
+    "pk-trust-bar": {
+      "disabled": false,
+      "type": "pk-trust-bar",
+      "settings": {},
+      "blocks": {}
     }
   },
   "order": [
     "1738926858728c46ee3c",
+    "pk-trust-bar",
     "1772152496987c4000a0",
     "177206738708575b211a",
     "1772312475786eb827b2",
