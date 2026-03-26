@@ -3,7 +3,7 @@
   background: #ffffff;
   padding: 72px 32px;
 }
-.pk-coll__hd { max-width: 1280px; margin: 0 auto 48px; }
+.pk-coll__inner { max-width: 1280px; margin: 0 auto; }
 .pk-coll__label {
   display: block;
   font-size: 11px;
@@ -11,7 +11,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #a89060;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-family: 'Inter', sans-serif;
 }
 .pk-coll__title {
@@ -20,11 +20,9 @@
   font-weight: 500;
   color: #1a1a1a;
   line-height: 1.1;
-  margin: 0;
+  margin: 0 0 48px;
 }
 .pk-coll__grid {
-  max-width: 1280px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
@@ -86,25 +84,25 @@
 </style>
 
 <div class="pk-coll">
-  <div class="pk-coll__hd">
+  <div class="pk-coll__inner">
     <span class="pk-coll__label">Collections</span>
     <h2 class="pk-coll__title">Our Signature Series</h2>
-  </div>
-  <div class="pk-coll__grid">
-    {{#each section.blocks}}
-    <a class="pk-coll__card" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">
-      {{#if settings.image}}
-        {{snippet "image" data=settings.image}}
-      {{else}}
-        <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-      {{/if}}
-      <div class="pk-coll__overlay"></div>
-      <div class="pk-coll__footer">
-        <span class="pk-coll__name">{{settings.name}}</span>
-        <span class="pk-coll__arrow">→</span>
-      </div>
-    </a>
-    {{/each}}
+    <div class="pk-coll__grid">
+      {{#each section.blocks}}
+      <a class="pk-coll__card" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">
+        {{#if settings.image}}
+          {{snippet "image" data=settings.image}}
+        {{else}}
+          <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+        {{/if}}
+        <div class="pk-coll__overlay"></div>
+        <div class="pk-coll__footer">
+          <span class="pk-coll__name">{{settings.name}}</span>
+          <span class="pk-coll__arrow">→</span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
   </div>
 </div>
 
@@ -129,11 +127,11 @@
     "category": "Custom",
     "blocks": [
       { "type": "collection", "settings": { "name": "Mallorca" } },
-      { "type": "collection", "settings": { "name": "Shady" } },
-      { "type": "collection", "settings": { "name": "Franco" } },
-      { "type": "collection", "settings": { "name": "Irena" } },
-      { "type": "collection", "settings": { "name": "Newport" } },
-      { "type": "collection", "settings": { "name": "Aspen" } }
+      { "type": "collection", "settings": { "name": "Shady"    } },
+      { "type": "collection", "settings": { "name": "Franco"   } },
+      { "type": "collection", "settings": { "name": "Irena"    } },
+      { "type": "collection", "settings": { "name": "Newport"  } },
+      { "type": "collection", "settings": { "name": "Aspen"    } }
     ]
   }]
 }
