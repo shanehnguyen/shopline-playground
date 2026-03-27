@@ -3,9 +3,33 @@
 {{assign "mobile_top_menu" section.settings.mobile_top_menu}}
 
 {{snippet "stylesheet" href=(asset_url "section-header.css")}}
+{{snippet "stylesheet" href=(asset_url "pk-search.css")}}
 
 <script src="{{asset_url 'component-predictive-search.js'}}" defer></script>
 <script src="{{asset_url 'section-header-modal.js'}}" defer></script>
+<script src="{{asset_url 'pk-search.js'}}" defer></script>
+
+{{!--
+  Inject live product data for client-side search.
+  pk-search.js reads window.PK_PRODUCTS at init time;
+  if the collection is empty or unavailable it falls back to built-in static data.
+--}}
+<script>
+window.PK_PRODUCTS = [];
+{{#each collections.all.products limit=250}}
+window.PK_PRODUCTS.push({
+  id:          "{{handle}}",
+  name:        {{json title}},
+  category:    {{json product_type}},
+  description: {{json description_plaintext}},
+  price:       {{#if price_min}}{{ divide price_min 100 }}{{else}}0{{/if}},
+  rating:      0,
+  reviewCount: 0,
+  url:         "{{url}}",
+  image:       "{{#if featured_image}}{{img_url featured_image '400x400'}}{{/if}}"
+});
+{{/each}}
+</script>
 
 <script src="{{asset_url 'section-header-header-layout.js'}}" defer></script>
 
@@ -101,9 +125,22 @@
         "
     >
       <div class="header__left-tools display-flex-tablet display-none-desktop">
-        
+
         {{assign "menu" (default mobile_main_menu main_menu)}}
         {{snippet "header-menu-drawer" section=section menu=menu class="display-none-desktop" highlight_menus_list=highlight_menus_list}}
+
+        {{!-- PK Search trigger for mobile (always visible, no dependency on show_search_entry) --}}
+        {{#if section.settings.mobile_logo_layout != 'center'}}
+          <button
+            class="icon-button header__icon-button pk-search-trigger"
+            data-pk-search-open
+            aria-label="Search"
+            type="button"
+          >
+            {{snippet "icon-search"}}
+          </button>
+        {{/if}}
+
         {{#if section.settings.show_search_entry and section.settings.mobile_logo_layout == 'center' }}
           <header-modal class="header__search">
             <details>
@@ -300,6 +337,17 @@
       </div>
 
       <div class="header__icons">
+        {{!-- PK Client-side Search Trigger --}}
+        <button
+          class="icon-button header__icon-button pk-search-trigger"
+          data-pk-search-open
+          aria-label="Search"
+          type="button"
+        >
+          {{snippet "icon-search"}}
+          <span class="pk-search-trigger__text">Search</span>
+        </button>
+
         {{#if section.settings.show_user_entry}}
           <a
             class="icon-button header__icon-button
