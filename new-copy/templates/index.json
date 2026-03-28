@@ -137,291 +137,6 @@
         ".image-with-text__info-reference * {color: #303030;}"
       ]
     },
-    "173917852446415b4e5c": {
-      "disabled": true,
-      "type": "shopline://apps/高阶组件库/sections/media-grid/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
-      "settings": {
-        "pc_show": true,
-        "mb_show": true,
-        "text_display": "fixed",
-        "pc_row_height": 340,
-        "m_row_height": 120,
-        "hover_scale": true,
-        "background_color": "rgba(0,0,0,0)",
-        "background_color_gradient": "",
-        "container_max_width": 1420,
-        "container_config": {
-          "pc": {
-            "left": 0,
-            "right": 0,
-            "top": 60,
-            "bottom": 60,
-            "lock": true
-          },
-          "mobile": {
-            "left": 20,
-            "right": 20,
-            "top": 40,
-            "bottom": 40
-          }
-        },
-        "container_margin_config": {
-          "pc": {
-            "left": 0,
-            "right": 0,
-            "top": 20,
-            "bottom": 20,
-            "lock": true
-          },
-          "mobile": {
-            "left": 10,
-            "right": 10,
-            "top": 10,
-            "bottom": 10
-          }
-        },
-        "is_full_screen": false,
-        "row_gap": 20,
-        "col_gap": 20,
-        "title_font_family": "Playfair Display",
-        "title_font_color": "#ffffff",
-        "title_pc_font_size": 30,
-        "title_m_font_size": 20,
-        "title_letter_spacing": 0,
-        "title_line_height": 1.2,
-        "body_font_family": "Montserrat",
-        "body_font_color": "#ffffff",
-        "body_pc_font_size": 14,
-        "body_m_font_size": 12,
-        "body_letter_spacing": 0,
-        "body_line_height": 1.6,
-        "btn_font_family": "Inter:300",
-        "btn_font_color": "#000000",
-        "btn_pc_font_size": 13,
-        "btn_m_font_size": 12,
-        "btn_letter_spacing": 0,
-        "btn_line_height": 1.6,
-        "btn_background": "#ffffff",
-        "btn_style": "primary",
-        "btn_hover_animation": "fill_right",
-        "btn_border_thickness": 1,
-        "btn_border_opacity": 100,
-        "btn_border_radius": 10,
-        "btn_border_color": "#ffffff",
-        "btn_shadow_opacity": 0,
-        "btn_shadow_offset_x": 0,
-        "btn_shadow_offset_y": 0,
-        "btn_shadow_blur": 0,
-        "btn_shadow_color": "#000000",
-        "mg_border_thickness": 0,
-        "mg_border_opacity": 0,
-        "mg_border_radius": 20,
-        "mg_border_color": "#DDDDDD",
-        "mg_shadow_opacity": 0,
-        "mg_shadow_offset_x": 0,
-        "mg_shadow_offset_y": 0,
-        "mg_shadow_blur": 0,
-        "mg_shadow_color": "#000000",
-        "container_bg_color": "rgba(0,0,0,0)"
-      },
-      "blocks": {
-        "17391785244643a7fcb9": {
-          "type": "image",
-          "settings": {
-            "image_position": "center",
-            "title": "SLIM NATURAL",
-            "description": "<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">\n<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">Basic l0' x 10' Kitchen from</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">$2,610.72</div>\n<div data-zone-id=\"0\" data-line-index=\"2\" data-line=\"true\">Shipping FREE within 3 - 5 Days</div>\n<div data-zone-id=\"0\" data-line-index=\"3\" data-line=\"true\">&nbsp;</div>\n</div>",
-            "button_text": "",
-            "url": "https://www.pkcabinet.com/collections/shady-collection-slim-natural-shaker",
-            "image_mask": 10,
-            "m_text_position": "left-bottom",
-            "pc_row_num": 2,
-            "pc_col_num": 2,
-            "pc_text_position": "left-bottom",
-            "image": "shopline://shop_images/Slim Oak Cabinets.jpg"
-          },
-          "blockId": "17391785244643a7fcb9",
-          "sectionId": "173917852446415b4e5c",
-          "canAddBlock": false,
-          "formatName": "Frost White",
-          "overLimit": true
-        },
-        "1739178524464e854f98": {
-          "type": "image",
-          "settings": {
-            "image_position": "center",
-            "title": "SLIM GRAY SHAKER ",
-            "description": "<div>\n<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">Basic 10' x 10' Kitchen from</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">$2,831.22</div>\n<div data-zone-id=\"0\" data-line-index=\"2\" data-line=\"true\">Shipping FREE within 3 - 5 Days</div>\n</div>",
-            "button_text": "",
-            "url": "shopline://pages/6892400992278570665",
-            "image_mask": 10,
-            "m_text_position": "left-bottom",
-            "pc_row_num": 1,
-            "pc_col_num": 1,
-            "pc_text_position": "center",
-            "image": "shopline://shop_images/slim gray shaker.jpg"
-          },
-          "blockId": "1739178524464e854f98",
-          "sectionId": "173917852446415b4e5c",
-          "canAddBlock": false,
-          "formatName": "Ash Gray",
-          "overLimit": true
-        },
-        "1739178524464ad67eb4": {
-          "type": "image",
-          "settings": {
-            "image_position": "center",
-            "title": "DOLPHIN GRAY",
-            "description": "<div>\n<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">Basic 10' x10' Kitchen from</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">$2,831.22</div>\n<div data-zone-id=\"0\" data-line-index=\"2\" data-line=\"true\">Shipping FREE within 3 - 5 Days</div>\n</div>",
-            "button_text": "",
-            "url": "shopline://pages/6892400992278570665",
-            "image_mask": 10,
-            "m_text_position": "center",
-            "pc_row_num": 1,
-            "pc_col_num": 1,
-            "pc_text_position": "center",
-            "image": "shopline://shop_images/gray shaker.jpg"
-          },
-          "blockId": "1739178524464ad67eb4",
-          "sectionId": "173917852446415b4e5c",
-          "canAddBlock": false,
-          "formatName": "Dark Gray",
-          "overLimit": true
-        },
-        "17401251558147999ae6": {
-          "type": "image",
-          "settings": {
-            "image_position": "center",
-            "title": "SLIM WHITE SHAKER",
-            "description": "<div>\n<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">Bcsic 10' x 10' Kitchen from</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">$3,121.02</div>\n<div data-zone-id=\"0\" data-line-index=\"2\" data-line=\"true\">Shipping FREE within 3 - 5 Days!</div>\n</div>",
-            "button_text": "",
-            "url": "shopline://pages/6892400992278570665",
-            "image_mask": 10,
-            "m_text_position": "center",
-            "pc_row_num": 1,
-            "pc_col_num": 1,
-            "pc_text_position": "center",
-            "image": "shopline://shop_images/slim white shaker.jpg"
-          },
-          "blockId": "17401251558147999ae6",
-          "sectionId": "173917852446415b4e5c",
-          "canAddBlock": false,
-          "formatName": "light Gray",
-          "overLimit": true
-        },
-        "1740125160515eaee360": {
-          "type": "video",
-          "settings": {
-            "controls": false,
-            "loop": true,
-            "background_position": "center",
-            "title": "WHITE SHAKER",
-            "description": "<div>\n<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">Basic l0' x 10' Kitchen from</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">$3,415.86</div>\n<div data-zone-id=\"0\" data-line-index=\"2\" data-line=\"true\">Shipping FREE within 3 - 5 Days!</div>\n</div>",
-            "button_text": "",
-            "url": "shopline://pages/6892400992278570665",
-            "m_text_position": "center",
-            "pc_row_num": 1,
-            "pc_col_num": 1,
-            "pc_text_position": "center",
-            "cover": "shopline://shop_images/white shaker.jpg"
-          },
-          "blockId": "1740125160515eaee360",
-          "sectionId": "173917852446415b4e5c",
-          "canAddBlock": false,
-          "formatName": "Indigo Blue",
-          "overLimit": true
-        }
-      },
-      "block_order": [
-        "17391785244643a7fcb9",
-        "1739178524464e854f98",
-        "1739178524464ad67eb4",
-        "17401251558147999ae6",
-        "1740125160515eaee360"
-      ],
-      "custom_css": []
-    },
-    "173918000200888c84bf": {
-      "disabled": true,
-      "type": "shopline://apps/高阶组件库/sections/testimonials/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
-      "settings": {
-        "pc_show": true,
-        "mb_show": true,
-        "title": "FEATURED REVIEWS",
-        "title_align": "center",
-        "flatten": true,
-        "picture_radius": "rounded",
-        "star_color": "#000000",
-        "container_bg_color": "rgba(0,0,0,0)",
-        "container_bg_color_gradient": "",
-        "title_font_family": "Montserrat",
-        "title_font_color": "#434343",
-        "title_pc_font_size": 30,
-        "title_m_font_size": 36,
-        "title_letter_spacing": 0,
-        "title_line_height": 1.2,
-        "body_font_family": "Montserrat",
-        "body_font_color": "#434343",
-        "body_pc_font_size": 14,
-        "body_m_font_size": 14,
-        "body_letter_spacing": 0,
-        "body_line_height": 1.2
-      },
-      "blocks": {
-        "173918000200870d2835": {
-          "type": "testimonial",
-          "settings": {
-            "star_num": "5",
-            "description": "<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">&nbsp;</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">\n<p data-start=\"141\" data-end=\"580\">We were honestly surprised by how solid and well-made these cabinets are. The materials feel premium, and the finish looks beautiful in our kitchen. What really impressed us was the delivery speed — our order arrived in just a few days! Everything was packed carefully and arrived in perfect condition. Highly recommend this cabinet service for both quality and efficiency.</p>\n</div>",
-            "author": "Jean Goolsby",
-            "avatar": "shopline://shop_images/Reviewer 1.png"
-          },
-          "blockId": "173918000200870d2835",
-          "sectionId": "173918000200888c84bf",
-          "canAddBlock": true,
-          "formatName": "评论",
-          "overLimit": false
-        },
-        "17391800020088ffdf88": {
-          "type": "testimonial",
-          "settings": {
-            "star_num": "5",
-            "description": "<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">\n<p data-start=\"587\" data-end=\"1011\">From start to finish, the experience was smooth and professional. The cabinets are sturdy, well-constructed, and look far more expensive than they are. The 3 to 5 day delivery was a huge bonus and helped keep our renovation on schedule. Customer service was responsive and helpful throughout the process. We will definitely be using them again for future projects.</p>\n</div>",
-            "author": "Jessica Lopez",
-            "avatar": "shopline://shop_images/Reviewer 2.png"
-          },
-          "blockId": "17391800020088ffdf88",
-          "sectionId": "173918000200888c84bf",
-          "canAddBlock": true,
-          "formatName": "评论",
-          "overLimit": false
-        },
-        "1739180002008540cc31": {
-          "type": "testimonial",
-          "settings": {
-            "star_num": "5",
-            "description": "<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">\n<p data-start=\"1018\" data-end=\"1432\">These cabinets exceeded our expectations. The craftsmanship is excellent, with clean lines and durable construction. Delivery was incredibly fast — we had everything within days, which is better than any other estimates I got. Installation was easy, and the final result completely transformed our space. Great quality, great value, and reliable service.</p>\n</div>",
-            "author": "Jason Yoon",
-            "avatar": "shopline://shop_images/Reviewer 3.png"
-          },
-          "blockId": "1739180002008540cc31",
-          "sectionId": "173918000200888c84bf",
-          "canAddBlock": true,
-          "formatName": "评论",
-          "overLimit": false
-        }
-      },
-      "block_order": [
-        "173918000200870d2835",
-        "17391800020088ffdf88",
-        "1739180002008540cc31"
-      ],
-      "custom_css": [
-        "h2,h3 {font-family: Poppins;}",
-        ".advc-body {font-family: Montserrat;}",
-        ".advc-testimonials.advc-container {background-color: rgb(243, 239, 232);}"
-      ]
-    },
     "173935845690947a66b4": {
       "disabled": true,
       "type": "blog",
@@ -450,166 +165,8 @@
         "@media (max-width: 959px) {.simple-blog__title{font-size: 20px; }}"
       ]
     },
-    "174012500217883d3194": {
-      "disabled": true,
-      "type": "image-with-text",
-      "settings": {
-        "image_height": "auto",
-        "pc_image_width": "medium",
-        "pc_image_position": "left",
-        "pc_box_align": "middle",
-        "pc_text_align": "center",
-        "image_overlap_display": false,
-        "color_scheme": "3",
-        "mobile_text_align": "left",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "image": "shopline://shop_images/SAMPLE.webp"
-      },
-      "blocks": {
-        "17401250021787363b96": {
-          "type": "title",
-          "settings": {
-            "title": "100% REFUNDABLE SAMPLE DOORS",
-            "title_size": "small"
-          },
-          "blockId": "17401250021787363b96",
-          "sectionId": "174012500217883d3194",
-          "canAddBlock": true,
-          "formatName": "100% REFUNDABLE SAMPLE DOORS",
-          "overLimit": true
-        },
-        "1740125002178f171166": {
-          "type": "content",
-          "settings": {
-            "content": "<div>\n<div data-zone-id=\"0\" data-line-index=\"0\" data-line=\"true\">Solid Wood - 12 W\"X 15 H\"</div>\n<div data-zone-id=\"0\" data-line-index=\"1\" data-line=\"true\">Free Shipping &amp; Refund</div>\n</div>"
-          },
-          "blockId": "1740125002178f171166",
-          "sectionId": "174012500217883d3194",
-          "canAddBlock": true,
-          "formatName": "文本",
-          "overLimit": true,
-          "custom_css": []
-        },
-        "1740125002178c84bfc9": {
-          "type": "button",
-          "settings": {
-            "button_text": "SHOP SAMPLES",
-            "link": "shopline://collections-all"
-          },
-          "blockId": "1740125002178c84bfc9",
-          "sectionId": "174012500217883d3194",
-          "canAddBlock": true,
-          "formatName": "按钮",
-          "overLimit": true,
-          "custom_css": []
-        }
-      },
-      "block_order": [
-        "17401250021787363b96",
-        "1740125002178f171166",
-        "1740125002178c84bfc9"
-      ]
-    },
-    "1740125221285498654d": {
-      "disabled": true,
-      "type": "shopline://apps/高阶组件库/sections/cta/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
-      "settings": {
-        "container_max_width": 1920,
-        "container_config": {
-          "pc": {
-            "left": 40,
-            "right": 40,
-            "top": 60,
-            "bottom": 60
-          },
-          "mobile": {
-            "left": 20,
-            "right": 20,
-            "top": 40,
-            "bottom": 40
-          }
-        },
-        "container_margin_config": {
-          "pc": {
-            "left": 0,
-            "right": 0,
-            "top": 0,
-            "bottom": 0
-          },
-          "mobile": {
-            "left": 0,
-            "right": 0,
-            "top": 0,
-            "bottom": 0
-          }
-        },
-        "btn_font_family": "Inter:300",
-        "btn_font_color": "#FFFFFF",
-        "btn_pc_font_size": 13,
-        "btn_m_font_size": 12,
-        "btn_letter_spacing": 0,
-        "btn_line_height": 1.6,
-        "btn_background": "#111111",
-        "btn_style": "primary",
-        "btn_hover_animation": "fill_right",
-        "btn_border_thickness": 1,
-        "btn_border_opacity": 100,
-        "btn_border_radius": 10,
-        "btn_border_color": "#111111",
-        "btn_shadow_opacity": 0,
-        "btn_shadow_offset_x": 0,
-        "btn_shadow_offset_y": 0,
-        "btn_shadow_blur": 0,
-        "btn_shadow_color": "#000000",
-        "text_align": "center",
-        "title_scale_ani": false,
-        "container_bg_color": "#2c3e50",
-        "container_bg_color_gradient": "",
-        "pc_show": true,
-        "mb_show": true,
-        "title_font_family": "Playfair Display",
-        "title_font_color": "#d4af37",
-        "title_pc_font_size": 30,
-        "title_m_font_size": 40,
-        "title_letter_spacing": 0,
-        "title_line_height": 1.2,
-        "body_font_family": "Inter:300",
-        "body_font_color": "#d4af37",
-        "body_pc_font_size": 14,
-        "body_m_font_size": 14,
-        "body_letter_spacing": 0,
-        "body_line_height": 1.6,
-        "btn_align": "bottom",
-        "title_font_color_gradient": "",
-        "bg_image": {}
-      },
-      "blocks": {
-        "174012522128594536ea": {
-          "icon": "text",
-          "type": "text",
-          "settings": {
-            "description": "A sentence or two introducing your brand, what you sell, and what makes your brand compelling to customers."
-          },
-          "blockId": "174012522128594536ea"
-        },
-        "17401252212853524a92": {
-          "icon": "button",
-          "type": "button",
-          "settings": {
-            "button_text": "Optional button",
-            "jump_link": ""
-          },
-          "blockId": "17401252212853524a92"
-        }
-      },
-      "block_order": [
-        "174012522128594536ea",
-        "17401252212853524a92"
-      ]
-    },
     "1740363439818db82b80": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "icon_width": 48,
@@ -722,35 +279,6 @@
         "1740363439818c8999ba"
       ],
       "custom_css": []
-    },
-    "1742188329787963821c": {
-      "disabled": true,
-      "type": "featured-recommend-products",
-      "settings": {
-        "show_line": false,
-        "title": "Top Picks",
-        "title_font_size": "title3",
-        "desc": "",
-        "product_number": 12,
-        "m_cols": "2",
-        "slice_in_mobile": true,
-        "color_scheme": "none",
-        "button_text": "SHADY COLLECTION SLIM NATURAL SHAKER (Frameless)",
-        "product_image_ratio": "100",
-        "product_image_style": "cover",
-        "show_next_image": true,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "image_position": true,
-        "link": "shopline://collections/12271737677429604855362145",
-        "image": "shopline://shop_images/Slim Oak Cabinets.jpg",
-        "category": "12271737677429604855362145"
-      },
-      "blocks": {},
-      "block_order": [],
-      "custom_css": [
-        ".featured-recommend-products {background-color: #f3efe8 !important;}"
-      ]
     },
     "17421885063794fdb69c": {
       "disabled": true,
@@ -901,89 +429,8 @@
       ],
       "custom_css": []
     },
-    "1743660476935c577b6d": {
-      "disabled": true,
-      "type": "image-with-text",
-      "settings": {
-        "image_height": "auto",
-        "pc_image_width": "medium",
-        "pc_image_position": "right",
-        "pc_box_align": "middle",
-        "pc_text_align": "left",
-        "image_overlap_display": false,
-        "color_scheme": "2",
-        "mobile_text_align": "left",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "image": "shopline://shop_images/Cabinet.jpg"
-      },
-      "blocks": {
-        "1743660476936c2478d8": {
-          "type": "title",
-          "settings": {
-            "title": "Precision Crafted, Nationwide Delivery",
-            "title_size": "large"
-          },
-          "blockId": "1743660476936c2478d8",
-          "sectionId": "1743660476935c577b6d",
-          "canAddBlock": true,
-          "formatName": "Precision Crafted, Nationwide Delivery",
-          "overLimit": true,
-          "custom_css": []
-        },
-        "1743660476936d2afd43": {
-          "type": "content",
-          "settings": {
-            "content": "<span style=\"font-size: 16px;\">PK Cabinet Brings Quality Cabinetry to Your Doorstep.</span><br><br><span style=\"font-size: 16px;\">We serve homeowners, contractors, and developers in all 50 states, offering:</span><br><span style=\"font-size: 16px;\">&nbsp; ✔ Fast Local Delivery: Most orders ship within 3-5 business days</span><br><span style=\"font-size: 16px;\">&nbsp; ✔ Bulk Order Solutions: Competitive pricing for large projects</span><br><span style=\"font-size: 16px;\">&nbsp; ✔ Custom Manufacturing: Tailored to American home styles</span><br>\n<p><span style=\"font-size: 16px;\"><strong>Why Choose PK Cabinet?</strong></span></p>\n<ul>\n<li><span style=\"font-size: 16px;\">Factory Direct: efficient, affordable, and reliable</span></li>\n<li><span style=\"font-size: 16px;\">No Hidden Costs: Free shipping to all continental states</span></li>\n<li>Trusted by Pros: Preferred supplier for 1000+ U.S. contractors</li>\n</ul>"
-          },
-          "blockId": "1743660476936d2afd43",
-          "sectionId": "1743660476935c577b6d",
-          "canAddBlock": true,
-          "formatName": "文本",
-          "overLimit": true,
-          "custom_css": []
-        },
-        "174366047693620756ed": {
-          "type": "button",
-          "settings": {
-            "button_text": "Contact",
-            "link": "shopline://pages/6875352821824234786"
-          },
-          "blockId": "174366047693620756ed",
-          "sectionId": "1743660476935c577b6d",
-          "canAddBlock": true,
-          "formatName": "按钮",
-          "overLimit": true,
-          "custom_css": []
-        }
-      },
-      "block_order": [
-        "1743660476936c2478d8",
-        "1743660476936d2afd43",
-        "174366047693620756ed"
-      ],
-      "custom_css": [
-        ".global-media-border-shadow {border-radius: 0px;}",
-        "@media (max-width: 959px) {h2.title3.image-with-text__title.image-with-text__title--size-large {font-size: 30px; }}",
-        ".page-width {padding-left: 0px !important; padding-right: 0px !important;}"
-      ]
-    },
-    "174366660934233d4e2f": {
-      "disabled": true,
-      "type": "contact-form",
-      "settings": {
-        "heading": "Contact us",
-        "heading_size": "title3",
-        "color_scheme": "2",
-        "padding_top": 80,
-        "padding_bottom": 80
-      },
-      "blocks": {},
-      "block_order": [],
-      "custom_css": []
-    },
     "17442677050464fc654e": {
-      "disabled": false,
+      "disabled": true,
       "type": "collapsible-content",
       "settings": {
         "is_faq_layout": true,
@@ -1142,7 +589,7 @@
       ]
     },
     "1744269455272e4ed8f2": {
-      "disabled": false,
+      "disabled": true,
       "type": "design-form",
       "settings": {
         "heading": "Consult Our Experts",
@@ -1188,7 +635,7 @@
       "custom_css": []
     },
     "1772152496987c4000a0": {
-      "disabled": false,
+      "disabled": true,
       "type": "custom-html",
       "settings": {
         "html": "<iframe \r\n  id=\"vercel-frame\"\r\n  src=\"https://pk-cabinets-home-page-temp-xtyj.vercel.app/\"\r\n  scrolling=\"no\"\r\n  style=\"width:100%; border:none; display:block; overflow:hidden; min-height:100vh;\"\r\n></iframe>\r\n\r\n<script>\r\n  window.addEventListener('message', function(e) {\r\n    if (e.data && e.data.type === 'resize') {\r\n      document.getElementById('vercel-frame').style.height = e.data.height + 'px';\r\n    }\r\n  });\r\n\r\n  document.getElementById('vercel-frame').onload = function() {\r\n    try {\r\n      this.style.height = this.contentWindow.document.body.scrollHeight + 'px';\r\n    } catch(e) {\r\n      this.style.height = '4550px';\r\n    }\r\n  };\r\n</script>",
@@ -1213,19 +660,6 @@
       "block_order": [],
       "custom_css": []
     },
-    "1772317559873e5afb87": {
-      "disabled": true,
-      "type": "custom-html",
-      "settings": {
-        "html": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<title>Sample Door Block</title>\r\n<link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap\" rel=\"stylesheet\">\r\n\r\n<style>\r\nbody {\r\n    margin: 0;\r\n    font-family: 'Poppins', sans-serif;\r\n    background-color: #F6F6F6;\r\n}\r\n\r\n.sample-section {\r\n    max-width: 1200px;\r\n    margin: 80px auto;\r\n    padding: 0 40px;\r\n}\r\n\r\n.sample-container {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    gap: 60px;\r\n}\r\n\r\n.sample-image {\r\n    flex: 1;\r\n    overflow: hidden;\r\n    border-radius: 16px;\r\n}\r\n\r\n.sample-image img {\r\n    width: 100%;\r\n    height: auto;\r\n    display: block;\r\n    border-radius: 16px;\r\n    transition: transform 0.5s ease;\r\n}\r\n\r\n/* Hover zoom */\r\n.sample-image:hover img {\r\n    transform: scale(1.05);\r\n}\r\n\r\n.sample-text {\r\n    flex: 1;\r\n    text-align: center;\r\n}\r\n\r\n.sample-text h1 {\r\n    font-size: 42px;\r\n    font-weight: 700;\r\n    margin-bottom: 20px;\r\n    line-height: 1.2;\r\n}\r\n\r\n.sample-text p {\r\n    font-size: 20px;\r\n    margin: 8px 0;\r\n}\r\n\r\n.order-btn {\r\n    display: inline-block;\r\n    margin-top: 30px;\r\n    padding: 14px 36px;\r\n    background-color: #000;\r\n    color: #fff;\r\n    text-decoration: none;\r\n    font-weight: 600;\r\n    border-radius: 50px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n.order-btn:hover {\r\n    background-color: #333;\r\n    transform: translateY(-3px);\r\n}\r\n\r\n/* Responsive */\r\n@media (max-width: 900px) {\r\n    .sample-container {\r\n        flex-direction: column;\r\n        text-align: center;\r\n    }\r\n\r\n    .sample-text h1 {\r\n        font-size: 32px;\r\n    }\r\n\r\n    .sample-text p {\r\n        font-size: 18px;\r\n    }\r\n}\r\n</style>\r\n</head>\r\n\r\n<body>\r\n\r\n<section class=\"sample-section\">\r\n    <div class=\"sample-container\">\r\n        \r\n        <div class=\"sample-image\">\r\n            <img src=\"https://img-va.myshopline.com/image/store/1736838390436/SAMPLE_1600x.png?w=1600&h=1066\" alt=\"Sample Cabinet Door\">\r\n        </div>\r\n\r\n        <div class=\"sample-text\">\r\n            <h1>100% REFUNDABLE SAMPLE DOORS</h1>\r\n            <p>Solid Wood - 12\" X 15\"</p>\r\n            <p><strong>Free Shipping & Refund</strong></p>\r\n\r\n            <a href=\"#\" class=\"order-btn\">Order Sample</a>\r\n        </div>\r\n\r\n    </div>\r\n</section>\r\n\r\n</body>\r\n</html>",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "color_scheme": "none"
-      },
-      "blocks": {},
-      "block_order": [],
-      "custom_css": []
-    },
     "1773079037914985fb99": {
       "disabled": true,
       "type": "custom-html",
@@ -1238,6 +672,220 @@
       "blocks": {},
       "block_order": [],
       "custom_css": []
+    },
+    "1774729161081ad2ab74": {
+      "disabled": false,
+      "type": "pk-featured-products",
+      "settings": {},
+      "blocks": {
+        "17747291610827289aa2": {
+          "type": "product",
+          "settings": {
+            "name": "Franco White Shaker Base Cabinet",
+            "price": "249.00",
+            "rating": "4.9",
+            "reviews": "312"
+          },
+          "blockId": "17747291610827289aa2"
+        },
+        "17747291610821c8feb9": {
+          "type": "product",
+          "settings": {
+            "name": "Mallorca Dolphin Gray Wall Cabinet",
+            "price": "189.00",
+            "rating": "4.8",
+            "reviews": "198"
+          },
+          "blockId": "17747291610821c8feb9"
+        },
+        "1774729161087028441b": {
+          "type": "product",
+          "settings": {
+            "name": "Newport Shoreline Base Cabinet",
+            "price": "269.00",
+            "rating": "5.0",
+            "reviews": "87"
+          },
+          "blockId": "1774729161087028441b"
+        },
+        "1774729161087dc36c4f": {
+          "type": "product",
+          "settings": {
+            "name": "Aspen Stone Gray Tall Cabinet",
+            "price": "399.00",
+            "rating": "4.9",
+            "reviews": "143"
+          },
+          "blockId": "1774729161087dc36c4f"
+        },
+        "177472916108745bb37e": {
+          "type": "product",
+          "settings": {
+            "name": "Irena Natural Oak Base Cabinet",
+            "price": "299.00",
+            "rating": "4.7",
+            "reviews": "256"
+          },
+          "blockId": "177472916108745bb37e"
+        },
+        "177472916108719e78cc": {
+          "type": "product",
+          "settings": {
+            "name": "Franco Slim Black Wall Cabinet",
+            "price": "219.00",
+            "rating": "4.8",
+            "reviews": "174"
+          },
+          "blockId": "177472916108719e78cc"
+        }
+      },
+      "block_order": [
+        "17747291610827289aa2",
+        "17747291610821c8feb9",
+        "1774729161087028441b",
+        "1774729161087dc36c4f",
+        "177472916108745bb37e",
+        "177472916108719e78cc"
+      ]
+    },
+    "1774729169850b0fc229": {
+      "disabled": false,
+      "type": "pk-trade-cta",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    },
+    "1774729174111bee147a": {
+      "disabled": false,
+      "type": "pk-trust-icons",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    },
+    "1774729183084d27cf82": {
+      "disabled": false,
+      "type": "pk-testimonials",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    },
+    "17747292097387534244": {
+      "disabled": false,
+      "type": "pk-collections-grid",
+      "settings": {},
+      "blocks": {
+        "1774729209738047174d": {
+          "type": "collection",
+          "settings": {
+            "name": "Mallorca"
+          },
+          "blockId": "1774729209738047174d"
+        },
+        "17747292097384e23507": {
+          "type": "collection",
+          "settings": {
+            "name": "Shady"
+          },
+          "blockId": "17747292097384e23507"
+        },
+        "177472920973872895e5": {
+          "type": "collection",
+          "settings": {
+            "name": "Franco"
+          },
+          "blockId": "177472920973872895e5"
+        },
+        "17747292097385978808": {
+          "type": "collection",
+          "settings": {
+            "name": "Irena"
+          },
+          "blockId": "17747292097385978808"
+        },
+        "1774729209738410bd30": {
+          "type": "collection",
+          "settings": {
+            "name": "Newport"
+          },
+          "blockId": "1774729209738410bd30"
+        },
+        "1774729209738bab9604": {
+          "type": "collection",
+          "settings": {
+            "name": "Aspen"
+          },
+          "blockId": "1774729209738bab9604"
+        }
+      },
+      "block_order": [
+        "1774729209738047174d",
+        "17747292097384e23507",
+        "177472920973872895e5",
+        "17747292097385978808",
+        "1774729209738410bd30",
+        "1774729209738bab9604"
+      ]
+    },
+    "17747292211232e86546": {
+      "disabled": false,
+      "type": "pk-contact-form",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    },
+    "17747292266555e982c3": {
+      "disabled": false,
+      "type": "pk-hero",
+      "settings": {},
+      "blocks": {
+        "1774729226655028485d": {
+          "type": "slide",
+          "settings": {
+            "title": "Discover Modern Kitchen Luxury",
+            "subtitle": "Premium Series"
+          },
+          "blockId": "1774729226655028485d"
+        },
+        "17747292266559a30d1c": {
+          "type": "slide",
+          "settings": {
+            "title": "Timeless White Shaker Elegance",
+            "subtitle": "Classic Series"
+          },
+          "blockId": "17747292266559a30d1c"
+        },
+        "1774729226655179ef3c": {
+          "type": "slide",
+          "settings": {
+            "title": "Bespoke Minimalist Design",
+            "subtitle": "Modern Series"
+          },
+          "blockId": "1774729226655179ef3c"
+        }
+      },
+      "block_order": [
+        "1774729226655028485d",
+        "17747292266559a30d1c",
+        "1774729226655179ef3c"
+      ]
+    },
+    "17747292353391d06036": {
+      "disabled": false,
+      "type": "pk-promo-banner",
+      "settings": {
+        "title": "Shady Collection",
+        "subtitle": "Gray Shaker — Modern Minimalist Elegance",
+        "link_text": "Explore Collection"
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "17747292782898857f73": {
+      "disabled": false,
+      "type": "pk-trust-bar",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
@@ -1245,22 +893,23 @@
     "1772152496987c4000a0",
     "177206738708575b211a",
     "1772312475786eb827b2",
-    "1743660476935c577b6d",
-    "1772317559873e5afb87",
-    "174012500217883d3194",
     "1773079037914985fb99",
     "1739178268659a4b119b",
-    "1742188329787963821c",
-    "1740125221285498654d",
     "17421885063794fdb69c",
     "176475323542532d7760",
-    "173917852446415b4e5c",
-    "173918000200888c84bf",
-    "174366660934233d4e2f",
     "1744269455272e4ed8f2",
     "173935845690947a66b4",
     "17442677050464fc654e",
     "1743596742133abe7e74",
-    "1740363439818db82b80"
+    "1740363439818db82b80",
+    "17747292266555e982c3",
+    "17747292782898857f73",
+    "17747292097387534244",
+    "1774729161081ad2ab74",
+    "17747292353391d06036",
+    "1774729183084d27cf82",
+    "1774729169850b0fc229",
+    "17747292211232e86546",
+    "1774729174111bee147a"
   ]
 }

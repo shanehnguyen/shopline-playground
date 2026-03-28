@@ -1,0 +1,207 @@
+{
+  "sections": {
+    "main": {
+      "disabled": true,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
+    "1772118945712b046bc8": {
+      "disabled": true,
+      "type": "collection-list",
+      "settings": {
+        "title": "Frameless Collections",
+        "collection_image_ratio": "100",
+        "color_scheme": "none",
+        "slice_in_mobile": true,
+        "full_in_mobile": false,
+        "slice_in_pc": false,
+        "button_text": "View all",
+        "desktop_grid_cols": 3,
+        "m_cols": 1,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "collection_image_shape": "square",
+        "m_rows": 1,
+        "max_in_mobile": 16
+      },
+      "blocks": {
+        "1772118945715c3ea69e": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737555845623814262145"
+          },
+          "blockId": "1772118945715c3ea69e",
+          "custom_css": []
+        },
+        "177211894571575058f4": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737670656474985182145"
+          },
+          "blockId": "177211894571575058f4",
+          "custom_css": []
+        },
+        "1772118945715f031c17": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737674371789461322145"
+          },
+          "blockId": "1772118945715f031c17",
+          "custom_css": []
+        },
+        "17721190560552e53049": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737677429604855362145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "1772119058925b0ae9f5": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737679558968651192145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "17721190611093a6bbbb": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737681515192493992145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "17721190633497423c41": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271737683294584016312145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "17721191298880ba511d": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271738899329680754092145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "1772119133446f9fa345": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271738905131242469362145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "1772119135584049a7c4": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271738912818897964142145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "177211913785423851ae": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271738982120544098702145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "1772119139814709019b": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271738992468899103412145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "1772119141815d516df3": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271739000504346718022145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "17721191437670f6fa24": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271739060424844336882145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "17721194140788a63245": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271739065153670432232145"
+          },
+          "block_order": [],
+          "custom_css": []
+        },
+        "1772119416850ac82be5": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center center",
+            "category": "12271881113913325079962145"
+          },
+          "block_order": [],
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "1772118945715c3ea69e",
+        "177211894571575058f4",
+        "1772118945715f031c17",
+        "17721190560552e53049",
+        "1772119416850ac82be5",
+        "1772119058925b0ae9f5",
+        "17721190611093a6bbbb",
+        "17721190633497423c41",
+        "17721191437670f6fa24",
+        "17721194140788a63245",
+        "17721191298880ba511d",
+        "1772119133446f9fa345",
+        "1772119135584049a7c4",
+        "177211913785423851ae",
+        "1772119139814709019b",
+        "1772119141815d516df3"
+      ],
+      "custom_css": []
+    },
+    "1774720741047baacf1b": {
+      "disabled": false,
+      "type": "pk-design-page",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    }
+  },
+  "order": [
+    "main",
+    "1772118945712b046bc8",
+    "1774720741047baacf1b"
+  ]
+}
