@@ -6,10 +6,349 @@
       "settings": {},
       "blocks": {}
     },
-    "pk-faq-page": {
-      "type": "pk-faq-page",
-      "settings": {}
+    "1740192732983a6eeaf7": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/faq-with-nav/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "container_max_width": 1920,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "btn_font_family": "Montserrat:500",
+        "btn_font_color": "#FFFFFF",
+        "btn_pc_font_size": 13,
+        "btn_m_font_size": 12,
+        "btn_letter_spacing": 0,
+        "btn_line_height": 1.6,
+        "btn_background": "#111111",
+        "btn_style": "primary",
+        "btn_hover_animation": "1",
+        "btn_border_thickness": 1,
+        "btn_border_opacity": 100,
+        "btn_border_radius": 0,
+        "btn_border_color": "#111111",
+        "btn_shadow_opacity": 0,
+        "btn_shadow_offset_x": 0,
+        "btn_shadow_offset_y": 4,
+        "btn_shadow_blur": 5,
+        "btn_shadow_color": "#000000",
+        "container_bg_color": "#FFF",
+        "container_bg_color_gradient": "",
+        "pc_show": true,
+        "mb_show": true,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 36,
+        "title_m_font_size": 28,
+        "title_letter_spacing": 0,
+        "title_line_height": 1.2,
+        "body_font_family": "Poppins",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "title": "What kind of help do you need?",
+        "nav_title_font_family": "Poppins:600",
+        "nav_title_font_color": "#000000",
+        "nav_title_pc_font_size": 24,
+        "nav_title_m_font_size": 20,
+        "nav_title_letter_spacing": 0,
+        "nav_title_line_height": 1.6,
+        "nav_bg_color": "#E5E5E5",
+        "nav_radius": 8,
+        "sub_title_font_family": "Poppins:500",
+        "sub_title_font_color": "#000000",
+        "sub_title_pc_font_size": 20,
+        "sub_title_m_font_size": 16,
+        "sub_title_letter_spacing": 0,
+        "sub_title_line_height": 1.6
+      },
+      "blocks": {
+        "174019273298332c6552": {
+          "type": "nav",
+          "blockId": "174019273298332c6552",
+          "settings": {
+            "title": "SHIPPING",
+            "icon": "chat_bubble",
+            "pc_icon_width": 30,
+            "mb_icon_width": 24
+          },
+          "disabled": true
+        },
+        "174019273298361ad895": {
+          "type": "content",
+          "blockId": "174019273298361ad895",
+          "settings": {
+            "title": "Why should I choose a U.S.-based cabinet manufacturer?",
+            "desc": "<p>Choosing a domestic manufacturer like PK Cabinet guarantees faster lead times, higher quality control, and no hidden import fees. Our local expertise ensures your cabinets meet American building standards and design preferences.</p>"
+          }
+        },
+        "1740192732983f56ad05": {
+          "type": "content",
+          "blockId": "1740192732983f56ad05",
+          "settings": {
+            "title": "How do I know if PK Cabinet is the right supplier for my project?",
+            "desc": "<ul>\n<li>Proven Track Record: Trusted by contractors and builders nationwide</li>\n<li>Custom Solutions: Tailored designs for any space or style</li>\n<li>Transparent Pricing: No surprises—just fair, upfront costs</li>\n</ul>"
+          }
+        },
+        "17401927329830876ec5": {
+          "type": "content",
+          "blockId": "17401927329830876ec5",
+          "settings": {
+            "title": "What is the typical lead time for cabinet delivery?",
+            "desc": "<p>Most orders ship within 3-5 business days for in-stock items, with custom projects taking 2-4 weeks. Expedited options are available.</p>"
+          }
+        },
+        "1740192732983028a2a3": {
+          "type": "nav",
+          "blockId": "1740192732983028a2a3",
+          "settings": {},
+          "disabled": true
+        },
+        "1740192732983b56a0c5": {
+          "type": "content",
+          "blockId": "1740192732983b56a0c5",
+          "settings": {
+            "title": "How can I reduce costs without sacrificing quality?",
+            "desc": "<ul>\n<li>Opt for standard sizes and finishes</li>\n<li>Plan ahead to avoid rush fees</li>\n<li>Ask about bulk order discounts</li>\n</ul>"
+          }
+        },
+        "17401927329834d63d7c": {
+          "type": "content",
+          "blockId": "17401927329834d63d7c",
+          "settings": {
+            "title": "Do the cabinets contain any harmful chemicals?",
+            "desc": "No. Our manufacturing process is designed to be as eco-friendly and safe as possible, and our products comply with U.S. TSCA and CARB standards."
+          }
+        },
+        "1740192741680192396f": {
+          "type": "nav",
+          "settings": {
+            "title": "SHIPPING",
+            "icon": "check_mark",
+            "pc_icon_width": 30,
+            "mb_icon_width": 24
+          },
+          "disabled": true
+        },
+        "1740192743557ab9d949": {
+          "type": "content",
+          "settings": {
+            "title": "Do you offer any discounts?",
+            "desc": "Yes, we offer a variety of discounts. In addition to our promotional activities, for individual customers, each product line comes with attractive discounts. For business customers, we typically provide additional discounts beyond those for individual buyers. If your purchase reaches a certain amount, you may also qualify for even greater savings."
+          }
+        },
+        "1740192745054f5e0460": {
+          "type": "content",
+          "settings": {
+            "title": "Do you offer contractor discounts?",
+            "desc": "Yes! We offer special discounts for all contractors, you can find full information about our contractor discount program&nbsp;"
+          }
+        },
+        "1740192747462e221939": {
+          "type": "content",
+          "settings": {
+            "title": "Do you sell custom or semi-custom cabinets?",
+            "desc": "All the cabinets we sell on our website are RTA Cabinets, but we also offer customization product lines. Please contact customer support for more information."
+          }
+        }
+      },
+      "block_order": [
+        "174019273298332c6552",
+        "174019273298361ad895",
+        "1740192732983f56ad05",
+        "17401927329830876ec5",
+        "1740192732983028a2a3",
+        "1740192732983b56a0c5",
+        "17401927329834d63d7c",
+        "1740192741680192396f",
+        "1740192743557ab9d949",
+        "1740192745054f5e0460",
+        "1740192747462e221939"
+      ],
+      "custom_css": []
+    },
+    "174019278391702381dd": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "17401927839171b86397": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "logistics",
+            "title": "ALL HOMECABINETS CUSTOMERS GET",
+            "sub_title": "3-Day Quick Ship & Free Shipping In Stock and Ready to Ship in 3 Days! Get Free Shipping on Orders Over $2500!",
+            "jump_link": ""
+          },
+          "blockId": "17401927839171b86397"
+        },
+        "1740192783917f8c99f3": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "customer",
+            "title": "Best Price Guarantee",
+            "sub_title": "Find a lower price? We'll match it and  give you 10% off!"
+          },
+          "blockId": "1740192783917f8c99f3"
+        },
+        "17401927839174715bf3": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "pay",
+            "title": "30 Days Return",
+            "sub_title": "Hassle-free 30-Day Return Policy"
+          },
+          "blockId": "17401927839174715bf3"
+        },
+        "17401927839171207ae5": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "package",
+            "title": "5-year Warranty",
+            "sub_title": "Comprehensive Protection for 5 Years"
+          },
+          "blockId": "17401927839171207ae5"
+        }
+      },
+      "block_order": [
+        "17401927839171b86397",
+        "1740192783917f8c99f3",
+        "17401927839174715bf3",
+        "17401927839171207ae5"
+      ],
+      "custom_css": []
+    },
+    "174220746411386ae3ab": {
+      "disabled": false,
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "color_scheme": "none",
+        "normal_width": true,
+        "show_decoration": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {
+        "1742207464113cc27cbb": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h1>Frequently Asked Questions</h1>",
+            "heading_size": "title3"
+          },
+          "blockId": "1742207464113cc27cbb"
+        },
+        "174220746411335f171e": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to the<span style=\"color: #3598db;\"> pkcabinet.com</span>&nbsp;Frequently Asked Questions page! Here you’ll find information on the most asked questions, along with help guiding you through the website.</p>"
+          },
+          "blockId": "174220746411335f171e",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "1742207464113cc27cbb",
+        "174220746411335f171e"
+      ],
+      "custom_css": []
     }
   },
-  "order": ["main", "pk-faq-page"]
+  "order": [
+    "main",
+    "174220746411386ae3ab",
+    "1740192732983a6eeaf7",
+    "174019278391702381dd"
+  ]
 }
