@@ -1,0 +1,198 @@
+<style>
+.pk-refd { background: #ffffff; min-height: 100vh; padding: 48px 16px; box-sizing: border-box; }
+.pk-refd *, .pk-refd *::before, .pk-refd *::after { box-sizing: border-box; }
+@media (min-width: 768px)  { .pk-refd { padding: 96px 32px; } }
+@media (min-width: 1024px) { .pk-refd { padding: 128px 32px; } }
+.pk-refd__inner { max-width: 850px; margin: 0 auto; width: 100%; }
+.pk-refd__section { margin-bottom: 64px; }
+.pk-refd__section:last-child { margin-bottom: 0; }
+.pk-refd__h3 {
+  font-size: 20px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.01em;
+  margin: 0 0 24px; font-family: 'Inter', sans-serif;
+}
+@media (min-width: 768px) { .pk-refd__h3 { font-size: 24px; } }
+.pk-refd__p {
+  font-size: 16px; line-height: 1.8; color: #6b6258;
+  margin: 0; font-family: 'Inter', sans-serif;
+}
+@media (min-width: 768px) { .pk-refd__p { font-size: 18px; } }
+.pk-refd__p strong { color: #1a1a1a; }
+
+/* Numbered items with gold circle */
+.pk-refd__num-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+.pk-refd__num-item { display: flex; gap: 16px; align-items: flex-start; }
+@media (min-width: 768px) { .pk-refd__num-item { gap: 24px; } }
+.pk-refd__num {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 9999px;
+  border: 1px solid #a89060; display: flex; align-items: center; justify-content: center;
+  color: #a89060; font-weight: 700; font-size: 14px; font-family: 'Inter', sans-serif;
+}
+
+/* Bullet dot list */
+.pk-refd__dot-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.pk-refd__dot-item { display: flex; align-items: flex-start; gap: 16px; }
+.pk-refd__dot {
+  margin-top: 11px; width: 6px; height: 6px;
+  border-radius: 9999px; background: #a89060; flex-shrink: 0;
+}
+.pk-refd__dot-item span {
+  font-size: 16px; line-height: 1.8; color: #6b6258; font-family: 'Inter', sans-serif;
+}
+@media (min-width: 768px) { .pk-refd__dot-item span { font-size: 18px; } }
+
+/* Return Process - step with nested sub-bullets */
+.pk-refd__step { display: flex; gap: 24px; align-items: flex-start; }
+.pk-refd__step-body { display: flex; flex-direction: column; gap: 16px; }
+.pk-refd__sub { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; padding-left: 8px; }
+.pk-refd__sub li { display: flex; align-items: center; gap: 8px; font-size: 15px; color: #6b6258; font-family: 'Inter', sans-serif; }
+.pk-refd__sub li span.dot { width: 4px; height: 4px; border-radius: 9999px; background: #a89060; flex-shrink: 0; }
+
+/* Contact grid */
+.pk-refd__contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+@media (min-width: 768px) { .pk-refd__contact-grid { grid-template-columns: 1fr 1fr; } }
+.pk-refd__contact-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #a89060; margin: 0 0 8px; font-family: 'Inter', sans-serif; }
+.pk-refd__contact-val { font-size: 18px; font-weight: 500; color: #1a1a1a; font-family: 'Inter', sans-serif; }
+.pk-refd__contact-val a { color: #1a1a1a; text-decoration: none; transition: color 0.2s; }
+.pk-refd__contact-val a:hover { color: #a89060; }
+.pk-refd__contact-full { grid-column: 1 / -1; }
+.pk-refd__divider { border: none; border-top: 1px solid rgba(26,26,26,0.1); margin-bottom: 40px; }
+.pk-refd__quote { text-align: center; font-size: 20px; font-family: Georgia, 'Times New Roman', serif; font-style: italic; color: #1a1a1a; margin: 32px 0 0; }
+</style>
+
+<div class="pk-refd">
+  <div class="pk-refd__inner">
+
+    <!-- Conditions for Returns -->
+    <div class="pk-refd__section">
+      <h3 class="pk-refd__h3">Conditions for Returns</h3>
+      <ol class="pk-refd__num-list">
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">1</span>
+          <p class="pk-refd__p"><strong>Request Period:</strong> You may request a return within 14 days of receiving the item.</p>
+        </li>
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">2</span>
+          <p class="pk-refd__p"><strong>Product Condition:</strong> Returned items must be unused, unassembled, and in the same condition as received. The packaging, accessories, and manuals must also be intact and in original condition.</p>
+        </li>
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">3</span>
+          <p class="pk-refd__p"><strong>Damaged or Defective Items:</strong> If the product is damaged during shipping or has manufacturing defects, please contact us within 48 hours of receipt and provide photos as proof.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Conditions for Exchanges -->
+    <div class="pk-refd__section">
+      <h3 class="pk-refd__h3">Conditions for Exchanges</h3>
+      <ol class="pk-refd__num-list">
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">1</span>
+          <p class="pk-refd__p"><strong>Request Period:</strong> Exchanges can be requested within 14 days of receiving the item.</p>
+        </li>
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">2</span>
+          <p class="pk-refd__p"><strong>Eligible Items:</strong> The product must be unused, unassembled, and in its original condition with all packaging and components intact.</p>
+        </li>
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">3</span>
+          <p class="pk-refd__p"><strong>Damaged or Defective Items:</strong> If you received a damaged or defective product and prefer an exchange instead of a return, please notify us within 48 hours of receiving the item, providing photos as proof.</p>
+        </li>
+        <li class="pk-refd__num-item">
+          <span class="pk-refd__num">4</span>
+          <p class="pk-refd__p"><strong>Product Availability:</strong> Exchanges are subject to product availability. If the requested replacement item is out of stock, we will assist with alternative solutions, such as a refund or selecting a similar product.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Returns Not Accepted -->
+    <div class="pk-refd__section">
+      <h3 class="pk-refd__h3">Returns Not Accepted</h3>
+      <ul class="pk-refd__dot-list">
+        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Items that have been assembled or used are not eligible</span></li>
+        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Damage caused by improper assembly due to failure to follow the instructions</span></li>
+        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Customized cabinets, including special sizes, colors, or configurations are non-returnable</span></li>
+        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Requests submitted after the return period will not be accepted</span></li>
+      </ul>
+    </div>
+
+    <!-- Return Process -->
+    <div class="pk-refd__section">
+      <h3 class="pk-refd__h3">Return Process</h3>
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div class="pk-refd__step">
+          <span class="pk-refd__num">1</span>
+          <div class="pk-refd__step-body">
+            <p class="pk-refd__p"><strong>Contact Us:</strong> Please reach out to us via email or customer service with the following information:</p>
+            <ul class="pk-refd__sub">
+              <li><span class="dot"></span>Purchase order number</li>
+              <li><span class="dot"></span>Product name and model</li>
+              <li><span class="dot"></span>Reason for the return, along with photos of the issue (if applicable)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pk-refd__step">
+          <span class="pk-refd__num">2</span>
+          <p class="pk-refd__p"><strong>Return Authorization:</strong> Once the return conditions are verified, we will provide a return authorization and the return address.</p>
+        </div>
+        <div class="pk-refd__step">
+          <span class="pk-refd__num">3</span>
+          <p class="pk-refd__p"><strong>Return the Item:</strong> For both returns and exchanges, please send the item back within 7 days after receiving the return authorization and provide the tracking number.</p>
+        </div>
+        <div class="pk-refd__step">
+          <span class="pk-refd__num">4</span>
+          <div class="pk-refd__step-body">
+            <p class="pk-refd__p"><strong>Refund Process:</strong></p>
+            <ul class="pk-refd__dot-list" style="padding-left:8px;">
+              <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span><strong style="color:#1a1a1a;">For returns:</strong> Once the item is received, inspected and approved, we will process your refund within 7–10 business days to the original payment method.</span></li>
+              <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span><strong style="color:#1a1a1a;">For exchanges:</strong> The replacement item will be shipped once the returned item is received, inspected and approved.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shipping Costs -->
+    <div class="pk-refd__section">
+      <h3 class="pk-refd__h3">Return &amp; Exchange Shipping Costs</h3>
+      <ul class="pk-refd__dot-list">
+        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>For returns due to product defects or shipping damage, we will cover the return shipping costs</span></li>
+        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>For returns due to personal reasons (e.g., change of mind or dissatisfaction with the product), the buyer is responsible for covering the return shipping costs</span></li>
+      </ul>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="pk-refd__section pk-refd__divider">
+      <h3 class="pk-refd__h3">Contact Information</h3>
+      <div class="pk-refd__contact-grid">
+        <div>
+          <p class="pk-refd__contact-label">Email</p>
+          <p class="pk-refd__contact-val"><a href="mailto:support@pkcabinet.com">support@pkcabinet.com</a></p>
+        </div>
+        <div>
+          <p class="pk-refd__contact-label">Customer Service Line</p>
+          <p class="pk-refd__contact-val"><a href="tel:5626256101">562-625-6101</a></p>
+        </div>
+        <div class="pk-refd__contact-full">
+          <p class="pk-refd__contact-label">Business Hours</p>
+          <p class="pk-refd__contact-val">Monday to Friday, 8:00 AM – 4:00 PM (PST)</p>
+        </div>
+      </div>
+      <p class="pk-refd__quote">"We are committed to providing you with high-quality service. Thank you for your understanding and cooperation!"</p>
+    </div>
+
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "PK Refund Policy Page",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "PK Refund Policy Page",
+      "category": "Custom"
+    }
+  ]
+}
+{{/schema}}
