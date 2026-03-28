@@ -12,6 +12,10 @@
 (function () {
   'use strict';
 
+ 
+(function () {
+  'use strict';
+ 
   /* ─────────────────────────────────────────────────────────────
      STATIC FALLBACK PRODUCT DATA
      Represents PK Cabinet's catalogue. Replace / extend as needed.
@@ -195,16 +199,19 @@
     }
   ];
 
+ 
   var CATEGORIES = [
     'Base Cabinets', 'Wall Cabinets', 'Tall Cabinets',
     'Drawer Sets', 'Corner Cabinets', 'Pantry', 'Vanity'
   ];
 
+ 
   var POPULAR_SEARCHES = [
     'Shaker', 'Base Cabinet', 'Wall Cabinet', 'Drawer Set',
     'Pantry', 'Tall Cabinet', 'Corner Cabinet', 'Vanity', 'Frameless', 'Natural Wood'
   ];
 
+ 
   var SORT_OPTIONS = [
     { label: 'Relevance',        value: 'relevance'   },
     { label: 'Price: Low to High', value: 'price-low' },
@@ -212,6 +219,7 @@
     { label: 'Rating',           value: 'rating'      }
   ];
 
+ 
   /* ── SVG icons (inline, no external dependency) ─────────────── */
   var ICON = {
     search: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
@@ -221,6 +229,7 @@
     image:  '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c8c0b4" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>'
   };
 
+ 
   /* ─────────────────────────────────────────────────────────────
      PKSearchOverlay Class
   ───────────────────────────────────────────────────────────── */
@@ -231,12 +240,14 @@
     this.sortBy            = 'relevance';
     this.isSortOpen        = false;
 
+ 
     // DOM refs (set after _injectHTML)
     this.backdropEl  = null;
     this.panelEl     = null;
     this.inputEl     = null;
     this.bodyEl      = null;
 
+ 
     this._loadProducts();
     this._injectHTML();
     this._cacheDOM();
@@ -246,6 +257,9 @@
 
   /* ── Data ──────────────────────────────────────────────────── */
 
+ 
+  /* ── Data ──────────────────────────────────────────────────── */
+ 
   PKSearchOverlay.prototype._loadProducts = function () {
     // Prefer live data injected by Handlebars at render time
     if (window.PK_PRODUCTS && window.PK_PRODUCTS.length > 0) {
@@ -257,6 +271,9 @@
 
   /* ── DOM injection ─────────────────────────────────────────── */
 
+ 
+  /* ── DOM injection ─────────────────────────────────────────── */
+ 
   PKSearchOverlay.prototype._injectHTML = function () {
     var el = document.createElement('div');
     el.id = 'pk-search-root';
@@ -282,6 +299,7 @@
     document.body.appendChild(el);
   };
 
+ 
   PKSearchOverlay.prototype._cacheDOM = function () {
     this.backdropEl = document.getElementById('pk-search-backdrop');
     this.panelEl    = document.getElementById('pk-search-panel');
@@ -291,6 +309,9 @@
 
   /* ── Rendering ─────────────────────────────────────────────── */
 
+ 
+  /* ── Rendering ─────────────────────────────────────────────── */
+ 
   PKSearchOverlay.prototype._renderInitial = function () {
     var self = this;
     var popularHTML = POPULAR_SEARCHES.map(function (term) {
@@ -301,6 +322,11 @@
       return self._cardMini(p);
     }).join('');
 
+ 
+    var carouselHTML = this.products.slice(0, 8).map(function (p) {
+      return self._cardMini(p);
+    }).join('');
+ 
     this.bodyEl.innerHTML = [
       '<div class="pk-search-sidebar">',
         '<p class="pk-search-sidebar__title">Popular searches</p>',
@@ -312,6 +338,7 @@
       '</div>'
     ].join('');
 
+ 
     // Bind popular-term clicks
     var btns = this.bodyEl.querySelectorAll('.pk-search-popular__item');
     for (var i = 0; i < btns.length; i++) {
@@ -326,17 +353,20 @@
     }
   };
 
+ 
   PKSearchOverlay.prototype._renderResults = function () {
     var self    = this;
     var filtered = this._filter();
     var sorted   = this._sort(filtered);
     var count    = filtered.length;
 
+ 
     var activeSortLabel = 'Relevance';
     for (var s = 0; s < SORT_OPTIONS.length; s++) {
       if (SORT_OPTIONS[s].value === this.sortBy) { activeSortLabel = SORT_OPTIONS[s].label; break; }
     }
 
+ 
     /* Category checkboxes */
     var catHTML = CATEGORIES.map(function (cat) {
       var checked = self.selectedCategories.indexOf(cat) !== -1 ? ' checked' : '';
@@ -349,12 +379,14 @@
       ].join('');
     }).join('');
 
+ 
     /* Sort dropdown options */
     var sortOptHTML = SORT_OPTIONS.map(function (opt) {
       var active = opt.value === self.sortBy ? ' is-active' : '';
       return '<button class="pk-search-sort__option' + active + '" data-sort="' + opt.value + '">' + opt.label + '</button>';
     }).join('');
 
+ 
     /* Product cards or empty state */
     var resultsHTML;
     if (sorted.length > 0) {
@@ -370,6 +402,7 @@
       ].join('');
     }
 
+ 
     this.bodyEl.innerHTML = [
       '<div class="pk-search-sidebar">',
         '<div class="pk-search-filters-toggle">',
@@ -395,19 +428,20 @@
       '</div>'
     ].join('');
 
+ 
     /* Update panel height class */
     if (sorted.length > 0) {
       this.panelEl.classList.add('has-results');
     } else {
       this.panelEl.classList.remove('has-results');
     }
-
+ 
     this._bindResultsEvents();
   };
-
+ 
   PKSearchOverlay.prototype._bindResultsEvents = function () {
     var self = this;
-
+ 
     /* Category checkboxes */
     var checkboxes = this.bodyEl.querySelectorAll('.pk-search-category-checkbox');
     for (var c = 0; c < checkboxes.length; c++) {
@@ -424,6 +458,7 @@
       })(checkboxes[c]));
     }
 
+ 
     /* Mobile categories toggle */
     var catToggle = document.getElementById('pk-cat-toggle');
     if (catToggle) {
@@ -432,7 +467,7 @@
         if (list) list.classList.toggle('is-visible');
       });
     }
-
+ 
     /* Sort button */
     var sortBtn = document.getElementById('pk-sort-btn');
     var sortDropdown = document.getElementById('pk-sort-dropdown');
@@ -445,7 +480,7 @@
         sortBtn.setAttribute('aria-expanded', self.isSortOpen);
       });
     }
-
+ 
     /* Sort option selection */
     var sortOpts = this.bodyEl.querySelectorAll('.pk-search-sort__option');
     for (var s = 0; s < sortOpts.length; s++) {
@@ -457,7 +492,7 @@
         };
       })(sortOpts[s]));
     }
-
+ 
     /* Close sort on outside click */
     function closeSortOutside(e) {
       var wrapper = document.getElementById('pk-sort-wrapper');
@@ -473,9 +508,9 @@
     // Defer listener so current click doesn't immediately close it
     setTimeout(function () { document.addEventListener('click', closeSortOutside); }, 0);
   };
-
+ 
   /* ── Card templates ────────────────────────────────────────── */
-
+ 
   PKSearchOverlay.prototype._cardMini = function (product) {
     var imgHTML = product.image
       ? '<img src="' + product.image + '" alt="' + _esc(product.name) + '" loading="lazy"/>'
@@ -491,19 +526,19 @@
       '</a>'
     ].join('');
   };
-
+ 
   PKSearchOverlay.prototype._cardFull = function (product) {
     var imgHTML = product.image
       ? '<img src="' + product.image + '" alt="' + _esc(product.name) + '" loading="lazy"/>'
       : '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c8c0b4" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
-
+ 
     var price = '';
     if (typeof product.price === 'number') {
       price = '$' + product.price.toFixed(2);
     } else if (product.price) {
       price = product.price;
     }
-
+ 
     var metaHTML = '';
     if (product.rating) {
       metaHTML = [
@@ -518,7 +553,7 @@
         '</div>'
       ].join('');
     }
-
+ 
     return [
       '<a class="pk-search-product-card" href="' + (product.url || '/collections/all') + '">',
         '<div class="pk-search-product-card__image">', imgHTML, '</div>',
@@ -530,9 +565,9 @@
       '</a>'
     ].join('');
   };
-
+ 
   /* ── Filter & sort ─────────────────────────────────────────── */
-
+ 
   PKSearchOverlay.prototype._filter = function () {
     var q    = this.query.toLowerCase().trim();
     var cats = this.selectedCategories;
@@ -545,7 +580,7 @@
       return matchQ && matchC;
     });
   };
-
+ 
   PKSearchOverlay.prototype._sort = function (products) {
     var by = this.sortBy;
     return products.slice().sort(function (a, b) {
@@ -555,14 +590,14 @@
       return 0;
     });
   };
-
+ 
   /* ── Open / Close ──────────────────────────────────────────── */
-
+ 
   PKSearchOverlay.prototype.open = function () {
     this.backdropEl.classList.add('is-open');
     this.panelEl.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-
+ 
     // Reset state
     this.query              = '';
     this.selectedCategories = [];
@@ -570,37 +605,37 @@
     this.isSortOpen         = false;
     this.inputEl.value      = '';
     this.panelEl.classList.remove('has-results');
-
+ 
     this._renderInitial();
-
+ 
     var self = this;
     setTimeout(function () { self.inputEl.focus(); }, 50);
   };
-
+ 
   PKSearchOverlay.prototype.close = function () {
     this.backdropEl.classList.remove('is-open');
     this.panelEl.classList.remove('is-open');
     document.body.style.overflow = '';
   };
-
+ 
   /* ── Event wiring ──────────────────────────────────────────── */
-
+ 
   PKSearchOverlay.prototype._bindGlobalEvents = function () {
     var self = this;
-
+ 
     /* Click on backdrop → close */
     this.backdropEl.addEventListener('click', function () { self.close(); });
-
+ 
     /* Close button */
     document.addEventListener('click', function (e) {
       if (e.target.closest && e.target.closest('#pk-search-close')) self.close();
     });
-
+ 
     /* ESC key */
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') self.close();
     });
-
+ 
     /* Live input filtering */
     this.inputEl.addEventListener('input', function () {
       self.query = self.inputEl.value;
@@ -612,7 +647,7 @@
         self._renderResults();
       }
     });
-
+ 
     /* Any element with [data-pk-search-open] opens the overlay */
     document.addEventListener('click', function (e) {
       var trigger = e.target.closest && e.target.closest('[data-pk-search-open]');
@@ -622,9 +657,9 @@
       }
     });
   };
-
+ 
   /* ── Utility ───────────────────────────────────────────────── */
-
+ 
   function _esc(str) {
     if (!str) return '';
     return String(str)
@@ -633,17 +668,17 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
   }
-
+ 
   /* ── Bootstrap ─────────────────────────────────────────────── */
-
+ 
   function init() {
     window.pkSearch = new PKSearchOverlay();
   }
-
+ 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-
+ 
 })();

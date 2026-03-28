@@ -104,6 +104,19 @@
         
         {{assign "menu" (default mobile_main_menu main_menu)}}
         {{snippet "header-menu-drawer" section=section menu=menu class="display-none-desktop" highlight_menus_list=highlight_menus_list}}
+        
+         {{!-- PK Search trigger for mobile (always visible, no dependency on show_search_entry) --}}
+        {{#if section.settings.mobile_logo_layout != 'center'}}
+          <button
+            class="icon-button header__icon-button pk-search-trigger"
+            data-pk-search-open
+            aria-label="Search"
+            type="button"
+          >
+            {{snippet "icon-search"}}
+          </button>
+        {{/if}}
+
         {{#if section.settings.show_search_entry and section.settings.mobile_logo_layout == 'center' }}
           <header-modal class="header__search">
             <details>
@@ -300,6 +313,17 @@
       </div>
 
       <div class="header__icons">
+                {{!-- PK Client-side Search Trigger --}}
+        <button
+          class="icon-button header__icon-button pk-search-trigger"
+          data-pk-search-open
+          aria-label="Search"
+          type="button"
+        >
+          {{snippet "icon-search"}}
+          <span class="pk-search-trigger__text">Search</span>
+        </button>
+        
         {{#if section.settings.show_user_entry}}
           <a
             class="icon-button header__icon-button
