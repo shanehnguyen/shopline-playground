@@ -184,7 +184,7 @@
           id="pk-main-img-{{section.id}}"
           class="pk-pdp__main-img"
           src="{{img_url product.featured_image.src width=800}}"
-          alt="{{product.featured_image.alt | default: product.title}}"
+          alt="{{#if product.featured_image.alt}}{{product.featured_image.alt}}{{else}}{{product.title}}{{/if}}"
         />
       </div>
     </div>
