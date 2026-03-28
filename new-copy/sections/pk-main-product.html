@@ -194,7 +194,7 @@
       <p class="pk-pdp__brand">PK Cabinet</p>
       <h1 class="pk-pdp__title">{{product.title}}</h1>
       <p class="pk-pdp__price">
-        {{product.selected_or_first_available_variant.price | money_with_currency}}
+        {{money_with_currency product.selected_or_first_available_variant.price}}
       </p>
 
       <div class="pk-pdp__meta">
@@ -203,7 +203,7 @@
         <span class="pk-pdp__meta-divider"></span>
         <a href="#pk-reviews-{{section.id}}" class="pk-pdp__reviews-link">See Reviews</a>
         <span class="pk-pdp__meta-divider"></span>
-        <span class="pk-pdp__sku">SKU: {{product.selected_or_first_available_variant.sku | default: product.variants[0].sku}}</span>
+        <span class="pk-pdp__sku">SKU: {{#if product.selected_or_first_available_variant.sku}}{{product.selected_or_first_available_variant.sku}}{{else}}{{product.variants.[0].sku}}{{/if}}</span>
       </div>
 
       <hr class="pk-pdp__hr" />
@@ -261,7 +261,7 @@
               <a class="pk-pdp__pair-card" href="{{this.url}}">
                 <img class="pk-pdp__pair-img" src="{{img_url this.featured_image.src width=240}}" alt="{{this.title}}" loading="lazy" />
                 <p class="pk-pdp__pair-name">{{this.title}}</p>
-                <p class="pk-pdp__pair-price">{{this.price | money_with_currency}}</p>
+                <p class="pk-pdp__pair-price">{{money_with_currency this.price}}</p>
               </a>
             {{/forIn}}
           </div>
@@ -363,7 +363,7 @@
               <a class="pk-pdp__rec-card" href="{{this.url}}">
                 <img class="pk-pdp__rec-img" src="{{img_url this.featured_image.src width=400}}" alt="{{this.title}}" loading="lazy" />
                 <p class="pk-pdp__rec-name">{{this.title}}</p>
-                <p class="pk-pdp__rec-price">{{this.price | money_with_currency}}</p>
+                <p class="pk-pdp__rec-price">{{money_with_currency this.price}}</p>
               </a>
             {{/forIn}}
           </div>
