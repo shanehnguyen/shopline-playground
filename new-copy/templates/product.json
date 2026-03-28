@@ -1,0 +1,598 @@
+{
+  "sections": {
+    "main-product-info": {
+      "disabled": false,
+      "type": "main-product",
+      "settings": {
+        "product_info_sticky": true,
+        "product_image_pc_show_style": "carousel",
+        "product_image_size": "medium",
+        "product_image_fill_type": "contain",
+        "product_image_ratio": "adapt_first_image",
+        "image_quality": "100",
+        "product_image_pc_thumbnail_postion": "bottom",
+        "product_thumbnail_image_size": "medium",
+        "video_loop": false,
+        "video_autoplay": false,
+        "youtube_simple_style": false,
+        "pc_magnifier_type": "click",
+        "magnifier_interactive_type": "mode_1",
+        "default_selected_variant": true,
+        "hide_variants": false,
+        "product_mobile_text_align": "left",
+        "product_mobile_thumbnail_image_hide": "hide",
+        "product_mobile_image_fill_type": "contain",
+        "product_mobile_image_ratio": "adapt_first_image",
+        "product_mobile_thumbnail_image_size": "medium",
+        "product_mobile_image_switch_style": "number",
+        "product_mobile_image_switch_position": "bottom",
+        "padding_top": 0,
+        "padding_bottom": 0
+      },
+      "blocks": {
+        "block_1": {
+          "type": "title",
+          "settings": {
+            "title_pc_font_size": 30,
+            "title_mobile_font_size": 20
+          },
+          "custom_css": [],
+          "blockId": "block_1",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "标题",
+          "overLimit": true
+        },
+        "block_2": {
+          "type": "price",
+          "settings": {
+            "show_order": "sale_origin",
+            "sale_font_size": "font_size_medium",
+            "regular_font_size": "font_size_small",
+            "sale_font_bold": true,
+            "font_size_flexible": false,
+            "sale_price_pc_font_size": 20,
+            "sale_price_mobile_font_size": 18,
+            "regular_price_pc_font_size": 20,
+            "regular_price_mobile_font_size": 16,
+            "discount_style": "number"
+          },
+          "custom_css": [],
+          "blockId": "block_2",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "价格",
+          "overLimit": true
+        },
+        "block_3": {
+          "type": "dividing_line",
+          "settings": {
+            "dividing_line_color": "#000000",
+            "dividing_line_height": 1
+          },
+          "blockId": "block_3",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "分割线",
+          "overLimit": false
+        },
+        "block_4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "flatten",
+            "enabled_color_swatch": true,
+            "color_swatch_type": "square",
+            "sizes": "medium",
+            "layout_direction": "row"
+          },
+          "disabled": false,
+          "blockId": "block_4",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "多属性选择器",
+          "overLimit": true
+        },
+        "block_5": {
+          "type": "quantity_selector",
+          "settings": {},
+          "blockId": "block_5",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "数量选择器",
+          "overLimit": true
+        },
+        "block_6": {
+          "type": "buy_buttons",
+          "settings": {
+            "button_layout": "embed"
+          },
+          "blockId": "block_6",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "购买按钮",
+          "overLimit": true
+        },
+        "block_7": {
+          "type": "description",
+          "settings": {
+            "location": "image_right",
+            "is_fold": false
+          },
+          "disabled": false,
+          "custom_css": [],
+          "blockId": "block_7",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "商品描述",
+          "overLimit": true
+        },
+        "block_8": {
+          "type": "product_additional",
+          "settings": {
+            "title": "Example title",
+            "description": "",
+            "enabled_fold": true
+          },
+          "disabled": true,
+          "blockId": "block_8",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "Example title",
+          "overLimit": false
+        },
+        "block_9": {
+          "type": "product_additional",
+          "settings": {
+            "title": "Example title",
+            "description": "",
+            "enabled_fold": true
+          },
+          "disabled": true,
+          "blockId": "block_9",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "Example title",
+          "overLimit": false
+        },
+        "block_10": {
+          "type": "product_additional",
+          "settings": {
+            "title": "Example title",
+            "description": "",
+            "enabled_fold": true
+          },
+          "disabled": true,
+          "blockId": "block_10",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "Example title",
+          "overLimit": false
+        },
+        "block_11": {
+          "type": "product_additional",
+          "settings": {
+            "title": "Example title",
+            "description": "",
+            "enabled_fold": true
+          },
+          "disabled": true,
+          "blockId": "block_11",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "Example title",
+          "overLimit": false
+        },
+        "block_12": {
+          "type": "share",
+          "settings": {},
+          "blockId": "block_12",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "分享",
+          "overLimit": true
+        },
+        "17404496203053ad449a": {
+          "blockId": "17404496203053ad449a",
+          "type": "shopline://apps/商品评价/blocks/comment-start/bd4a09d9-7542-4e11-931c-19fe441576aa",
+          "settings": {},
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "星级",
+          "overLimit": false,
+          "disabled": false
+        },
+        "177252775833016cd243": {
+          "type": "variant_sku",
+          "settings": {},
+          "blockId": "177252775833016cd243",
+          "sectionId": "main-product-info",
+          "canAddBlock": true,
+          "formatName": "SKU货号",
+          "overLimit": true
+        }
+      },
+      "block_order": [
+        "block_1",
+        "177252775833016cd243",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6",
+        "block_7",
+        "block_8",
+        "block_9",
+        "block_10",
+        "block_11",
+        "block_12",
+        "17404496203053ad449a"
+      ],
+      "custom_css": []
+    },
+    "product-recommendations": {
+      "disabled": false,
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_number": 6,
+        "pc_cols": 4,
+        "md_cols": 2,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "product_image_ratio": "150",
+        "product_fill_type": "contain",
+        "product_hover_show_next": true,
+        "notice_style": "",
+        "title_size": "medium",
+        "enable_horizontal_slider": true,
+        "products_to_show": 12,
+        "title": "You may also like"
+      },
+      "blocks": {},
+      "custom_css": []
+    },
+    "1739783299573e31dd2a": {
+      "disabled": false,
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      },
+      "blocks": {
+        "17397832995748540b75": {
+          "name": "t:embed.commentListName",
+          "type": "shopline://apps/商品评价/blocks/comment-list/bd4a09d9-7542-4e11-931c-19fe441576aa",
+          "settings": {
+            "padding_config": {
+              "pc": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+              },
+              "mobile": {
+                "left": 0,
+                "right": 0,
+                "top": 0,
+                "bottom": 0
+              }
+            },
+            "pc_comment_num": "12",
+            "mb_comment_num": "6",
+            "mobile_sort_type": "1",
+            "pc_header_size": "3",
+            "mb_header_size": "3",
+            "head_text_align": "left",
+            "pc_turn_page": "2",
+            "mb_turn_page": "2",
+            "hide_component": false,
+            "sort_by": "1"
+          },
+          "blockId": "17397832995748540b75",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "17397832995748540b75"
+      ],
+      "custom_css": []
+    },
+    "1740397635109bcc9622": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "auto",
+        "pc_image_width": "medium",
+        "pc_image_position": "left",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/1_ff91066a-750c-41ad-b916-0bc3a548afbb.webp"
+      },
+      "blocks": {
+        "174039763510994333e0": {
+          "type": "title",
+          "settings": {
+            "title": "Premium Dovetail Drawers",
+            "title_size": "medium"
+          },
+          "blockId": "174039763510994333e0",
+          "custom_css": []
+        },
+        "1740397635109713ecbf": {
+          "type": "content",
+          "settings": {
+            "content": "Handcrafted solid wood drawers for superior strength and longevity."
+          },
+          "blockId": "1740397635109713ecbf",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "174039763510994333e0",
+        "1740397635109713ecbf"
+      ],
+      "custom_css": []
+    },
+    "1740397638358e8622c4": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "auto",
+        "pc_image_width": "medium",
+        "pc_image_position": "right",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/1_f031f5ea-22ae-44a4-8b27-f519eef8831f.webp"
+      },
+      "blocks": {
+        "17403976383582e40489": {
+          "type": "title",
+          "settings": {
+            "title": "Thick & Strong Shelves",
+            "title_size": "medium"
+          },
+          "blockId": "17403976383582e40489",
+          "custom_css": []
+        },
+        "174039763835881ca9dc": {
+          "type": "content",
+          "settings": {
+            "content": "Reinforced shelves designed to hold heavy items without sagging.",
+            "title": "Thick & Strong Shelves"
+          },
+          "blockId": "174039763835881ca9dc",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "17403976383582e40489",
+        "174039763835881ca9dc"
+      ],
+      "custom_css": []
+    },
+    "1740397667956775b1ab": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "auto",
+        "pc_image_width": "medium",
+        "pc_image_position": "left",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/1_79c8fde7-971d-4c96-9323-e383c28bb0d0.webp"
+      },
+      "blocks": {
+        "1740397667956c29fe94": {
+          "type": "title",
+          "settings": {
+            "title": "Sturdy & Moisture-Resistant",
+            "title_size": "medium"
+          },
+          "blockId": "1740397667956c29fe94",
+          "custom_css": []
+        },
+        "17403976679569fab188": {
+          "type": "content",
+          "settings": {
+            "content": "High-quality plywood construction that stands the test of time."
+          },
+          "blockId": "17403976679569fab188",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "1740397667956c29fe94",
+        "17403976679569fab188"
+      ],
+      "custom_css": []
+    },
+    "1740397672556fd6ccd0": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "auto",
+        "pc_image_width": "medium",
+        "pc_image_position": "right",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/1_1a4da27a-9bdc-4640-bd3f-ca3ba46b17a2.webp"
+      },
+      "blocks": {
+        "1740397672556f1cb6d3": {
+          "type": "title",
+          "settings": {
+            "title": "Perfectly Aligned Doors",
+            "title_size": "medium"
+          },
+          "blockId": "1740397672556f1cb6d3",
+          "custom_css": []
+        },
+        "17403976725565ad6806": {
+          "type": "content",
+          "settings": {
+            "content": "Adjustable hinges ensure a seamless fit and smooth operation."
+          },
+          "blockId": "17403976725565ad6806",
+          "custom_css": []
+        },
+        "17403976725560535fd5": {
+          "type": "button",
+          "settings": {
+            "button_text": "Contact Us",
+            "link": "https://www.pkcabinet.com/pages/contact-us"
+          },
+          "blockId": "17403976725560535fd5",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "1740397672556f1cb6d3",
+        "17403976725565ad6806",
+        "17403976725560535fd5"
+      ],
+      "custom_css": []
+    },
+    "174039779204386aa53e": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "1740397792043bd904c3": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "logistics",
+            "title": "Free shipping",
+            "sub_title": "Capped at $50 per order."
+          },
+          "blockId": "1740397792043bd904c3"
+        },
+        "1740397792043f16f3a6": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "customer",
+            "title": "Chat with us",
+            "sub_title": "We offer 24-hour chat support."
+          },
+          "blockId": "1740397792043f16f3a6"
+        },
+        "17403977920436dee6bc": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "pay",
+            "title": "securety payments",
+            "sub_title": "Up to 12 months installments."
+          },
+          "blockId": "17403977920436dee6bc"
+        },
+        "1740397792043b612e1d": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "package",
+            "title": "30-day returns",
+            "sub_title": "Shop with confidence."
+          },
+          "blockId": "1740397792043b612e1d"
+        }
+      },
+      "block_order": [
+        "1740397792043bd904c3",
+        "1740397792043f16f3a6",
+        "17403977920436dee6bc",
+        "1740397792043b612e1d"
+      ],
+      "custom_css": []
+    }
+  },
+  "order": [
+    "main-product-info",
+    "product-recommendations",
+    "1739783299573e31dd2a",
+    "1740397635109bcc9622",
+    "1740397638358e8622c4",
+    "1740397667956775b1ab",
+    "1740397672556fd6ccd0",
+    "174039779204386aa53e"
+  ]
+}

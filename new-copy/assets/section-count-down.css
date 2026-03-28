@@ -1,0 +1,161 @@
+.mega-sale-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #F6F6F6;
+  text-align: center;
+}
+
+.mega-sale-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.mega-sale-title {
+  color: #006241;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.countdown-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 15px;
+  }
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  
+  @media (max-width: 768px) {
+    flex: 1;
+  }
+}
+
+.countdown-number {
+  color: #006241;
+  font-size: 28px;
+  font-weight: 600;
+  
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.countdown-label {
+  color: #006241;
+  font-size: 12px;
+  font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+.discount-tiers {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.discount-tier {
+  color: #006241;
+  font-size: 16px;
+  font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.count-down__timer-container {
+  color: rgb(var(--count-down-color));
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  &.divider {
+    border-top: none;
+  }
+}
+.count-down__result {
+  display: none;
+}
+
+.count-down__btn {
+  width: max-content;
+}
+
+count-down.countdown-display {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.countdown-number {
+  color: #006241;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.countdown-label {
+  color: #006241;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  count-down.countdown-display {
+    gap: 15px;
+  }
+  
+  .countdown-number {
+    font-size: 24px;
+  }
+}
+
+count-down.loading {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    min-height: 40px;
+  }
+}

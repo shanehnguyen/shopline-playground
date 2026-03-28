@@ -1,0 +1,22 @@
+{{snippet "stylesheet" href=(asset_url "catalog.css")}}
+
+<div class="catalog page-width">
+  <div class="catalog-pdf-container">
+    <div class="catalog-pdf-wrapper">
+      <object data="{{section.settings.pdf_link}}" type="application/pdf" width="100%" height="100%">
+      </object>
+    </div>
+  </div>
+</div>
+{{#schema}}
+{
+  "name": "Catalog",
+  "settings": [
+    {
+      "type": "url",
+      "id": "pdf_link",
+      "label": "PDF link"
+    }
+  ]
+}
+{{/schema}}

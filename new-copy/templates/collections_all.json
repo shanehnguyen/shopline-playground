@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "disabled": false,
+      "type": "main-list-collections",
+      "settings": {
+        "title": "",
+        "sort": "product_num_desc",
+        "col": 6,
+        "add_margin": true,
+        "show_divider": false,
+        "collection_fill_type": "cover",
+        "collection_image_ratio": "100",
+        "pc_cols": 4,
+        "md_cols": 2
+      },
+      "blocks": {},
+      "custom_css": []
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

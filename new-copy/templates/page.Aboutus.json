@@ -1,0 +1,558 @@
+{
+  "sections": {
+    "main": {
+      "disabled": true,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
+    "1740135471210ebce252": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "1740135471210b655582": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "logistics",
+            "title": "Free shipping",
+            "sub_title": "Minimum order at $5000"
+          },
+          "blockId": "1740135471210b655582"
+        },
+        "1740135471210043a31a": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "customer",
+            "title": "Chat with us",
+            "sub_title": "We offer 24-hour chat support."
+          },
+          "blockId": "1740135471210043a31a"
+        },
+        "17401354712106236b2b": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "pay",
+            "title": "securety payments",
+            "sub_title": "Up to 12 months installments."
+          },
+          "blockId": "17401354712106236b2b"
+        }
+      },
+      "block_order": [
+        "1740135471210b655582",
+        "1740135471210043a31a",
+        "17401354712106236b2b"
+      ],
+      "custom_css": []
+    },
+    "174013703284807862e7": {
+      "disabled": true,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "auto",
+        "pc_image_width": "medium",
+        "pc_image_position": "right",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/21_2_1.webp"
+      },
+      "blocks": {
+        "17401370328482839826": {
+          "type": "title",
+          "settings": {
+            "title": "About Us – PKCabinets",
+            "title_size": "medium"
+          },
+          "blockId": "17401370328482839826"
+        },
+        "1740137032848c18dc0e": {
+          "type": "content",
+          "settings": {
+            "content": "<p>In an era of fast-paced living and the need for efficiency, <strong>PKCabinets</strong>&nbsp;has risen quietly in the heart of America to provide top-notch home improvement solutions. Whether you're a budget-conscious business or an innovative DIY enthusiast, we're here to meet your needs and provide a one-stop kitchen and bathroom remodeling solution that ensures every customer enjoys superior quality and convenience in the most cost-effective way possible.</p>"
+          },
+          "blockId": "1740137032848c18dc0e"
+        }
+      },
+      "block_order": [
+        "17401370328482839826",
+        "1740137032848c18dc0e"
+      ],
+      "custom_css": []
+    },
+    "17401370468405e1f08a": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "low",
+        "pc_image_width": "medium",
+        "pc_image_position": "left",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/3.webp"
+      },
+      "blocks": {
+        "174013704684042bf0cd": {
+          "type": "title",
+          "settings": {
+            "title": "Our Mission",
+            "title_size": "medium"
+          },
+          "blockId": "174013704684042bf0cd",
+          "sectionId": "17401370468405e1f08a",
+          "canAddBlock": true,
+          "formatName": "Our Mission",
+          "overLimit": true
+        },
+        "174013704684016328f8": {
+          "type": "content",
+          "settings": {
+            "content": "<p>Operating through a factory direct network, PK Cabinet allows you to purchase high-quality home furnishings products directly from the factory at factory prices, eliminating the middleman and extra costs. We're especially known for our signature <strong>Shaker style</strong>, which has won acclaim for its simplicity, timeless appeal and versatility. Whether you're renovating your kitchen or remodeling your bathroom, PK Cabinet is the perfect choice.</p>"
+          },
+          "blockId": "174013704684016328f8",
+          "custom_css": [],
+          "sectionId": "17401370468405e1f08a",
+          "canAddBlock": true,
+          "formatName": "文本",
+          "overLimit": true
+        }
+      },
+      "block_order": [
+        "174013704684042bf0cd",
+        "174013704684016328f8"
+      ],
+      "custom_css": []
+    },
+    "174013705696773bec99": {
+      "disabled": false,
+      "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
+      "settings": {
+        "icon_width": 48,
+        "icon_layout": "vertical",
+        "alignment": "left",
+        "mobile_rendermode": "scroll",
+        "card_style": false,
+        "background_color": "#ffffff",
+        "card_color": "#f8f8f8",
+        "icon_color": "#000000",
+        "container_max_width": 1420,
+        "container_config": {
+          "pc": {
+            "left": 40,
+            "right": 40,
+            "top": 60,
+            "bottom": 60
+          },
+          "mobile": {
+            "left": 20,
+            "right": 20,
+            "top": 40,
+            "bottom": 40
+          }
+        },
+        "container_margin_config": {
+          "pc": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          },
+          "mobile": {
+            "left": 0,
+            "right": 0,
+            "top": 0,
+            "bottom": 0
+          }
+        },
+        "horizontal_spacing": 22,
+        "title_font_family": "Poppins:600",
+        "title_font_color": "#000000",
+        "title_pc_font_size": 20,
+        "title_m_font_size": 18,
+        "title_letter_spacing": 0,
+        "title_line_height": 1,
+        "body_font_family": "Montserrat:400",
+        "body_font_color": "#000000",
+        "body_pc_font_size": 16,
+        "body_m_font_size": 14,
+        "body_letter_spacing": 0,
+        "body_line_height": 1.6,
+        "card_border_thickness": 0,
+        "card_border_opacity": 10,
+        "card_border_radius": 0,
+        "card_border_color": "#000000",
+        "card_shadow_opacity": 0,
+        "card_shadow_offset_x": 0,
+        "card_shadow_offset_y": 4,
+        "card_shadow_blur": 5,
+        "card_shadow_color": "#000000"
+      },
+      "blocks": {
+        "1740135471210043a31a": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "customer",
+            "title": "Chat with us",
+            "sub_title": "We offer 24-hour chat support."
+          },
+          "blockId": "1740135471210043a31a"
+        },
+        "17401354712106236b2b": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "pay",
+            "title": "securety payments",
+            "sub_title": "Up to 12 months installments."
+          },
+          "blockId": "17401354712106236b2b"
+        },
+        "1740135471210bc13790": {
+          "type": "icon",
+          "icon": "image",
+          "settings": {
+            "icon": "package",
+            "title": "14-day returns",
+            "sub_title": "Shop with confidence."
+          },
+          "blockId": "1740135471210bc13790"
+        },
+        "17401370814963f2dbdd": {
+          "type": "icon",
+          "settings": {
+            "icon": "logistics",
+            "title": "Free Shipping",
+            "sub_title": "Minimum order at $5000"
+          }
+        }
+      },
+      "block_order": [
+        "1740135471210043a31a",
+        "17401354712106236b2b",
+        "1740135471210bc13790",
+        "17401370814963f2dbdd"
+      ],
+      "custom_css": []
+    },
+    "1742207974480d620e0c": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "low",
+        "pc_image_width": "medium",
+        "pc_image_position": "right",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/gray shaker.jpg"
+      },
+      "blocks": {
+        "174013704684042bf0cd": {
+          "type": "title",
+          "settings": {
+            "title": "Why choose PK Cabinet?",
+            "title_size": "medium"
+          },
+          "blockId": "174013704684042bf0cd",
+          "custom_css": [],
+          "sectionId": "1742207974480d620e0c",
+          "canAddBlock": true,
+          "formatName": "Why choose PK Cabinet?",
+          "overLimit": true
+        },
+        "174013704684016328f8": {
+          "type": "content",
+          "settings": {
+            "content": "<p><strong>- Quality and value at the same time</strong></p>\n<p>Every piece of cabinetry and bathroom fixture is carefully crafted to ensure exceptional quality standards. We pay attention to every detail and are committed to providing you with durable and beautiful solutions for your home.</p>\n<p><strong>- One-Stop Solutions</strong></p>\n<p>From design to installation, we offer a comprehensive kitchen and bathroom refurbishment service. Whether you're a DIY enthusiast or you're in the midst of a major home remodeling project, we offer professional support and efficient service to make every step of the process easy and enjoyable.</p>\n<p><strong>- Fast and affordable refurbishment services</strong></p>\n<p>Our services are not only efficient and fast but also cost-effective. Whether it's a home renovation or a commercial project, we can help you save time and money by completing your renovation quickly and cost-effectively.</p>"
+          },
+          "blockId": "174013704684016328f8",
+          "sectionId": "1742207974480d620e0c",
+          "canAddBlock": true,
+          "formatName": "文本",
+          "overLimit": true
+        }
+      },
+      "block_order": [
+        "174013704684042bf0cd",
+        "174013704684016328f8"
+      ],
+      "custom_css": []
+    },
+    "174220802897722296fe": {
+      "disabled": false,
+      "type": "image-banner",
+      "settings": {
+        "banner_height_size": "middle",
+        "override_banner_height": false,
+        "pc_content_position": "center",
+        "pc_text_position": "center",
+        "pc_show_textarea": true,
+        "alpha_range": "30",
+        "color_scheme": "none",
+        "mobile_text_position": "center",
+        "mobile_banner_flatten": true,
+        "m_show_textarea": true,
+        "banner2": "",
+        "banner1": "shopline://shop_images/微信图片_20250218095432.jpg"
+      },
+      "blocks": {
+        "1742208028977f034435": {
+          "type": "title",
+          "settings": {
+            "title": "About Us – PK Cabinet",
+            "title_size": "title3"
+          },
+          "blockId": "1742208028977f034435",
+          "custom_css": []
+        },
+        "17422080289779780e8c": {
+          "type": "desc",
+          "settings": {
+            "description": "In an era of fast-paced living and the need for efficiency, PK Cabinet has risen quietly in the heart of America to provide top-notch home improvement solutions. Whether you're a budget-conscious business or an innovative DIY enthusiast, we're here to meet your needs and provide a one-stop kitchen and bathroom remodeling solution that ensures every customer enjoys superior quality and convenience in the most cost-effective way possible."
+          },
+          "blockId": "17422080289779780e8c",
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "1742208028977f034435",
+        "17422080289779780e8c"
+      ],
+      "custom_css": []
+    },
+    "1742208173048970f48d": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "low",
+        "pc_image_width": "medium",
+        "pc_image_position": "left",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/slim white shaker.jpg"
+      },
+      "blocks": {
+        "174013704684042bf0cd": {
+          "type": "title",
+          "settings": {
+            "title": "Our Commitment",
+            "title_size": "medium"
+          },
+          "blockId": "174013704684042bf0cd",
+          "sectionId": "1742208173048970f48d",
+          "canAddBlock": true,
+          "formatName": "Our Commitment",
+          "overLimit": true
+        },
+        "174013704684016328f8": {
+          "type": "content",
+          "settings": {
+            "content": "<p>As our style options continue to expand, PK Cabinet maintains our core commitment to <strong>providing fast, cost-effective renovations without compromising on quality.</strong>&nbsp;We are more than just a home furnishing company, we are committed to creating functional and beautiful living spaces that give you confidence and satisfaction on every home renovation journey.</p>"
+          },
+          "blockId": "174013704684016328f8",
+          "custom_css": [],
+          "sectionId": "1742208173048970f48d",
+          "canAddBlock": true,
+          "formatName": "文本",
+          "overLimit": true
+        }
+      },
+      "block_order": [
+        "174013704684042bf0cd",
+        "174013704684016328f8"
+      ],
+      "custom_css": []
+    },
+    "17422082039933a40534": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "low",
+        "pc_image_width": "medium",
+        "pc_image_position": "right",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/slim gray shaker.jpg"
+      },
+      "blocks": {
+        "174013704684042bf0cd": {
+          "type": "title",
+          "settings": {
+            "title": "Our Team",
+            "title_size": "medium"
+          },
+          "blockId": "174013704684042bf0cd",
+          "sectionId": "17422082039933a40534",
+          "canAddBlock": true,
+          "formatName": "Our Team",
+          "overLimit": true
+        },
+        "174013704684016328f8": {
+          "type": "content",
+          "settings": {
+            "content": "<p>At PK Cabinet, we don't just rely on technical and product strengths, we have a passionate and creative team. Our team consists of experienced designers, professional craftsmen and efficient customer service staff who are dedicated to providing unparalleled home solutions to every customer.</p>\n<p>&nbsp;</p>\n<p><strong>- Designers</strong></p>\n<p>Our designers translate your ideas and needs into specific design solutions, ensuring that every cabinet and bathroom fixture fits your aesthetic and usage needs. They understand the uniqueness of each space and specialize in design solutions that combine creativity and practicality to transform your home.</p>\n<p><strong>- Craftsmen and Manufacturing Team</strong></p>\n<p>Every PK Cabinet product is handcrafted by experienced craftsmen to ensure that every cabinet and bathroom fixture is flawless. Our craftsmen take every technical detail to the extreme and strive for the best.</p>\n<p><strong>- Customer Service Team</strong></p>\n<p>We understand that the needs of our customers are of paramount importance, so we place special emphasis on communication and service with our customers. Whether it's during the design phase or post-installation, our customer service team is always on hand to provide expert advice and support to ensure your home renovation experience is smooth and worry-free.</p>"
+          },
+          "blockId": "174013704684016328f8",
+          "custom_css": [],
+          "sectionId": "17422082039933a40534",
+          "canAddBlock": true,
+          "formatName": "文本",
+          "overLimit": true
+        }
+      },
+      "block_order": [
+        "174013704684042bf0cd",
+        "174013704684016328f8"
+      ],
+      "custom_css": []
+    },
+    "1742208237504d963825": {
+      "disabled": false,
+      "type": "image-with-text",
+      "settings": {
+        "image_height": "low",
+        "pc_image_width": "medium",
+        "pc_image_position": "left",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "none",
+        "mobile_text_align": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "image": "shopline://shop_images/slim natural shaker.png"
+      },
+      "blocks": {
+        "174013704684042bf0cd": {
+          "type": "title",
+          "settings": {
+            "title": "Contact us today to take the first step in creating your ideal home!",
+            "title_size": "medium"
+          },
+          "blockId": "174013704684042bf0cd",
+          "sectionId": "1742208237504d963825",
+          "canAddBlock": true,
+          "formatName": "Contact us today to take the first step in creating your ideal home!",
+          "overLimit": true
+        },
+        "174013704684016328f8": {
+          "type": "content",
+          "settings": {
+            "content": "<p>At PK Cabinet, we focus on the needs of each customer and provide customized solutions. Let us help you create a functional and stylish home space that fulfills your unique home dreams!</p>"
+          },
+          "blockId": "174013704684016328f8",
+          "custom_css": [],
+          "sectionId": "1742208237504d963825",
+          "canAddBlock": true,
+          "formatName": "文本",
+          "overLimit": true
+        }
+      },
+      "block_order": [
+        "174013704684042bf0cd",
+        "174013704684016328f8"
+      ],
+      "custom_css": []
+    }
+  },
+  "order": [
+    "main",
+    "174220802897722296fe",
+    "174013703284807862e7",
+    "1740135471210ebce252",
+    "17401370468405e1f08a",
+    "1742207974480d620e0c",
+    "1742208173048970f48d",
+    "17422082039933a40534",
+    "1742208237504d963825",
+    "174013705696773bec99"
+  ]
+}

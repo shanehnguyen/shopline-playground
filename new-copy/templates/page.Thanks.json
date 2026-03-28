@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "main": {
+      "disabled": true,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
+    "1740135448652ceb843c": {
+      "disabled": false,
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "color_scheme": "none",
+        "normal_width": true,
+        "show_decoration": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {
+        "1740135448652e298540": {
+          "type": "heading",
+          "settings": {
+            "heading": "Thanks",
+            "heading_size": "title3"
+          },
+          "blockId": "1740135448652e298540",
+          "custom_css": []
+        },
+        "1740135448652d73f2ae": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your consultation is very important to us<br>We have received your inquiry and will respond to you within 24 hours.</p>"
+          },
+          "blockId": "1740135448652d73f2ae",
+          "custom_css": []
+        },
+        "17443582857985815908": {
+          "type": "button",
+          "settings": {
+            "button_text": "back home",
+            "button_style_secondary": false,
+            "button_text_2": "",
+            "button_style_secondary_2": false,
+            "button_link_2": "shopline://home",
+            "button_link": "shopline://home"
+          },
+          "custom_css": []
+        }
+      },
+      "block_order": [
+        "1740135448652e298540",
+        "1740135448652d73f2ae",
+        "17443582857985815908"
+      ],
+      "custom_css": []
+    }
+  },
+  "order": [
+    "main",
+    "1740135448652ceb843c"
+  ]
+}
