@@ -1,9 +1,15 @@
 {
   "sections": {
+    "main": {
+      "disabled": true,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
     "pk-contractor-page": {
       "type": "pk-contractor-page",
       "settings": {}
     }
   },
-  "order": ["pk-contractor-page"]
+  "order": ["main", "pk-contractor-page"]
 }

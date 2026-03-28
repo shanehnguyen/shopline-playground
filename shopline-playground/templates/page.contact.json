@@ -1,9 +1,15 @@
 {
   "sections": {
+    "main": {
+      "disabled": true,
+      "type": "main-page",
+      "settings": {},
+      "blocks": {}
+    },
     "pk-contact-page": {
       "type": "pk-contact-page",
       "settings": {}
     }
   },
-  "order": ["pk-contact-page"]
+  "order": ["main", "pk-contact-page"]
 }
