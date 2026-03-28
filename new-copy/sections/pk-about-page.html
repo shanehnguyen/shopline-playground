@@ -1,0 +1,223 @@
+<style>
+  .pk-about * { box-sizing: border-box; }
+
+  /* ── Pull-quote ── */
+  .pk-about__mission {
+    background: #fff;
+    padding: 60px 16px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  @media (min-width: 768px) { .pk-about__mission { padding: 80px 32px; } }
+  .pk-about__mission-inner { max-width: 700px; width: 100%; }
+  .pk-about__mission-label {
+    display: block;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: #a89060; margin-bottom: 24px;
+  }
+  .pk-about__mission-quote {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 24px; font-style: italic; font-weight: 400;
+    color: #1a1a1a; line-height: 1.6; margin: 0;
+  }
+  @media (min-width: 768px) { .pk-about__mission-quote { font-size: 30px; } }
+
+  /* ── Our Craft ── */
+  .pk-about__craft {
+    background: #fff;
+    padding: 60px 16px;
+  }
+  @media (min-width: 768px) { .pk-about__craft { padding: 72px 32px; } }
+  .pk-about__craft-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; flex-direction: column;
+    align-items: flex-start; gap: 48px;
+  }
+  @media (min-width: 1024px) {
+    .pk-about__craft-inner { flex-direction: row; gap: 80px; }
+  }
+  .pk-about__craft-left { width: 100%; }
+  @media (min-width: 1024px) { .pk-about__craft-left { width: 45%; } }
+  .pk-about__craft-sublabel {
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 11px; font-style: italic;
+    color: #a89060; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .pk-about__craft-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px; font-weight: 400; color: #1a1a1a;
+    line-height: 1.2; margin: 0 0 24px;
+  }
+  @media (min-width: 768px) { .pk-about__craft-title { font-size: 34px; } }
+  .pk-about__craft-body {
+    font-size: 15px; line-height: 1.8; color: #6b6258; margin: 0;
+  }
+  .pk-about__craft-right { width: 100%; display: flex; justify-content: flex-end; }
+  @media (min-width: 1024px) { .pk-about__craft-right { width: 55%; } }
+  .pk-about__craft-img {
+    width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+    border-radius: 2px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+  .pk-about__craft-img-placeholder {
+    width: 100%; aspect-ratio: 3 / 2;
+    background: #eeebe6;
+    border-radius: 2px;
+  }
+  .pk-about__craft-img-wrap { width: 100%; }
+  .pk-about__craft-img-wrap picture,
+  .pk-about__craft-img-wrap img {
+    width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+    border-radius: 2px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    display: block;
+  }
+
+  /* ── Heart of every cabinet ── */
+  .pk-about__heart {
+    background: #fff;
+    padding: 60px 16px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  @media (min-width: 768px) { .pk-about__heart { padding: 80px 32px; } }
+  .pk-about__heart-inner { max-width: 896px; width: 100%; }
+  .pk-about__heart-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px; font-weight: 700; color: #1a1a1a;
+    line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 40px;
+  }
+  @media (min-width: 768px) { .pk-about__heart-title { font-size: 56px; } }
+  .pk-about__heart-body {
+    font-size: 15px; color: #6b6258; line-height: 1.8;
+    max-width: 520px; margin: 0 auto;
+  }
+
+  /* ── Why Choose Us ── */
+  .pk-about__why {
+    background: #fff;
+    padding: 60px 16px;
+  }
+  @media (min-width: 768px) { .pk-about__why { padding: 80px 32px; } }
+  .pk-about__why-inner { max-width: 1280px; margin: 0 auto; }
+  .pk-about__why-grid {
+    display: grid; grid-template-columns: 1fr; gap: 48px;
+  }
+  @media (min-width: 768px) { .pk-about__why-grid { grid-template-columns: repeat(3, 1fr); } }
+  .pk-about__why-item { display: flex; flex-direction: column; gap: 16px; }
+  .pk-about__why-label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: #a89060;
+  }
+  .pk-about__why-body { font-size: 15px; color: #6b6258; line-height: 1.6; margin: 0; }
+
+  /* ── Brand Story ── */
+  .pk-about__story {
+    background: #fff;
+    padding: 60px 16px;
+    border-top: 1px solid #e0dcd5;
+  }
+  @media (min-width: 768px) { .pk-about__story { padding: 80px 32px; } }
+  .pk-about__story-inner {
+    max-width: 768px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .pk-about__story-p {
+    font-size: 16px; line-height: 1.8; color: #6b6258; margin: 0;
+  }
+  .pk-about__story-p--italic { font-weight: 500; font-style: italic; }
+</style>
+
+<div class="pk-about">
+
+  <!-- Pull-quote / Mission -->
+  <section class="pk-about__mission">
+    <div class="pk-about__mission-inner">
+      <span class="pk-about__mission-label">Our Mission.</span>
+      <p class="pk-about__mission-quote">
+        "Operating through a factory direct network, PK Cabinet lets you purchase high-quality cabinetry directly from the factory — eliminating the middleman and the extra costs."
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Craft split -->
+  <section class="pk-about__craft">
+    <div class="pk-about__craft-inner">
+      <div class="pk-about__craft-left">
+        <span class="pk-about__craft-sublabel">Our Craft</span>
+        <h2 class="pk-about__craft-title">The Perfect Combination of Quality and Value</h2>
+        <p class="pk-about__craft-body">Every piece of cabinetry is carefully crafted to ensure exceptional quality standards. We pay attention to every detail and are committed to providing durable, beautiful solutions for your home. We're especially known for our signature Shaker style — acclaimed for its simplicity, timeless appeal, and versatility.</p>
+      </div>
+      <div class="pk-about__craft-right">
+        <div class="pk-about__craft-img-wrap">
+          {{#if section.settings.craft_image}}
+            {{snippet "image" data=section.settings.craft_image class="pk-about__craft-img"}}
+          {{else}}
+            <div class="pk-about__craft-img-placeholder"></div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heart of every cabinet -->
+  <section class="pk-about__heart">
+    <div class="pk-about__heart-inner">
+      <h2 class="pk-about__heart-title">
+        The heart of<br>every cabinet.
+      </h2>
+      <p class="pk-about__heart-body">
+        At PK Cabinet, we believe your home deserves furniture as enduring as the memories made inside it. From design to delivery, we handle every step so you don't have to.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="pk-about__why">
+    <div class="pk-about__why-inner">
+      <div class="pk-about__why-grid">
+        <div class="pk-about__why-item">
+          <span class="pk-about__why-label">Quality &amp; Value</span>
+          <p class="pk-about__why-body">Every cabinet is built to exceptional standards. We pay attention to every detail — durable, beautiful, and built to last.</p>
+        </div>
+        <div class="pk-about__why-item">
+          <span class="pk-about__why-label">One-Stop Solutions</span>
+          <p class="pk-about__why-body">From design to installation, we offer comprehensive kitchen and bathroom cabinet services. Professional support at every step.</p>
+        </div>
+        <div class="pk-about__why-item">
+          <span class="pk-about__why-label">Fast &amp; Affordable</span>
+          <p class="pk-about__why-body">Efficient, fast, and cost-effective. Whether a home renovation or commercial project, we help you save time and money.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Story & Commitment -->
+  <section class="pk-about__story">
+    <div class="pk-about__story-inner">
+      <p class="pk-about__story-p">At PK Cabinet, we don't just rely on technical and product strengths — we have a passionate and creative team. Our designers translate your ideas into specific design solutions. Our craftsmen handcraft every cabinet to ensure flawless quality. And our customer service team is always on hand to ensure your renovation experience is smooth and worry-free.</p>
+      <p class="pk-about__story-p pk-about__story-p--italic">As our style options continue to expand, PK Cabinet maintains our core commitment to providing fast, cost-effective renovations without compromising on quality. We are more than just a cabinet company — we are committed to creating functional and beautiful living spaces that give you confidence on every home renovation journey.</p>
+    </div>
+  </section>
+
+</div>
+
+{{#schema}}
+{
+  "name": "PK About Page",
+  "class": "pk-about-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "craft_image",
+      "label": "Our Craft Section Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PK About Page",
+      "category": "Custom"
+    }
+  ]
+}
+{{/schema}}

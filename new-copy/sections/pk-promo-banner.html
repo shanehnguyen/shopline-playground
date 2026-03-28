@@ -1,0 +1,115 @@
+<style>
+.pk-promo {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 21 / 9;
+  min-height: 400px;
+  background: #1a1a1a;
+  overflow: hidden;
+  display: block;
+}
+.pk-promo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  display: block;
+}
+.pk-promo__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+.pk-promo__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 96px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pk-promo__title {
+  font-family: 'Cabinet Grotesk', 'Inter', sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.pk-promo__sub {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+.pk-promo__link {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
+  margin-top: 8px;
+}
+.pk-promo__link:hover { color: #a89060; }
+@media (max-width: 959px) {
+  .pk-promo__content { padding: 48px 24px; }
+  .pk-promo__title { font-size: 36px; }
+}
+@media (max-width: 749px) {
+  .pk-promo__content { padding: 24px 16px; }
+  .pk-promo__title { font-size: 28px; }
+  .pk-promo__sub { font-size: 10px; }
+}
+</style>
+
+<div class="pk-promo">
+  {{#if section.settings.image}}
+    {{snippet "image" data=section.settings.image}}
+  {{else}}
+    <div style="position:absolute;inset:0;background:#333;"></div>
+  {{/if}}
+  <div class="pk-promo__overlay"></div>
+  <div class="pk-promo__content">
+    <h2 class="pk-promo__title">{{#if section.settings.title}}{{section.settings.title}}{{else}}Shady Collection{{/if}}</h2>
+    <p class="pk-promo__sub">{{#if section.settings.subtitle}}{{section.settings.subtitle}}{{else}}Gray Shaker — Modern Minimalist Elegance{{/if}}</p>
+    <a class="pk-promo__link" href="{{#if section.settings.link}}{{section.settings.link}}{{else}}/collections/all{{/if}}">
+      {{#if section.settings.link_text}}{{section.settings.link_text}}{{else}}Explore Collection{{/if}}
+    </a>
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "PK Promo Banner",
+  "class": "section",
+  "settings": [
+    { "id": "image",     "type": "image_picker", "label": "Background Image" },
+    { "id": "title",     "type": "text", "label": "Heading",   "default": "Shady Collection" },
+    { "id": "subtitle",  "type": "text", "label": "Subtitle",  "default": "Gray Shaker — Modern Minimalist Elegance" },
+    { "id": "link_text", "type": "text", "label": "Link Text", "default": "Explore Collection" },
+    { "id": "link",      "type": "url",  "label": "Link URL" }
+  ],
+  "presets": [{
+    "name": "PK Promo Banner",
+    "category": "Custom",
+    "settings": {
+      "title": "Shady Collection",
+      "subtitle": "Gray Shaker — Modern Minimalist Elegance",
+      "link_text": "Explore Collection"
+    }
+  }]
+}
+{{/schema}}
