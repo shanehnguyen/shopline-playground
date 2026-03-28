@@ -6,10 +6,10 @@
       "settings": {},
       "blocks": {}
     },
-    "pk-design-page": {
-      "type": "pk-design-page",
+    "pk-contractor-page": {
+      "type": "pk-contractor-page",
       "settings": {}
     }
   },
-  "order": ["main", "pk-design-page"]
+  "order": ["main", "pk-contractor-page"]
 }
