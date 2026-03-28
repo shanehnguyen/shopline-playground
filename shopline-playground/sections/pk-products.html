@@ -489,7 +489,7 @@
     <nav class="pk-prod__crumbs">
       <a href="/">Home</a>
       <span>/</span>
-      <span>{{collection.title}}</span>
+      <span>{{section.settings.collection.title}}</span>
     </nav>
 
     <!-- Toolbar -->
@@ -610,7 +610,7 @@
       <!-- Product grid -->
       <div class="pk-prod__grid-wrap">
         <div class="pk-prod__grid" id="pk-grid">
-          {{#each collection.products}}
+          {{#each section.settings.collection.products}}
           <div class="pk-prod__card"
             data-collection="{{product_type}}"
             data-tags="{{#each tags}}{{this}},{{/each}}"
@@ -899,6 +899,7 @@
   "name": "PK Products Page",
   "class": "section",
   "settings": [
+    { "id": "collection", "type": "collection_picker", "label": "Collection" },
     { "id": "show_collection_filter", "type": "checkbox", "label": "Show collection filter", "default": true },
     { "id": "show_color_filter",      "type": "checkbox", "label": "Show color filter",      "default": true }
   ],
