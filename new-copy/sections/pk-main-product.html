@@ -208,7 +208,7 @@
 
       <hr class="pk-pdp__hr" />
 
-      <div class="pk-pdp__desc">{{product.description}}</div>
+      <div class="pk-pdp__desc">{{{product.description}}}</div>
 
       <!-- Variant Picker -->
       {{#unless product.has_only_default_variant}}
@@ -276,7 +276,7 @@
       <!-- Left: Description -->
       <div>
         <h2 class="pk-pdp__details-h2">Product Details</h2>
-        <p class="pk-pdp__details-p">{{product.description}}</p>
+        <p class="pk-pdp__details-p">{{{product.description}}}</p>
         <div class="pk-pdp__details-badge">D</div>
         <p class="pk-pdp__details-tagline"><em>Crafted with precision. Built to last.</em></p>
       </div>
@@ -286,7 +286,7 @@
           <summary>Dimensions <span class="pk-pdp__accord-icon">+</span></summary>
           <div class="pk-pdp__accord-body">
             {{#if product.metafields.custom.dimensions}}
-              {{product.metafields.custom.dimensions}}
+              {{{product.metafields.custom.dimensions}}}
             {{else}}
               <p>Please refer to the product specification sheet for detailed dimensions.</p>
             {{/if}}
@@ -296,7 +296,7 @@
           <summary>Materials <span class="pk-pdp__accord-icon">+</span></summary>
           <div class="pk-pdp__accord-body">
             {{#if product.metafields.custom.materials}}
-              {{product.metafields.custom.materials}}
+              {{{product.metafields.custom.materials}}}
             {{else}}
               <ul>
                 <li>Solid wood frame and face frames</li>
