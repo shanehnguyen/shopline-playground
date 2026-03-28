@@ -2,6 +2,7 @@
    PK Cabinet — Client-side Search Overlay
    Matches design tokens from finished-product/src/index.css
    ========================================================================== */
+
  
 /* ---- Design Tokens ---- */
 :root {
@@ -13,6 +14,7 @@
   --pk-input-border: #c8c0b4;
   --pk-placeholder-bg: #eeebe6;
 }
+
  
 /* ---- Search Trigger Button (in navbar) ---- */
 .pk-search-trigger {

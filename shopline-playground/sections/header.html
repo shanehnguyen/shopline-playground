@@ -8,7 +8,7 @@
 <script src="{{asset_url 'component-predictive-search.js'}}" defer></script>
 <script src="{{asset_url 'section-header-modal.js'}}" defer></script>
 <script src="{{asset_url 'pk-search.js'}}" defer></script>
- 
+
 {{!--
   Inject live product data for client-side search.
   pk-search.js reads window.PK_PRODUCTS at init time;
@@ -125,7 +125,7 @@ window.PK_PRODUCTS.push({
         "
     >
       <div class="header__left-tools display-flex-tablet display-none-desktop">
-        
+
         {{assign "menu" (default mobile_main_menu main_menu)}}
         {{snippet "header-menu-drawer" section=section menu=menu class="display-none-desktop" highlight_menus_list=highlight_menus_list}}
         
