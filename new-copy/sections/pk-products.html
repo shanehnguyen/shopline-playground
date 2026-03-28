@@ -1,0 +1,943 @@
+<style>
+/* ---- PK Products Page ---- */
+.pk-prod {
+  background: #ffffff;
+  padding: 72px 32px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+.pk-prod *,
+.pk-prod *::before,
+.pk-prod *::after {
+  box-sizing: border-box;
+}
+.pk-prod__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Breadcrumbs */
+.pk-prod__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6b6258;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 48px;
+}
+.pk-prod__crumbs a {
+  color: #6b6258;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.pk-prod__crumbs a:hover { color: #a89060; }
+.pk-prod__crumbs span { color: #6b6258; }
+
+/* Toolbar */
+.pk-prod__toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+.pk-prod__toolbar-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.pk-prod__toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.pk-prod__filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
+}
+.pk-prod__filter-toggle:hover { color: #a89060; }
+.pk-prod__filter-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pk-prod__count {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a89060;
+  font-family: 'Inter', sans-serif;
+}
+.pk-prod__sort {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pk-prod__sort-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6b6258;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+.pk-prod__sort-wrap {
+  position: relative;
+}
+.pk-prod__sort-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid #e0dcd5;
+  padding: 8px 40px 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  min-width: 160px;
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 0;
+}
+.pk-prod__sort-select:focus { border-color: #a89060; }
+.pk-prod__sort-chevron {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #a89060;
+}
+.pk-prod__sort-chevron svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Active filter chips */
+.pk-prod__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.pk-prod__chips.is-hidden { display: none; }
+.pk-prod__chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(224,220,213,0.3);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.pk-prod__chip:hover { background: rgba(224,220,213,0.5); }
+.pk-prod__chip svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pk-prod__clearall {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a89060;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin-left: 8px;
+  transition: color 0.2s;
+}
+.pk-prod__clearall:hover { color: #1a1a1a; }
+
+/* Body: sidebar + grid */
+.pk-prod__body {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* Sidebar */
+.pk-prod__sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+.pk-prod__sidebar.is-hidden {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.pk-prod__filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.pk-prod__filter-group.is-hidden { display: none; }
+.pk-prod__filter-heading {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+.pk-prod__filter-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pk-prod__filter-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.pk-prod__filter-label:hover .pk-prod__filter-text { color: #1a1a1a; }
+.pk-prod__filter-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pk-prod__filter-cb {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e0dcd5;
+  cursor: pointer;
+  accent-color: #a89060;
+  flex-shrink: 0;
+  border-radius: 0;
+}
+.pk-prod__filter-text {
+  font-size: 13px;
+  color: #6b6258;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
+}
+.pk-prod__filter-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #e0dcd5;
+  flex-shrink: 0;
+}
+.pk-prod__filter-count {
+  font-size: 11px;
+  color: rgba(107,98,88,0.6);
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Product grid */
+.pk-prod__grid-wrap { flex-grow: 1; min-width: 0; overflow: hidden; }
+.pk-prod__grid {
+  display: grid;
+  column-gap: 32px;
+  row-gap: 64px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.pk-prod__body.filters-open .pk-prod__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Product card */
+.pk-prod__card {
+  cursor: pointer;
+  min-width: 0;
+}
+.pk-prod__card.is-hidden { display: none; }
+.pk-prod__card a { text-decoration: none; color: inherit; display: block; }
+.pk-prod__img-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ffffff;
+  margin-bottom: 24px;
+  width: 100%;
+}
+/* Shopline renders {{snippet "image"}} as <picture> — target both */
+.pk-prod__img-wrap picture,
+.pk-prod__img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.pk-prod__img-wrap img {
+  object-fit: contain;
+  background: #ffffff;
+  transition: opacity 0.3s ease;
+}
+.pk-prod__img-main,
+.pk-prod__img-main img { opacity: 1; z-index: 1; }
+.pk-prod__img-hover,
+.pk-prod__img-hover img { opacity: 0; z-index: 2; transition: opacity 0.3s ease; }
+.pk-prod__img-wrap:hover .pk-prod__img-main,
+.pk-prod__img-wrap:hover .pk-prod__img-main img { opacity: 0; }
+.pk-prod__img-wrap:hover .pk-prod__img-hover,
+.pk-prod__img-wrap:hover .pk-prod__img-hover img { opacity: 1; }
+/* Add to cart bar */
+.pk-prod__add {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: #ffffff;
+  padding: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 3;
+}
+.pk-prod__add svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pk-prod__img-wrap:hover .pk-prod__add {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Card text */
+.pk-prod__info { display: flex; flex-direction: column; gap: 6px; }
+.pk-prod__name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s;
+  margin: 0;
+  display: block;
+}
+.pk-prod__card:hover .pk-prod__name { color: #a89060; }
+.pk-prod__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.pk-prod__stars {
+  display: flex;
+  align-items: center;
+  color: #a89060;
+}
+.pk-prod__stars svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  stroke: none;
+}
+.pk-prod__rating {
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  margin-left: 4px;
+}
+.pk-prod__sep { color: #e0dcd5; font-family: 'Inter', sans-serif; }
+.pk-prod__reviews { color: #6b6258; font-family: 'Inter', sans-serif; }
+.pk-prod__subtitle { color: #6b6258; font-family: 'Inter', sans-serif; }
+.pk-prod__price {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+/* Load more */
+.pk-prod__loadmore {
+  margin-top: 96px;
+  display: flex;
+  justify-content: center;
+}
+.pk-prod__loadmore-btn {
+  background: #a89060;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 16px 40px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.pk-prod__loadmore-btn:hover { background: #8a7248; }
+.pk-prod__loadmore.is-hidden { display: none; }
+
+/* Empty state */
+.pk-prod__empty {
+  padding: 128px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.pk-prod__empty.is-hidden { display: none; }
+.pk-prod__empty p {
+  font-size: 15px;
+  color: #6b6258;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+.pk-prod__empty a {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #a89060;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s;
+}
+.pk-prod__empty a:hover { color: #1a1a1a; }
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .pk-prod__grid { grid-template-columns: repeat(3, 1fr); }
+  .pk-prod__body.filters-open .pk-prod__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 959px) {
+  .pk-prod { padding: 48px 16px; }
+  .pk-prod__sidebar { width: 100%; }
+  .pk-prod__sidebar.is-hidden { display: none; width: 0; }
+  .pk-prod__body { flex-direction: column; gap: 32px; }
+  .pk-prod__grid { grid-template-columns: repeat(2, 1fr); column-gap: 16px; row-gap: 40px; }
+  .pk-prod__body.filters-open .pk-prod__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .pk-prod__grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<div class="pk-prod">
+  <div class="pk-prod__inner">
+
+    <!-- Breadcrumbs -->
+    <nav class="pk-prod__crumbs">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>{{collection.title}}</span>
+    </nav>
+
+    <!-- Toolbar -->
+    <div class="pk-prod__toolbar">
+      <div class="pk-prod__toolbar-top">
+        <div class="pk-prod__toolbar-left">
+          <button class="pk-prod__filter-toggle" id="pk-filter-toggle">
+            <svg id="pk-filter-icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <svg id="pk-filter-icon-minus" viewBox="0 0 24 24" style="display:none;"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span id="pk-filter-toggle-label">Show filters</span>
+          </button>
+          <span class="pk-prod__count" id="pk-count"></span>
+        </div>
+        <div class="pk-prod__sort">
+          <span class="pk-prod__sort-label">Sort by:</span>
+          <div class="pk-prod__sort-wrap">
+            <select class="pk-prod__sort-select" id="pk-sort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low–High</option>
+              <option value="price-desc">Price: High–Low</option>
+              <option value="newest">Newest</option>
+            </select>
+            <span class="pk-prod__sort-chevron">
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active filter chips -->
+      <div class="pk-prod__chips is-hidden" id="pk-chips"></div>
+    </div>
+
+    <!-- Body -->
+    <div class="pk-prod__body" id="pk-body">
+
+      <!-- Sidebar -->
+      <aside class="pk-prod__sidebar is-hidden" id="pk-sidebar">
+
+        <!-- Collection filter -->
+        {{#if section.settings.show_collection_filter}}
+        <div class="pk-prod__filter-group" data-filter="collection">
+          <h3 class="pk-prod__filter-heading">Collection</h3>
+          <div class="pk-prod__filter-items">
+            {{#each section.blocks}}
+            {{#if (compare type "==" "collection_option")}}
+            <label class="pk-prod__filter-label">
+              <div class="pk-prod__filter-left">
+                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="collection" data-filter-value="{{settings.value}}" />
+                <span class="pk-prod__filter-text">{{settings.label}}</span>
+              </div>
+              <span class="pk-prod__filter-count" data-count-type="collection" data-count-value="{{settings.value}}"></span>
+            </label>
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+
+        <!-- Color filter -->
+        {{#if section.settings.show_color_filter}}
+        <div class="pk-prod__filter-group is-hidden" id="pk-color-group" data-filter="color">
+          <h3 class="pk-prod__filter-heading">Color</h3>
+          <div class="pk-prod__filter-items">
+            {{#each section.blocks}}
+            {{#if (compare type "==" "color_option")}}
+            <label class="pk-prod__filter-label">
+              <div class="pk-prod__filter-left">
+                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="color" data-filter-value="{{settings.value}}" />
+                <div class="pk-prod__filter-dot" style="background:{{settings.color_hex}};"></div>
+                <span class="pk-prod__filter-text">{{settings.label}}</span>
+              </div>
+              <span class="pk-prod__filter-count" data-count-type="color" data-count-value="{{settings.value}}"></span>
+            </label>
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+        {{/if}}
+
+        <!-- Price filter -->
+        <div class="pk-prod__filter-group" data-filter="price">
+          <h3 class="pk-prod__filter-heading">Price</h3>
+          <div class="pk-prod__filter-items">
+            <label class="pk-prod__filter-label">
+              <div class="pk-prod__filter-left">
+                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="0" data-price-max="60000" />
+                <span class="pk-prod__filter-text">Under $600</span>
+              </div>
+              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="0" data-price-max="60000"></span>
+            </label>
+            <label class="pk-prod__filter-label">
+              <div class="pk-prod__filter-left">
+                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="60000" data-price-max="120000" />
+                <span class="pk-prod__filter-text">$600–$1,200</span>
+              </div>
+              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="60000" data-price-max="120000"></span>
+            </label>
+            <label class="pk-prod__filter-label">
+              <div class="pk-prod__filter-left">
+                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="120000" data-price-max="160000" />
+                <span class="pk-prod__filter-text">$1,200–$1,600</span>
+              </div>
+              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="120000" data-price-max="160000"></span>
+            </label>
+            <label class="pk-prod__filter-label">
+              <div class="pk-prod__filter-left">
+                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="160000" data-price-max="999999999" />
+                <span class="pk-prod__filter-text">Over $1,600</span>
+              </div>
+              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="160000" data-price-max="999999999"></span>
+            </label>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Product grid -->
+      <div class="pk-prod__grid-wrap">
+        <div class="pk-prod__grid" id="pk-grid">
+          {{#each collection.products}}
+          <div class="pk-prod__card"
+            data-collection="{{product_type}}"
+            data-tags="{{#each tags}}{{this}},{{/each}}"
+            data-price="{{price}}">
+            <a href="{{url}}">
+              <div class="pk-prod__img-wrap">
+                {{#if images.[0]}}
+                  {{snippet "image" data=images.[0] class="pk-prod__img-main"}}
+                {{/if}}
+                {{#if images.[1]}}
+                  {{snippet "image" data=images.[1] class="pk-prod__img-hover"}}
+                {{/if}}
+                <button class="pk-prod__add" onclick="event.preventDefault();event.stopPropagation();pkAddToCart('{{variants.[0].id}}',this);">
+                  <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                  Add to Cart
+                </button>
+              </div>
+              <div class="pk-prod__info">
+                <span class="pk-prod__name">{{title}}</span>
+                <div class="pk-prod__meta">
+                  <span class="pk-prod__stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  </span>
+                  <span class="pk-prod__rating">4.9/5</span>
+                  <span class="pk-prod__sep">|</span>
+                  <span class="pk-prod__reviews">{{metafields.reviews.count.value}}{{#unless metafields.reviews.count.value}}—{{/unless}} reviews</span>
+                  <span class="pk-prod__sep">|</span>
+                  <span class="pk-prod__subtitle">{{product_type}}</span>
+                </div>
+                <p class="pk-prod__price">{{money_with_currency price}}</p>
+              </div>
+            </a>
+          </div>
+          {{/each}}
+        </div>
+
+        <!-- Empty state -->
+        <div class="pk-prod__empty is-hidden" id="pk-empty">
+          <p>No products found matching your filters.</p>
+          <a id="pk-clear-empty">Clear all filters</a>
+        </div>
+
+        <!-- Load more -->
+        <div class="pk-prod__loadmore is-hidden" id="pk-loadmore">
+          <button class="pk-prod__loadmore-btn" id="pk-loadmore-btn">Load more</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var BATCH = 12;
+  var allCards = Array.from(document.querySelectorAll('.pk-prod__card'));
+  var visibleCount = BATCH;
+  var activeFilters = { collection: [], color: [], price: [] };
+  var sortBy = 'featured';
+  var filtersOpen = false;
+
+  var body      = document.getElementById('pk-body');
+  var sidebar   = document.getElementById('pk-sidebar');
+  var grid      = document.getElementById('pk-grid');
+  var chips     = document.getElementById('pk-chips');
+  var countEl   = document.getElementById('pk-count');
+  var emptyEl   = document.getElementById('pk-empty');
+  var loadmore  = document.getElementById('pk-loadmore');
+  var loadBtn   = document.getElementById('pk-loadmore-btn');
+  var toggleBtn = document.getElementById('pk-filter-toggle');
+  var labelEl   = document.getElementById('pk-filter-toggle-label');
+  var iconPlus  = document.getElementById('pk-filter-icon-plus');
+  var iconMinus = document.getElementById('pk-filter-icon-minus');
+  var colorGroup= document.getElementById('pk-color-group');
+  var sortEl    = document.getElementById('pk-sort');
+
+  // ---- helpers ----
+  function matchCard(card) {
+    var coll  = (card.dataset.collection || '').toUpperCase();
+    var tags  = (card.dataset.tags || '').toUpperCase();
+    var price = parseInt(card.dataset.price || '0', 10);
+
+    if (activeFilters.collection.length > 0) {
+      var matchC = activeFilters.collection.some(function(f){
+        return coll === f.toUpperCase() || tags.indexOf('COLLECTION:' + f.toUpperCase()) >= 0;
+      });
+      if (!matchC) return false;
+    }
+    if (activeFilters.color.length > 0) {
+      var matchCol = activeFilters.color.some(function(f){
+        return tags.indexOf('COLOR:' + f.toUpperCase()) >= 0 || tags.indexOf(f.toUpperCase()) >= 0;
+      });
+      if (!matchCol) return false;
+    }
+    if (activeFilters.price.length > 0) {
+      var matchP = activeFilters.price.some(function(r){
+        return price >= r.min && price < r.max;
+      });
+      if (!matchP) return false;
+    }
+    return true;
+  }
+
+  function getSorted(cards) {
+    var arr = cards.slice();
+    if (sortBy === 'price-asc')  arr.sort(function(a,b){ return parseInt(a.dataset.price)-parseInt(b.dataset.price); });
+    if (sortBy === 'price-desc') arr.sort(function(a,b){ return parseInt(b.dataset.price)-parseInt(a.dataset.price); });
+    return arr;
+  }
+
+  function render() {
+    var matched = getSorted(allCards.filter(matchCard));
+    var shown = 0;
+
+    // move sorted cards into the grid
+    matched.forEach(function(c){ grid.appendChild(c); });
+    allCards.forEach(function(c){
+      if (matched.indexOf(c) < 0) grid.appendChild(c); // push unmatched to end
+    });
+
+    allCards.forEach(function(c){ c.classList.add('is-hidden'); });
+    matched.forEach(function(c, i) {
+      if (i < visibleCount) { c.classList.remove('is-hidden'); shown++; }
+    });
+
+    countEl.textContent = matched.length + ' product' + (matched.length !== 1 ? 's' : '');
+    emptyEl.classList.toggle('is-hidden', matched.length > 0);
+    loadmore.classList.toggle('is-hidden', visibleCount >= matched.length);
+
+    // Color group visibility: show when collection filter active
+    if (colorGroup) colorGroup.classList.toggle('is-hidden', activeFilters.collection.length === 0);
+
+    // Update counts in sidebar
+    document.querySelectorAll('[data-count-type="collection"]').forEach(function(el){
+      var val = el.dataset.countValue;
+      var n = allCards.filter(function(c){
+        var coll2 = (c.dataset.collection||'').toUpperCase();
+        var tags2 = (c.dataset.tags||'').toUpperCase();
+        return coll2 === val.toUpperCase() || tags2.indexOf('COLLECTION:'+val.toUpperCase()) >= 0;
+      }).length;
+      el.textContent = '(' + n + ')';
+    });
+    document.querySelectorAll('[data-count-type="color"]').forEach(function(el){
+      var val = el.dataset.countValue;
+      var n = allCards.filter(function(c){
+        var tags2 = (c.dataset.tags||'').toUpperCase();
+        return tags2.indexOf('COLOR:'+val.toUpperCase()) >= 0 || tags2.indexOf(val.toUpperCase()) >= 0;
+      }).length;
+      el.textContent = '(' + n + ')';
+    });
+    document.querySelectorAll('[data-count-type="price"]').forEach(function(el){
+      var mn = parseInt(el.dataset.priceMin||'0'); var mx = parseInt(el.dataset.priceMax||'999999999');
+      var n = allCards.filter(function(c){ var p=parseInt(c.dataset.price||'0'); return p>=mn&&p<mx; }).length;
+      el.textContent = '(' + n + ')';
+    });
+
+    renderChips();
+  }
+
+  function renderChips() {
+    chips.innerHTML = '';
+    var any = activeFilters.collection.length + activeFilters.color.length + activeFilters.price.length > 0;
+    chips.classList.toggle('is-hidden', !any);
+    activeFilters.collection.forEach(function(v){ addChip(v, 'collection'); });
+    activeFilters.color.forEach(function(v){ addChip(v, 'color'); });
+    activeFilters.price.forEach(function(v){ addChip(v.label, 'price-label', v.label); });
+    if (any) {
+      var btn = document.createElement('button');
+      btn.className = 'pk-prod__clearall';
+      btn.textContent = 'Clear all';
+      btn.addEventListener('click', clearAll);
+      chips.appendChild(btn);
+    }
+  }
+
+  function addChip(label, type, extraVal) {
+    var btn = document.createElement('button');
+    btn.className = 'pk-prod__chip';
+    btn.innerHTML = label + '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    btn.addEventListener('click', function(){
+      if (type === 'collection') removeFilter('collection', label);
+      else if (type === 'color') removeFilter('color', label);
+      else if (type === 'price-label') removeFilterPrice(extraVal);
+      uncheckCb(type === 'price-label' ? 'price' : type, label);
+      render();
+    });
+    chips.appendChild(btn);
+  }
+
+  function removeFilter(type, val) {
+    activeFilters[type] = activeFilters[type].filter(function(v){ return v !== val; });
+  }
+  function removeFilterPrice(label) {
+    activeFilters.price = activeFilters.price.filter(function(r){ return r.label !== label; });
+  }
+  function uncheckCb(type, val) {
+    document.querySelectorAll('[data-filter-type="' + type + '"]').forEach(function(cb){
+      if ((cb.dataset.filterValue||cb.dataset.priceLabel||'').toUpperCase() === val.toUpperCase()) cb.checked = false;
+    });
+  }
+
+  function clearAll() {
+    activeFilters = { collection: [], color: [], price: [] };
+    document.querySelectorAll('.pk-prod__filter-cb').forEach(function(cb){ cb.checked = false; });
+    visibleCount = BATCH;
+    render();
+  }
+
+  // ---- Events ----
+  // Filter toggle
+  toggleBtn.addEventListener('click', function(){
+    filtersOpen = !filtersOpen;
+    sidebar.classList.toggle('is-hidden', !filtersOpen);
+    body.classList.toggle('filters-open', filtersOpen);
+    labelEl.textContent = filtersOpen ? 'Hide filters' : 'Show filters';
+    iconPlus.style.display  = filtersOpen ? 'none' : '';
+    iconMinus.style.display = filtersOpen ? '' : 'none';
+  });
+
+  // Checkboxes
+  document.querySelectorAll('.pk-prod__filter-cb').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      var type  = cb.dataset.filterType;
+      var val   = cb.dataset.filterValue;
+      if (type === 'price') {
+        var mn = parseInt(cb.dataset.priceMin||'0');
+        var mx = parseInt(cb.dataset.priceMax||'999999999');
+        var lbl = cb.closest('.pk-prod__filter-label').querySelector('.pk-prod__filter-text').textContent;
+        if (cb.checked) { activeFilters.price.push({ min: mn, max: mx, label: lbl }); }
+        else { activeFilters.price = activeFilters.price.filter(function(r){ return r.label !== lbl; }); }
+      } else {
+        if (cb.checked) { activeFilters[type].push(val); }
+        else { activeFilters[type] = activeFilters[type].filter(function(v){ return v !== val; }); }
+      }
+      visibleCount = BATCH;
+      render();
+    });
+  });
+
+  // Sort
+  sortEl.addEventListener('change', function(){
+    sortBy = sortEl.value;
+    visibleCount = BATCH;
+    render();
+  });
+
+  // Load more
+  if (loadBtn) {
+    loadBtn.addEventListener('click', function(){
+      visibleCount += BATCH;
+      render();
+    });
+  }
+
+  // Clear from empty state
+  var clearEmpty = document.getElementById('pk-clear-empty');
+  if (clearEmpty) clearEmpty.addEventListener('click', clearAll);
+
+  // Add to cart
+  window.pkAddToCart = function(variantId, btn) {
+    if (!variantId) return;
+    btn.textContent = 'Adding...';
+    fetch(window.routes && window.routes.cart_add_url || '/cart/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ id: variantId, quantity: 1 })
+    }).then(function(r){ return r.json(); }).then(function(){
+      btn.innerHTML = '✓ Added';
+      setTimeout(function(){
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Add to Cart';
+      }, 1500);
+    }).catch(function(){ btn.innerHTML = 'Add to Cart'; });
+  };
+
+  // Initial render
+  render();
+})();
+</script>
+
+{{#schema}}
+{
+  "name": "PK Products Page",
+  "class": "section",
+  "settings": [
+    { "id": "show_collection_filter", "type": "checkbox", "label": "Show collection filter", "default": true },
+    { "id": "show_color_filter",      "type": "checkbox", "label": "Show color filter",      "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "collection_option",
+      "name": "Collection Filter Option",
+      "settings": [
+        { "id": "label", "type": "text", "label": "Label", "default": "Collection" },
+        { "id": "value", "type": "text", "label": "Filter Value (matches product_type or tag)", "default": "MALLORCA" }
+      ]
+    },
+    {
+      "type": "color_option",
+      "name": "Color Filter Option",
+      "settings": [
+        { "id": "label",     "type": "text",  "label": "Label",     "default": "White" },
+        { "id": "value",     "type": "text",  "label": "Filter Value (matches product tag)", "default": "White" },
+        { "id": "color_hex", "type": "color", "label": "Color Swatch", "default": "#ffffff" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "PK Products Page",
+    "category": "Custom",
+    "settings": { "show_collection_filter": true, "show_color_filter": true },
+    "blocks": [
+      { "type": "collection_option", "settings": { "label": "MALLORCA", "value": "MALLORCA" } },
+      { "type": "collection_option", "settings": { "label": "SHADY",    "value": "SHADY"    } },
+      { "type": "collection_option", "settings": { "label": "FRANCO",   "value": "FRANCO"   } },
+      { "type": "collection_option", "settings": { "label": "IRENA",    "value": "IRENA"    } },
+      { "type": "collection_option", "settings": { "label": "NEWPORT",  "value": "NEWPORT"  } },
+      { "type": "collection_option", "settings": { "label": "ASPEN",    "value": "ASPEN"    } },
+      { "type": "color_option", "settings": { "label": "White",        "value": "White",        "color_hex": "#FFFFFF" } },
+      { "type": "color_option", "settings": { "label": "Dolphin Gray",  "value": "Dolphin Gray", "color_hex": "#A9AFB2" } },
+      { "type": "color_option", "settings": { "label": "Gray Slim",     "value": "Gray Slim",    "color_hex": "#808080" } },
+      { "type": "color_option", "settings": { "label": "Slim Oak",      "value": "Slim Oak",     "color_hex": "#E9E4D4" } },
+      { "type": "color_option", "settings": { "label": "Slim White",    "value": "Slim White",   "color_hex": "#F5F5F0" } }
+    ]
+  }]
+}
+{{/schema}}

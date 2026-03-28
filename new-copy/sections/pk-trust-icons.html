@@ -1,0 +1,110 @@
+<style>
+.pk-icons {
+  background: #ffffff;
+  border-top: 1px solid #e0dcd5;
+  border-bottom: 1px solid #e0dcd5;
+  padding: 48px 32px;
+}
+.pk-icons__grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  divide-color: #e0dcd5;
+}
+.pk-icons__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 16px;
+  gap: 8px;
+  border-right: 1px solid #e0dcd5;
+}
+.pk-icons__item:last-child { border-right: none; }
+.pk-icons__icon {
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pk-icons__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pk-icons__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+.pk-icons__sub {
+  font-size: 12px;
+  color: #a89060;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+@media (max-width: 959px) {
+  .pk-icons { padding: 32px 16px; }
+  .pk-icons__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .pk-icons__item { border-right: none; padding: 16px; }
+}
+</style>
+
+<div class="pk-icons">
+  <div class="pk-icons__grid">
+    <div class="pk-icons__item">
+      <span class="pk-icons__icon">
+        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+      </span>
+      <p class="pk-icons__title">3-Day Quick Ship</p>
+      <p class="pk-icons__sub">In stock &amp; ready</p>
+    </div>
+    <div class="pk-icons__item">
+      <span class="pk-icons__icon">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </span>
+      <p class="pk-icons__title">Free Shipping</p>
+      <p class="pk-icons__sub">On orders over $5,000</p>
+    </div>
+    <div class="pk-icons__item">
+      <span class="pk-icons__icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </span>
+      <p class="pk-icons__title">Best Price Guarantee</p>
+      <p class="pk-icons__sub">We'll match + 10% off</p>
+    </div>
+    <div class="pk-icons__item">
+      <span class="pk-icons__icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </span>
+      <p class="pk-icons__title">5-Year Warranty</p>
+      <p class="pk-icons__sub">Comprehensive coverage</p>
+    </div>
+    <div class="pk-icons__item">
+      <span class="pk-icons__icon">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <p class="pk-icons__title">30-Day Returns</p>
+      <p class="pk-icons__sub">Hassle-free policy</p>
+    </div>
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "PK Trust Icons",
+  "class": "section",
+  "settings": [],
+  "presets": [{ "name": "PK Trust Icons", "category": "Custom" }]
+}
+{{/schema}}
