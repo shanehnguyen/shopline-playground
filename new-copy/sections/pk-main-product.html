@@ -1,0 +1,472 @@
+<style>
+.pk-pdp { background: #fff; font-family: 'Inter', sans-serif; }
+.pk-pdp *, .pk-pdp *::before, .pk-pdp *::after { box-sizing: border-box; }
+
+/* ── Upper: Gallery + Sidebar ── */
+.pk-pdp__upper { display: flex; gap: 32px; padding: 48px 16px; }
+@media (min-width: 768px) { .pk-pdp__upper { padding: 64px 32px; } }
+@media (min-width: 1024px) { .pk-pdp__upper { padding: 80px 48px; } }
+
+/* Gallery */
+.pk-pdp__gallery { display: flex; gap: 16px; flex: 0 0 60%; max-width: 60%; }
+.pk-pdp__thumbs { display: flex; flex-direction: column; gap: 8px; width: 60px; flex-shrink: 0; }
+.pk-pdp__thumb {
+  width: 60px; height: 60px; border: 1px solid #e0dcd5; cursor: pointer;
+  overflow: hidden; flex-shrink: 0; background: #f7f5f2;
+  transition: border-color 0.2s;
+}
+.pk-pdp__thumb.is-active { border-color: #1a1a1a; }
+.pk-pdp__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pk-pdp__main-img-wrap {
+  flex: 1; aspect-ratio: 1/1; background: #f7f5f2;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.pk-pdp__main-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* Sidebar */
+.pk-pdp__sidebar { flex: 0 0 40%; max-width: 40%; position: sticky; top: 80px; align-self: flex-start; }
+.pk-pdp__brand { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6b6258; margin: 0 0 8px; }
+.pk-pdp__title { font-size: 30px; font-weight: 700; color: #1a1a1a; margin: 0 0 12px; font-family: Georgia, 'Times New Roman', serif; line-height: 1.2; }
+.pk-pdp__price { font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0 0 16px; }
+.pk-pdp__meta { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; flex-wrap: wrap; }
+.pk-pdp__stars { color: #a89060; font-size: 14px; letter-spacing: 1px; }
+.pk-pdp__rating { font-size: 14px; font-weight: 600; color: #1a1a1a; }
+.pk-pdp__reviews-link { font-size: 13px; color: #6b6258; text-decoration: none; border-bottom: 1px solid #e0dcd5; }
+.pk-pdp__reviews-link:hover { color: #a89060; border-color: #a89060; }
+.pk-pdp__meta-divider { width: 1px; height: 14px; background: #e0dcd5; }
+.pk-pdp__sku { font-size: 13px; color: #6b6258; }
+.pk-pdp__hr { border: none; border-top: 1px solid #e0dcd5; margin: 0 0 16px; }
+.pk-pdp__desc { font-size: 13px; line-height: 1.7; color: #6b6258; margin: 0 0 20px; }
+
+/* Variant picker wrapper */
+.pk-pdp__variants { margin-bottom: 20px; }
+
+/* Quantity */
+.pk-pdp__qty-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #1a1a1a; margin: 0 0 8px; }
+.pk-pdp__qty { display: flex; align-items: center; border: 1px solid #e0dcd5; width: fit-content; margin-bottom: 16px; }
+.pk-pdp__qty-btn {
+  width: 40px; height: 40px; background: none; border: none; cursor: pointer;
+  font-size: 18px; color: #1a1a1a; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+}
+.pk-pdp__qty-btn:hover { background: #f7f5f2; }
+.pk-pdp__qty-input {
+  width: 48px; height: 40px; text-align: center; border: none; border-left: 1px solid #e0dcd5;
+  border-right: 1px solid #e0dcd5; font-size: 15px; font-weight: 500; color: #1a1a1a;
+  -moz-appearance: textfield;
+}
+.pk-pdp__qty-input::-webkit-outer-spin-button,
+.pk-pdp__qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Add to cart */
+.pk-pdp__atc {
+  display: block; width: 100%; padding: 14px 24px;
+  background: #1a1a1a; color: #fff; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+  transition: background 0.2s; margin-bottom: 12px;
+}
+.pk-pdp__atc:hover:not(:disabled) { background: #333; }
+.pk-pdp__atc:disabled { opacity: 0.5; cursor: not-allowed; }
+.pk-pdp__help { font-size: 13px; color: #6b6258; margin: 0 0 24px; }
+.pk-pdp__help a { color: #a89060; text-decoration: none; }
+.pk-pdp__help a:hover { text-decoration: underline; }
+
+/* Pairs well with */
+.pk-pdp__pairs-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #1a1a1a; margin: 0 0 12px; }
+.pk-pdp__pairs-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; }
+.pk-pdp__pairs-scroll::-webkit-scrollbar { height: 4px; }
+.pk-pdp__pairs-scroll::-webkit-scrollbar-track { background: #f7f5f2; }
+.pk-pdp__pairs-scroll::-webkit-scrollbar-thumb { background: #e0dcd5; }
+.pk-pdp__pair-card { flex-shrink: 0; width: 120px; text-decoration: none; }
+.pk-pdp__pair-img { width: 120px; height: 90px; object-fit: cover; display: block; background: #f7f5f2; margin-bottom: 6px; }
+.pk-pdp__pair-name { font-size: 12px; color: #1a1a1a; line-height: 1.4; }
+.pk-pdp__pair-price { font-size: 12px; color: #6b6258; }
+
+/* ── Product Details Section ── */
+.pk-pdp__details { border-top: 1px solid #e0dcd5; padding: 56px 48px; }
+@media (min-width: 768px) { .pk-pdp__details { padding: 56px 48px; } }
+.pk-pdp__details-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 768px) { .pk-pdp__details-grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
+.pk-pdp__details-h2 { font-size: 28px; font-weight: 700; color: #1a1a1a; margin: 0 0 20px; font-family: Georgia, 'Times New Roman', serif; }
+.pk-pdp__details-p { font-size: 15px; line-height: 1.8; color: #6b6258; margin: 0 0 16px; }
+.pk-pdp__details-p:last-child { margin-bottom: 0; }
+.pk-pdp__details-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 9999px; background: #a89060;
+  color: #fff; font-size: 18px; font-weight: 700; font-family: Georgia, serif;
+  margin: 16px 0 12px;
+}
+.pk-pdp__details-tagline { font-size: 14px; font-style: italic; color: #6b6258; }
+
+/* Accordion */
+.pk-pdp__accordion { display: flex; flex-direction: column; }
+.pk-pdp__accord-item { border-bottom: 1px solid #e0dcd5; }
+.pk-pdp__accord-item:first-child { border-top: 1px solid #e0dcd5; }
+.pk-pdp__accord-item summary {
+  list-style: none; display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0; cursor: pointer; font-size: 15px; font-weight: 600; color: #1a1a1a;
+  user-select: none;
+}
+.pk-pdp__accord-item summary::-webkit-details-marker { display: none; }
+.pk-pdp__accord-icon { font-size: 20px; color: #a89060; transition: transform 0.2s; flex-shrink: 0; }
+.pk-pdp__accord-item[open] .pk-pdp__accord-icon { transform: rotate(45deg); }
+.pk-pdp__accord-body { padding: 0 0 16px; font-size: 14px; line-height: 1.8; color: #6b6258; }
+.pk-pdp__accord-body ul { list-style: disc; padding-left: 20px; margin: 0; }
+.pk-pdp__accord-body ul li { margin-bottom: 4px; }
+
+/* ── You May Also Like ── */
+.pk-pdp__recs { border-top: 1px solid #e0dcd5; padding: 40px 48px; }
+.pk-pdp__recs-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.pk-pdp__recs-h2 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin: 0; font-family: Georgia, 'Times New Roman', serif; }
+.pk-pdp__recs-arrows { display: flex; gap: 8px; }
+.pk-pdp__recs-arrow {
+  width: 36px; height: 36px; border: 1px solid #e0dcd5; background: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 16px; color: #1a1a1a;
+  transition: background 0.15s, border-color 0.15s;
+}
+.pk-pdp__recs-arrow:hover { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+.pk-pdp__recs-track-wrap { overflow: hidden; }
+.pk-pdp__recs-track { display: flex; gap: 20px; transition: transform 0.35s ease; }
+.pk-pdp__rec-card { flex: 0 0 calc(25% - 15px); min-width: 200px; text-decoration: none; }
+.pk-pdp__rec-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: #f7f5f2; margin-bottom: 10px; }
+.pk-pdp__rec-name { font-size: 14px; color: #1a1a1a; font-weight: 500; margin-bottom: 4px; }
+.pk-pdp__rec-price { font-size: 13px; color: #6b6258; }
+
+/* ── Trust Bar ── */
+.pk-pdp__trust { border-top: 1px solid #e0dcd5; border-bottom: 1px solid #e0dcd5; padding: 48px 32px; }
+.pk-pdp__trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 900px; margin: 0 auto; }
+@media (min-width: 768px) { .pk-pdp__trust-grid { grid-template-columns: repeat(5, 1fr); gap: 24px; } }
+.pk-pdp__trust-item { text-align: center; }
+.pk-pdp__trust-icon { font-size: 28px; margin-bottom: 8px; }
+.pk-pdp__trust-heading { font-size: 13px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
+.pk-pdp__trust-sub { font-size: 12px; color: #a89060; margin: 0; }
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .pk-pdp__upper { flex-direction: column; }
+  .pk-pdp__gallery { max-width: 100%; flex: none; }
+  .pk-pdp__sidebar { max-width: 100%; flex: none; position: static; }
+  .pk-pdp__details { padding: 40px 16px; }
+  .pk-pdp__recs { padding: 32px 16px; }
+  .pk-pdp__trust { padding: 32px 16px; }
+  .pk-pdp__rec-card { flex: 0 0 calc(50% - 10px); }
+}
+
+/* product-form error */
+.product-form__error-message-wrapper { color: #c0392b; font-size: 13px; margin-bottom: 8px; }
+</style>
+
+{%- assign product_form_id = 'pk-product-form-' | append: section.id -%}
+
+<div class="pk-pdp" data-section-id="{{section.id}}" data-section-type="pk-main-product">
+
+  <!-- ── Upper: Gallery + Sidebar ── -->
+  <div class="pk-pdp__upper">
+
+    <!-- Gallery -->
+    <div class="pk-pdp__gallery" id="pk-gallery-{{section.id}}">
+      <div class="pk-pdp__thumbs">
+        {{#each product.images}}
+          <button
+            class="pk-pdp__thumb {{#if @first}}is-active{{/if}}"
+            data-gallery-thumb="{{section.id}}"
+            data-idx="{{@index}}"
+            data-src="{{this.src}}"
+            aria-label="View image {{add @index 1}}"
+            type="button"
+          >
+            <img src="{{img_url this.src width=120}}" alt="{{this.alt}}" loading="lazy" />
+          </button>
+        {{/each}}
+      </div>
+      <div class="pk-pdp__main-img-wrap">
+        <img
+          id="pk-main-img-{{section.id}}"
+          class="pk-pdp__main-img"
+          src="{{img_url product.featured_image.src width=800}}"
+          alt="{{product.featured_image.alt | default: product.title}}"
+        />
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="pk-pdp__sidebar">
+      <p class="pk-pdp__brand">PK Cabinet</p>
+      <h1 class="pk-pdp__title">{{product.title}}</h1>
+      <p class="pk-pdp__price">
+        {{product.selected_or_first_available_variant.price | money_with_currency}}
+      </p>
+
+      <div class="pk-pdp__meta">
+        <span class="pk-pdp__stars">★★★★★</span>
+        <span class="pk-pdp__rating">5.0</span>
+        <span class="pk-pdp__meta-divider"></span>
+        <a href="#pk-reviews-{{section.id}}" class="pk-pdp__reviews-link">See Reviews</a>
+        <span class="pk-pdp__meta-divider"></span>
+        <span class="pk-pdp__sku">SKU: {{product.selected_or_first_available_variant.sku | default: product.variants[0].sku}}</span>
+      </div>
+
+      <hr class="pk-pdp__hr" />
+
+      <div class="pk-pdp__desc">{{product.description}}</div>
+
+      <!-- Variant Picker -->
+      {{#unless product.has_only_default_variant}}
+        <div class="pk-pdp__variants">
+          {{snippet "product-variant-picker" product=product section=section product_form_id=product_form_id}}
+        </div>
+      {{/unless}}
+
+      <!-- Quantity -->
+      <p class="pk-pdp__qty-label">Quantity</p>
+      <div class="pk-pdp__qty" id="pk-qty-{{section.id}}">
+        <button class="pk-pdp__qty-btn" type="button" data-qty-action="minus" data-target="pk-qty-input-{{section.id}}" aria-label="Decrease quantity">−</button>
+        <input class="pk-pdp__qty-input" id="pk-qty-input-{{section.id}}" type="number" name="quantity" value="1" min="1" form="{{product_form_id}}" />
+        <button class="pk-pdp__qty-btn" type="button" data-qty-action="plus" data-target="pk-qty-input-{{section.id}}" aria-label="Increase quantity">+</button>
+      </div>
+
+      <!-- Add to Cart -->
+      <product-form id="{{append product_form_id '__wrapper'}}" class="product-form">
+        <div class="product-form__error-message-wrapper" hidden>
+          <span class="product-form__error-message"></span>
+        </div>
+        {{#form "product" product id=product_form_id}}
+          <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+          <button
+            type="submit"
+            name="add"
+            class="pk-pdp__atc"
+            {{#unless product.selected_or_first_available_variant.available}}disabled{{/unless}}
+          >
+            {{#if product.selected_or_first_available_variant.available}}
+              Add to Cart
+            {{else}}
+              Sold Out
+            {{/if}}
+          </button>
+        {{/form}}
+      </product-form>
+
+      <p class="pk-pdp__help">Need help? <a href="mailto:support@pkcabinet.com">Contact us</a></p>
+
+      <!-- Pairs Well With -->
+      <product-recommendations
+        data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=5&intent=related"
+        id="pk-pairs-{{section.id}}"
+      >
+        {{#if (and (isTruthy recommendations.performed) (if recommendations.products_count ">" 0))}}
+          <p class="pk-pdp__pairs-label">Pairs Well With</p>
+          <div class="pk-pdp__pairs-scroll">
+            {{#forIn recommendations.products}}
+              <a class="pk-pdp__pair-card" href="{{this.url}}">
+                <img class="pk-pdp__pair-img" src="{{img_url this.featured_image.src width=240}}" alt="{{this.title}}" loading="lazy" />
+                <p class="pk-pdp__pair-name">{{this.title}}</p>
+                <p class="pk-pdp__pair-price">{{this.price | money_with_currency}}</p>
+              </a>
+            {{/forIn}}
+          </div>
+        {{/if}}
+      </product-recommendations>
+    </div>
+  </div>
+
+  <!-- ── Product Details ── -->
+  <div class="pk-pdp__details">
+    <div class="pk-pdp__details-grid">
+      <!-- Left: Description -->
+      <div>
+        <h2 class="pk-pdp__details-h2">Product Details</h2>
+        <p class="pk-pdp__details-p">{{product.description}}</p>
+        <div class="pk-pdp__details-badge">D</div>
+        <p class="pk-pdp__details-tagline"><em>Crafted with precision. Built to last.</em></p>
+      </div>
+      <!-- Right: Accordion -->
+      <div class="pk-pdp__accordion">
+        <details class="pk-pdp__accord-item" open>
+          <summary>Dimensions <span class="pk-pdp__accord-icon">+</span></summary>
+          <div class="pk-pdp__accord-body">
+            {{#if product.metafields.custom.dimensions}}
+              {{product.metafields.custom.dimensions}}
+            {{else}}
+              <p>Please refer to the product specification sheet for detailed dimensions.</p>
+            {{/if}}
+          </div>
+        </details>
+        <details class="pk-pdp__accord-item">
+          <summary>Materials <span class="pk-pdp__accord-icon">+</span></summary>
+          <div class="pk-pdp__accord-body">
+            {{#if product.metafields.custom.materials}}
+              {{product.metafields.custom.materials}}
+            {{else}}
+              <ul>
+                <li>Solid wood frame and face frames</li>
+                <li>Plywood box construction</li>
+                <li>Soft-close hinges and drawer slides</li>
+                <li>Dovetail drawer construction</li>
+              </ul>
+            {{/if}}
+          </div>
+        </details>
+        <details class="pk-pdp__accord-item">
+          <summary>Care &amp; Maintenance <span class="pk-pdp__accord-icon">+</span></summary>
+          <div class="pk-pdp__accord-body">
+            <ul>
+              <li>Wipe with a damp, lint-free cloth</li>
+              <li>Avoid harsh chemicals or abrasive cleaners</li>
+              <li>Do not allow standing water on surfaces</li>
+            </ul>
+          </div>
+        </details>
+        <details class="pk-pdp__accord-item">
+          <summary>Downloads <span class="pk-pdp__accord-icon">+</span></summary>
+          <div class="pk-pdp__accord-body">
+            {{#if product.metafields.custom.spec_sheet_url}}
+              <p><a href="{{product.metafields.custom.spec_sheet_url}}" style="color:#a89060;">Download Spec Sheet</a></p>
+            {{else}}
+              <p>Contact us for installation guides and spec sheets.</p>
+            {{/if}}
+          </div>
+        </details>
+        <details class="pk-pdp__accord-item">
+          <summary>Delivery <span class="pk-pdp__accord-icon">+</span></summary>
+          <div class="pk-pdp__accord-body">
+            <p>Orders over $3,500 qualify for free final-mile delivery. A delivery specialist will contact you to schedule your appointment. <a href="/pages/shipping" style="color:#a89060;">Learn more</a></p>
+          </div>
+        </details>
+        <details class="pk-pdp__accord-item" id="pk-reviews-{{section.id}}">
+          <summary>Reviews <span class="pk-pdp__accord-icon">+</span></summary>
+          <div class="pk-pdp__accord-body">
+            <p>★★★★★ — "Exceptional quality and finish. Exactly what we were looking for."</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── You May Also Like ── -->
+  <div class="pk-pdp__recs" id="pk-recs-section-{{section.id}}">
+    <div class="pk-pdp__recs-header">
+      <h2 class="pk-pdp__recs-h2">You May Also Like</h2>
+      <div class="pk-pdp__recs-arrows">
+        <button class="pk-pdp__recs-arrow" type="button" data-recs-prev="{{section.id}}" aria-label="Previous">&#8592;</button>
+        <button class="pk-pdp__recs-arrow" type="button" data-recs-next="{{section.id}}" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+    <product-recommendations
+      data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=8"
+      id="pk-recs-{{section.id}}"
+    >
+      {{#if (and (isTruthy recommendations.performed) (if recommendations.products_count ">" 0))}}
+        <div class="pk-pdp__recs-track-wrap" id="pk-recs-wrap-{{section.id}}">
+          <div class="pk-pdp__recs-track" id="pk-recs-track-{{section.id}}">
+            {{#forIn recommendations.products}}
+              <a class="pk-pdp__rec-card" href="{{this.url}}">
+                <img class="pk-pdp__rec-img" src="{{img_url this.featured_image.src width=400}}" alt="{{this.title}}" loading="lazy" />
+                <p class="pk-pdp__rec-name">{{this.title}}</p>
+                <p class="pk-pdp__rec-price">{{this.price | money_with_currency}}</p>
+              </a>
+            {{/forIn}}
+          </div>
+        </div>
+      {{/if}}
+    </product-recommendations>
+  </div>
+
+  <!-- ── Trust Bar ── -->
+  <div class="pk-pdp__trust">
+    <div class="pk-pdp__trust-grid">
+      <div class="pk-pdp__trust-item">
+        <div class="pk-pdp__trust-icon">🛡️</div>
+        <p class="pk-pdp__trust-heading">5-Year Warranty</p>
+        <p class="pk-pdp__trust-sub">Peace of mind guaranteed</p>
+      </div>
+      <div class="pk-pdp__trust-item">
+        <div class="pk-pdp__trust-icon">🚚</div>
+        <p class="pk-pdp__trust-heading">Free Delivery</p>
+        <p class="pk-pdp__trust-sub">On orders over $3,500</p>
+      </div>
+      <div class="pk-pdp__trust-item">
+        <div class="pk-pdp__trust-icon">✨</div>
+        <p class="pk-pdp__trust-heading">Premium Quality</p>
+        <p class="pk-pdp__trust-sub">Solid wood construction</p>
+      </div>
+      <div class="pk-pdp__trust-item">
+        <div class="pk-pdp__trust-icon">↩️</div>
+        <p class="pk-pdp__trust-heading">14-Day Returns</p>
+        <p class="pk-pdp__trust-sub">Hassle-free process</p>
+      </div>
+      <div class="pk-pdp__trust-item">
+        <div class="pk-pdp__trust-icon">💬</div>
+        <p class="pk-pdp__trust-heading">Expert Support</p>
+        <p class="pk-pdp__trust-sub">Mon–Fri, 8AM–4PM PST</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var sid = '{{section.id}}';
+
+  // ── Gallery ──
+  var mainImg = document.getElementById('pk-main-img-' + sid);
+  var thumbBtns = document.querySelectorAll('[data-gallery-thumb="' + sid + '"]');
+  thumbBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (mainImg) mainImg.src = btn.dataset.src;
+      thumbBtns.forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+    });
+  });
+
+  // ── Quantity ──
+  document.querySelectorAll('[data-qty-action]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var input = document.getElementById(btn.dataset.target);
+      if (!input) return;
+      var val = parseInt(input.value, 10) || 1;
+      input.value = btn.dataset.qtyAction === 'plus' ? val + 1 : Math.max(1, val - 1);
+    });
+  });
+
+  // ── Recs carousel arrows ──
+  var recsTrack = document.getElementById('pk-recs-track-' + sid);
+  var recsWrap = document.getElementById('pk-recs-wrap-' + sid);
+  var recsOffset = 0;
+  function getCardWidth() {
+    if (!recsTrack || !recsTrack.firstElementChild) return 220;
+    return recsTrack.firstElementChild.offsetWidth + 20;
+  }
+  document.querySelectorAll('[data-recs-prev]').forEach(function (btn) {
+    if (btn.dataset.recsPrev !== sid) return;
+    btn.addEventListener('click', function () {
+      recsOffset = Math.max(0, recsOffset - getCardWidth());
+      if (recsTrack) recsTrack.style.transform = 'translateX(-' + recsOffset + 'px)';
+    });
+  });
+  document.querySelectorAll('[data-recs-next]').forEach(function (btn) {
+    if (btn.dataset.recsNext !== sid) return;
+    btn.addEventListener('click', function () {
+      if (!recsTrack || !recsWrap) return;
+      var max = recsTrack.scrollWidth - recsWrap.offsetWidth;
+      recsOffset = Math.min(max, recsOffset + getCardWidth());
+      recsTrack.style.transform = 'translateX(-' + recsOffset + 'px)';
+    });
+  });
+})();
+</script>
+
+{{#schema}}
+{
+  "name": "PK Main Product",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "PK Main Product",
+      "category": "Custom"
+    }
+  ]
+}
+{{/schema}}
