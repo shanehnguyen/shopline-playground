@@ -3,33 +3,9 @@
 {{assign "mobile_top_menu" section.settings.mobile_top_menu}}
 
 {{snippet "stylesheet" href=(asset_url "section-header.css")}}
-{{snippet "stylesheet" href=(asset_url "pk-search.css")}}
 
 <script src="{{asset_url 'component-predictive-search.js'}}" defer></script>
 <script src="{{asset_url 'section-header-modal.js'}}" defer></script>
-<script src="{{asset_url 'pk-search.js'}}" defer></script>
-
-{{!--
-  Inject live product data for client-side search.
-  pk-search.js reads window.PK_PRODUCTS at init time;
-  if the collection is empty or unavailable it falls back to built-in static data.
---}}
-<script>
-window.PK_PRODUCTS = [];
-{{#each collections.all.products limit=250}}
-window.PK_PRODUCTS.push({
-  id:          "{{handle}}",
-  name:        {{json title}},
-  category:    {{json product_type}},
-  description: {{json description_plaintext}},
-  price:       {{#if price_min}}{{ divide price_min 100 }}{{else}}0{{/if}},
-  rating:      0,
-  reviewCount: 0,
-  url:         "{{url}}",
-  image:       "{{#if featured_image}}{{img_url featured_image '400x400'}}{{/if}}"
-});
-{{/each}}
-</script>
 
 <script src="{{asset_url 'section-header-header-layout.js'}}" defer></script>
 
@@ -125,7 +101,7 @@ window.PK_PRODUCTS.push({
         "
     >
       <div class="header__left-tools display-flex-tablet display-none-desktop">
-
+        
         {{assign "menu" (default mobile_main_menu main_menu)}}
         {{snippet "header-menu-drawer" section=section menu=menu class="display-none-desktop" highlight_menus_list=highlight_menus_list}}
         
@@ -378,55 +354,203 @@ window.PK_PRODUCTS.push({
             {{#if section.settings.show_line_separator}}header__inline-nav--has-divider{{/if}}"
         >
           <ul class="header__inline-menus list-unstyled">
+            {{#each main_menu.links}}
+              {{#with this as |topLink|}}
+                {{assign "is_megamenu" false}}
+                {{#each links}}
+                  {{#if (length links) ">" 0}}
+                    {{#with topLink}}
+                      {{assign "is_megamenu" true}}
+                    {{/with}}
+                  {{/if}}
+                {{/each}}
+              {{/with}}
+              
+              {{assign "menu_block" (get (uppercase this.title) ../menu_img_obj)}}
+              {{assign "show_img1" menu_block.settings.image_1}}
+              {{assign "show_img2" menu_block.settings.image_2}}
+              {{assign "show_img3" menu_block.settings.image_3}}
+              {{#or show_img1 show_img2 show_img3}}
+                {{assign "has_img" true}}
+              {{/or}}
+              {{#comment}} highlight {{/comment}}
+              {{assign 'is_highlight' false}}
+              {{#for ../highlight_menus_list as |hight_item|}} 
+                {{#if (uppercase title) == (uppercase hight_item)}}
+                  {{assign 'is_highlight' true}}
+                  {{break}}
+                {{/if}}
+              {{/for}}
+              <li
+                class="header-inline-menus__item
+                  header-inline-menus__item--{{#if (length links) '>' 0}}has-submenu{{/if}}
+                  {{#or is_megamenu has_img}}is-megamenu{{/or}}"
+                {{#if (length links) ">" 0}}
+                  data-item-title="{{title}}"
+                {{/if}}
+              >
+                {{#if (length links) ">" 0}}
+                  
+                  <a
+                    class="header-inline-menus__link menus__link body4 fw-bold {{#if is_highlight}}menu-item--highlight{{/if}}"
+                    {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                  >
+                    {{title}}
+                  </a>
+                  {{#or is_megamenu has_img}}
+                    <div
+                      class="header__inline-submenus header-nav-list {{#if has_img}}header__inline-submenus--{{menu_block.id}}{{/if}} header__image-style--{{menu_block.settings.menu_img_style}}"
+                    >
+                      <ul class="megamenu__list">
+                        {{#each links}}
+                          <li class="megamenu-list__item">
+                            {{#if (length links) ">" 0}}
+                              <a
+                                class="megamenu-list__item-title menus__link {{../../section.settings.body_pc_second_font_size}} {{#if ../../section.settings.body_pc_second_font_bold}}fw-bold{{/if}}"
+                                {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                              >
+                                {{title}}
+                              </a>
+                              <ul class="megamenu-list__submenu list-unstyled">
+                                {{#each links}}
+                                  <li class="megamenu-submenu__item">
+                                    <a
+                                      class="menus__link {{../../../section.settings.body_pc_thirdly_font_size}}"
+                                      {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                                    >{{title}}</a>
+                                  </li>
+                                {{/each}}
+                              </ul>
+                            {{else}}
+                              <a
+                                class="menus__link megamenu-list__item-title {{../../section.settings.body_pc_second_font_size}} {{#if ../../section.settings.body_pc_second_font_bold}}fw-bold{{/if}}"
+                                {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                              >
+                                {{title}}
+                              </a>
+                            {{/if}}
+                          </li>
+                        {{/each}}
+                      </ul>
 
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/pages/collections">
-                Collections
-              </a>
-            </li>
+                      {{#if has_img}}
+                        <style>
+                          .header__inline-submenus--{{menu_block.id}} .header__image .header__image_title,
+                          .header__inline-submenus--{{menu_block.id}} .header__image .header__image_button {
+                            color: {{menu_block.settings.text_color}};
+                          }
+                        </style>
+                        {{#if show_img1}}
+                          <div
+                            class="header__image"
+                            style="order:{{ternary (if menu_block.settings.image_1_position '===' 'left') -1 1}}"
+                          >
+                            <div
+                              class="header__image__content"
+                              style="
+                              {{#if menu_block.settings.menu_img_style '===' 'normal'}}
+                                padding-bottom:{{divide 100 show_img1.aspect_ratio}}%;
+                              {{/if}}
+                              "
+                            >
+                            {{snippet "image" data=show_img1}}
+                            </div>
+                            <div class="header__image--cover">
+                              <p class="header__image_title {{#if menu_block.settings.menu_img_style '===' 'normal'}}body4{{else}}body3{{/if}}">{{menu_block.settings.image_1_title}}</p>
+                              {{snippet
+                                "link"
+                                classes="header__image_button button button--link"
+                                href=menu_block.settings.image_1_link
+                                text=menu_block.settings.image_1_link_text
+                              }}
+                            </div>
+                          </div>
+                        {{/if}}
+                        {{#if show_img2}}
+                          <div
+                            class="header__image image2"
+                            style="order:{{ternary (if menu_block.settings.image_2_position '===' 'left') -1 1}}"
+                          >
+                            <div
+                              class="header__image__content"
+                              style="
+                              {{#if menu_block.settings.menu_img_style '===' 'normal'}}
+                                padding-bottom:{{divide 100 show_img2.aspect_ratio}}%;
+                              {{/if}}
+                              "
+                            >
+                            {{snippet "image" data=show_img2}}
+                            </div>
 
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/collections/all">
-                Products
-              </a>
-            </li>
+                            <div class="header__image--cover">
+                              <p class="header__image_title {{#if menu_block.settings.menu_img_style '===' 'normal'}}body4{{else}}body3{{/if}}">{{menu_block.settings.image_2_title}}</p>
+                              {{snippet
+                                "link"
+                                classes="header__image_button button button--link"
+                                href=menu_block.settings.image_2_link
+                                text=menu_block.settings.image_2_link_text
+                              }}
+                            </div>
+                          </div>
+                        {{/if}}
+                        {{#if show_img3}}
+                          <div
+                            class="header__image image3"
+                            style="order:{{ternary (if menu_block.settings.image_3_position '===' 'left') -1 1}}"
+                          >
+                            <div
+                              class="header__image__content"
+                              style="
+                              {{#if menu_block.settings.menu_img_style '===' 'normal'}}
+                                padding-bottom:{{divide 100 show_img3.aspect_ratio}}%;
+                              {{/if}}
+                              "
+                            >
+                            {{snippet "image" data=show_img3}}
+                            </div>
+                            <div class="header__image--cover">
+                              <p class="header__image_title {{#if menu_block.settings.menu_img_style '===' 'normal'}}body4{{else}}body3{{/if}}">{{menu_block.settings.image_3_title}}</p>
+                              {{snippet
+                                "link"
+                                classes="header__image_button button button--link"
+                                href=menu_block.settings.image_3_link
+                                text=menu_block.settings.image_3_link_text
+                              }}
+                            </div>
+                          </div>
+                        {{/if}}
+                      {{/if}}
 
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/pages/design">
-                Design
-              </a>
-            </li>
-
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/collections/sample-doors">
-                Sample Doors
-              </a>
-            </li>
-
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/pages/aboutus">
-                About
-              </a>
-            </li>
-
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/pages/faqs">
-                FAQ
-              </a>
-            </li>
-
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/pages/contact">
-                Contact
-              </a>
-            </li>
-
-            <li class="header-inline-menus__item header-inline-menus__item--">
-              <a class="header-inline-menus__link menus__link body4 fw-bold" href="/pages/contractor">
-                Contractor
-              </a>
-            </li>
-
+                    </div>
+                  {{else}}
+                    <ul class="header-dropdown-menu list-unstyled">
+                      {{#each links}}
+                        <li class="header-inline-submenus__item">
+                          <a
+                            class="header-inline-submenus__link menus__link {{../../section.settings.body_pc_second_font_size}} {{#if ../../section.settings.body_pc_second_font_bold}}fw-bold{{/if}}"
+                            {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                          >{{title}}</a>
+                        </li>
+                      {{/each}}
+                    </ul>
+                  {{/or}}
+                {{else}}
+                  <a
+                    class="header-inline-menus__link menus__link body4 fw-bold {{#if is_highlight}}menu-item--highlight{{/if}}"
+                    {{#if url}}href="{{url}}"{{else}}href="javascript:;"{{/if}}
+                  >
+                    {{title}}
+                  </a>
+                {{/if}}
+              </li>
+            {{/each}}
+            
+            {{#each section.blocks}}
+              {{#if type "===" "menuGallery"}}
+                {{snippet "header-gallery" settings=this.settings block=this highlight_menus_list=../highlight_menus_list}}
+              {{/if}}
+            {{/each}}
+            
           </ul>
         </nav>
       {{/if}}
