@@ -693,19 +693,27 @@
 
   // ---- helpers ----
   function matchCard(card) {
-    var coll  = (card.dataset.collection || '').toUpperCase();
-    var tags  = (card.dataset.tags || '').toUpperCase();
-    var price = parseInt(card.dataset.price || '0', 10);
+    var coll   = (card.dataset.collection || '').toUpperCase();
+    var tags   = (card.dataset.tags || '').toUpperCase();
+    var tagArr = tags.split(',').map(function(t){ return t.trim(); }).filter(Boolean);
+    var price  = parseInt(card.dataset.price || '0', 10);
 
     if (activeFilters.collection.length > 0) {
+      // Match product_type, a "collection:<name>" prefixed tag, or a plain "<name>" tag
       var matchC = activeFilters.collection.some(function(f){
-        return coll === f.toUpperCase() || tags.indexOf('COLLECTION:' + f.toUpperCase()) >= 0;
+        var fUpper = f.toUpperCase();
+        return coll === fUpper ||
+               tagArr.indexOf('COLLECTION:' + fUpper) >= 0 ||
+               tagArr.indexOf(fUpper) >= 0;
       });
       if (!matchC) return false;
     }
     if (activeFilters.color.length > 0) {
+      // Match a "color:<name>" prefixed tag or a plain "<name>" tag (exact, not substring)
       var matchCol = activeFilters.color.some(function(f){
-        return tags.indexOf('COLOR:' + f.toUpperCase()) >= 0 || tags.indexOf(f.toUpperCase()) >= 0;
+        var fUpper = f.toUpperCase();
+        return tagArr.indexOf('COLOR:' + fUpper) >= 0 ||
+               tagArr.indexOf(fUpper) >= 0;
       });
       if (!matchCol) return false;
     }
@@ -749,19 +757,19 @@
 
     // Update counts in sidebar
     document.querySelectorAll('[data-count-type="collection"]').forEach(function(el){
-      var val = el.dataset.countValue;
+      var val = (el.dataset.countValue || '').toUpperCase();
       var n = allCards.filter(function(c){
-        var coll2 = (c.dataset.collection||'').toUpperCase();
-        var tags2 = (c.dataset.tags||'').toUpperCase();
-        return coll2 === val.toUpperCase() || tags2.indexOf('COLLECTION:'+val.toUpperCase()) >= 0;
+        var coll2  = (c.dataset.collection||'').toUpperCase();
+        var tags2  = (c.dataset.tags||'').toUpperCase().split(',').map(function(t){ return t.trim(); }).filter(Boolean);
+        return coll2 === val || tags2.indexOf('COLLECTION:'+val) >= 0 || tags2.indexOf(val) >= 0;
       }).length;
       el.textContent = '(' + n + ')';
     });
     document.querySelectorAll('[data-count-type="color"]').forEach(function(el){
-      var val = el.dataset.countValue;
+      var val = (el.dataset.countValue || '').toUpperCase();
       var n = allCards.filter(function(c){
-        var tags2 = (c.dataset.tags||'').toUpperCase();
-        return tags2.indexOf('COLOR:'+val.toUpperCase()) >= 0 || tags2.indexOf(val.toUpperCase()) >= 0;
+        var tags2 = (c.dataset.tags||'').toUpperCase().split(',').map(function(t){ return t.trim(); }).filter(Boolean);
+        return tags2.indexOf('COLOR:'+val) >= 0 || tags2.indexOf(val) >= 0;
       }).length;
       el.textContent = '(' + n + ')';
     });
