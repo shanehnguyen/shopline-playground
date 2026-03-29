@@ -146,364 +146,148 @@
 
     <!-- Breadcrumbs -->
     <nav class="pk-furn__crumbs">
-      <a href="/">Home</a>
+      <a href="{{routes.root_url}}">Home</a>
       <span>/</span>
       <span>Furniture Collections</span>
     </nav>
 
-    <!-- MALLORCA -->
-    <div class="pk-furn__collection">
-      <div class="pk-furn__coll-hd">
-        <a class="pk-furn__coll-name" href="/collections/mallorca">Mallorca</a>
-        <hr class="pk-furn__divider" />
-      </div>
-      <div class="pk-furn__grid-2">
-        <a class="pk-furn__card" href="/collections/mallorca-collection-white-shaker">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.mallorca_white_img}}
-              {{snippet "image" data=section.settings.mallorca_white_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">White</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/mallorca-collection-dolphin-gray-shaker">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.mallorca_gray_img}}
-              {{snippet "image" data=section.settings.mallorca_gray_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Dolphin Gray</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- SHADY -->
-    <div class="pk-furn__collection">
-      <div class="pk-furn__coll-hd">
-        <a class="pk-furn__coll-name" href="/collections/shady">Shady</a>
-        <hr class="pk-furn__divider" />
-      </div>
-      <div class="pk-furn__grid-3">
-        <a class="pk-furn__card" href="/collections/shady-collection-slim-white-shaker">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.shady_white_img}}
-              {{snippet "image" data=section.settings.shady_white_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">White</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/shady-collection-slim-gray-shaker">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.shady_gray_img}}
-              {{snippet "image" data=section.settings.shady_gray_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Gray</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/shady-collection-slim-natural-shaker">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.shady_natural_img}}
-              {{snippet "image" data=section.settings.shady_natural_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Neutral</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- FRANCO -->
-    <div class="pk-furn__collection">
-      <div class="pk-furn__coll-hd">
-        <a class="pk-furn__coll-name" href="/collections/franco">Franco</a>
-        <hr class="pk-furn__divider" />
-      </div>
-      <div class="pk-furn__grid-franco">
-        <div class="pk-furn__grid-franco-top">
-          <a class="pk-furn__card" href="/collections/franco-collection-white-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.franco_white_img}}
-                {{snippet "image" data=section.settings.franco_white_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">White</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
+    {{#each section.blocks}}
+      <div class="pk-furn__collection" {{{shopline_attributes}}}>
+        <div class="pk-furn__coll-hd">
+          <a class="pk-furn__coll-name" href="{{#if settings.group_url}}{{settings.group_url}}{{else}}javascript:;{{/if}}">
+            {{settings.group_name}}
           </a>
-          <a class="pk-furn__card" href="/collections/franco-collection-gray-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.franco_gray_img}}
-                {{snippet "image" data=section.settings.franco_gray_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Gray</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
+          <hr class="pk-furn__divider" />
         </div>
-        <div class="pk-furn__grid-franco-bot">
-          <a class="pk-furn__card" href="/collections/franco-collection-oak-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.franco_oak_img}}
-                {{snippet "image" data=section.settings.franco_oak_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Oak</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-          <a class="pk-furn__card" href="/collections/franco-collection-slim-white-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.franco_slim_white_img}}
-                {{snippet "image" data=section.settings.franco_slim_white_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Slim White</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-          <a class="pk-furn__card" href="/collections/franco-collection-slim-black-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.franco_black_img}}
-                {{snippet "image" data=section.settings.franco_black_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Slim Black</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-          <a class="pk-furn__card" href="/collections/franco-collection-slim-oak-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.franco_slim_oak_img}}
-                {{snippet "image" data=section.settings.franco_slim_oak_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Slim Oak</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
 
-    <!-- IRENA -->
-    <div class="pk-furn__collection">
-      <div class="pk-furn__coll-hd">
-        <a class="pk-furn__coll-name" href="/collections/irena">Irena</a>
-        <hr class="pk-furn__divider" />
-      </div>
-      <div class="pk-furn__grid-irena">
-        <div class="pk-furn__grid-irena-top">
-          <a class="pk-furn__card" href="/collections/irena-collection-white-dual-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.irena_white_img}}
-                {{snippet "image" data=section.settings.irena_white_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+        {{!-- Franco layout: 2-col top row + 4-col bottom row --}}
+        {{#if settings.layout "===" "franco"}}
+          <div class="pk-furn__grid-franco">
+            <div class="pk-furn__grid-franco-top">
+              {{#if settings.image_1}}
+                <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_2}}
+                <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
               {{/if}}
             </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">White</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-          <a class="pk-furn__card" href="/collections/irena-collection-gray-dual-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.irena_gray_img}}
-                {{snippet "image" data=section.settings.irena_gray_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
+            <div class="pk-furn__grid-franco-bot">
+              {{#if settings.image_3}}
+                <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_4}}
+                <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_5}}
+                <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_6}}
+                <a class="pk-furn__card" href="{{#if settings.link_6}}{{settings.link_6}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_6}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_6}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
               {{/if}}
             </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Gray</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-        </div>
-        <div class="pk-furn__grid-irena-bot">
-          <a class="pk-furn__card" href="/collections/irena-collection-olive-dual-shaker">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.irena_olive_img}}
-                {{snippet "image" data=section.settings.irena_olive_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Olive</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-          <a class="pk-furn__card" href="/collections/irena-collection-flat-glossy-white">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.irena_glossy_img}}
-                {{snippet "image" data=section.settings.irena_glossy_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Glossy White</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-          <a class="pk-furn__card" href="/collections/irena-collection-flat-woodgrains">
-            <div class="pk-furn__img-wrap">
-              {{#if section.settings.irena_wood_img}}
-                {{snippet "image" data=section.settings.irena_wood_img}}
-              {{else}}
-                <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-              {{/if}}
-            </div>
-            <div class="pk-furn__card-foot">
-              <span class="pk-furn__card-name">Woodgrains</span>
-              <span class="pk-furn__card-arrow">→</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
+          </div>
 
-    <!-- NEWPORT -->
-    <div class="pk-furn__collection">
-      <div class="pk-furn__coll-hd">
-        <a class="pk-furn__coll-name" href="/collections/newport">Newport</a>
-        <hr class="pk-furn__divider" />
-      </div>
-      <div class="pk-furn__grid-3">
-        <a class="pk-furn__card" href="/collections/newport-collection-natural-oak">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.newport_oak_img}}
-              {{snippet "image" data=section.settings.newport_oak_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
+        {{!-- Irena layout: 2-col top row + 3-col bottom row --}}
+        {{else if settings.layout "===" "irena"}}
+          <div class="pk-furn__grid-irena">
+            <div class="pk-furn__grid-irena-top">
+              {{#if settings.image_1}}
+                <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_2}}
+                <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+            </div>
+            <div class="pk-furn__grid-irena-bot">
+              {{#if settings.image_3}}
+                <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_4}}
+                <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.image_5}}
+                <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+            </div>
           </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Natural</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/newport-collection-umbria-elm">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.newport_umbria_img}}
-              {{snippet "image" data=section.settings.newport_umbria_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Umbria Elm</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/newport-collection-shoreline">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.newport_shore_img}}
-              {{snippet "image" data=section.settings.newport_shore_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Shoreline</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-      </div>
-    </div>
 
-    <!-- ASPEN -->
-    <div class="pk-furn__collection">
-      <div class="pk-furn__coll-hd">
-        <a class="pk-furn__coll-name" href="/collections/aspen">Aspen</a>
-        <hr class="pk-furn__divider" />
+        {{!-- Standard uniform grid (2, 3, or 4 columns) --}}
+        {{else}}
+          <div class="pk-furn__grid-{{#if settings.layout}}{{settings.layout}}{{else}}3{{/if}}">
+            {{#if settings.image_1}}
+              <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
+                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
+                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
+              </a>
+            {{/if}}
+            {{#if settings.image_2}}
+              <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
+                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
+                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
+              </a>
+            {{/if}}
+            {{#if settings.image_3}}
+              <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
+                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
+                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
+              </a>
+            {{/if}}
+            {{#if settings.image_4}}
+              <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
+                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
+                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
+              </a>
+            {{/if}}
+            {{#if settings.image_5}}
+              <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
+                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
+                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
+              </a>
+            {{/if}}
+            {{#if settings.image_6}}
+              <a class="pk-furn__card" href="{{#if settings.link_6}}{{settings.link_6}}{{else}}javascript:;{{/if}}">
+                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_6}}</div>
+                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_6}}</span><span class="pk-furn__card-arrow">→</span></div>
+              </a>
+            {{/if}}
+          </div>
+        {{/if}}
+
       </div>
-      <div class="pk-furn__grid-3">
-        <a class="pk-furn__card" href="/collections/aspen-collection-stone-gray-solids">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.aspen_gray_img}}
-              {{snippet "image" data=section.settings.aspen_gray_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Stone Gray</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/aspen-collection-emerald-solids">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.aspen_emerald_img}}
-              {{snippet "image" data=section.settings.aspen_emerald_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Emerald</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-        <a class="pk-furn__card" href="/collections/aspen-collection-raven-solids">
-          <div class="pk-furn__img-wrap">
-            {{#if section.settings.aspen_raven_img}}
-              {{snippet "image" data=section.settings.aspen_raven_img}}
-            {{else}}
-              <div style="position:absolute;inset:0;background:#eeebe6;"></div>
-            {{/if}}
-          </div>
-          <div class="pk-furn__card-foot">
-            <span class="pk-furn__card-name">Raven</span>
-            <span class="pk-furn__card-arrow">→</span>
-          </div>
-        </a>
-      </div>
-    </div>
+    {{/each}}
 
   </div>
 </div>
@@ -512,41 +296,67 @@
 {
   "name": "PK Collections Page",
   "class": "section",
-  "settings": [
-    { "type": "header", "content": "Mallorca" },
-    { "id": "mallorca_white_img", "type": "image_picker", "label": "Mallorca — White" },
-    { "id": "mallorca_gray_img",  "type": "image_picker", "label": "Mallorca — Dolphin Gray" },
-
-    { "type": "header", "content": "Shady" },
-    { "id": "shady_white_img",   "type": "image_picker", "label": "Shady — White" },
-    { "id": "shady_gray_img",    "type": "image_picker", "label": "Shady — Gray" },
-    { "id": "shady_natural_img", "type": "image_picker", "label": "Shady — Neutral" },
-
-    { "type": "header", "content": "Franco" },
-    { "id": "franco_white_img",     "type": "image_picker", "label": "Franco — White" },
-    { "id": "franco_gray_img",      "type": "image_picker", "label": "Franco — Gray" },
-    { "id": "franco_oak_img",       "type": "image_picker", "label": "Franco — Oak" },
-    { "id": "franco_slim_white_img","type": "image_picker", "label": "Franco — Slim White" },
-    { "id": "franco_black_img",     "type": "image_picker", "label": "Franco — Slim Black" },
-    { "id": "franco_slim_oak_img",  "type": "image_picker", "label": "Franco — Slim Oak" },
-
-    { "type": "header", "content": "Irena" },
-    { "id": "irena_white_img",  "type": "image_picker", "label": "Irena — White" },
-    { "id": "irena_gray_img",   "type": "image_picker", "label": "Irena — Gray" },
-    { "id": "irena_olive_img",  "type": "image_picker", "label": "Irena — Olive" },
-    { "id": "irena_glossy_img", "type": "image_picker", "label": "Irena — Glossy White" },
-    { "id": "irena_wood_img",   "type": "image_picker", "label": "Irena — Woodgrains" },
-
-    { "type": "header", "content": "Newport" },
-    { "id": "newport_oak_img",    "type": "image_picker", "label": "Newport — Natural" },
-    { "id": "newport_umbria_img", "type": "image_picker", "label": "Newport — Umbria Elm" },
-    { "id": "newport_shore_img",  "type": "image_picker", "label": "Newport — Shoreline" },
-
-    { "type": "header", "content": "Aspen" },
-    { "id": "aspen_gray_img",    "type": "image_picker", "label": "Aspen — Stone Gray" },
-    { "id": "aspen_emerald_img", "type": "image_picker", "label": "Aspen — Emerald" },
-    { "id": "aspen_raven_img",   "type": "image_picker", "label": "Aspen — Raven" }
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection_group",
+      "name": "Collection Group",
+      "settings": [
+        { "type": "text",  "id": "group_name", "label": "Collection name", "default": "Collection" },
+        { "type": "url",   "id": "group_url",  "label": "Collection URL" },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Grid layout",
+          "default": "3",
+          "options": [
+            { "value": "2",      "label": "2 columns" },
+            { "value": "3",      "label": "3 columns" },
+            { "value": "4",      "label": "4 columns" },
+            { "value": "franco", "label": "2 top + 4 bottom (Franco)" },
+            { "value": "irena",  "label": "2 top + 3 bottom (Irena)" }
+          ]
+        },
+        { "type": "header", "content": "Variant 1" },
+        { "type": "image_picker", "id": "image_1", "label": "Image" },
+        { "type": "text",         "id": "label_1", "label": "Label" },
+        { "type": "url",          "id": "link_1",  "label": "Link"  },
+        { "type": "header", "content": "Variant 2" },
+        { "type": "image_picker", "id": "image_2", "label": "Image" },
+        { "type": "text",         "id": "label_2", "label": "Label" },
+        { "type": "url",          "id": "link_2",  "label": "Link"  },
+        { "type": "header", "content": "Variant 3" },
+        { "type": "image_picker", "id": "image_3", "label": "Image" },
+        { "type": "text",         "id": "label_3", "label": "Label" },
+        { "type": "url",          "id": "link_3",  "label": "Link"  },
+        { "type": "header", "content": "Variant 4" },
+        { "type": "image_picker", "id": "image_4", "label": "Image" },
+        { "type": "text",         "id": "label_4", "label": "Label" },
+        { "type": "url",          "id": "link_4",  "label": "Link"  },
+        { "type": "header", "content": "Variant 5" },
+        { "type": "image_picker", "id": "image_5", "label": "Image" },
+        { "type": "text",         "id": "label_5", "label": "Label" },
+        { "type": "url",          "id": "link_5",  "label": "Link"  },
+        { "type": "header", "content": "Variant 6" },
+        { "type": "image_picker", "id": "image_6", "label": "Image" },
+        { "type": "text",         "id": "label_6", "label": "Label" },
+        { "type": "url",          "id": "link_6",  "label": "Link"  }
+      ]
+    }
   ],
-  "presets": [{ "name": "PK Collections Page", "category": "Custom" }]
+  "presets": [
+    {
+      "name": "PK Collections Page",
+      "category": "Custom",
+      "blocks": [
+        { "type": "collection_group", "settings": { "group_name": "Mallorca", "group_url": "/collections/mallorca",  "layout": "2" } },
+        { "type": "collection_group", "settings": { "group_name": "Shady",    "group_url": "/collections/shady",     "layout": "3" } },
+        { "type": "collection_group", "settings": { "group_name": "Franco",   "group_url": "/collections/franco",    "layout": "franco" } },
+        { "type": "collection_group", "settings": { "group_name": "Irena",    "group_url": "/collections/irena",     "layout": "irena" } },
+        { "type": "collection_group", "settings": { "group_name": "Newport",  "group_url": "/collections/newport",   "layout": "3" } },
+        { "type": "collection_group", "settings": { "group_name": "Aspen",    "group_url": "/collections/aspen",     "layout": "3" } }
+      ]
+    }
+  ]
 }
 {{/schema}}
