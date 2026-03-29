@@ -412,16 +412,22 @@
 
   function init() {
     // ── Gallery ──
+    var gallery = document.getElementById('pk-gallery-' + sid);
     var mainImg = document.getElementById('pk-main-img-' + sid);
-    var thumbBtns = Array.from(document.querySelectorAll('[data-gallery-thumb="' + sid + '"]'));
-    thumbBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (!mainImg) return;
-        mainImg.src = btn.dataset.src;
-        thumbBtns.forEach(function (b) { b.classList.remove('is-active'); });
+    if (gallery && mainImg) {
+      gallery.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-gallery-thumb]');
+        if (!btn) return;
+        var src = btn.getAttribute('data-src');
+        if (!src) return;
+        mainImg.src = src;
+        mainImg.removeAttribute('srcset');
+        Array.from(gallery.querySelectorAll('[data-gallery-thumb]')).forEach(function (b) {
+          b.classList.remove('is-active');
+        });
         btn.classList.add('is-active');
       });
-    });
+    }
 
     // ── Quantity ──
     Array.from(document.querySelectorAll('[data-qty-action]')).forEach(function (btn) {
