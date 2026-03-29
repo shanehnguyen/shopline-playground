@@ -191,17 +191,83 @@
       ],
       "custom_css": []
     },
-    "17747206805616db6a0a": {
+    "1774820910515c396579": {
       "disabled": false,
       "type": "pk-collections-page",
       "settings": {},
-      "blocks": {},
-      "block_order": []
+      "blocks": {
+        "177482091051794dcd3d": {
+          "type": "collection_group",
+          "settings": {
+            "group_name": "Mallorca",
+            "group_url": "/collections/mallorca",
+            "layout": "2",
+            "label_1": "White",
+            "image_1": "shopline://shop_images/white-shaker-banner_7454090234000582142.jpg"
+          },
+          "blockId": "177482091051794dcd3d",
+          "custom_css": []
+        },
+        "1774820910517e120686": {
+          "type": "collection_group",
+          "settings": {
+            "group_name": "Shady",
+            "group_url": "/collections/shady",
+            "layout": "3"
+          },
+          "blockId": "1774820910517e120686"
+        },
+        "1774820910517504808a": {
+          "type": "collection_group",
+          "settings": {
+            "group_name": "Franco",
+            "group_url": "/collections/franco",
+            "layout": "franco"
+          },
+          "blockId": "1774820910517504808a"
+        },
+        "17748209105179d2477d": {
+          "type": "collection_group",
+          "settings": {
+            "group_name": "Irena",
+            "group_url": "/collections/irena",
+            "layout": "irena"
+          },
+          "blockId": "17748209105179d2477d"
+        },
+        "17748209105176f5b562": {
+          "type": "collection_group",
+          "settings": {
+            "group_name": "Newport",
+            "group_url": "/collections/newport",
+            "layout": "3"
+          },
+          "blockId": "17748209105176f5b562"
+        },
+        "17748209105171a5673a": {
+          "type": "collection_group",
+          "settings": {
+            "group_name": "Aspen",
+            "group_url": "/collections/aspen",
+            "layout": "3"
+          },
+          "blockId": "17748209105171a5673a"
+        }
+      },
+      "block_order": [
+        "177482091051794dcd3d",
+        "1774820910517e120686",
+        "1774820910517504808a",
+        "17748209105179d2477d",
+        "17748209105176f5b562",
+        "17748209105171a5673a"
+      ],
+      "custom_css": []
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "17747206805616db6a0a"
+    "1774820910515c396579"
   ]
 }

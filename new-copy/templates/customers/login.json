@@ -11,7 +11,7 @@
       "custom_css": []
     },
     "174338574377353b3522": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/text-columns-with-images/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "title": "",
@@ -162,7 +162,7 @@
       "custom_css": []
     },
     "1743385905472cf84b61": {
-      "disabled": false,
+      "disabled": true,
       "type": "slideshow",
       "settings": {
         "section_height": "450px",
@@ -213,7 +213,7 @@
       "custom_css": []
     },
     "1743386145357718fc3c": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "icon_width": 48,
@@ -324,12 +324,20 @@
         "17433861453570274d53",
         "174338614535791425dc"
       ]
+    },
+    "1774821035191b753b90": {
+      "disabled": false,
+      "type": "pk-trust-icons",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "1743385905472cf84b61",
     "174338574377353b3522",
     "main",
-    "1743386145357718fc3c"
+    "1743386145357718fc3c",
+    "1774821035191b753b90"
   ]
 }
