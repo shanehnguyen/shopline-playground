@@ -1,0 +1,428 @@
+{{snippet "stylesheet" href=(asset_url "snippet-cart-item.css")}}
+{{snippet "stylesheet" href=(asset_url "component-cart.css")}}
+<script src="{{asset_url 'component-quantity-input.js'}}" defer></script>
+<script src="{{asset_url 'component-cart.js'}}" defer></script>
+
+<style>
+/* ── PK Cart ── */
+.pk-cart { background: #fff; font-family: 'Inter', sans-serif; min-height: 60vh; }
+.pk-cart *, .pk-cart *::before, .pk-cart *::after { box-sizing: border-box; }
+
+/* Breadcrumb */
+.pk-cart__crumb { font-size: 12px; color: #6b6258; padding: 16px 32px; border-bottom: 1px solid #e0dcd5; }
+.pk-cart__crumb a { color: #6b6258; text-decoration: none; }
+.pk-cart__crumb a:hover { color: #a89060; }
+.pk-cart__crumb-sep { margin: 0 8px; }
+
+/* Inner layout */
+.pk-cart__inner { max-width: 1280px; margin: 0 auto; padding: 48px 16px; }
+@media (min-width: 768px) { .pk-cart__inner { padding: 96px 32px; } }
+.pk-cart__layout { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 1024px) { .pk-cart__layout { flex-direction: row; gap: 64px; } }
+
+/* ── Left: Items ── */
+.pk-cart__items-col { width: 100%; }
+@media (min-width: 1024px) { .pk-cart__items-col { width: 70%; } }
+
+.pk-cart__heading-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  border-bottom: 1px solid #e0dcd5; padding-bottom: 24px; margin-bottom: 0;
+}
+.pk-cart__heading {
+  font-size: 32px; font-family: Georgia, 'Times New Roman', serif;
+  color: #1a1a1a; font-weight: 700; line-height: 1; margin: 0;
+}
+@media (min-width: 768px) { .pk-cart__heading { font-size: 42px; } }
+.pk-cart__count {
+  font-size: 13px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #6b6258;
+}
+
+/* Item rows */
+.pk-cart__item-list { display: flex; flex-direction: column; margin-top: 0; }
+.pk-cart__item {
+  display: flex; flex-direction: column; gap: 32px;
+  padding: 48px 0; border-bottom: 1px solid #e0dcd5;
+}
+.pk-cart__item:last-child { border-bottom: none; }
+@media (min-width: 768px) { .pk-cart__item { flex-direction: row; } }
+
+.pk-cart__item-img-wrap {
+  width: 100%; aspect-ratio: 1/1; background: #fff; border: 1px solid #e0dcd5;
+  overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+@media (min-width: 768px) { .pk-cart__item-img-wrap { width: 120px; } }
+.pk-cart__item-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+.pk-cart__item-details { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+.pk-cart__item-sku {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: #a89060;
+}
+.pk-cart__item-title {
+  font-size: 18px; font-weight: 500; color: #1a1a1a; text-decoration: none;
+  line-height: 1.3; transition: color 0.2s;
+}
+.pk-cart__item-title:hover { color: #a89060; }
+.pk-cart__item-variant { font-size: 13px; color: #6b6258; margin-top: 2px; }
+.pk-cart__item-price { font-size: 18px; font-weight: 700; color: #a89060; }
+.pk-cart__item-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 32px; padding-top: 8px; }
+
+/* Quantity stepper */
+.pk-cart__qty { display: flex; align-items: center; border: 1px solid #e0dcd5; }
+.pk-cart__qty-btn {
+  width: 40px; height: 40px; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+  color: #1a1a1a; transition: background 0.15s; padding: 0;
+}
+.pk-cart__qty-btn:hover { background: #f7f5f2; }
+.pk-cart__qty-input {
+  width: 48px; height: 40px; text-align: center; border: none;
+  border-left: 1px solid #e0dcd5; border-right: 1px solid #e0dcd5;
+  font-size: 14px; font-weight: 500; color: #1a1a1a; -moz-appearance: textfield;
+  font-family: inherit;
+}
+.pk-cart__qty-input::-webkit-outer-spin-button,
+.pk-cart__qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Remove */
+.pk-cart__remove {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: #6b6258; background: none; border: none; cursor: pointer; padding: 0;
+  text-decoration: none; transition: color 0.2s; font-family: inherit;
+}
+.pk-cart__remove:hover { color: #1a1a1a; }
+.pk-cart__remove-icon { font-size: 14px; line-height: 1; }
+
+/* ── Empty State ── */
+.pk-cart__empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 50vh; text-align: center; padding: 48px 16px;
+}
+.pk-cart__empty-icon {
+  width: 80px; height: 80px; background: #fff; border: 1px solid #e0dcd5;
+  border-radius: 9999px; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 32px; font-size: 32px;
+}
+.pk-cart__empty-heading {
+  font-size: 42px; font-family: Georgia, 'Times New Roman', serif;
+  color: #1a1a1a; font-weight: 700; margin: 0 0 16px;
+}
+.pk-cart__empty-sub { font-size: 15px; color: #6b6258; max-width: 440px; margin: 0 auto 32px; line-height: 1.7; }
+.pk-cart__empty-btn {
+  display: inline-block; padding: 14px 40px; background: #1a1a1a; color: #fff;
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+  text-decoration: none; transition: background 0.2s;
+}
+.pk-cart__empty-btn:hover { background: #333; }
+
+/* ── Right: Summary ── */
+.pk-cart__summary-col { width: 100%; }
+@media (min-width: 1024px) { .pk-cart__summary-col { width: 30%; } }
+.pk-cart__summary-sticky { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 32px; }
+.pk-cart__summary-box { border: 1px solid #e0dcd5; padding: 32px; display: flex; flex-direction: column; gap: 32px; }
+.pk-cart__summary-heading {
+  font-size: 24px; font-family: Georgia, 'Times New Roman', serif;
+  color: #1a1a1a; font-weight: 700; margin: 0; padding-bottom: 16px; border-bottom: 1px solid #e0dcd5;
+}
+
+/* Order notes */
+.pk-cart__notes-toggle {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  color: #1a1a1a; background: none; border: none; cursor: pointer; padding: 0;
+  transition: color 0.2s; font-family: inherit;
+}
+.pk-cart__notes-toggle:hover { color: #a89060; }
+.pk-cart__notes-chevron { font-size: 16px; transition: transform 0.2s; }
+.pk-cart__notes-chevron.is-open { transform: rotate(180deg); }
+.pk-cart__notes-body { overflow: hidden; transition: max-height 0.25s ease; max-height: 0; }
+.pk-cart__notes-body.is-open { max-height: 200px; }
+.pk-cart__notes-textarea {
+  width: 100%; height: 128px; padding: 16px; font-size: 14px;
+  border: 1px solid #e0dcd5; outline: none; resize: none;
+  transition: border-color 0.2s; font-family: inherit; margin-top: 12px;
+}
+.pk-cart__notes-textarea:focus { border-color: #a89060; }
+
+/* Totals */
+.pk-cart__totals { display: flex; flex-direction: column; gap: 16px; }
+.pk-cart__total-row { display: flex; align-items: flex-end; justify-content: space-between; }
+.pk-cart__total-label { font-size: 14px; color: #6b6258; }
+.pk-cart__total-value { font-size: 24px; font-weight: 700; color: #1a1a1a; }
+.pk-cart__shipping-value { font-size: 14px; color: #6b6258; font-style: italic; }
+.pk-cart__grand-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  border-top: 1px solid #e0dcd5; padding-top: 16px;
+}
+.pk-cart__grand-label { font-size: 16px; font-weight: 700; color: #1a1a1a; }
+.pk-cart__grand-value { font-size: 24px; font-weight: 700; color: #a89060; }
+
+/* Checkout button */
+.pk-cart__checkout-btn {
+  display: block; width: 100%; padding: 20px 24px; background: #1a1a1a; color: #fff;
+  border: none; cursor: pointer; font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; transition: background 0.2s;
+  font-family: inherit;
+}
+.pk-cart__checkout-btn:hover { background: #333; }
+.pk-cart__continue { display: block; text-align: center; font-size: 13px; color: #6b6258; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s; }
+.pk-cart__continue:hover { color: #a89060; }
+
+/* Secure checkout */
+.pk-cart__secure { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-top: 16px; }
+.pk-cart__secure-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6b6258; }
+.pk-cart__pay-icons { display: flex; gap: 12px; align-items: center; opacity: 0.5; filter: grayscale(1); }
+.pk-cart__pay-icons img { height: 16px; width: auto; }
+</style>
+
+{{#if cart.empty}}
+
+  {{!-- ── Empty state ── --}}
+  <div class="pk-cart">
+    <div class="pk-cart__crumb">
+      <a href="{{routes.root_url}}">Home</a>
+      <span class="pk-cart__crumb-sep">›</span>
+      <span>Cart</span>
+    </div>
+    <div class="pk-cart__inner">
+      <div class="pk-cart__empty">
+        <div class="pk-cart__empty-icon">🛍</div>
+        <h1 class="pk-cart__empty-heading">Your cart is empty</h1>
+        <p class="pk-cart__empty-sub">Looks like you haven't added any cabinets to your cart yet. Explore our collections to find the perfect fit for your kitchen.</p>
+        <a href="{{routes.all_products_collection_url}}" class="pk-cart__empty-btn">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+
+{{else}}
+
+  {{!-- ── Cart with items ── --}}
+  <div class="pk-cart">
+    <div class="pk-cart__crumb">
+      <a href="{{routes.root_url}}">Home</a>
+      <span class="pk-cart__crumb-sep">›</span>
+      <span>Cart</span>
+    </div>
+
+    <div class="pk-cart__inner">
+      <div class="pk-cart__layout">
+
+        {{!-- Left: Items --}}
+        <div class="pk-cart__items-col">
+          <cart-items
+            class="{{#if cart.empty}}cart-empty{{/if}}"
+            id="main-cart-items"
+            data-id="{{section.id}}"
+            data-show-fixed-checkout="{{and (isFalsey cart.empty) (if cart.total_discount '>' 0)}}"
+            data-enable-discount="{{cart.discount_enable_cart}}"
+          >
+            <div class="pk-cart__heading-row">
+              <h1 class="pk-cart__heading">Your cart</h1>
+              <span class="pk-cart__count">
+                {{cart.item_count}} {{#if cart.item_count "===" 1}}item{{else}}items{{/if}}
+              </span>
+            </div>
+
+            <div class="pk-cart__item-list">
+              {{#each cart.items as |item|}}
+                <div class="pk-cart__item" id="CartItem-{{item.index}}" data-index="{{item.index}}">
+
+                  {{!-- Thumbnail --}}
+                  <a href="{{item.url}}" class="pk-cart__item-img-wrap">
+                    <img
+                      class="pk-cart__item-img"
+                      src="{{img_url item.image width=240}}"
+                      alt="{{item.title}}"
+                      loading="lazy"
+                    />
+                  </a>
+
+                  {{!-- Details --}}
+                  <div class="pk-cart__item-details">
+                    <div>
+                      {{#if item.sku}}
+                        <p class="pk-cart__item-sku">SKU: {{item.sku}}</p>
+                      {{/if}}
+                      <a href="{{item.url}}" class="pk-cart__item-title">{{item.product_title}}</a>
+                      {{#if item.variant_title}}
+                        <p class="pk-cart__item-variant">{{item.variant_title}}</p>
+                      {{/if}}
+                    </div>
+
+                    <p class="pk-cart__item-price">{{money_with_currency item.price}}</p>
+
+                    <div class="pk-cart__item-actions">
+
+                      {{!-- Quantity stepper via quantity-input component --}}
+                      <quantity-input class="pk-cart__qty quantity">
+                        <button
+                          class="pk-cart__qty-btn quantity__button"
+                          name="minus"
+                          type="button"
+                          aria-label="Decrease quantity"
+                        >−</button>
+                        <input
+                          class="pk-cart__qty-input quantity__input"
+                          type="number"
+                          name="updates[{{item.key}}]"
+                          value="{{item.quantity}}"
+                          min="1"
+                          id="Quantity-{{item.index}}"
+                          data-index="{{item.index}}"
+                          aria-label="Quantity for {{item.product_title}}"
+                        />
+                        <button
+                          class="pk-cart__qty-btn quantity__button"
+                          name="plus"
+                          type="button"
+                          aria-label="Increase quantity"
+                        >+</button>
+                      </quantity-input>
+
+                      {{!-- Remove --}}
+                      <cart-remove-button id="Remove-{{item.index}}" data-index="{{item.index}}">
+                        <a
+                          href="/cart/change?id={{item.key}}&quantity=0"
+                          class="pk-cart__remove"
+                          aria-label="Remove {{item.product_title}} from cart"
+                        >
+                          <span class="pk-cart__remove-icon">✕</span>
+                          <span>Remove</span>
+                        </a>
+                      </cart-remove-button>
+
+                    </div>
+                  </div>
+
+                </div>
+              {{/each}}
+            </div>
+          </cart-items>
+        </div>
+
+        {{!-- Right: Order Summary --}}
+        <div class="pk-cart__summary-col">
+          <div class="pk-cart__summary-sticky">
+            <div
+              class="pk-cart__summary-box"
+              id="main-cart-footer"
+              data-id="{{section.id}}"
+            >
+              <h2 class="pk-cart__summary-heading">Order Summary</h2>
+
+              {{!-- Order notes + checkout form --}}
+              {{assign "cart_form_id" (append "pk-cart-form-" section.id)}}
+              {{#form "cart" id=cart_form_id}}
+                {{!-- Notes toggle --}}
+                <div>
+                  <button
+                    type="button"
+                    class="pk-cart__notes-toggle"
+                    id="pk-notes-toggle-{{section.id}}"
+                    aria-expanded="false"
+                    aria-controls="pk-notes-body-{{section.id}}"
+                  >
+                    <span>Add order notes</span>
+                    <span class="pk-cart__notes-chevron" id="pk-notes-chevron-{{section.id}}">▾</span>
+                  </button>
+                  <div
+                    class="pk-cart__notes-body"
+                    id="pk-notes-body-{{section.id}}"
+                  >
+                    <textarea
+                      class="pk-cart__notes-textarea"
+                      name="note"
+                      placeholder="How can we help you?"
+                      aria-label="Order notes"
+                    >{{cart.note}}</textarea>
+                  </div>
+                </div>
+
+                {{!-- Totals --}}
+                <div class="pk-cart__totals">
+                  <div class="pk-cart__total-row">
+                    <span class="pk-cart__total-label">Subtotal</span>
+                    <span class="pk-cart__total-value">{{money_with_currency cart.items_subtotal_price}}</span>
+                  </div>
+                  <div class="pk-cart__total-row">
+                    <span class="pk-cart__total-label">Shipping</span>
+                    <span class="pk-cart__shipping-value">Calculated at checkout</span>
+                  </div>
+                  {{#if cart.total_discount ">" 0}}
+                    <div class="pk-cart__total-row">
+                      <span class="pk-cart__total-label">Discount</span>
+                      <span class="pk-cart__total-value" style="color:#a89060;">−{{money_with_currency cart.total_discount}}</span>
+                    </div>
+                  {{/if}}
+                  <div class="pk-cart__grand-row">
+                    <span class="pk-cart__grand-label">Total</span>
+                    <span class="pk-cart__grand-value">{{money_with_currency cart.total_price}}</span>
+                  </div>
+                </div>
+
+                {{!-- Checkout --}}
+                <button
+                  type="submit"
+                  name="checkout"
+                  class="pk-cart__checkout-btn"
+                  id="pk-checkout-{{section.id}}"
+                >
+                  Proceed to Checkout
+                </button>
+
+              {{/form}}
+
+              <a href="{{routes.all_products_collection_url}}" class="pk-cart__continue">Continue Shopping</a>
+
+              {{!-- Secure checkout --}}
+              <div class="pk-cart__secure">
+                <p class="pk-cart__secure-label">Secure Checkout</p>
+                <div class="pk-cart__pay-icons">
+                  {{payment_type_svg_tag 'visa'}}
+                  {{payment_type_svg_tag 'master'}}
+                  {{payment_type_svg_tag 'american_express'}}
+                  {{payment_type_svg_tag 'paypal'}}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{{/if}}
+
+<script>
+(function () {
+  var sid = '{{section.id}}';
+  var toggleBtn = document.getElementById('pk-notes-toggle-' + sid);
+  var notesBody = document.getElementById('pk-notes-body-' + sid);
+  var chevron   = document.getElementById('pk-notes-chevron-' + sid);
+  if (toggleBtn && notesBody) {
+    toggleBtn.addEventListener('click', function () {
+      var open = notesBody.classList.toggle('is-open');
+      if (chevron) chevron.classList.toggle('is-open', open);
+      toggleBtn.setAttribute('aria-expanded', String(open));
+    });
+  }
+})();
+</script>
+
+{{#schema}}
+{
+  "name": "PK Main Cart",
+  "class": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "PK Main Cart",
+      "category": "Custom"
+    }
+  ]
+}
+{{/schema}}
