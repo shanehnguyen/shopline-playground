@@ -412,27 +412,63 @@
   margin: 0;
 }
 
-/* Load more */
-.pk-prod__loadmore {
+/* Pagination */
+.pk-prod__pagination {
   margin-top: 96px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
-.pk-prod__loadmore-btn {
-  background: #a89060;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  padding: 16px 40px;
-  border: none;
-  cursor: pointer;
+.pk-prod__pagination.is-hidden { display: none; }
+.pk-prod__pagination-range {
+  font-size: 12px;
+  color: #6b6258;
   font-family: 'Inter', sans-serif;
-  transition: background 0.2s;
+  letter-spacing: 0.04em;
 }
-.pk-prod__loadmore-btn:hover { background: #8a7248; }
-.pk-prod__loadmore.is-hidden { display: none; }
+.pk-prod__pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.pk-prod__pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #1a1a1a;
+  text-decoration: none;
+  border: 1px solid #e0dcd5;
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.pk-prod__pagination-btn:hover { border-color: #a89060; color: #a89060; }
+.pk-prod__pagination-btn.is-disabled {
+  color: #c8c0b4;
+  border-color: #f0ece6;
+  pointer-events: none;
+  cursor: default;
+}
+.pk-prod__pagination-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pk-prod__pagination-counter {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  min-width: 48px;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
 
 /* Empty state */
 .pk-prod__empty {
@@ -489,7 +525,7 @@
     <nav class="pk-prod__crumbs">
       <a href="/">Home</a>
       <span>/</span>
-      <span>{{section.settings.collection.title}}</span>
+      <span>{{collection.title}}</span>
     </nav>
 
     <!-- Toolbar -->
@@ -607,14 +643,14 @@
 
       </aside>
 
-      <!-- Product grid -->
+      <!-- Product grid (server-paginated via {{#paginate collection.products by=16}}) -->
       <div class="pk-prod__grid-wrap">
+        {{#paginate collection.products by=16}}
+
+        {{#if collection.products.size ">" 0}}
         <div class="pk-prod__grid" id="pk-grid">
-          {{#each section.settings.collection.products}}
-          <div class="pk-prod__card"
-            data-collection="{{product_type}}"
-            data-tags="{{#each tags}}{{this}},{{/each}}"
-            data-price="{{price}}">
+          {{#each collection.products}}
+          <div class="pk-prod__card">
             <a href="{{url}}">
               <div class="pk-prod__img-wrap">
                 {{#if images.[0]}}
@@ -650,17 +686,46 @@
           </div>
           {{/each}}
         </div>
-
+        {{else}}
         <!-- Empty state -->
-        <div class="pk-prod__empty is-hidden" id="pk-empty">
+        <div class="pk-prod__empty" id="pk-empty">
           <p>No products found matching your filters.</p>
-          <a id="pk-clear-empty">Clear all filters</a>
+          <a href="{{collection.url}}">Clear all filters</a>
+        </div>
+        {{/if}}
+
+        <!-- Pagination -->
+        <div class="pk-prod__pagination{{#if paginate.pages "<=" 1}} is-hidden{{/if}}"
+          id="pk-pagination"
+          data-current-page="{{paginate.current_page}}"
+          data-pages="{{paginate.pages}}"
+          data-items="{{paginate.items}}"
+          data-page-size="{{paginate.page_size}}">
+          <div class="pk-prod__pagination-range" id="pk-range"></div>
+          <div class="pk-prod__pagination-nav">
+            {{#if paginate.previous.is_link}}
+              <a class="pk-prod__pagination-btn" href="{{paginate.previous.url}}" aria-label="Previous page">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              </a>
+            {{else}}
+              <span class="pk-prod__pagination-btn is-disabled" aria-disabled="true">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              </span>
+            {{/if}}
+            <span class="pk-prod__pagination-counter" id="pk-page-counter">{{paginate.current_page}}/{{paginate.pages}}</span>
+            {{#if paginate.next.is_link}}
+              <a class="pk-prod__pagination-btn" href="{{paginate.next.url}}" aria-label="Next page">
+                <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+              </a>
+            {{else}}
+              <span class="pk-prod__pagination-btn is-disabled" aria-disabled="true">
+                <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+              </span>
+            {{/if}}
+          </div>
         </div>
 
-        <!-- Load more -->
-        <div class="pk-prod__loadmore is-hidden" id="pk-loadmore">
-          <button class="pk-prod__loadmore-btn" id="pk-loadmore-btn">Load more</button>
-        </div>
+        {{/paginate}}
       </div>
 
     </div>
@@ -669,219 +734,247 @@
 
 <script>
 (function () {
-  var BATCH = 12;
-  var allCards = Array.from(document.querySelectorAll('.pk-prod__card'));
-  var visibleCount = BATCH;
-  var activeFilters = { collection: [], color: [], price: [] };
-  var sortBy = 'featured';
-  var filtersOpen = false;
+  'use strict';
 
-  var body      = document.getElementById('pk-body');
-  var sidebar   = document.getElementById('pk-sidebar');
-  var grid      = document.getElementById('pk-grid');
-  var chips     = document.getElementById('pk-chips');
-  var countEl   = document.getElementById('pk-count');
-  var emptyEl   = document.getElementById('pk-empty');
-  var loadmore  = document.getElementById('pk-loadmore');
-  var loadBtn   = document.getElementById('pk-loadmore-btn');
-  var toggleBtn = document.getElementById('pk-filter-toggle');
-  var labelEl   = document.getElementById('pk-filter-toggle-label');
-  var iconPlus  = document.getElementById('pk-filter-icon-plus');
-  var iconMinus = document.getElementById('pk-filter-icon-minus');
-  var colorGroup= document.getElementById('pk-color-group');
-  var sortEl    = document.getElementById('pk-sort');
+  /* ─── 1. Read paginate data stamped by Handlebars ─────────── */
+  var paginationEl  = document.getElementById('pk-pagination');
+  var currentPage   = paginationEl ? parseInt(paginationEl.dataset.currentPage || '1', 10) : 1;
+  var totalPages    = paginationEl ? parseInt(paginationEl.dataset.pages       || '1', 10) : 1;
+  var totalItems    = paginationEl ? parseInt(paginationEl.dataset.items       || '0', 10) : 0;
+  var pageSize      = paginationEl ? parseInt(paginationEl.dataset.pageSize    || '16', 10) : 16;
 
-  // ---- helpers ----
-  function matchCard(card) {
-    var coll   = (card.dataset.collection || '').toUpperCase();
-    var tags   = (card.dataset.tags || '').toUpperCase();
-    var tagArr = tags.split(',').map(function(t){ return t.trim(); }).filter(Boolean);
-    var price  = parseInt(card.dataset.price || '0', 10);
+  /* ─── 2. Parse current URL filter state ──────────────────── */
+  var params         = new URLSearchParams(window.location.search);
+  // filter.p.tag covers both collection and color (same tag mechanism)
+  var activeTags     = params.getAll('filter.p.tag').map(function(t){ return t.toLowerCase(); });
+  var activeSortUrl  = params.get('sort_by') || 'manual';
+  // Price (Shopline uses display currency, e.g. dollars; our data attrs use cents)
+  var activePriceGte = params.get('filter.v.price.gte') !== null
+                         ? Math.round(parseFloat(params.get('filter.v.price.gte')) * 100) : null;
+  var activePriceLte = params.get('filter.v.price.lte') !== null
+                         ? Math.round(parseFloat(params.get('filter.v.price.lte')) * 100) : null;
 
-    if (activeFilters.collection.length > 0) {
-      // Match product_type, a "collection:<name>" prefixed tag, or a plain "<name>" tag
-      var matchC = activeFilters.collection.some(function(f){
-        var fUpper = f.toUpperCase();
-        return coll === fUpper ||
-               tagArr.indexOf('COLLECTION:' + fUpper) >= 0 ||
-               tagArr.indexOf(fUpper) >= 0;
-      });
-      if (!matchC) return false;
+  /* ─── 3. Collect known option values from the sidebar DOM ── */
+  var collectionCbs = Array.from(document.querySelectorAll('[data-filter-type="collection"]'));
+  var colorCbs      = Array.from(document.querySelectorAll('[data-filter-type="color"]'));
+  var priceCbs      = Array.from(document.querySelectorAll('[data-filter-type="price"]'));
+  var knownCollVals = collectionCbs.map(function(cb){ return cb.dataset.filterValue.toLowerCase(); });
+
+  /* Active collections = URL tags that match a known collection option */
+  var activeCollections = activeTags.filter(function(t){
+    return knownCollVals.indexOf(t) >= 0;
+  });
+
+  /* ─── 4. Sort value ↔ URL mapping ────────────────────────── */
+  var SORT_MAP = {
+    'featured':   'manual',
+    'price-asc':  'price-ascending',
+    'price-desc': 'price-descending',
+    'newest':     'created-at-descending'
+  };
+  var SORT_MAP_INV = {};
+  Object.keys(SORT_MAP).forEach(function(k){ SORT_MAP_INV[SORT_MAP[k]] = k; });
+
+  /* ─── 5. Build a new URL from current filter state ────────── */
+  function buildUrl(opts) {
+    /* opts: { collections[], colors[], priceMin, priceMax, sort, page } */
+    var p = new URLSearchParams();
+
+    /* Tags: collection values + color values → all go to filter.p.tag */
+    (opts.collections || []).forEach(function(v){ p.append('filter.p.tag', v); });
+    (opts.colors      || []).forEach(function(v){ p.append('filter.p.tag', v); });
+
+    /* Price (cents → dollars for URL) */
+    if (opts.priceMin !== null && opts.priceMin !== undefined) {
+      p.set('filter.v.price.gte', (opts.priceMin / 100).toFixed(2));
     }
-    if (activeFilters.color.length > 0) {
-      // Match a "color:<name>" prefixed tag or a plain "<name>" tag (exact, not substring)
-      var matchCol = activeFilters.color.some(function(f){
-        var fUpper = f.toUpperCase();
-        return tagArr.indexOf('COLOR:' + fUpper) >= 0 ||
-               tagArr.indexOf(fUpper) >= 0;
-      });
-      if (!matchCol) return false;
+    if (opts.priceMax !== null && opts.priceMax !== undefined && opts.priceMax < 999999999) {
+      p.set('filter.v.price.lte', (opts.priceMax / 100).toFixed(2));
     }
-    if (activeFilters.price.length > 0) {
-      var matchP = activeFilters.price.some(function(r){
-        return price >= r.min && price < r.max;
-      });
-      if (!matchP) return false;
-    }
-    return true;
+
+    /* Sort */
+    var sortUrl = SORT_MAP[opts.sort] || 'manual';
+    if (sortUrl && sortUrl !== 'manual') p.set('sort_by', sortUrl);
+
+    /* Page (omit page=1 to keep URLs clean) */
+    if (opts.page && opts.page > 1) p.set('page', opts.page);
+
+    var qs = p.toString();
+    return window.location.pathname + (qs ? '?' + qs : '');
   }
 
-  function getSorted(cards) {
-    var arr = cards.slice();
-    if (sortBy === 'price-asc')  arr.sort(function(a,b){ return parseInt(a.dataset.price)-parseInt(b.dataset.price); });
-    if (sortBy === 'price-desc') arr.sort(function(a,b){ return parseInt(b.dataset.price)-parseInt(a.dataset.price); });
-    return arr;
+  /* ─── 6. Read DOM state and navigate ─────────────────────── */
+  function navigateWithFilters(resetToPage1) {
+    var colls  = collectionCbs.filter(function(cb){ return cb.checked; })
+                              .map(function(cb){ return cb.dataset.filterValue; });
+    var colors = colorCbs.filter(function(cb){ return cb.checked; })
+                         .map(function(cb){ return cb.dataset.filterValue; });
+
+    var priceMin = null, priceMax = null;
+    var checkedPrice = priceCbs.filter(function(cb){ return cb.checked; })[0];
+    if (checkedPrice) {
+      priceMin = parseInt(checkedPrice.dataset.priceMin || '0', 10);
+      priceMax = parseInt(checkedPrice.dataset.priceMax || '999999999', 10);
+    }
+
+    var sortEl  = document.getElementById('pk-sort');
+    var sort    = sortEl ? sortEl.value : 'featured';
+    var page    = resetToPage1 ? 1 : currentPage;
+
+    window.location.href = buildUrl({ collections: colls, colors: colors,
+                                      priceMin: priceMin, priceMax: priceMax,
+                                      sort: sort, page: page });
   }
 
-  function render() {
-    var matched = getSorted(allCards.filter(matchCard));
-    var shown = 0;
+  /* ─── 7. Restore UI state from URL on page load ───────────── */
+  function restoreState() {
+    /* Sort dropdown */
+    var sortEl = document.getElementById('pk-sort');
+    if (sortEl) sortEl.value = SORT_MAP_INV[activeSortUrl] || 'featured';
 
-    // move sorted cards into the grid
-    matched.forEach(function(c){ grid.appendChild(c); });
-    allCards.forEach(function(c){
-      if (matched.indexOf(c) < 0) grid.appendChild(c); // push unmatched to end
+    /* Collection checkboxes */
+    collectionCbs.forEach(function(cb){
+      cb.checked = activeTags.indexOf(cb.dataset.filterValue.toLowerCase()) >= 0;
     });
 
-    allCards.forEach(function(c){ c.classList.add('is-hidden'); });
-    matched.forEach(function(c, i) {
-      if (i < visibleCount) { c.classList.remove('is-hidden'); shown++; }
+    /* Color checkboxes */
+    colorCbs.forEach(function(cb){
+      cb.checked = activeTags.indexOf(cb.dataset.filterValue.toLowerCase()) >= 0;
     });
 
-    countEl.textContent = matched.length + ' product' + (matched.length !== 1 ? 's' : '');
-    emptyEl.classList.toggle('is-hidden', matched.length > 0);
-    loadmore.classList.toggle('is-hidden', visibleCount >= matched.length);
-
-    // Color group visibility: show when collection filter active
-    if (colorGroup) colorGroup.classList.toggle('is-hidden', activeFilters.collection.length === 0);
-
-    // Update counts in sidebar
-    document.querySelectorAll('[data-count-type="collection"]').forEach(function(el){
-      var val = (el.dataset.countValue || '').toUpperCase();
-      var n = allCards.filter(function(c){
-        var coll2  = (c.dataset.collection||'').toUpperCase();
-        var tags2  = (c.dataset.tags||'').toUpperCase().split(',').map(function(t){ return t.trim(); }).filter(Boolean);
-        return coll2 === val || tags2.indexOf('COLLECTION:'+val) >= 0 || tags2.indexOf(val) >= 0;
-      }).length;
-      el.textContent = '(' + n + ')';
-    });
-    document.querySelectorAll('[data-count-type="color"]').forEach(function(el){
-      var val = (el.dataset.countValue || '').toUpperCase();
-      var n = allCards.filter(function(c){
-        var tags2 = (c.dataset.tags||'').toUpperCase().split(',').map(function(t){ return t.trim(); }).filter(Boolean);
-        return tags2.indexOf('COLOR:'+val) >= 0 || tags2.indexOf(val) >= 0;
-      }).length;
-      el.textContent = '(' + n + ')';
-    });
-    document.querySelectorAll('[data-count-type="price"]').forEach(function(el){
-      var mn = parseInt(el.dataset.priceMin||'0'); var mx = parseInt(el.dataset.priceMax||'999999999');
-      var n = allCards.filter(function(c){ var p=parseInt(c.dataset.price||'0'); return p>=mn&&p<mx; }).length;
-      el.textContent = '(' + n + ')';
+    /* Price checkboxes */
+    priceCbs.forEach(function(cb){
+      var mn = parseInt(cb.dataset.priceMin || '0', 10);
+      var mx = parseInt(cb.dataset.priceMax || '999999999', 10);
+      cb.checked = (activePriceGte !== null && activePriceGte === mn) &&
+                   (activePriceLte !== null ? activePriceLte === mx : mx >= 999999999);
     });
 
+    /* Color group: visible only when a collection filter is active */
+    var colorGroup = document.getElementById('pk-color-group');
+    if (colorGroup) colorGroup.classList.toggle('is-hidden', activeCollections.length === 0);
+
+    /* Chips */
     renderChips();
+
+    /* Product count */
+    var countEl = document.getElementById('pk-count');
+    if (countEl && totalItems > 0) {
+      countEl.textContent = totalItems + ' product' + (totalItems !== 1 ? 's' : '');
+    }
+
+    /* Pagination item range */
+    var rangeEl = document.getElementById('pk-range');
+    if (rangeEl && totalItems > 0) {
+      var rangeStart = (currentPage - 1) * pageSize + 1;
+      var rangeEnd   = Math.min(currentPage * pageSize, totalItems);
+      rangeEl.textContent = rangeStart + ' \u2013 ' + rangeEnd + ' of ' + totalItems + ' items';
+    }
   }
 
+  /* ─── 8. Chip rendering ───────────────────────────────────── */
   function renderChips() {
+    var chips = document.getElementById('pk-chips');
+    if (!chips) return;
     chips.innerHTML = '';
-    var any = activeFilters.collection.length + activeFilters.color.length + activeFilters.price.length > 0;
+    var any = false;
+
+    /* Collection chips */
+    collectionCbs.filter(function(cb){ return cb.checked; }).forEach(function(cb){
+      addChip(chips, cb.dataset.filterValue, function(){
+        cb.checked = false;
+        navigateWithFilters(true);
+      });
+      any = true;
+    });
+
+    /* Color chips */
+    colorCbs.filter(function(cb){ return cb.checked; }).forEach(function(cb){
+      addChip(chips, cb.dataset.filterValue, function(){
+        cb.checked = false;
+        navigateWithFilters(true);
+      });
+      any = true;
+    });
+
+    /* Price chip */
+    var checkedPrice = priceCbs.filter(function(cb){ return cb.checked; })[0];
+    if (checkedPrice) {
+      var lbl = checkedPrice.closest('.pk-prod__filter-label')
+                            .querySelector('.pk-prod__filter-text').textContent;
+      addChip(chips, lbl, function(){
+        checkedPrice.checked = false;
+        navigateWithFilters(true);
+      });
+      any = true;
+    }
+
     chips.classList.toggle('is-hidden', !any);
-    activeFilters.collection.forEach(function(v){ addChip(v, 'collection'); });
-    activeFilters.color.forEach(function(v){ addChip(v, 'color'); });
-    activeFilters.price.forEach(function(v){ addChip(v.label, 'price-label', v.label); });
+
     if (any) {
       var btn = document.createElement('button');
       btn.className = 'pk-prod__clearall';
       btn.textContent = 'Clear all';
-      btn.addEventListener('click', clearAll);
+      btn.addEventListener('click', function(){
+        window.location.href = window.location.pathname;
+      });
       chips.appendChild(btn);
     }
   }
 
-  function addChip(label, type, extraVal) {
+  function addChip(container, label, onRemove) {
     var btn = document.createElement('button');
     btn.className = 'pk-prod__chip';
-    btn.innerHTML = label + '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
-    btn.addEventListener('click', function(){
-      if (type === 'collection') removeFilter('collection', label);
-      else if (type === 'color') removeFilter('color', label);
-      else if (type === 'price-label') removeFilterPrice(extraVal);
-      uncheckCb(type === 'price-label' ? 'price' : type, label);
-      render();
+    btn.innerHTML = esc(label) +
+      '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/>' +
+      '<line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    btn.addEventListener('click', onRemove);
+    container.appendChild(btn);
+  }
+
+  function esc(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  /* ─── 9. Events ───────────────────────────────────────────── */
+  /* Sidebar toggle */
+  var filtersOpen = false;
+  var toggleBtn   = document.getElementById('pk-filter-toggle');
+  var labelEl     = document.getElementById('pk-filter-toggle-label');
+  var iconPlus    = document.getElementById('pk-filter-icon-plus');
+  var iconMinus   = document.getElementById('pk-filter-icon-minus');
+  var body        = document.getElementById('pk-body');
+  var sidebar     = document.getElementById('pk-sidebar');
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(){
+      filtersOpen = !filtersOpen;
+      sidebar.classList.toggle('is-hidden', !filtersOpen);
+      body.classList.toggle('filters-open', filtersOpen);
+      labelEl.textContent          = filtersOpen ? 'Hide filters' : 'Show filters';
+      iconPlus.style.display       = filtersOpen ? 'none' : '';
+      iconMinus.style.display      = filtersOpen ? ''     : 'none';
     });
-    chips.appendChild(btn);
   }
 
-  function removeFilter(type, val) {
-    activeFilters[type] = activeFilters[type].filter(function(v){ return v !== val; });
-  }
-  function removeFilterPrice(label) {
-    activeFilters.price = activeFilters.price.filter(function(r){ return r.label !== label; });
-  }
-  function uncheckCb(type, val) {
-    document.querySelectorAll('[data-filter-type="' + type + '"]').forEach(function(cb){
-      if ((cb.dataset.filterValue||cb.dataset.priceLabel||'').toUpperCase() === val.toUpperCase()) cb.checked = false;
-    });
-  }
-
-  function clearAll() {
-    activeFilters = { collection: [], color: [], price: [] };
-    document.querySelectorAll('.pk-prod__filter-cb').forEach(function(cb){ cb.checked = false; });
-    visibleCount = BATCH;
-    render();
-  }
-
-  // ---- Events ----
-  // Filter toggle
-  toggleBtn.addEventListener('click', function(){
-    filtersOpen = !filtersOpen;
-    sidebar.classList.toggle('is-hidden', !filtersOpen);
-    body.classList.toggle('filters-open', filtersOpen);
-    labelEl.textContent = filtersOpen ? 'Hide filters' : 'Show filters';
-    iconPlus.style.display  = filtersOpen ? 'none' : '';
-    iconMinus.style.display = filtersOpen ? '' : 'none';
-  });
-
-  // Checkboxes
+  /* Filter checkboxes → navigate (resets to page 1) */
   document.querySelectorAll('.pk-prod__filter-cb').forEach(function(cb){
     cb.addEventListener('change', function(){
-      var type  = cb.dataset.filterType;
-      var val   = cb.dataset.filterValue;
-      if (type === 'price') {
-        var mn = parseInt(cb.dataset.priceMin||'0');
-        var mx = parseInt(cb.dataset.priceMax||'999999999');
-        var lbl = cb.closest('.pk-prod__filter-label').querySelector('.pk-prod__filter-text').textContent;
-        if (cb.checked) { activeFilters.price.push({ min: mn, max: mx, label: lbl }); }
-        else { activeFilters.price = activeFilters.price.filter(function(r){ return r.label !== lbl; }); }
-      } else {
-        if (cb.checked) { activeFilters[type].push(val); }
-        else { activeFilters[type] = activeFilters[type].filter(function(v){ return v !== val; }); }
+      /* Price is single-select: uncheck all other price options first */
+      if (cb.dataset.filterType === 'price') {
+        priceCbs.forEach(function(other){ if (other !== cb) other.checked = false; });
       }
-      visibleCount = BATCH;
-      render();
+      navigateWithFilters(true);
     });
   });
 
-  // Sort
-  sortEl.addEventListener('change', function(){
-    sortBy = sortEl.value;
-    visibleCount = BATCH;
-    render();
-  });
-
-  // Load more
-  if (loadBtn) {
-    loadBtn.addEventListener('click', function(){
-      visibleCount += BATCH;
-      render();
-    });
+  /* Sort → navigate (resets to page 1) */
+  var sortEl = document.getElementById('pk-sort');
+  if (sortEl) {
+    sortEl.addEventListener('change', function(){ navigateWithFilters(true); });
   }
 
-  // Clear from empty state
-  var clearEmpty = document.getElementById('pk-clear-empty');
-  if (clearEmpty) clearEmpty.addEventListener('click', clearAll);
-
-  // Add to cart
+  /* Add to cart (unchanged) */
   window.pkAddToCart = function(variantId, btn) {
     if (!variantId) return;
     btn.textContent = 'Adding...';
@@ -890,15 +983,19 @@
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ id: variantId, quantity: 1 })
     }).then(function(r){ return r.json(); }).then(function(){
-      btn.innerHTML = '✓ Added';
+      btn.innerHTML = '&#10003; Added';
       setTimeout(function(){
-        btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Add to Cart';
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none"' +
+          ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>' +
+          '<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Add to Cart';
       }, 1500);
-    }).catch(function(){ btn.innerHTML = 'Add to Cart'; });
+    }).catch(function(){ btn.textContent = 'Add to Cart'; });
   };
 
-  // Initial render
-  render();
+  /* ─── 10. Init ────────────────────────────────────────────── */
+  restoreState();
+
 })();
 </script>
 
@@ -907,7 +1004,6 @@
   "name": "PK Products Page",
   "class": "section",
   "settings": [
-    { "id": "collection", "type": "collection_picker", "label": "Collection" },
     { "id": "show_collection_filter", "type": "checkbox", "label": "Show collection filter", "default": true },
     { "id": "show_color_filter",      "type": "checkbox", "label": "Show color filter",      "default": true }
   ],
