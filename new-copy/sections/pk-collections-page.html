@@ -152,18 +152,220 @@
     </nav>
 
     {{#each section.blocks}}
+      {{!-- Resolve the destination link: group_url overrides, then collection.url --}}
+      {{#capture "dest_url"}}{{#if settings.group_url}}{{settings.group_url}}{{else if settings.collection}}{{settings.collection.url}}{{else}}javascript:;{{/if}}{{/capture}}
+
       <div class="pk-furn__collection" {{{shopline_attributes}}}>
         <div class="pk-furn__coll-hd">
-          <a class="pk-furn__coll-name" href="{{#if settings.group_url}}{{settings.group_url}}{{else}}javascript:;{{/if}}">
-            {{settings.group_name}}
+          <a class="pk-furn__coll-name" href="{{dest_url}}">
+            {{#if settings.collection}}{{settings.collection.title}}{{else}}{{settings.group_name}}{{/if}}
           </a>
           <hr class="pk-furn__divider" />
         </div>
 
-        {{!-- Franco layout: 2-col top row + 4-col bottom row --}}
-        {{#if settings.layout "===" "franco"}}
-          <div class="pk-furn__grid-franco">
-            <div class="pk-furn__grid-franco-top">
+        {{#if settings.collection}}
+
+          {{!-- Franco layout: 2-col top row + 4-col bottom row --}}
+          {{#if settings.layout "===" "franco"}}
+            <div class="pk-furn__grid-franco">
+              <div class="pk-furn__grid-franco-top">
+                {{#if settings.collection.products.[0]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[0].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[0].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[1]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[1].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[1].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="pk-furn__grid-franco-bot">
+                {{#if settings.collection.products.[2]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[2].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[2].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[3]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[3].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[3].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[4]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[4].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[4].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[5]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[5].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[5].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+
+          {{!-- Irena layout: 2-col top row + 3-col bottom row --}}
+          {{else if settings.layout "===" "irena"}}
+            <div class="pk-furn__grid-irena">
+              <div class="pk-furn__grid-irena-top">
+                {{#if settings.collection.products.[0]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[0].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[0].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[1]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[1].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[1].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="pk-furn__grid-irena-bot">
+                {{#if settings.collection.products.[2]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[2].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[2].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[3]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[3].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[3].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.collection.products.[4]}}
+                  <a class="pk-furn__card" href="{{dest_url}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[4].images.[0]}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[4].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+
+          {{!-- Standard uniform grid (2, 3, or 4 columns) --}}
+          {{else}}
+            <div class="pk-furn__grid-{{#if settings.layout}}{{settings.layout}}{{else}}3{{/if}}">
+              {{#if settings.collection.products.[0]}}
+                <a class="pk-furn__card" href="{{dest_url}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[0].images.[0]}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[0].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.collection.products.[1]}}
+                <a class="pk-furn__card" href="{{dest_url}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[1].images.[0]}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[1].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.collection.products.[2]}}
+                <a class="pk-furn__card" href="{{dest_url}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[2].images.[0]}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[2].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+              {{#if settings.collection.products.[3]}}
+                <a class="pk-furn__card" href="{{dest_url}}">
+                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.collection.products.[3].images.[0]}}</div>
+                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.collection.products.[3].title}}</span><span class="pk-furn__card-arrow">→</span></div>
+                </a>
+              {{/if}}
+            </div>
+          {{/if}}
+
+        {{else}}
+
+          {{!-- No collection picked — fall back to manually-set images --}}
+          {{#if settings.layout "===" "franco"}}
+            <div class="pk-furn__grid-franco">
+              <div class="pk-furn__grid-franco-top">
+                {{#if settings.image_1}}
+                  <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_2}}
+                  <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="pk-furn__grid-franco-bot">
+                {{#if settings.image_3}}
+                  <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_4}}
+                  <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_5}}
+                  <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_6}}
+                  <a class="pk-furn__card" href="{{#if settings.link_6}}{{settings.link_6}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_6}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_6}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+
+          {{else if settings.layout "===" "irena"}}
+            <div class="pk-furn__grid-irena">
+              <div class="pk-furn__grid-irena-top">
+                {{#if settings.image_1}}
+                  <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_2}}
+                  <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+              <div class="pk-furn__grid-irena-bot">
+                {{#if settings.image_3}}
+                  <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_4}}
+                  <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+                {{#if settings.image_5}}
+                  <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
+                    <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
+                    <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
+                  </a>
+                {{/if}}
+              </div>
+            </div>
+
+          {{else}}
+            <div class="pk-furn__grid-{{#if settings.layout}}{{settings.layout}}{{else}}3{{/if}}">
               {{#if settings.image_1}}
                 <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
                   <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
@@ -176,8 +378,6 @@
                   <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
                 </a>
               {{/if}}
-            </div>
-            <div class="pk-furn__grid-franco-bot">
               {{#if settings.image_3}}
                 <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
                   <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
@@ -203,87 +403,8 @@
                 </a>
               {{/if}}
             </div>
-          </div>
+          {{/if}}
 
-        {{!-- Irena layout: 2-col top row + 3-col bottom row --}}
-        {{else if settings.layout "===" "irena"}}
-          <div class="pk-furn__grid-irena">
-            <div class="pk-furn__grid-irena-top">
-              {{#if settings.image_1}}
-                <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
-                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
-                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
-                </a>
-              {{/if}}
-              {{#if settings.image_2}}
-                <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
-                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
-                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
-                </a>
-              {{/if}}
-            </div>
-            <div class="pk-furn__grid-irena-bot">
-              {{#if settings.image_3}}
-                <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
-                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
-                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
-                </a>
-              {{/if}}
-              {{#if settings.image_4}}
-                <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
-                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
-                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
-                </a>
-              {{/if}}
-              {{#if settings.image_5}}
-                <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
-                  <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
-                  <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
-                </a>
-              {{/if}}
-            </div>
-          </div>
-
-        {{!-- Standard uniform grid (2, 3, or 4 columns) --}}
-        {{else}}
-          <div class="pk-furn__grid-{{#if settings.layout}}{{settings.layout}}{{else}}3{{/if}}">
-            {{#if settings.image_1}}
-              <a class="pk-furn__card" href="{{#if settings.link_1}}{{settings.link_1}}{{else}}javascript:;{{/if}}">
-                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_1}}</div>
-                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_1}}</span><span class="pk-furn__card-arrow">→</span></div>
-              </a>
-            {{/if}}
-            {{#if settings.image_2}}
-              <a class="pk-furn__card" href="{{#if settings.link_2}}{{settings.link_2}}{{else}}javascript:;{{/if}}">
-                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_2}}</div>
-                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_2}}</span><span class="pk-furn__card-arrow">→</span></div>
-              </a>
-            {{/if}}
-            {{#if settings.image_3}}
-              <a class="pk-furn__card" href="{{#if settings.link_3}}{{settings.link_3}}{{else}}javascript:;{{/if}}">
-                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_3}}</div>
-                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_3}}</span><span class="pk-furn__card-arrow">→</span></div>
-              </a>
-            {{/if}}
-            {{#if settings.image_4}}
-              <a class="pk-furn__card" href="{{#if settings.link_4}}{{settings.link_4}}{{else}}javascript:;{{/if}}">
-                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_4}}</div>
-                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_4}}</span><span class="pk-furn__card-arrow">→</span></div>
-              </a>
-            {{/if}}
-            {{#if settings.image_5}}
-              <a class="pk-furn__card" href="{{#if settings.link_5}}{{settings.link_5}}{{else}}javascript:;{{/if}}">
-                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_5}}</div>
-                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_5}}</span><span class="pk-furn__card-arrow">→</span></div>
-              </a>
-            {{/if}}
-            {{#if settings.image_6}}
-              <a class="pk-furn__card" href="{{#if settings.link_6}}{{settings.link_6}}{{else}}javascript:;{{/if}}">
-                <div class="pk-furn__img-wrap">{{snippet "image" data=settings.image_6}}</div>
-                <div class="pk-furn__card-foot"><span class="pk-furn__card-name">{{settings.label_6}}</span><span class="pk-furn__card-arrow">→</span></div>
-              </a>
-            {{/if}}
-          </div>
         {{/if}}
 
       </div>
@@ -302,8 +423,9 @@
       "type": "collection_group",
       "name": "Collection Group",
       "settings": [
-        { "type": "text",  "id": "group_name", "label": "Collection name", "default": "Collection" },
-        { "type": "url",   "id": "group_url",  "label": "Collection URL" },
+        { "type": "collection_picker", "id": "collection", "label": "Collection (auto-fills title + products)" },
+        { "type": "text",  "id": "group_name", "label": "Heading override (leave blank to use collection title)" },
+        { "type": "url",   "id": "group_url",  "label": "Link override (leave blank to use collection URL)" },
         {
           "type": "select",
           "id": "layout",
