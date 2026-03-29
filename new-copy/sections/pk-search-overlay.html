@@ -1,0 +1,84 @@
+{{snippet "stylesheet" href=(asset_url "pk-search.css")}}
+
+{{!--
+  PK Search Overlay Section
+  ─────────────────────────
+  This section has no visible HTML of its own. It:
+    1. Injects window.PK_PRODUCTS from the configured collection so the
+       overlay shows live store products (not the static fallback data).
+    2. Loads pk-search.js which mounts the full overlay into <body> and
+       listens for any [data-pk-search-open] click to open it.
+
+  Trigger: add  data-pk-search-open  to any button/link (e.g. the
+  navbar search icon) and the overlay will open on click.
+
+  Schema setting "search_collection" lets you choose which collection
+  to index (defaults to all products). Up to 250 products are indexed
+  per the Shopline paginate limit.
+--}}
+
+{{#if section.settings.search_collection}}
+  {{!--
+    Product data is stored in hidden data-* attributes.
+    The inline <script> below reads them into window.PK_PRODUCTS before
+    pk-search.js (deferred) runs, so the overlay always sees live data.
+    Using data-* attributes (instead of inline JSON) avoids all
+    quote-escaping edge cases in product titles and descriptions.
+  --}}
+  <div id="pk-product-data" style="display:none" aria-hidden="true">
+    {{#paginate section.settings.search_collection.products by=250}}
+      {{#each section.settings.search_collection.products}}
+        <div
+          data-handle="{{handle}}"
+          data-title="{{title}}"
+          data-url="{{url}}"
+          data-price="{{money price_min}}"
+          data-image="{{img_url featured_image.src width=400}}"
+          data-type="{{product_type}}"
+        ></div>
+      {{/each}}
+    {{/paginate}}
+  </div>
+
+  <script>
+  (function () {
+    var container = document.getElementById('pk-product-data');
+    if (!container) return;
+    var items = container.querySelectorAll('[data-handle]');
+    if (!items.length) return;
+    window.PK_PRODUCTS = Array.prototype.slice.call(items).map(function (el) {
+      return {
+        id:          el.getAttribute('data-handle'),
+        name:        el.getAttribute('data-title'),
+        url:         el.getAttribute('data-url'),
+        price:       el.getAttribute('data-price'),
+        image:       el.getAttribute('data-image'),
+        category:    el.getAttribute('data-type')
+      };
+    });
+  })();
+  </script>
+{{/if}}
+
+<script src="{{asset_url 'pk-search.js'}}" defer></script>
+
+{{#schema}}
+{
+  "name": "PK Search Overlay",
+  "class": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "search_collection",
+      "label": "Product catalog to search",
+      "info": "Choose the collection whose products appear in search results. Leave empty to use the built-in static product list."
+    }
+  ],
+  "presets": [
+    {
+      "name": "PK Search Overlay",
+      "category": "Custom"
+    }
+  ]
+}
+{{/schema}}
