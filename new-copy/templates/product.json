@@ -1,7 +1,7 @@
 {
   "sections": {
     "main-product-info": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-product",
       "settings": {
         "product_info_sticky": true,
@@ -230,11 +230,11 @@
       "custom_css": []
     },
     "product-recommendations": {
-      "disabled": false,
+      "disabled": true,
       "type": "product-recommendations",
       "settings": {
         "show_product_number": 6,
-        "pc_cols": 4,
+        "pc_cols": 1,
         "md_cols": 2,
         "padding_top": 80,
         "padding_bottom": 80,
@@ -244,14 +244,15 @@
         "notice_style": "",
         "title_size": "medium",
         "enable_horizontal_slider": true,
-        "products_to_show": 12,
-        "title": "You may also like"
+        "products_to_show": 2,
+        "title": "You may also like",
+        "mobile_cols": "1"
       },
       "blocks": {},
       "custom_css": []
     },
     "1739783299573e31dd2a": {
-      "disabled": false,
+      "disabled": true,
       "type": "apps",
       "settings": {
         "include_margins": true
@@ -296,7 +297,7 @@
       "custom_css": []
     },
     "1740397635109bcc9622": {
-      "disabled": false,
+      "disabled": true,
       "type": "image-with-text",
       "settings": {
         "image_height": "auto",
@@ -337,7 +338,7 @@
       "custom_css": []
     },
     "1740397638358e8622c4": {
-      "disabled": false,
+      "disabled": true,
       "type": "image-with-text",
       "settings": {
         "image_height": "auto",
@@ -379,7 +380,7 @@
       "custom_css": []
     },
     "1740397667956775b1ab": {
-      "disabled": false,
+      "disabled": true,
       "type": "image-with-text",
       "settings": {
         "image_height": "auto",
@@ -420,7 +421,7 @@
       "custom_css": []
     },
     "1740397672556fd6ccd0": {
-      "disabled": false,
+      "disabled": true,
       "type": "image-with-text",
       "settings": {
         "image_height": "auto",
@@ -471,7 +472,7 @@
       "custom_css": []
     },
     "174039779204386aa53e": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "icon_width": 48,
@@ -583,6 +584,13 @@
         "1740397792043b612e1d"
       ],
       "custom_css": []
+    },
+    "17747349302361e49d3e": {
+      "disabled": false,
+      "type": "pk-main-product",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
@@ -593,6 +601,7 @@
     "1740397638358e8622c4",
     "1740397667956775b1ab",
     "1740397672556fd6ccd0",
-    "174039779204386aa53e"
+    "174039779204386aa53e",
+    "17747349302361e49d3e"
   ]
 }

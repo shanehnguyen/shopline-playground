@@ -196,7 +196,8 @@
       "type": "pk-products",
       "settings": {
         "show_collection_filter": true,
-        "show_color_filter": true
+        "show_color_filter": true,
+        "collection": "12270082518244582437392145"
       },
       "blocks": {
         "1774720768075212863e": {
@@ -305,7 +306,8 @@
         "17747207680750c19f82",
         "17747207680752c5e9e7",
         "17747207680758d5a44f"
-      ]
+      ],
+      "custom_css": []
     }
   },
   "order": [
