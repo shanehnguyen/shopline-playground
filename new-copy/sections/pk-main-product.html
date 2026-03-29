@@ -154,9 +154,21 @@
 
 /* product-form error */
 .product-form__error-message-wrapper { color: #c0392b; font-size: 13px; margin-bottom: 8px; }
+
+/* Description truncation */
+.pk-pdp__desc-preview { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.pk-pdp__read-more { font-size: 12px; font-weight: 600; color: #a89060; text-decoration: none; letter-spacing: 0.05em; }
+.pk-pdp__read-more:hover { text-decoration: underline; }
 </style>
 
-{%- assign product_form_id = 'pk-product-form-' | append: section.id -%}
+<script src="{{asset_url 'component-product-form.js'}}" defer="defer"></script>
+<script src="{{asset_url 'section-product-recommendations.js'}}" defer></script>
+
+{{assign "product_form_id" (append "pk-product-form-" section.id)}}
+
+{{#capture "default_variant_id"}}
+  {{default product.selected_or_first_available_variant.id (get "id" (first product.variants))}}
+{{/capture}}
 
 <div class="pk-pdp" data-section-id="{{section.id}}" data-section-type="pk-main-product">
 
@@ -171,7 +183,7 @@
             class="pk-pdp__thumb {{#if @first}}is-active{{/if}}"
             data-gallery-thumb="{{section.id}}"
             data-idx="{{@index}}"
-            data-src="{{this.src}}"
+            data-src="{{img_url this.src width=800}}"
             aria-label="View image {{add @index 1}}"
             type="button"
           >
@@ -208,7 +220,8 @@
 
       <hr class="pk-pdp__hr" />
 
-      <div class="pk-pdp__desc">{{{product.description}}}</div>
+      <div class="pk-pdp__desc pk-pdp__desc-preview">{{{product.description}}}</div>
+      <a class="pk-pdp__read-more" href="#pk-product-details-{{section.id}}">Read more ↓</a>
 
       <!-- Variant Picker -->
       {{#unless product.has_only_default_variant}}
@@ -226,23 +239,32 @@
       </div>
 
       <!-- Add to Cart -->
-      <product-form id="{{append product_form_id '__wrapper'}}" class="product-form">
+      <product-form
+        id="{{append product_form_id '__wrapper'}}"
+        class="product-form"
+        data-default-error-message="An error occurred. Please try again."
+      >
         <div class="product-form__error-message-wrapper" hidden>
           <span class="product-form__error-message"></span>
         </div>
         {{#form "product" product id=product_form_id}}
-          <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+          <input type="hidden" name="id" value="{{default_variant_id}}" />
           <button
+            id="{{product_form_id}}-submit"
             type="submit"
             name="add"
             class="pk-pdp__atc"
+            data-selected_or_first_available_variant="{{product.selected_or_first_available_variant.available}}"
             {{#unless product.selected_or_first_available_variant.available}}disabled{{/unless}}
+            {{#unless default_variant_id}}disabled{{/unless}}
           >
-            {{#if product.selected_or_first_available_variant.available}}
-              Add to Cart
-            {{else}}
-              Sold Out
-            {{/if}}
+            <span>
+              {{#if product.selected_or_first_available_variant.available}}
+                Add to Cart
+              {{else}}
+                Sold Out
+              {{/if}}
+            </span>
           </button>
         {{/form}}
       </product-form>
@@ -251,7 +273,7 @@
 
       <!-- Pairs Well With -->
       <product-recommendations
-        data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=5&intent=related"
+        data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=5"
         id="pk-pairs-{{section.id}}"
       >
         {{#if (and (isTruthy recommendations.performed) (if recommendations.products_count ">" 0))}}
@@ -271,7 +293,7 @@
   </div>
 
   <!-- ── Product Details ── -->
-  <div class="pk-pdp__details">
+  <div class="pk-pdp__details" id="pk-product-details-{{section.id}}">
     <div class="pk-pdp__details-grid">
       <!-- Left: Description -->
       <div>
