@@ -1,7 +1,7 @@
 {
   "sections": {
     "main-collection-banner": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-collection-banner",
       "settings": {
         "show_collection_description": true,
@@ -21,7 +21,7 @@
       ]
     },
     "main-collection-product-list": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-collection-product-list",
       "settings": {
         "products_per_page": 30,
@@ -49,7 +49,7 @@
       "custom_css": []
     },
     "1740129743218d3361f9": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "icon_width": 48,
@@ -161,11 +161,131 @@
         "17401297432184000710"
       ],
       "custom_css": []
+    },
+    "1774804135186ad613f5": {
+      "disabled": false,
+      "type": "pk-products",
+      "settings": {
+        "show_collection_filter": true,
+        "show_color_filter": true,
+        "collection": "12271737555845623814262145"
+      },
+      "blocks": {
+        "177480413518882b5311": {
+          "type": "collection_option",
+          "settings": {
+            "label": "MALLORCA",
+            "value": "Mallorca"
+          },
+          "blockId": "177480413518882b5311",
+          "custom_css": []
+        },
+        "17748041351888a87394": {
+          "type": "collection_option",
+          "settings": {
+            "label": "SHADY",
+            "value": "SHADY"
+          },
+          "blockId": "17748041351888a87394"
+        },
+        "177480413518835fbb12": {
+          "type": "collection_option",
+          "settings": {
+            "label": "FRANCO",
+            "value": "FRANCO"
+          },
+          "blockId": "177480413518835fbb12"
+        },
+        "1774804135188bbd0e20": {
+          "type": "collection_option",
+          "settings": {
+            "label": "IRENA",
+            "value": "IRENA"
+          },
+          "blockId": "1774804135188bbd0e20"
+        },
+        "1774804135188109d8ef": {
+          "type": "collection_option",
+          "settings": {
+            "label": "NEWPORT",
+            "value": "NEWPORT"
+          },
+          "blockId": "1774804135188109d8ef"
+        },
+        "1774804135188514d6d7": {
+          "type": "collection_option",
+          "settings": {
+            "label": "ASPEN",
+            "value": "ASPEN"
+          },
+          "blockId": "1774804135188514d6d7"
+        },
+        "17748041351887252c82": {
+          "type": "color_option",
+          "settings": {
+            "label": "White",
+            "value": "White",
+            "color_hex": "#FFFFFF"
+          },
+          "blockId": "17748041351887252c82"
+        },
+        "17748041351885c0ec84": {
+          "type": "color_option",
+          "settings": {
+            "label": "Dolphin Gray",
+            "value": "Dolphin Gray",
+            "color_hex": "#A9AFB2"
+          },
+          "blockId": "17748041351885c0ec84"
+        },
+        "17748041351880f35b66": {
+          "type": "color_option",
+          "settings": {
+            "label": "Gray Slim",
+            "value": "Gray Slim",
+            "color_hex": "#808080"
+          },
+          "blockId": "17748041351880f35b66"
+        },
+        "1774804135188c10ddc3": {
+          "type": "color_option",
+          "settings": {
+            "label": "Slim Oak",
+            "value": "Slim Oak",
+            "color_hex": "#E9E4D4"
+          },
+          "blockId": "1774804135188c10ddc3"
+        },
+        "1774804135188d738fa2": {
+          "type": "color_option",
+          "settings": {
+            "label": "Slim White",
+            "value": "Slim White",
+            "color_hex": "#F5F5F0"
+          },
+          "blockId": "1774804135188d738fa2"
+        }
+      },
+      "block_order": [
+        "177480413518882b5311",
+        "17748041351888a87394",
+        "177480413518835fbb12",
+        "1774804135188bbd0e20",
+        "1774804135188109d8ef",
+        "1774804135188514d6d7",
+        "17748041351887252c82",
+        "17748041351885c0ec84",
+        "17748041351880f35b66",
+        "1774804135188c10ddc3",
+        "1774804135188d738fa2"
+      ],
+      "custom_css": []
     }
   },
   "order": [
     "main-collection-banner",
     "main-collection-product-list",
-    "1740129743218d3361f9"
+    "1740129743218d3361f9",
+    "1774804135186ad613f5"
   ]
 }

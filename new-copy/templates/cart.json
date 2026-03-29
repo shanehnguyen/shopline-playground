@@ -1,7 +1,7 @@
 {
   "sections": {
     "cart-items": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-cart-items",
       "settings": {
         "padding_top": 60,
@@ -29,7 +29,7 @@
       ]
     },
     "1740130996446f523832": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "icon_width": 48,
@@ -140,10 +140,18 @@
         "174013099644639e1ffc",
         "174013099644688f2cdb"
       ]
+    },
+    "1774753011892f70c678": {
+      "disabled": false,
+      "type": "pk-main-cart",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "cart-items",
+    "1774753011892f70c678",
     "cart-footer",
     "1740130996446f523832"
   ]

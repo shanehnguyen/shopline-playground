@@ -777,44 +777,62 @@
         "1774729209738047174d": {
           "type": "collection",
           "settings": {
-            "name": "Mallorca"
+            "name": "Mallorca",
+            "image": "shopline://shop_images/Mallorca Collection Dolphin Gray (Frameless).jpg",
+            "link": "shopline://pages/7455666429016187920"
           },
-          "blockId": "1774729209738047174d"
+          "blockId": "1774729209738047174d",
+          "custom_css": []
         },
         "17747292097384e23507": {
           "type": "collection",
           "settings": {
-            "name": "Shady"
+            "name": "Shady",
+            "image": "shopline://shop_images/Shady-Collection-Slim-Gray-Shaker-(Frameless)_7454090190463706594.webp",
+            "link": "shopline://pages/7455666429016187920"
           },
-          "blockId": "17747292097384e23507"
+          "blockId": "17747292097384e23507",
+          "custom_css": []
         },
         "177472920973872895e5": {
           "type": "collection",
           "settings": {
-            "name": "Franco"
+            "name": "Franco",
+            "image": "shopline://shop_images/Franco Collection White Shaker (Framed).jpg",
+            "link": "shopline://pages/7455666429016187920"
           },
-          "blockId": "177472920973872895e5"
+          "blockId": "177472920973872895e5",
+          "custom_css": []
         },
         "17747292097385978808": {
           "type": "collection",
           "settings": {
-            "name": "Irena"
+            "name": "Irena",
+            "image": "shopline://shop_images/Irena Collection White Dual Shaker (Frameless).jpg",
+            "link": "shopline://pages/7455666429016187920"
           },
-          "blockId": "17747292097385978808"
+          "blockId": "17747292097385978808",
+          "custom_css": []
         },
         "1774729209738410bd30": {
           "type": "collection",
           "settings": {
-            "name": "Newport"
+            "name": "Newport",
+            "link": "shopline://pages/7455666429016187920",
+            "image": "shopline://shop_images/Newport Collection Umbria Elm (Frameless).jpg"
           },
-          "blockId": "1774729209738410bd30"
+          "blockId": "1774729209738410bd30",
+          "custom_css": []
         },
         "1774729209738bab9604": {
           "type": "collection",
           "settings": {
-            "name": "Aspen"
+            "name": "Aspen",
+            "image": "shopline://shop_images/Aspen Collection Raven Solids (Frameless).jpg",
+            "link": "shopline://pages/7455666429016187920"
           },
-          "blockId": "1774729209738bab9604"
+          "blockId": "1774729209738bab9604",
+          "custom_css": []
         }
       },
       "block_order": [
@@ -824,7 +842,8 @@
         "17747292097385978808",
         "1774729209738410bd30",
         "1774729209738bab9604"
-      ]
+      ],
+      "custom_css": []
     },
     "17747292211232e86546": {
       "disabled": false,
@@ -842,32 +861,39 @@
           "type": "slide",
           "settings": {
             "title": "Discover Modern Kitchen Luxury",
-            "subtitle": "Premium Series"
+            "subtitle": "Premium Series",
+            "image": "shopline://shop_images/Cabinet 2.jpeg"
           },
-          "blockId": "1774729226655028485d"
+          "blockId": "1774729226655028485d",
+          "custom_css": []
         },
         "17747292266559a30d1c": {
           "type": "slide",
           "settings": {
             "title": "Timeless White Shaker Elegance",
-            "subtitle": "Classic Series"
+            "subtitle": "Classic Series",
+            "image": "shopline://shop_images/24 (2).jpg"
           },
-          "blockId": "17747292266559a30d1c"
+          "blockId": "17747292266559a30d1c",
+          "custom_css": []
         },
         "1774729226655179ef3c": {
           "type": "slide",
           "settings": {
             "title": "Bespoke Minimalist Design",
-            "subtitle": "Modern Series"
+            "subtitle": "Modern Series",
+            "image": "shopline://shop_images/-1(1)_7454090664151623427.jpg"
           },
-          "blockId": "1774729226655179ef3c"
+          "blockId": "1774729226655179ef3c",
+          "custom_css": []
         }
       },
       "block_order": [
         "1774729226655028485d",
         "17747292266559a30d1c",
         "1774729226655179ef3c"
-      ]
+      ],
+      "custom_css": []
     },
     "17747292353391d06036": {
       "disabled": false,
@@ -875,10 +901,12 @@
       "settings": {
         "title": "Shady Collection",
         "subtitle": "Gray Shaker — Modern Minimalist Elegance",
-        "link_text": "Explore Collection"
+        "link_text": "Explore Collection",
+        "image": "shopline://shop_images/Shady Collection Slim Natural Shaker (Frameless).jpg"
       },
       "blocks": {},
-      "block_order": []
+      "block_order": [],
+      "custom_css": []
     },
     "17747292782898857f73": {
       "disabled": false,

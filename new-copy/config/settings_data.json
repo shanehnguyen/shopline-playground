@@ -144,8 +144,8 @@
       "swatch_style": "square",
       "cart_type": "drawer",
       "cart_empty_recommend_title": "You May Also Like",
-      "cart_empty_recommend_collection": "",
-      "cart_empty_recommend_product_to_show": 12,
+      "cart_empty_recommend_collection": "12270082518244582437392145",
+      "cart_empty_recommend_product_to_show": 7,
       "cart_empty_recommend_product_image_ratio": 150,
       "cart_empty_recommend_product_image_fill_type": "contain",
       "social_facebook_link": "https://www.facebook.com/pkcabinets/",
@@ -302,8 +302,8 @@
               "image_3_link_text": "Shop",
               "image_3_link": "",
               "image_3_position": "right",
-              "image_1": "shopline://shop_images/output (19).jpg",
-              "image_2": "shopline://shop_images/output (21).jpg"
+              "image_2": "shopline://shop_images/output (21).jpg",
+              "image_1": "shopline://shop_images/output (19).jpg"
             },
             "blockId": "menuImage1",
             "parent": {
@@ -1103,7 +1103,7 @@
               ]
             },
             "canAddBlock": true,
-            "formatName": "Shop",
+            "formatName": "Collections",
             "overLimit": false,
             "custom_css": []
           },
@@ -1926,7 +1926,7 @@
               ]
             },
             "canAddBlock": true,
-            "formatName": "菜单图片",
+            "formatName": "Menu Image",
             "overLimit": false
           }
         },

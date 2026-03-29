@@ -196,16 +196,18 @@
       "type": "pk-products",
       "settings": {
         "show_collection_filter": true,
-        "show_color_filter": true
+        "show_color_filter": true,
+        "collection": "12274115937987387757462145"
       },
       "blocks": {
         "1774720722735e9c3bbf": {
           "type": "collection_option",
           "settings": {
             "label": "MALLORCA",
-            "value": "MALLORCA"
+            "value": "Mallorca"
           },
-          "blockId": "1774720722735e9c3bbf"
+          "blockId": "1774720722735e9c3bbf",
+          "custom_css": []
         },
         "1774720722735787a4f2": {
           "type": "collection_option",
@@ -305,7 +307,8 @@
         "1774720722735af9cc0f",
         "177472072273520ddf20",
         "1774720722735a86c0f2"
-      ]
+      ],
+      "custom_css": []
     }
   },
   "order": [

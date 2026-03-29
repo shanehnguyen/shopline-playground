@@ -194,9 +194,12 @@
     "177472941231668e3ded": {
       "disabled": false,
       "type": "pk-about-page",
-      "settings": {},
+      "settings": {
+        "craft_image": "shopline://shop_images/Kitchen Cabinets How to Choose Safe, Durable Materials & Construction (2)_7320358107971855471.jpg"
+      },
       "blocks": {},
-      "block_order": []
+      "block_order": [],
+      "custom_css": []
     }
   },
   "order": [
