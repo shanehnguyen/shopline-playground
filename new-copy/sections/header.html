@@ -3,6 +3,9 @@
 {{assign "mobile_top_menu" section.settings.mobile_top_menu}}
 
 {{snippet "stylesheet" href=(asset_url "section-header.css")}}
+{{snippet "stylesheet" href=(asset_url "pk-header.css")}}
+{{snippet "stylesheet" href=(asset_url "pk-search.css")}}
+<script src="{{asset_url 'pk-search.js'}}" defer></script>
 
 <script src="{{asset_url 'component-predictive-search.js'}}" defer></script>
 <script src="{{asset_url 'section-header-modal.js'}}" defer></script>
@@ -81,7 +84,7 @@
     {{assign "transparent_header" true}}
   {{/and}}
   <header
-    class="header section--padding
+    class="header pk-header section--padding
       color-scheme-{{section.settings.color_scheme}}
       {{ternary transparent_header 'is-transparent' ''}}
       {{ternary is_sticky 'is-sticky' ''}}
@@ -300,6 +303,12 @@
       </div>
 
       <div class="header__icons">
+        <!-- PK custom search overlay trigger -->
+        <button class="icon-button header__icon-button pk-header__search-btn" data-pk-search-open aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span class="pk-header__search-btn__text">Search</span>
+        </button>
+
         {{#if section.settings.show_user_entry}}
           <a
             class="icon-button header__icon-button

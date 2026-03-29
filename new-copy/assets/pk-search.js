@@ -672,9 +672,12 @@
   /* ── Bootstrap ─────────────────────────────────────────────── */
  
   function init() {
+    // Guard: only mount once even if this script is loaded by both
+    // header.html and pk-search-overlay.html
+    if (window.pkSearch) return;
     window.pkSearch = new PKSearchOverlay();
   }
- 
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

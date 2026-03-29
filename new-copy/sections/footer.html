@@ -186,8 +186,8 @@
   <div class="pk-footer__newsletter">
     <div class="pk-footer__newsletter-inner">
       <div class="pk-footer__nl-text">
-        <h3 class="pk-footer__nl-heading">Stay Connected</h3>
-        <p class="pk-footer__nl-sub">Join our newsletter for design inspiration and exclusive offers.</p>
+        <h3 class="pk-footer__nl-heading">{{section.settings.newsletter_heading}}</h3>
+        <p class="pk-footer__nl-sub">{{section.settings.newsletter_subtext}}</p>
       </div>
       {{#form "customer" id="pk-footer-newsletter-form"}}
         <input type="hidden" name="contact[tags]" value="newsletter" />
@@ -221,43 +221,22 @@
         {{/if}}
         <span class="pk-footer__logo-name">{{shop.name}}</span>
       </a>
-      <p class="pk-footer__tagline">
-        Premium cabinetry for local businesses. Quality craftsmanship meets modern design.
-      </p>
+      <p class="pk-footer__tagline">{{section.settings.tagline}}</p>
     </div>
 
-    <!-- Shop column -->
-    <div class="pk-footer__col">
-      <p class="pk-footer__col-heading">Shop</p>
+    {{#each section.blocks}}
+    <div class="pk-footer__col" {{{shopline_attributes}}}>
+      <p class="pk-footer__col-heading">{{settings.heading}}</p>
       <ul class="pk-footer__col-list">
-        <li><a href="{{routes.all_products_collection_url}}" class="pk-footer__col-link">Product</a></li>
-        <li><a href="/collections" class="pk-footer__col-link">Collections</a></li>
-        <li><a href="/pages/sample-doors" class="pk-footer__col-link">Sample Doors</a></li>
-        <li><a href="/pages/contractor" class="pk-footer__col-link">Contractor</a></li>
-        <li><a href="{{routes.cart_url}}" class="pk-footer__col-link">Your Cart</a></li>
+        {{#if settings.link_1_label}}<li><a href="{{settings.link_1_url}}" class="pk-footer__col-link">{{settings.link_1_label}}</a></li>{{/if}}
+        {{#if settings.link_2_label}}<li><a href="{{settings.link_2_url}}" class="pk-footer__col-link">{{settings.link_2_label}}</a></li>{{/if}}
+        {{#if settings.link_3_label}}<li><a href="{{settings.link_3_url}}" class="pk-footer__col-link">{{settings.link_3_label}}</a></li>{{/if}}
+        {{#if settings.link_4_label}}<li><a href="{{settings.link_4_url}}" class="pk-footer__col-link">{{settings.link_4_label}}</a></li>{{/if}}
+        {{#if settings.link_5_label}}<li><a href="{{settings.link_5_url}}" class="pk-footer__col-link">{{settings.link_5_label}}</a></li>{{/if}}
+        {{#if settings.link_6_label}}<li><a href="{{settings.link_6_url}}" class="pk-footer__col-link">{{settings.link_6_label}}</a></li>{{/if}}
       </ul>
     </div>
-
-    <!-- Support column -->
-    <div class="pk-footer__col">
-      <p class="pk-footer__col-heading">Support</p>
-      <ul class="pk-footer__col-list">
-        <li><a href="/pages/faq" class="pk-footer__col-link">FAQ</a></li>
-        <li><a href="/pages/contact" class="pk-footer__col-link">Support</a></li>
-        <li><a href="/pages/designs" class="pk-footer__col-link">Design</a></li>
-        <li><a href="/pages/shipping" class="pk-footer__col-link">Shipping &amp; Delivery</a></li>
-        <li><a href="/pages/refund-policy" class="pk-footer__col-link">Returns &amp; Exchanges</a></li>
-        <li><a href="/pages/guarantee" class="pk-footer__col-link">Guarantee &amp; Warranty</a></li>
-      </ul>
-    </div>
-
-    <!-- Company column -->
-    <div class="pk-footer__col">
-      <p class="pk-footer__col-heading">Company</p>
-      <ul class="pk-footer__col-list">
-        <li><a href="/pages/about" class="pk-footer__col-link">About Us</a></li>
-      </ul>
-    </div>
+    {{/each}}
 
   </div>
 
@@ -265,11 +244,11 @@
   <div class="pk-footer__bottom">
     <div class="pk-footer__bottom-inner">
       <p class="pk-footer__copyright">
-        &copy; {{date 'now' '%Y'}} {{shop.name}}. All Rights Reserved.
+        &copy; {{date 'now' '%Y'}} {{shop.name}}. {{section.settings.copyright_text}}
       </p>
       <div class="pk-footer__legal">
-        <a href="/pages/privacy-policy" class="pk-footer__legal-link">Privacy Policy</a>
-        <a href="/pages/terms-of-service" class="pk-footer__legal-link">Terms of Service</a>
+        {{#if section.settings.privacy_url}}<a href="{{section.settings.privacy_url}}" class="pk-footer__legal-link">{{section.settings.privacy_label}}</a>{{/if}}
+        {{#if section.settings.tos_url}}<a href="{{section.settings.tos_url}}" class="pk-footer__legal-link">{{section.settings.tos_label}}</a>{{/if}}
       </div>
     </div>
   </div>
@@ -278,18 +257,99 @@
 
 {{#schema}}
 {
-  "name": "t:sections.footer.name",
+  "name": "PK Footer",
   "settings": [
+    { "type": "header",       "content": "Brand" },
+    { "type": "image_picker", "id": "logo",                "label": "Logo image" },
+    { "type": "textarea",     "id": "tagline",             "label": "Tagline beneath logo",
+      "default": "Premium cabinetry for local businesses. Quality craftsmanship meets modern design." },
+
+    { "type": "header",  "content": "Newsletter bar" },
+    { "type": "text",    "id": "newsletter_heading", "label": "Heading",  "default": "Stay Connected" },
+    { "type": "text",    "id": "newsletter_subtext", "label": "Subtext",
+      "default": "Join our newsletter for design inspiration and exclusive offers." },
+
+    { "type": "header",  "content": "Bottom bar" },
+    { "type": "text",    "id": "copyright_text",   "label": "Copyright suffix (after year \u0026 shop name)", "default": "All Rights Reserved." },
+    { "type": "url",     "id": "privacy_url",      "label": "Privacy Policy URL",   "default": "/pages/privacy-policy" },
+    { "type": "text",    "id": "privacy_label",    "label": "Privacy Policy label", "default": "Privacy Policy" },
+    { "type": "url",     "id": "tos_url",          "label": "Terms of Service URL",   "default": "/pages/terms-of-service" },
+    { "type": "text",    "id": "tos_label",        "label": "Terms of Service label", "default": "Terms of Service" }
+  ],
+  "blocks": [
     {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
+      "type": "link_column",
+      "name": "Link Column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Column heading", "default": "Column" },
+
+        { "type": "header", "content": "Link 1" },
+        { "type": "text",   "id": "link_1_label", "label": "Label" },
+        { "type": "url",    "id": "link_1_url",   "label": "URL" },
+        { "type": "header", "content": "Link 2" },
+        { "type": "text",   "id": "link_2_label", "label": "Label" },
+        { "type": "url",    "id": "link_2_url",   "label": "URL" },
+        { "type": "header", "content": "Link 3" },
+        { "type": "text",   "id": "link_3_label", "label": "Label" },
+        { "type": "url",    "id": "link_3_url",   "label": "URL" },
+        { "type": "header", "content": "Link 4" },
+        { "type": "text",   "id": "link_4_label", "label": "Label" },
+        { "type": "url",    "id": "link_4_url",   "label": "URL" },
+        { "type": "header", "content": "Link 5" },
+        { "type": "text",   "id": "link_5_label", "label": "Label" },
+        { "type": "url",    "id": "link_5_url",   "label": "URL" },
+        { "type": "header", "content": "Link 6" },
+        { "type": "text",   "id": "link_6_label", "label": "Label" },
+        { "type": "url",    "id": "link_6_url",   "label": "URL" }
+      ]
     }
   ],
   "presets": [
     {
       "name": "PK Footer",
-      "category": "Custom"
+      "category": "Custom",
+      "settings": {
+        "tagline":             "Premium cabinetry for local businesses. Quality craftsmanship meets modern design.",
+        "newsletter_heading":  "Stay Connected",
+        "newsletter_subtext":  "Join our newsletter for design inspiration and exclusive offers.",
+        "copyright_text":      "All Rights Reserved.",
+        "privacy_url":         "/pages/privacy-policy",
+        "privacy_label":       "Privacy Policy",
+        "tos_url":             "/pages/terms-of-service",
+        "tos_label":           "Terms of Service"
+      },
+      "blocks": [
+        {
+          "type": "link_column",
+          "settings": {
+            "heading":      "Shop",
+            "link_1_label": "Products",        "link_1_url": "/collections/all",
+            "link_2_label": "Collections",     "link_2_url": "/collections",
+            "link_3_label": "Sample Doors",    "link_3_url": "/pages/sample-doors",
+            "link_4_label": "Contractor",      "link_4_url": "/pages/contractor",
+            "link_5_label": "Your Cart",       "link_5_url": "/cart"
+          }
+        },
+        {
+          "type": "link_column",
+          "settings": {
+            "heading":      "Support",
+            "link_1_label": "FAQ",                    "link_1_url": "/pages/faq",
+            "link_2_label": "Support",                "link_2_url": "/pages/contact",
+            "link_3_label": "Design",                 "link_3_url": "/pages/designs",
+            "link_4_label": "Shipping & Delivery",    "link_4_url": "/pages/shipping",
+            "link_5_label": "Returns & Exchanges",    "link_5_url": "/pages/refund-policy",
+            "link_6_label": "Guarantee & Warranty",   "link_6_url": "/pages/guarantee"
+          }
+        },
+        {
+          "type": "link_column",
+          "settings": {
+            "heading":      "Company",
+            "link_1_label": "About Us",  "link_1_url": "/pages/about"
+          }
+        }
+      ]
     }
   ]
 }

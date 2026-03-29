@@ -1,0 +1,182 @@
+/*
+ * PK Cabinet — Header Styles
+ * ─────────────────────────────────────────────────────────────
+ * Scoped to .pk-header so nothing leaks to other sections.
+ * Does NOT redefine layout, grid areas, or sticky behaviour —
+ * those stay in section-header.css.
+ *
+ * Design tokens (PK Cabinet system):
+ *   dark   #1a1a1a  — primary text / active states
+ *   muted  #6b6258  — default nav link / icon color
+ *   gold   #a89060  — hover accent underline
+ *   border #e0dcd5  — dividers
+ *   bg     #ffffff  — header background
+ */
+
+/* ── 1. Design token scope ───────────────────────────────── */
+.pk-header {
+  --pk-dark:          #1a1a1a;
+  --pk-muted:         #6b6258;
+  --pk-gold:          #a89060;
+  --pk-border:        #e0dcd5;
+  --pk-bg:            #ffffff;
+  --pk-font-ui:       'Inter', sans-serif;
+  --pk-nav-size:      13px;
+  --pk-nav-weight:    500;
+  --pk-icon-size:     18px;
+  --pk-logo-max-w:    140px;
+  --pk-logo-max-w-sm: 90px;
+}
+
+/* ── 2. Header background & border ──────────────────────── */
+.pk-header {
+  background-color: var(--pk-bg);
+}
+
+/* Scrolled state — swap border for subtle shadow */
+.pk-header.shopline-section-header-scrolling {
+  box-shadow: 0 2px 16px rgba(26, 26, 26, 0.07);
+}
+
+/* ── 3. Logo ─────────────────────────────────────────────── */
+.pk-header .header__heading-logo {
+  max-width: var(--pk-logo-max-w);
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 959px) {
+  .pk-header .header__heading-logo {
+    max-width: var(--pk-logo-max-w-sm);
+  }
+}
+
+/* ── 4. Nav links ────────────────────────────────────────── */
+.pk-header .header-inline-menus__link,
+.pk-header .menus__link {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-nav-size);
+  font-weight: var(--pk-nav-weight);
+  color: var(--pk-muted);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.pk-header .header-inline-menus__link:hover,
+.pk-header .header-inline-menus__link:focus-visible,
+.pk-header .menus__link:hover,
+.pk-header .menus__link:focus-visible {
+  color: var(--pk-dark);
+}
+
+/* Active / current-page link */
+.pk-header .header-inline-menus__link.is-active,
+.pk-header .header-inline-menus__link[aria-current="page"],
+.pk-header .menus__link.is-active {
+  color: var(--pk-dark);
+  font-weight: 600;
+}
+
+/* Hover underline accent color */
+.pk-header .header-inline-menus__link::after {
+  background-color: var(--pk-gold);
+}
+
+/* ── 5. Dropdown / megamenu text ─────────────────────────── */
+.pk-header .header-inline-submenus__link,
+.pk-header .megamenu-list__submenu .menus__link {
+  font-family: var(--pk-font-ui);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--pk-muted);
+  transition: color 0.2s;
+}
+
+.pk-header .header-inline-submenus__link:hover,
+.pk-header .megamenu-list__submenu .menus__link:hover {
+  color: var(--pk-dark);
+}
+
+.pk-header .megamenu-list__item-title {
+  font-family: var(--pk-font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pk-dark);
+}
+
+/* ── 6. Icon buttons (user, cart, native search) ─────────── */
+.pk-header .header__icon-button,
+.pk-header .icon-button {
+  color: var(--pk-muted);
+  transition: color 0.2s;
+}
+
+.pk-header .header__icon-button:hover,
+.pk-header .icon-button:hover {
+  color: var(--pk-dark);
+}
+
+.pk-header .header__icon-button svg,
+.pk-header .icon-button svg {
+  width: var(--pk-icon-size);
+  height: var(--pk-icon-size);
+  stroke-width: 1.5;
+  display: block;
+}
+
+/* Cart badge */
+.pk-header .header__cart-point {
+  background-color: var(--pk-dark);
+  color: #ffffff;
+  font-size: 8px;
+  font-family: var(--pk-font-ui);
+}
+
+/* ── 7. PK custom search trigger ─────────────────────────── */
+.pk-header__search-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--pk-muted);
+  font-family: var(--pk-font-ui);
+  line-height: 1;
+  transition: color 0.2s;
+  /* vertically align with sibling icon buttons */
+  height: 100%;
+}
+
+.pk-header__search-btn:hover,
+.pk-header__search-btn:focus-visible {
+  color: var(--pk-dark);
+  outline: none;
+}
+
+.pk-header__search-btn svg {
+  width: var(--pk-icon-size);
+  height: var(--pk-icon-size);
+  stroke-width: 1.5;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* "Search" label — hidden on small screens to match Navbar.tsx */
+.pk-header__search-btn__text {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .pk-header__search-btn__text {
+    display: inline;
+  }
+}
