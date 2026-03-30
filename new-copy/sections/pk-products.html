@@ -518,6 +518,8 @@
 }
 </style>
 
+<script src="{{asset_url 'component-product-form.js'}}" defer="defer"></script>
+
 <div class="pk-prod">
   <div class="pk-prod__inner">
 
@@ -659,10 +661,18 @@
                 {{#if images.[1]}}
                   {{snippet "image" data=images.[1] class="pk-prod__img-hover"}}
                 {{/if}}
-                <button class="pk-prod__add" onclick="event.preventDefault();event.stopPropagation();pkAddToCart('{{variants.[0].id}}',this);">
-                  <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                  Add to Cart
-                </button>
+                <product-form onclick="event.stopPropagation();event.preventDefault();">
+                  {{#form "product" this}}
+                    <input type="hidden" name="id" value="{{variants.[0].id}}" />
+                    <input type="hidden" name="quantity" value="1" />
+                    <button type="submit" name="add" class="pk-prod__add"
+                      {{#unless available}}disabled{{/unless}}
+                    >
+                      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                      {{#if available}}Add to Cart{{else}}Sold Out{{/if}}
+                    </button>
+                  {{/form}}
+                </product-form>
               </div>
               <div class="pk-prod__info">
                 <span class="pk-prod__name">{{title}}</span>
@@ -971,25 +981,6 @@
   if (sortEl) {
     sortEl.addEventListener('change', function(){ navigateWithFilters(true); });
   }
-
-  /* Add to cart (unchanged) */
-  window.pkAddToCart = function(variantId, btn) {
-    if (!variantId) return;
-    btn.textContent = 'Adding...';
-    fetch(window.routes && window.routes.cart_add_url || '/cart/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ id: variantId, quantity: 1 })
-    }).then(function(r){ return r.json(); }).then(function(){
-      btn.innerHTML = '&#10003; Added';
-      setTimeout(function(){
-        btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none"' +
-          ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
-          '<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>' +
-          '<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Add to Cart';
-      }, 1500);
-    }).catch(function(){ btn.textContent = 'Add to Cart'; });
-  };
 
   /* ─── 10. Init ────────────────────────────────────────────── */
   restoreState();
