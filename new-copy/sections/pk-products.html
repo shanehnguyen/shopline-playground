@@ -767,7 +767,7 @@
     'featured':   'manual',
     'price-asc':  'price-ascending',
     'price-desc': 'price-descending',
-    'newest':     'created-at-descending'
+    'newest':     'created-descending'
   };
   var SORT_MAP_INV = {};
   Object.keys(SORT_MAP).forEach(function(k){ SORT_MAP_INV[SORT_MAP[k]] = k; });
@@ -993,6 +993,18 @@
 
   /* ─── 10. Init ────────────────────────────────────────────── */
   restoreState();
+
+  /* Auto-open sidebar if any filter params are active on page load */
+  var hasActiveFilters = activeCollections.length > 0 || activeTags.length > 0
+                         || activePriceGte !== null || activePriceLte !== null;
+  if (hasActiveFilters && sidebar && toggleBtn) {
+    filtersOpen = true;
+    sidebar.classList.remove('is-hidden');
+    body.classList.add('filters-open');
+    labelEl.textContent    = 'Hide filters';
+    iconPlus.style.display  = 'none';
+    iconMinus.style.display = '';
+  }
 
 })();
 </script>
