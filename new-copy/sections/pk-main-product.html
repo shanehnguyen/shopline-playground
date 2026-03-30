@@ -278,10 +278,14 @@
                 {{#unless default_variant_id}}disabled{{/unless}}
               >
                 <span>
-                  {{#if product.selected_or_first_available_variant.available}}
-                    Add to Cart
+                  {{#if default_variant_id}}
+                    {{#if product.selected_or_first_available_variant.available}}
+                      Add to Cart
+                    {{else}}
+                      Sold Out
+                    {{/if}}
                   {{else}}
-                    Sold Out
+                    Unavailable
                   {{/if}}
                 </span>
               </button>
