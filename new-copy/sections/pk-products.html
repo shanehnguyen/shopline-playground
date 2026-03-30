@@ -519,6 +519,8 @@
 </style>
 
 <script src="{{asset_url 'component-product-form.js'}}" defer="defer"></script>
+{{snippet "stylesheet" href=(asset_url "component-facets.css")}}
+<script src="{{asset_url 'component-facets.js'}}" defer="defer"></script>
 
 <div class="pk-prod">
   <div class="pk-prod__inner">
@@ -527,131 +529,27 @@
     <nav class="pk-prod__crumbs">
       <a href="/">Home</a>
       <span>/</span>
-      <span>{{section.settings.collection.title}}</span>
+      <span>{{collection.title}}</span>
     </nav>
 
-    <!-- Toolbar -->
-    <div class="pk-prod__toolbar">
-      <div class="pk-prod__toolbar-top">
-        <div class="pk-prod__toolbar-left">
-          <button class="pk-prod__filter-toggle" id="pk-filter-toggle">
-            <svg id="pk-filter-icon-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            <svg id="pk-filter-icon-minus" viewBox="0 0 24 24" style="display:none;"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            <span id="pk-filter-toggle-label">Show filters</span>
-          </button>
-          <span class="pk-prod__count" id="pk-count"></span>
-        </div>
-        <div class="pk-prod__sort">
-          <span class="pk-prod__sort-label">Sort by:</span>
-          <div class="pk-prod__sort-wrap">
-            <select class="pk-prod__sort-select" id="pk-sort">
-              <option value="featured">Featured</option>
-              <option value="price-asc">Price: Low–High</option>
-              <option value="price-desc">Price: High–Low</option>
-              <option value="newest">Newest</option>
-            </select>
-            <span class="pk-prod__sort-chevron">
-              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </div>
-        </div>
-      </div>
+    <!-- Native Shopline facets (filter + sort) -->
+    <aside class="facets-wrapper" id="main-collection-filters" data-id="{{section.id}}">
+      {{snippet
+        "facets"
+        results=collection
+        enable_filtering=true
+        enable_sorting=true
+        filter_type="vertical"
+      }}
+    </aside>
 
-      <!-- Active filter chips -->
-      <div class="pk-prod__chips is-hidden" id="pk-chips"></div>
-    </div>
+    <!-- Product grid -->
+    <div class="product-list-container" id="ProductListContainer" data-id="{{section.id}}">
+      {{#paginate collection.products by=16}}
 
-    <!-- Body -->
-    <div class="pk-prod__body" id="pk-body">
-
-      <!-- Sidebar -->
-      <aside class="pk-prod__sidebar is-hidden" id="pk-sidebar">
-
-        <!-- Collection filter -->
-        {{#if section.settings.show_collection_filter}}
-        <div class="pk-prod__filter-group" data-filter="collection">
-          <h3 class="pk-prod__filter-heading">Collection</h3>
-          <div class="pk-prod__filter-items">
-            {{#each section.blocks}}
-            {{#if (compare type "==" "collection_option")}}
-            <label class="pk-prod__filter-label">
-              <div class="pk-prod__filter-left">
-                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="collection" data-filter-value="{{settings.value}}" />
-                <span class="pk-prod__filter-text">{{settings.label}}</span>
-              </div>
-              <span class="pk-prod__filter-count" data-count-type="collection" data-count-value="{{settings.value}}"></span>
-            </label>
-            {{/if}}
-            {{/each}}
-          </div>
-        </div>
-        {{/if}}
-
-        <!-- Color filter -->
-        {{#if section.settings.show_color_filter}}
-        <div class="pk-prod__filter-group is-hidden" id="pk-color-group" data-filter="color">
-          <h3 class="pk-prod__filter-heading">Color</h3>
-          <div class="pk-prod__filter-items">
-            {{#each section.blocks}}
-            {{#if (compare type "==" "color_option")}}
-            <label class="pk-prod__filter-label">
-              <div class="pk-prod__filter-left">
-                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="color" data-filter-value="{{settings.value}}" />
-                <div class="pk-prod__filter-dot" style="background:{{settings.color_hex}};"></div>
-                <span class="pk-prod__filter-text">{{settings.label}}</span>
-              </div>
-              <span class="pk-prod__filter-count" data-count-type="color" data-count-value="{{settings.value}}"></span>
-            </label>
-            {{/if}}
-            {{/each}}
-          </div>
-        </div>
-        {{/if}}
-
-        <!-- Price filter -->
-        <div class="pk-prod__filter-group" data-filter="price">
-          <h3 class="pk-prod__filter-heading">Price</h3>
-          <div class="pk-prod__filter-items">
-            <label class="pk-prod__filter-label">
-              <div class="pk-prod__filter-left">
-                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="0" data-price-max="60000" />
-                <span class="pk-prod__filter-text">Under $600</span>
-              </div>
-              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="0" data-price-max="60000"></span>
-            </label>
-            <label class="pk-prod__filter-label">
-              <div class="pk-prod__filter-left">
-                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="60000" data-price-max="120000" />
-                <span class="pk-prod__filter-text">$600–$1,200</span>
-              </div>
-              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="60000" data-price-max="120000"></span>
-            </label>
-            <label class="pk-prod__filter-label">
-              <div class="pk-prod__filter-left">
-                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="120000" data-price-max="160000" />
-                <span class="pk-prod__filter-text">$1,200–$1,600</span>
-              </div>
-              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="120000" data-price-max="160000"></span>
-            </label>
-            <label class="pk-prod__filter-label">
-              <div class="pk-prod__filter-left">
-                <input class="pk-prod__filter-cb" type="checkbox" data-filter-type="price" data-price-min="160000" data-price-max="999999999" />
-                <span class="pk-prod__filter-text">Over $1,600</span>
-              </div>
-              <span class="pk-prod__filter-count" data-count-type="price" data-price-min="160000" data-price-max="999999999"></span>
-            </label>
-          </div>
-        </div>
-
-      </aside>
-
-      <!-- Product grid (server-paginated, 16 per page) -->
-      <div class="pk-prod__grid-wrap">
-        {{#paginate section.settings.collection.products by=16}}
-
-        {{#if section.settings.collection.products.size ">" 0}}
-        <div class="pk-prod__grid" id="pk-grid">
-          {{#each section.settings.collection.products}}
+        {{#if collection.products_count ">" 0}}
+        <div class="pk-prod__grid product-list-content" id="pk-grid">
+          {{#each collection.products}}
           <div class="pk-prod__card">
             <a href="{{url}}">
               <div class="pk-prod__img-wrap">
@@ -700,7 +598,7 @@
         <!-- Empty state -->
         <div class="pk-prod__empty" id="pk-empty">
           <p>No products found matching your filters.</p>
-          <a href="{{section.settings.collection.url}}">Clear all filters</a>
+          <a href="{{collection.url}}">Clear all filters</a>
         </div>
         {{/if}}
 
@@ -738,313 +636,20 @@
         {{/paginate}}
       </div>
 
-    </div>
   </div>
 </div>
 
-<script>
-(function () {
-  'use strict';
-
-  /* ─── 1. Read paginate data stamped by Handlebars ─────────── */
-  var paginationEl  = document.getElementById('pk-pagination');
-  var currentPage   = paginationEl ? parseInt(paginationEl.dataset.currentPage || '1', 10) : 1;
-  var totalPages    = paginationEl ? parseInt(paginationEl.dataset.pages       || '1', 10) : 1;
-  var totalItems    = paginationEl ? parseInt(paginationEl.dataset.items       || '0', 10) : 0;
-  var pageSize      = paginationEl ? parseInt(paginationEl.dataset.pageSize    || '16', 10) : 16;
-
-  /* ─── 2. Parse current URL filter state ──────────────────── */
-  var params         = new URLSearchParams(window.location.search);
-  // filter.p.tag covers both collection and color (same tag mechanism)
-  var activeTags        = params.getAll('filter.p.tag').map(function(t){ return t.toLowerCase(); });
-  var activeProductTypes = params.getAll('filter.p.product_type').map(function(t){ return t.toLowerCase(); });
-  var activeSortUrl  = params.get('sort_by') || 'manual';
-  // Price (Shopline uses display currency, e.g. dollars; our data attrs use cents)
-  var activePriceGte = params.get('filter.v.price.gte') !== null
-                         ? Math.round(parseFloat(params.get('filter.v.price.gte')) * 100) : null;
-  var activePriceLte = params.get('filter.v.price.lte') !== null
-                         ? Math.round(parseFloat(params.get('filter.v.price.lte')) * 100) : null;
-
-  /* ─── 3. Collect known option values from the sidebar DOM ── */
-  var collectionCbs = Array.from(document.querySelectorAll('[data-filter-type="collection"]'));
-  var colorCbs      = Array.from(document.querySelectorAll('[data-filter-type="color"]'));
-  var priceCbs      = Array.from(document.querySelectorAll('[data-filter-type="price"]'));
-  /* Active collections = from filter.p.product_type URL param (product_type = collection name) */
-  var activeCollections = activeProductTypes;
-
-  /* ─── 4. Sort value ↔ URL mapping ────────────────────────── */
-  var SORT_MAP = {
-    'featured':   'manual',
-    'price-asc':  'price-ascending',
-    'price-desc': 'price-descending',
-    'newest':     'created-descending'
-  };
-  var SORT_MAP_INV = {};
-  Object.keys(SORT_MAP).forEach(function(k){ SORT_MAP_INV[SORT_MAP[k]] = k; });
-
-  /* ─── 5. Build a new URL from current filter state ────────── */
-  function buildUrl(opts) {
-    /* opts: { collections[], colors[], priceMin, priceMax, sort, page } */
-    var p = new URLSearchParams();
-
-    /* Collections → filter.p.product_type (products use product_type for collection name) */
-    (opts.collections || []).forEach(function(v){ p.append('filter.p.product_type', v); });
-    /* Colors → filter.p.tag */
-    (opts.colors      || []).forEach(function(v){ p.append('filter.p.tag', v); });
-
-    /* Price (cents → dollars for URL) */
-    if (opts.priceMin !== null && opts.priceMin !== undefined) {
-      p.set('filter.v.price.gte', (opts.priceMin / 100).toFixed(2));
-    }
-    if (opts.priceMax !== null && opts.priceMax !== undefined && opts.priceMax < 999999999) {
-      p.set('filter.v.price.lte', (opts.priceMax / 100).toFixed(2));
-    }
-
-    /* Sort */
-    var sortUrl = SORT_MAP[opts.sort] || 'manual';
-    if (sortUrl && sortUrl !== 'manual') p.set('sort_by', sortUrl);
-
-    /* Page (omit page=1 to keep URLs clean) */
-    if (opts.page && opts.page > 1) p.set('page', opts.page);
-
-    var qs = p.toString();
-    return window.location.pathname + (qs ? '?' + qs : '');
-  }
-
-  /* ─── 6. Read DOM state and navigate ─────────────────────── */
-  function navigateWithFilters(resetToPage1) {
-    var colls  = collectionCbs.filter(function(cb){ return cb.checked; })
-                              .map(function(cb){ return cb.dataset.filterValue; });
-    var colors = colorCbs.filter(function(cb){ return cb.checked; })
-                         .map(function(cb){ return cb.dataset.filterValue; });
-
-    var priceMin = null, priceMax = null;
-    var checkedPrice = priceCbs.filter(function(cb){ return cb.checked; })[0];
-    if (checkedPrice) {
-      priceMin = parseInt(checkedPrice.dataset.priceMin || '0', 10);
-      priceMax = parseInt(checkedPrice.dataset.priceMax || '999999999', 10);
-    }
-
-    var sortEl  = document.getElementById('pk-sort');
-    var sort    = sortEl ? sortEl.value : 'featured';
-    var page    = resetToPage1 ? 1 : currentPage;
-
-    window.location.href = buildUrl({ collections: colls, colors: colors,
-                                      priceMin: priceMin, priceMax: priceMax,
-                                      sort: sort, page: page });
-  }
-
-  /* ─── 7. Restore UI state from URL on page load ───────────── */
-  function restoreState() {
-    /* Sort dropdown */
-    var sortEl = document.getElementById('pk-sort');
-    if (sortEl) sortEl.value = SORT_MAP_INV[activeSortUrl] || 'featured';
-
-    /* Collection checkboxes — restored from filter.p.product_type */
-    collectionCbs.forEach(function(cb){
-      cb.checked = activeProductTypes.indexOf(cb.dataset.filterValue.toLowerCase()) >= 0;
-    });
-
-    /* Color checkboxes */
-    colorCbs.forEach(function(cb){
-      cb.checked = activeTags.indexOf(cb.dataset.filterValue.toLowerCase()) >= 0;
-    });
-
-    /* Price checkboxes */
-    priceCbs.forEach(function(cb){
-      var mn = parseInt(cb.dataset.priceMin || '0', 10);
-      var mx = parseInt(cb.dataset.priceMax || '999999999', 10);
-      cb.checked = (activePriceGte !== null && activePriceGte === mn) &&
-                   (activePriceLte !== null ? activePriceLte === mx : mx >= 999999999);
-    });
-
-    /* Color group: visible only when a collection filter is active */
-    var colorGroup = document.getElementById('pk-color-group');
-    if (colorGroup) colorGroup.classList.toggle('is-hidden', activeCollections.length === 0);
-
-    /* Chips */
-    renderChips();
-
-    /* Product count */
-    var countEl = document.getElementById('pk-count');
-    if (countEl && totalItems > 0) {
-      countEl.textContent = totalItems + ' product' + (totalItems !== 1 ? 's' : '');
-    }
-
-    /* Pagination item range */
-    var rangeEl = document.getElementById('pk-range');
-    if (rangeEl && totalItems > 0) {
-      var rangeStart = (currentPage - 1) * pageSize + 1;
-      var rangeEnd   = Math.min(currentPage * pageSize, totalItems);
-      rangeEl.textContent = rangeStart + ' \u2013 ' + rangeEnd + ' of ' + totalItems + ' items';
-    }
-  }
-
-  /* ─── 8. Chip rendering ───────────────────────────────────── */
-  function renderChips() {
-    var chips = document.getElementById('pk-chips');
-    if (!chips) return;
-    chips.innerHTML = '';
-    var any = false;
-
-    /* Collection chips */
-    collectionCbs.filter(function(cb){ return cb.checked; }).forEach(function(cb){
-      addChip(chips, cb.dataset.filterValue, function(){
-        cb.checked = false;
-        navigateWithFilters(true);
-      });
-      any = true;
-    });
-
-    /* Color chips */
-    colorCbs.filter(function(cb){ return cb.checked; }).forEach(function(cb){
-      addChip(chips, cb.dataset.filterValue, function(){
-        cb.checked = false;
-        navigateWithFilters(true);
-      });
-      any = true;
-    });
-
-    /* Price chip */
-    var checkedPrice = priceCbs.filter(function(cb){ return cb.checked; })[0];
-    if (checkedPrice) {
-      var lbl = checkedPrice.closest('.pk-prod__filter-label')
-                            .querySelector('.pk-prod__filter-text').textContent;
-      addChip(chips, lbl, function(){
-        checkedPrice.checked = false;
-        navigateWithFilters(true);
-      });
-      any = true;
-    }
-
-    chips.classList.toggle('is-hidden', !any);
-
-    if (any) {
-      var btn = document.createElement('button');
-      btn.className = 'pk-prod__clearall';
-      btn.textContent = 'Clear all';
-      btn.addEventListener('click', function(){
-        window.location.href = window.location.pathname;
-      });
-      chips.appendChild(btn);
-    }
-  }
-
-  function addChip(container, label, onRemove) {
-    var btn = document.createElement('button');
-    btn.className = 'pk-prod__chip';
-    btn.innerHTML = esc(label) +
-      '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/>' +
-      '<line x1="6" y1="6" x2="18" y2="18"/></svg>';
-    btn.addEventListener('click', onRemove);
-    container.appendChild(btn);
-  }
-
-  function esc(s) {
-    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-
-  /* ─── 9. Events ───────────────────────────────────────────── */
-  /* Sidebar toggle */
-  var filtersOpen = false;
-  var toggleBtn   = document.getElementById('pk-filter-toggle');
-  var labelEl     = document.getElementById('pk-filter-toggle-label');
-  var iconPlus    = document.getElementById('pk-filter-icon-plus');
-  var iconMinus   = document.getElementById('pk-filter-icon-minus');
-  var body        = document.getElementById('pk-body');
-  var sidebar     = document.getElementById('pk-sidebar');
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', function(){
-      filtersOpen = !filtersOpen;
-      sidebar.classList.toggle('is-hidden', !filtersOpen);
-      body.classList.toggle('filters-open', filtersOpen);
-      labelEl.textContent          = filtersOpen ? 'Hide filters' : 'Show filters';
-      iconPlus.style.display       = filtersOpen ? 'none' : '';
-      iconMinus.style.display      = filtersOpen ? ''     : 'none';
-    });
-  }
-
-  /* Filter checkboxes → navigate (resets to page 1) */
-  document.querySelectorAll('.pk-prod__filter-cb').forEach(function(cb){
-    cb.addEventListener('change', function(){
-      /* Price is single-select: uncheck all other price options first */
-      if (cb.dataset.filterType === 'price') {
-        priceCbs.forEach(function(other){ if (other !== cb) other.checked = false; });
-      }
-      navigateWithFilters(true);
-    });
-  });
-
-  /* Sort → navigate (resets to page 1) */
-  var sortEl = document.getElementById('pk-sort');
-  if (sortEl) {
-    sortEl.addEventListener('change', function(){ navigateWithFilters(true); });
-  }
-
-  /* ─── 10. Init ────────────────────────────────────────────── */
-  restoreState();
-
-  /* Auto-open sidebar if any filter params are active on page load */
-  var hasActiveFilters = activeCollections.length > 0 || activeTags.length > 0
-                         || activePriceGte !== null || activePriceLte !== null;
-  if (hasActiveFilters && sidebar && toggleBtn) {
-    filtersOpen = true;
-    sidebar.classList.remove('is-hidden');
-    body.classList.add('filters-open');
-    labelEl.textContent    = 'Hide filters';
-    iconPlus.style.display  = 'none';
-    iconMinus.style.display = '';
-  }
-
-})();
-</script>
 
 {{#schema}}
 {
   "name": "PK Products Page",
   "class": "section",
   "settings": [
-    { "id": "collection",             "type": "collection_picker", "label": "Collection" },
-    { "id": "show_collection_filter", "type": "checkbox", "label": "Show collection filter", "default": true },
-    { "id": "show_color_filter",      "type": "checkbox", "label": "Show color filter",      "default": true }
-  ],
-  "blocks": [
-    {
-      "type": "collection_option",
-      "name": "Collection Filter Option",
-      "settings": [
-        { "id": "label", "type": "text", "label": "Label", "default": "Collection" },
-        { "id": "value", "type": "text", "label": "Filter Value (must match product_type exactly)", "default": "Mallorca" }
-      ]
-    },
-    {
-      "type": "color_option",
-      "name": "Color Filter Option",
-      "settings": [
-        { "id": "label",     "type": "text",  "label": "Label",     "default": "White" },
-        { "id": "value",     "type": "text",  "label": "Filter Value (matches product tag)", "default": "White" },
-        { "id": "color_hex", "type": "color", "label": "Color Swatch", "default": "#ffffff" }
-      ]
-    }
+    { "id": "collection", "type": "collection_picker", "label": "Collection" }
   ],
   "presets": [{
     "name": "PK Products Page",
-    "category": "Custom",
-    "settings": { "show_collection_filter": true, "show_color_filter": true },
-    "blocks": [
-      { "type": "collection_option", "settings": { "label": "Mallorca", "value": "Mallorca" } },
-      { "type": "collection_option", "settings": { "label": "Shady",    "value": "Shady"    } },
-      { "type": "collection_option", "settings": { "label": "Franco",   "value": "Franco"   } },
-      { "type": "collection_option", "settings": { "label": "Irena",    "value": "Irena"    } },
-      { "type": "collection_option", "settings": { "label": "Newport",  "value": "Newport"  } },
-      { "type": "collection_option", "settings": { "label": "Aspen",    "value": "Aspen"    } },
-      { "type": "color_option", "settings": { "label": "White",        "value": "White",        "color_hex": "#FFFFFF" } },
-      { "type": "color_option", "settings": { "label": "Dolphin Gray",  "value": "Dolphin Gray", "color_hex": "#A9AFB2" } },
-      { "type": "color_option", "settings": { "label": "Gray Slim",     "value": "Gray Slim",    "color_hex": "#808080" } },
-      { "type": "color_option", "settings": { "label": "Slim Oak",      "value": "Slim Oak",     "color_hex": "#E9E4D4" } },
-      { "type": "color_option", "settings": { "label": "Slim White",    "value": "Slim White",   "color_hex": "#F5F5F0" } }
-    ]
+    "category": "Custom"
   }]
 }
 {{/schema}}
