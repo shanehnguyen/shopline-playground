@@ -126,6 +126,29 @@
   .pk-design__consent-text a { color: #6b6258; text-decoration: underline; }
   .pk-design__consent-text a:hover { color: #1a1a1a; }
 
+  .pk-design__success-msg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+  }
+  .pk-design__error-msg {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+  }
   .pk-design__submit {
     width: 100%;
     padding: 20px;
@@ -206,14 +229,21 @@
   <section class="pk-design__form-section">
     <div class="pk-design__form-wrap">
       <div class="pk-design__form-header">
-        <h2 class="pk-design__form-title">Start Your Free Design</h2>
-        <p class="pk-design__form-sub">Please fill out the form below and a designer will reach out to you shortly.</p>
+        <h2 class="pk-design__form-title">{{section.settings.form_heading}}</h2>
+        <p class="pk-design__form-sub">{{section.settings.form_subheading}}</p>
       </div>
 
-      <form class="pk-design__form" action="/contact" method="post" accept-charset="UTF-8">
-        <input type="hidden" name="form_type" value="contact" />
-        <input type="hidden" name="utf8" value="&#x2713;" />
-        <input type="hidden" name="contact[subject]" value="Free Design Request" />
+      {{#form "contact" class="pk-design__form"}}
+        <input type="hidden" name="contact[subject]" value="{{section.settings.form_subject}}" />
+        {{#if form.posted_successfully}}
+          <div class="pk-design__success-msg">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            {{section.settings.success_message}}
+          </div>
+        {{else}}
+          {{#if form.errors.messages}}
+            <div class="pk-design__error-msg">{{form.errors.messages}}</div>
+          {{/if}}
 
         <!-- Name Row -->
         <div class="pk-design__row">
@@ -301,8 +331,9 @@
         </div>
 
         <!-- Submit -->
-        <button type="submit" class="pk-design__submit">SUBMIT</button>
-      </form>
+        <button type="submit" class="pk-design__submit">{{section.settings.submit_button_text}}</button>
+        {{/if}}
+      {{/form}}
     </div>
   </section>
 
@@ -329,9 +360,17 @@ function pkDesignToggle(btn) {
 
 {{#schema}}
 {
-  "name": "PK Design Page",
+  "name": "PK Design Page [form]",
+  "tag": "form",
   "class": "pk-design-section",
-  "settings": [],
+  "settings": [
+    { "type": "header",            "content": "Form Content" },
+    { "id": "form_heading",        "type": "text",     "label": "Form Heading",    "default": "Start Your Free Design" },
+    { "id": "form_subheading",     "type": "textarea", "label": "Form Subheading", "default": "Please fill out the form below and a designer will reach out to you shortly." },
+    { "id": "form_subject",        "type": "text",     "label": "Email Subject",   "default": "Free Design Request" },
+    { "id": "submit_button_text",  "type": "text",     "label": "Submit Button",   "default": "SUBMIT" },
+    { "id": "success_message",     "type": "text",     "label": "Success Message", "default": "Thank you! Your design request has been received. A designer will reach out shortly." }
+  ],
   "presets": [
     {
       "name": "PK Design Page",
