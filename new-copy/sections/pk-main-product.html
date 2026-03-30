@@ -161,7 +161,7 @@
 {{assign "product_form_id" (append "pk-product-form-" section.id)}}
 
 {{#capture "default_variant_id"}}
-  {{default product.selected_or_first_available_variant.id (get "id" (first product.variants))}}
+  {{product.selected_or_first_available_variant.id}}
 {{/capture}}
 
 <div class="pk-pdp" data-section-id="{{section.id}}" data-section-type="pk-main-product">
@@ -178,7 +178,7 @@
             data-gallery-thumb="{{section.id}}"
             data-idx="{{@index}}"
             data-src="{{img_url this.src width=800}}"
-            aria-label="View image {{add @index 1}}"
+            aria-label="View image {{plus @index 1}}"
             type="button"
           >
             <img src="{{img_url this.src width=120}}" alt="{{this.alt}}" loading="lazy" />
@@ -357,16 +357,16 @@
       data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=8"
       id="pk-recs-{{section.id}}"
     >
-      {{#if (and (isTruthy recommendations.performed) (if recommendations.products_count ">" 0))}}
+      {{#if recommendations.products_count}}
         <div class="pk-pdp__recs-track-wrap" id="pk-recs-wrap-{{section.id}}">
           <div class="pk-pdp__recs-track" id="pk-recs-track-{{section.id}}">
-            {{#forIn recommendations.products}}
+            {{#each recommendations.products}}
               <a class="pk-pdp__rec-card" href="{{this.url}}">
                 <img class="pk-pdp__rec-img" src="{{img_url this.featured_image.src width=400}}" alt="{{this.title}}" loading="lazy" />
                 <p class="pk-pdp__rec-name">{{this.title}}</p>
                 <p class="pk-pdp__rec-price">{{money_with_currency this.price}}</p>
               </a>
-            {{/forIn}}
+            {{/each}}
           </div>
         </div>
       {{/if}}
