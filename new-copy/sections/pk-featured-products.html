@@ -176,34 +176,40 @@
     </div>
 
     <div class="pk-feat__scroll" id="pk-feat-scroll">
-      {{#each section.blocks}}
-      <div class="pk-feat__card">
-        <div class="pk-feat__img-wrap">
-          {{#if settings.image}}
-            {{snippet "image" data=settings.image}}
-          {{else}}
-            <div style="width:100%;height:100%;background:#eeebe6;"></div>
-          {{/if}}
-        </div>
-        <a class="pk-feat__card-name" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">{{#if settings.name}}{{settings.name}}{{else}}Cabinet Name{{/if}}</a>
-        <div class="pk-feat__card-meta">
-          <span class="pk-feat__stars">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </span>
-          <span class="pk-feat__rating">{{#if settings.rating}}{{settings.rating}}{{else}}4.9{{/if}}/5</span>
-          <span class="pk-feat__sep">|</span>
-          <span class="pk-feat__reviews">{{#if settings.reviews}}{{settings.reviews}}{{else}}124{{/if}} reviews</span>
-        </div>
-        <p class="pk-feat__price">
-          ${{#if settings.price}}{{settings.price}}{{else}}0.00{{/if}}
-          {{#if settings.old_price}}<span class="pk-feat__price-old">${{settings.old_price}}</span>{{/if}}
-        </p>
-      </div>
-      {{/each}}
+      {{#if section.settings.collection}}
+        {{#paginate section.settings.collection.products by=12}}
+          {{#each section.settings.collection.products}}
+          <div class="pk-feat__card">
+            <div class="pk-feat__img-wrap">
+              {{#if featured_image}}
+                {{snippet "image" data=featured_image}}
+              {{else}}
+                <div style="width:100%;height:100%;background:#eeebe6;"></div>
+              {{/if}}
+            </div>
+            <a class="pk-feat__card-name" href="{{url}}">{{title}}</a>
+            <div class="pk-feat__card-meta">
+              <span class="pk-feat__stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+              <span class="pk-feat__rating">4.9/5</span>
+              <span class="pk-feat__sep">|</span>
+              <span class="pk-feat__reviews">{{#if metafields.reviews.count.value}}{{metafields.reviews.count.value}}{{else}}—{{/if}} reviews</span>
+            </div>
+            <p class="pk-feat__price">
+              {{money_with_currency price}}
+              {{#if compare_at_price}}<span class="pk-feat__price-old">{{money_with_currency compare_at_price}}</span>{{/if}}
+            </p>
+          </div>
+          {{/each}}
+        {{/paginate}}
+      {{else}}
+        <p style="font-size:14px;color:#6b6258;padding:48px 0;text-align:center;width:100%;">Select a collection in section settings to display featured products.</p>
+      {{/if}}
     </div>
   </div>
 </div>
@@ -225,34 +231,16 @@
   "name": "PK Featured Products",
   "class": "section",
   "settings": [
-    { "id": "view_all_link", "type": "url", "label": "View All Link" }
-  ],
-  "blocks": [
+    { "id": "view_all_link", "type": "url", "label": "View All Link" },
     {
-      "type": "product",
-      "name": "Product",
-      "settings": [
-        { "id": "name",      "type": "text",         "label": "Name",        "default": "Cabinet" },
-        { "id": "price",     "type": "text",         "label": "Price",       "default": "599.00" },
-        { "id": "old_price", "type": "text",         "label": "Old Price" },
-        { "id": "rating",    "type": "text",         "label": "Rating",      "default": "4.9" },
-        { "id": "reviews",   "type": "text",         "label": "Review Count","default": "124" },
-        { "id": "image",     "type": "image_picker", "label": "Image" },
-        { "id": "link",      "type": "url",          "label": "Product Link" }
-      ]
+      "id": "collection",
+      "type": "collection_picker",
+      "label": "Featured Collection"
     }
   ],
   "presets": [{
     "name": "PK Featured Products",
-    "category": "Custom",
-    "blocks": [
-      { "type": "product", "settings": { "name": "Franco White Shaker Base Cabinet",   "price": "249.00", "rating": "4.9", "reviews": "312" } },
-      { "type": "product", "settings": { "name": "Mallorca Dolphin Gray Wall Cabinet", "price": "189.00", "rating": "4.8", "reviews": "198" } },
-      { "type": "product", "settings": { "name": "Newport Shoreline Base Cabinet",     "price": "269.00", "rating": "5.0", "reviews": "87"  } },
-      { "type": "product", "settings": { "name": "Aspen Stone Gray Tall Cabinet",      "price": "399.00", "rating": "4.9", "reviews": "143" } },
-      { "type": "product", "settings": { "name": "Irena Natural Oak Base Cabinet",     "price": "299.00", "rating": "4.7", "reviews": "256" } },
-      { "type": "product", "settings": { "name": "Franco Slim Black Wall Cabinet",     "price": "219.00", "rating": "4.8", "reviews": "174" } }
-    ]
+    "category": "Custom"
   }]
 }
 {{/schema}}
