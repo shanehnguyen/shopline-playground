@@ -676,7 +676,9 @@
     "1774729161081ad2ab74": {
       "disabled": false,
       "type": "pk-featured-products",
-      "settings": {},
+      "settings": {
+        "view_all_link": ""
+      },
       "blocks": {
         "17747291610827289aa2": {
           "type": "product",
@@ -746,7 +748,8 @@
         "1774729161087dc36c4f",
         "177472916108745bb37e",
         "177472916108719e78cc"
-      ]
+      ],
+      "custom_css": []
     },
     "1774729169850b0fc229": {
       "disabled": false,

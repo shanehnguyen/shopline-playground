@@ -308,11 +308,19 @@
         "17748209525435eb9fbe"
       ],
       "custom_css": []
+    },
+    "17748439987398aa73b6": {
+      "disabled": false,
+      "type": "pk-trust-icons",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "17748209525420259b9e"
+    "17748209525420259b9e",
+    "17748439987398aa73b6"
   ]
 }

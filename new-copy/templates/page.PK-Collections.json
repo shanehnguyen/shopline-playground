@@ -203,7 +203,10 @@
             "group_url": "/collections/mallorca",
             "layout": "2",
             "label_1": "White",
-            "image_1": "shopline://shop_images/white-shaker-banner_7454090234000582142.jpg"
+            "image_1": "shopline://shop_images/white-shaker-banner_7454090234000582142.jpg",
+            "link_1": "",
+            "label_2": "Dolphin Gray",
+            "image_2": "shopline://shop_images/Mallorca Collection Dolphin Gray (Frameless).jpg"
           },
           "blockId": "177482091051794dcd3d",
           "custom_css": []
@@ -213,45 +216,90 @@
           "settings": {
             "group_name": "Shady",
             "group_url": "/collections/shady",
-            "layout": "3"
+            "layout": "3",
+            "label_1": "White",
+            "label_2": "Gray",
+            "label_3": "Neutral",
+            "image_1": "shopline://shop_images/Shady Collection Slim White Shaker (Frameless).jpg",
+            "image_2": "shopline://shop_images/slim-gray-shaker_7454090667590952712.jpg",
+            "image_3": "shopline://shop_images/slim-natural-shaker_7454090671332271885.png"
           },
-          "blockId": "1774820910517e120686"
+          "blockId": "1774820910517e120686",
+          "custom_css": []
         },
         "1774820910517504808a": {
           "type": "collection_group",
           "settings": {
             "group_name": "Franco",
             "group_url": "/collections/franco",
-            "layout": "franco"
+            "layout": "franco",
+            "label_1": "White",
+            "label_2": "Gray",
+            "label_3": "Oak",
+            "label_4": "Slim White",
+            "label_5": "Slim Black",
+            "label_6": "Slim Oak",
+            "image_1": "shopline://shop_images/Franco Collection White Shaker (Framed).jpg",
+            "image_2": "shopline://shop_images/Franco-Collection-Gray-Shaker-(Framed)_7433784520384466376.webp",
+            "image_3": "shopline://shop_images/Franco Collection Oak Shaker (Framed).jpg",
+            "image_4": "shopline://shop_images/Franco Collection Slim White (Framed).jpg",
+            "image_5": "shopline://shop_images/Franco Collection Slim Black (Framed).jpg",
+            "image_6": "shopline://shop_images/Franco Collection Slim Oak (Framed).jpg"
           },
-          "blockId": "1774820910517504808a"
+          "blockId": "1774820910517504808a",
+          "custom_css": []
         },
         "17748209105179d2477d": {
           "type": "collection_group",
           "settings": {
             "group_name": "Irena",
             "group_url": "/collections/irena",
-            "layout": "irena"
+            "layout": "irena",
+            "label_1": "White",
+            "label_2": "Gray",
+            "label_3": "Olive",
+            "label_4": "Glossy White",
+            "label_5": "Woodgrains",
+            "image_1": "shopline://shop_images/Irena Collection White Dual Shaker (Frameless).jpg",
+            "image_2": "shopline://shop_images/Irena-Collection-Gray-Dual-Shaker-(Frameless)_7444144825648029738.webp",
+            "image_3": "shopline://shop_images/Irena-Collection-Olive-Dual-Shaker-(Frameless)_7454090206821492204.webp",
+            "image_4": "shopline://shop_images/Irena Collection Glossy White Shaker (Frameless).jpg",
+            "image_5": "shopline://shop_images/Irena Collection Woodgrains Shaker (Frameless).jpg"
           },
-          "blockId": "17748209105179d2477d"
+          "blockId": "17748209105179d2477d",
+          "custom_css": []
         },
         "17748209105176f5b562": {
           "type": "collection_group",
           "settings": {
             "group_name": "Newport",
             "group_url": "/collections/newport",
-            "layout": "3"
+            "layout": "3",
+            "label_1": "Natural",
+            "label_2": "Umbria Elm",
+            "label_3": "Shoreline",
+            "image_1": "shopline://shop_images/Newport Collection Natural Oak (Frameless).jpg",
+            "image_2": "shopline://shop_images/Newport Collection Umbria Elm (Frameless).jpg",
+            "image_3": "shopline://shop_images/Newport Collection Shoreline (Frameless).jpg"
           },
-          "blockId": "17748209105176f5b562"
+          "blockId": "17748209105176f5b562",
+          "custom_css": []
         },
         "17748209105171a5673a": {
           "type": "collection_group",
           "settings": {
             "group_name": "Aspen",
             "group_url": "/collections/aspen",
-            "layout": "3"
+            "layout": "3",
+            "label_1": "Stone Gray",
+            "image_1": "shopline://shop_images/Aspen Collection Stone Gray (Frameless) .jpg",
+            "label_2": "Emerald",
+            "image_2": "shopline://shop_images/Aspen Collection Emerald Solids (Frameless).jpg",
+            "label_3": "Raven",
+            "image_3": "shopline://shop_images/Aspen Collection Raven Solids (Frameless).jpg"
           },
-          "blockId": "17748209105171a5673a"
+          "blockId": "17748209105171a5673a",
+          "custom_css": []
         }
       },
       "block_order": [

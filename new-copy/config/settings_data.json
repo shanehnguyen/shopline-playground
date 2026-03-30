@@ -1,7 +1,7 @@
 {
   "current": {
     "theme": {
-      "logo": "shopline://shop_images/PK Logo F6F6F6.jpg",
+      "logo": "shopline://shop_images/logo-1.jpg",
       "desktop_logo_width": 70,
       "mobile_logo_width": 50,
       "color_page_background": "#f6f6f6",
@@ -257,7 +257,7 @@
           "header_division_bottom": false,
           "show_country_selector": false,
           "show_locale_selector": false,
-          "show_search_entry": true,
+          "show_search_entry": false,
           "transparent_header": false,
           "transparent_title_color": "#ffffff",
           "main_menu_style": "dropdown",
@@ -302,8 +302,8 @@
               "image_3_link_text": "Shop",
               "image_3_link": "",
               "image_3_position": "right",
-              "image_2": "shopline://shop_images/output (21).jpg",
-              "image_1": "shopline://shop_images/output (19).jpg"
+              "image_1": "shopline://shop_images/output (19).jpg",
+              "image_2": "shopline://shop_images/output (21).jpg"
             },
             "blockId": "menuImage1",
             "parent": {
