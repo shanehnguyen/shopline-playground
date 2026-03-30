@@ -188,7 +188,6 @@
   <div class="pk-pdp__upper">
 
     <!-- Gallery -->
-    {{#each section.blocks}}{{#if (eq this.type "product_gallery")}}{{#if this.settings.show}}
     <div class="pk-pdp__gallery" id="pk-gallery-{{section.id}}">
       <div class="pk-pdp__thumbs">
         {{#each product.images}}
@@ -213,11 +212,9 @@
         />
       </div>
     </div>
-    {{/if}}{{/if}}{{/each}}
 
     <!-- Sidebar -->
     <div class="pk-pdp__sidebar">
-      {{#each section.blocks}}{{#if (eq this.type "product_info")}}{{#if this.settings.show}}
       <p class="pk-pdp__brand">PK Cabinet</p>
       <h1 class="pk-pdp__title">{{product.title}}</h1>
       <p class="pk-pdp__price">
@@ -246,10 +243,8 @@
           {{snippet "product-variant-picker" product=product section=section product_form_id=product_form_id}}
         </div>
       {{/unless}}
-      {{/if}}{{/if}}{{/each}}
 
       <!-- Quantity + Add to Cart -->
-      {{#each section.blocks}}{{#if (eq this.type "quantity_and_add_to_cart")}}{{#if this.settings.show}}
       <p class="pk-pdp__qty-label">Quantity</p>
       <div class="pk-pdp__qty-row">
         <div class="pk-pdp__qty" id="pk-qty-{{section.id}}">
@@ -293,14 +288,10 @@
           </product-form>
         </div>
       </div>
-      {{/if}}{{/if}}{{/each}}
 
-      {{#each section.blocks}}{{#if (eq this.type "need_help")}}{{#if this.settings.show}}
       <p class="pk-pdp__help">Need help? <a href="mailto:support@pkcabinet.com">Contact us</a></p>
-      {{/if}}{{/if}}{{/each}}
 
       <!-- Pairs Well With -->
-      {{#each section.blocks}}{{#if (eq this.type "pairs_well_with")}}{{#if this.settings.show}}
       <div class="pk-pdp__pairs">
         <product-recommendations
           data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=4&intent=related"
@@ -321,12 +312,10 @@
           {{/if}}
         </product-recommendations>
       </div>
-      {{/if}}{{/if}}{{/each}}
     </div>
   </div>
 
   <!-- ── Product Details ── -->
-  {{#each section.blocks}}{{#if (eq this.type "product_description")}}{{#if this.settings.show}}
   <div class="pk-pdp__details" id="pk-product-details-{{section.id}}">
     <div class="pk-pdp__details-grid">
       <!-- Left: Description -->
@@ -398,10 +387,8 @@
       </div>
     </div>
   </div>
-  {{/if}}{{/if}}{{/each}}
 
   <!-- ── You May Also Like ── -->
-  {{#each section.blocks}}{{#if (eq this.type "you_may_also_like")}}{{#if this.settings.show}}
   <div class="pk-pdp__recs" id="pk-recs-section-{{section.id}}">
     <div class="pk-pdp__recs-header">
       <h2 class="pk-pdp__recs-h2">You May Also Like</h2>
@@ -429,7 +416,6 @@
       {{/if}}
     </product-recommendations>
   </div>
-  {{/if}}{{/if}}{{/each}}
 
   <!-- ── Trust Bar ── -->
   <div class="pk-pdp__trust">
@@ -538,86 +524,30 @@
   "settings": [],
   "blocks": [
     {
-      "type": "product_gallery",
-      "name": "Product Gallery",
+      "type": "custom_text",
+      "name": "Custom Text",
       "settings": [
         {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
         }
       ]
     },
     {
-      "type": "product_info",
-      "name": "Product Info",
+      "type": "custom_badge",
+      "name": "Custom Badge",
       "settings": [
         {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "product_description",
-      "name": "Product Description",
-      "settings": [
+          "type": "text",
+          "id": "text",
+          "label": "Badge Text"
+        },
         {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "quantity_and_add_to_cart",
-      "name": "Quantity and Add to Cart",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "need_help",
-      "name": "Need Help",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "pairs_well_with",
-      "name": "Pairs Well With",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "you_may_also_like",
-      "name": "You May Also Like",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show",
-          "label": "Show",
-          "default": true
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "✓"
         }
       ]
     }
