@@ -2010,9 +2010,9 @@
             "settings": {
               "title": "My PK Account",
               "default_fold": false,
-              "menu": "6820104622889247926"
+              "menu": "7457578307367773796"
             },
-            "disabled": false,
+            "disabled": true,
             "blockId": "footer-menu1",
             "parent": {
               "schema": {
@@ -2943,7 +2943,8 @@
             },
             "canAddBlock": true,
             "formatName": "My PK Account",
-            "overLimit": false
+            "overLimit": false,
+            "custom_css": []
           },
           "footer-menu2": {
             "type": "menu",
@@ -2952,7 +2953,7 @@
               "default_fold": false,
               "menu": "6853661693022577749"
             },
-            "disabled": false,
+            "disabled": true,
             "blockId": "footer-menu2",
             "parent": {
               "schema": {
@@ -5762,7 +5763,8 @@
             },
             "canAddBlock": true,
             "formatName": "PK Library",
-            "overLimit": false
+            "overLimit": false,
+            "disabled": true
           },
           "174220838263391c4ec5": {
             "type": "menu",
@@ -6702,7 +6704,8 @@
             },
             "canAddBlock": true,
             "formatName": "PK Story",
-            "overLimit": false
+            "overLimit": false,
+            "disabled": true
           },
           "17028799575801e54213": {
             "type": "image",
@@ -7666,7 +7669,8 @@
             },
             "canAddBlock": true,
             "formatName": "图片",
-            "overLimit": false
+            "overLimit": false,
+            "disabled": true
           },
           "1742208440280343a1cd": {
             "type": "conact",
@@ -8782,7 +8786,61 @@
             },
             "canAddBlock": true,
             "formatName": "We’re Excited to Connect with You!",
-            "overLimit": false
+            "overLimit": false,
+            "disabled": true
+          },
+          "17748367320197e068db": {
+            "type": "link_column",
+            "settings": {
+              "heading": "Shop",
+              "link_1_url": "shopline://pages/7455666429016187920",
+              "link_1_label": "Product",
+              "link_2_label": "Collections",
+              "link_2_url": "shopline://pages/7455666682469589005",
+              "link_3_label": "Sample Doors",
+              "link_3_url": "shopline://pages/7455667076415397905",
+              "link_4_label": "Contractor",
+              "link_4_url": "shopline://pages/7456175846077801535"
+            },
+            "custom_css": []
+          },
+          "17748373414988bd6090": {
+            "type": "link_column",
+            "settings": {
+              "heading": "Support",
+              "link_1_url": "shopline://pages/7456175983986516004",
+              "link_1_label": "FAQ",
+              "link_2_label": "Contact",
+              "link_2_url": "shopline://pages/7455667428770489362",
+              "link_3_label": "Design",
+              "link_3_url": "shopline://pages/7455666921779798031",
+              "link_4_label": "Shipping & Delivery",
+              "link_4_url": "shopline://pages/7456176885526996033",
+              "link_5_label": "Returns & Exchanges",
+              "link_5_url": "shopline://pages/7456177046940590122",
+              "link_6_label": "Guarantee & Warranty",
+              "link_6_url": "shopline://pages/7456177423740085317"
+            },
+            "custom_css": []
+          },
+          "17748374266421c72b41": {
+            "type": "link_column",
+            "settings": {
+              "heading": "Company",
+              "link_1_url": "shopline://pages/7455667233114595347",
+              "link_1_label": "About",
+              "link_2_label": "Privacy",
+              "link_2_url": "shopline://pages/7456177256169251907",
+              "link_3_label": "Terms of Service",
+              "link_3_url": "shopline://pages/7456176649085689894",
+              "link_4_label": "",
+              "link_4_url": "",
+              "link_5_label": "",
+              "link_5_url": "",
+              "link_6_label": "",
+              "link_6_url": ""
+            },
+            "custom_css": []
           }
         },
         "block_order": [
@@ -8792,12 +8850,12 @@
           "174220836096955e0199",
           "174220838263391c4ec5",
           "17028799575801e54213",
-          "1742208440280343a1cd"
+          "1742208440280343a1cd",
+          "17748367320197e068db",
+          "17748373414988bd6090",
+          "17748374266421c72b41"
         ],
-        "custom_css": [
-          "a {text-decoration-line: none;}",
-          ".footer {background-color: rgb(228, 209, 174);}"
-        ]
+        "custom_css": []
       }
     },
     "blocks": {

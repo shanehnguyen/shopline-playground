@@ -191,128 +191,17 @@
       ],
       "custom_css": []
     },
-    "17748209525420259b9e": {
+    "177483689857850fd2aa": {
       "disabled": false,
-      "type": "pk-products",
-      "settings": {
-        "show_collection_filter": true,
-        "show_color_filter": true,
-        "collection": "12270082518244582437392145"
-      },
-      "blocks": {
-        "17748209525433596003": {
-          "type": "collection_option",
-          "settings": {
-            "label": "MALLORCA",
-            "value": "MALLORCA"
-          },
-          "blockId": "17748209525433596003"
-        },
-        "1774820952543e43e576": {
-          "type": "collection_option",
-          "settings": {
-            "label": "SHADY",
-            "value": "SHADY"
-          },
-          "blockId": "1774820952543e43e576"
-        },
-        "177482095254309ca0d1": {
-          "type": "collection_option",
-          "settings": {
-            "label": "FRANCO",
-            "value": "FRANCO"
-          },
-          "blockId": "177482095254309ca0d1"
-        },
-        "1774820952543e0e1669": {
-          "type": "collection_option",
-          "settings": {
-            "label": "IRENA",
-            "value": "IRENA"
-          },
-          "blockId": "1774820952543e0e1669"
-        },
-        "17748209525430e999bb": {
-          "type": "collection_option",
-          "settings": {
-            "label": "NEWPORT",
-            "value": "NEWPORT"
-          },
-          "blockId": "17748209525430e999bb"
-        },
-        "1774820952543c3c4c56": {
-          "type": "collection_option",
-          "settings": {
-            "label": "ASPEN",
-            "value": "ASPEN"
-          },
-          "blockId": "1774820952543c3c4c56"
-        },
-        "17748209525432cdbbbe": {
-          "type": "color_option",
-          "settings": {
-            "label": "White",
-            "value": "White",
-            "color_hex": "#FFFFFF"
-          },
-          "blockId": "17748209525432cdbbbe"
-        },
-        "17748209525432fc112b": {
-          "type": "color_option",
-          "settings": {
-            "label": "Dolphin Gray",
-            "value": "Dolphin Gray",
-            "color_hex": "#A9AFB2"
-          },
-          "blockId": "17748209525432fc112b"
-        },
-        "1774820952543952ae96": {
-          "type": "color_option",
-          "settings": {
-            "label": "Gray Slim",
-            "value": "Gray Slim",
-            "color_hex": "#808080"
-          },
-          "blockId": "1774820952543952ae96"
-        },
-        "1774820952543d4069f6": {
-          "type": "color_option",
-          "settings": {
-            "label": "Slim Oak",
-            "value": "Slim Oak",
-            "color_hex": "#E9E4D4"
-          },
-          "blockId": "1774820952543d4069f6"
-        },
-        "17748209525435eb9fbe": {
-          "type": "color_option",
-          "settings": {
-            "label": "Slim White",
-            "value": "Slim White",
-            "color_hex": "#F5F5F0"
-          },
-          "blockId": "17748209525435eb9fbe"
-        }
-      },
-      "block_order": [
-        "17748209525433596003",
-        "1774820952543e43e576",
-        "177482095254309ca0d1",
-        "1774820952543e0e1669",
-        "17748209525430e999bb",
-        "1774820952543c3c4c56",
-        "17748209525432cdbbbe",
-        "17748209525432fc112b",
-        "1774820952543952ae96",
-        "1774820952543d4069f6",
-        "17748209525435eb9fbe"
-      ],
-      "custom_css": []
+      "type": "pk-guarantee-page",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "17748209525420259b9e"
+    "177483689857850fd2aa"
   ]
 }

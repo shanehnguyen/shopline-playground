@@ -778,8 +778,8 @@
           "type": "collection",
           "settings": {
             "name": "Mallorca",
-            "image": "shopline://shop_images/Mallorca Collection Dolphin Gray (Frameless).jpg",
-            "link": "shopline://pages/7455666429016187920"
+            "link": "shopline://pages/7455666429016187920",
+            "image": "shopline://shop_images/Mallorca Collection Dolphin Gray (Frameless).jpg"
           },
           "blockId": "1774729209738047174d",
           "custom_css": []
@@ -788,8 +788,8 @@
           "type": "collection",
           "settings": {
             "name": "Shady",
-            "image": "shopline://shop_images/Shady-Collection-Slim-Gray-Shaker-(Frameless)_7454090190463706594.webp",
-            "link": "shopline://pages/7455666429016187920"
+            "link": "shopline://pages/7455666429016187920",
+            "image": "shopline://shop_images/Shady-Collection-Slim-Gray-Shaker-(Frameless)_7454090190463706594.webp"
           },
           "blockId": "17747292097384e23507",
           "custom_css": []
@@ -798,8 +798,8 @@
           "type": "collection",
           "settings": {
             "name": "Franco",
-            "image": "shopline://shop_images/Franco Collection White Shaker (Framed).jpg",
-            "link": "shopline://pages/7455666429016187920"
+            "link": "shopline://pages/7455666429016187920",
+            "image": "shopline://shop_images/Franco Collection White Shaker (Framed).jpg"
           },
           "blockId": "177472920973872895e5",
           "custom_css": []
@@ -808,8 +808,8 @@
           "type": "collection",
           "settings": {
             "name": "Irena",
-            "image": "shopline://shop_images/Irena Collection White Dual Shaker (Frameless).jpg",
-            "link": "shopline://pages/7455666429016187920"
+            "link": "shopline://pages/7455666429016187920",
+            "image": "shopline://shop_images/Irena Collection White Dual Shaker (Frameless).jpg"
           },
           "blockId": "17747292097385978808",
           "custom_css": []
@@ -828,8 +828,8 @@
           "type": "collection",
           "settings": {
             "name": "Aspen",
-            "image": "shopline://shop_images/Aspen Collection Raven Solids (Frameless).jpg",
-            "link": "shopline://pages/7455666429016187920"
+            "link": "shopline://pages/7455666429016187920",
+            "image": "shopline://shop_images/Aspen Collection Raven Solids (Frameless).jpg"
           },
           "blockId": "1774729209738bab9604",
           "custom_css": []
@@ -919,10 +919,12 @@
       "disabled": false,
       "type": "pk-popular-sample-doors",
       "settings": {
-        "heading": "Popular Sample Doors"
+        "heading": "Popular Sample Doors",
+        "collection": "12274115937987387757462145"
       },
       "blocks": {},
-      "block_order": []
+      "block_order": [],
+      "custom_css": []
     }
   },
   "order": [
