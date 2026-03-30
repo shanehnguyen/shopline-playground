@@ -215,7 +215,7 @@
             class="{{#if cart.empty}}cart-empty{{/if}}"
             id="main-cart-items"
             data-id="{{section.id}}"
-            data-show-fixed-checkout="{{and (isFalsey cart.empty) (if cart.total_discount '>' 0)}}"
+            data-show-fixed-checkout="{{#unless cart.empty}}true{{else}}false{{/unless}}"
             data-enable-discount="{{cart.discount_enable_cart}}"
           >
             <div class="pk-cart__heading-row">
