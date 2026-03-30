@@ -525,7 +525,7 @@
     <nav class="pk-prod__crumbs">
       <a href="/">Home</a>
       <span>/</span>
-      <span>{{collection.title}}</span>
+      <span>{{section.settings.collection.title}}</span>
     </nav>
 
     <!-- Toolbar -->
@@ -645,9 +645,9 @@
 
       <!-- Product grid (server-paginated, 16 per page) -->
       <div class="pk-prod__grid-wrap">
-        {{#paginate collection.products by=16}}
+        {{#paginate section.settings.collection.products by=16}}
 
-        {{#if collection.products.size ">" 0}}
+        {{#if section.settings.collection.products.size ">" 0}}
         <div class="pk-prod__grid" id="pk-grid">
           {{#each collection.products}}
           <div class="pk-prod__card">
@@ -690,7 +690,7 @@
         <!-- Empty state -->
         <div class="pk-prod__empty" id="pk-empty">
           <p>No products found matching your filters.</p>
-          <a href="{{collection.url}}">Clear all filters</a>
+          <a href="{{section.settings.collection.url}}">Clear all filters</a>
         </div>
         {{/if}}
 
@@ -746,7 +746,8 @@
   /* ─── 2. Parse current URL filter state ──────────────────── */
   var params         = new URLSearchParams(window.location.search);
   // filter.p.tag covers both collection and color (same tag mechanism)
-  var activeTags     = params.getAll('filter.p.tag').map(function(t){ return t.toLowerCase(); });
+  var activeTags        = params.getAll('filter.p.tag').map(function(t){ return t.toLowerCase(); });
+  var activeProductTypes = params.getAll('filter.p.product_type').map(function(t){ return t.toLowerCase(); });
   var activeSortUrl  = params.get('sort_by') || 'manual';
   // Price (Shopline uses display currency, e.g. dollars; our data attrs use cents)
   var activePriceGte = params.get('filter.v.price.gte') !== null
@@ -758,12 +759,8 @@
   var collectionCbs = Array.from(document.querySelectorAll('[data-filter-type="collection"]'));
   var colorCbs      = Array.from(document.querySelectorAll('[data-filter-type="color"]'));
   var priceCbs      = Array.from(document.querySelectorAll('[data-filter-type="price"]'));
-  var knownCollVals = collectionCbs.map(function(cb){ return cb.dataset.filterValue.toLowerCase(); });
-
-  /* Active collections = URL tags that match a known collection option */
-  var activeCollections = activeTags.filter(function(t){
-    return knownCollVals.indexOf(t) >= 0;
-  });
+  /* Active collections = from filter.p.product_type URL param (product_type = collection name) */
+  var activeCollections = activeProductTypes;
 
   /* ─── 4. Sort value ↔ URL mapping ────────────────────────── */
   var SORT_MAP = {
@@ -780,8 +777,9 @@
     /* opts: { collections[], colors[], priceMin, priceMax, sort, page } */
     var p = new URLSearchParams();
 
-    /* Tags: collection values + color values → all go to filter.p.tag */
-    (opts.collections || []).forEach(function(v){ p.append('filter.p.tag', v); });
+    /* Collections → filter.p.product_type (products use product_type for collection name) */
+    (opts.collections || []).forEach(function(v){ p.append('filter.p.product_type', v); });
+    /* Colors → filter.p.tag */
     (opts.colors      || []).forEach(function(v){ p.append('filter.p.tag', v); });
 
     /* Price (cents → dollars for URL) */
@@ -832,9 +830,9 @@
     var sortEl = document.getElementById('pk-sort');
     if (sortEl) sortEl.value = SORT_MAP_INV[activeSortUrl] || 'featured';
 
-    /* Collection checkboxes */
+    /* Collection checkboxes — restored from filter.p.product_type */
     collectionCbs.forEach(function(cb){
-      cb.checked = activeTags.indexOf(cb.dataset.filterValue.toLowerCase()) >= 0;
+      cb.checked = activeProductTypes.indexOf(cb.dataset.filterValue.toLowerCase()) >= 0;
     });
 
     /* Color checkboxes */
@@ -1004,6 +1002,7 @@
   "name": "PK Products Page",
   "class": "section",
   "settings": [
+    { "id": "collection",             "type": "collection_picker", "label": "Collection" },
     { "id": "show_collection_filter", "type": "checkbox", "label": "Show collection filter", "default": true },
     { "id": "show_color_filter",      "type": "checkbox", "label": "Show color filter",      "default": true }
   ],
@@ -1013,7 +1012,7 @@
       "name": "Collection Filter Option",
       "settings": [
         { "id": "label", "type": "text", "label": "Label", "default": "Collection" },
-        { "id": "value", "type": "text", "label": "Filter Value (matches product_type or tag)", "default": "MALLORCA" }
+        { "id": "value", "type": "text", "label": "Filter Value (must match product_type exactly)", "default": "Mallorca" }
       ]
     },
     {
@@ -1031,12 +1030,12 @@
     "category": "Custom",
     "settings": { "show_collection_filter": true, "show_color_filter": true },
     "blocks": [
-      { "type": "collection_option", "settings": { "label": "MALLORCA", "value": "MALLORCA" } },
-      { "type": "collection_option", "settings": { "label": "SHADY",    "value": "SHADY"    } },
-      { "type": "collection_option", "settings": { "label": "FRANCO",   "value": "FRANCO"   } },
-      { "type": "collection_option", "settings": { "label": "IRENA",    "value": "IRENA"    } },
-      { "type": "collection_option", "settings": { "label": "NEWPORT",  "value": "NEWPORT"  } },
-      { "type": "collection_option", "settings": { "label": "ASPEN",    "value": "ASPEN"    } },
+      { "type": "collection_option", "settings": { "label": "Mallorca", "value": "Mallorca" } },
+      { "type": "collection_option", "settings": { "label": "Shady",    "value": "Shady"    } },
+      { "type": "collection_option", "settings": { "label": "Franco",   "value": "Franco"   } },
+      { "type": "collection_option", "settings": { "label": "Irena",    "value": "Irena"    } },
+      { "type": "collection_option", "settings": { "label": "Newport",  "value": "Newport"  } },
+      { "type": "collection_option", "settings": { "label": "Aspen",    "value": "Aspen"    } },
       { "type": "color_option", "settings": { "label": "White",        "value": "White",        "color_hex": "#FFFFFF" } },
       { "type": "color_option", "settings": { "label": "Dolphin Gray",  "value": "Dolphin Gray", "color_hex": "#A9AFB2" } },
       { "type": "color_option", "settings": { "label": "Gray Slim",     "value": "Gray Slim",    "color_hex": "#808080" } },
