@@ -914,6 +914,15 @@
       "settings": {},
       "blocks": {},
       "block_order": []
+    },
+    "pk-popular-sample-doors": {
+      "disabled": false,
+      "type": "pk-popular-sample-doors",
+      "settings": {
+        "heading": "Popular Sample Doors"
+      },
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
@@ -935,6 +944,7 @@
     "17747292097387534244",
     "1774729161081ad2ab74",
     "17747292353391d06036",
+    "pk-popular-sample-doors",
     "1774729183084d27cf82",
     "1774729169850b0fc229",
     "17747292211232e86546",

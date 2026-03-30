@@ -116,6 +116,29 @@
     font-family: inherit;
   }
   .pk-contact__textarea:focus { border-color: #a89060; }
+  .pk-contact__success-msg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+  .pk-contact__error-msg {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
   .pk-contact__submit {
     width: 100%;
     padding: 14px 40px;
@@ -212,9 +235,9 @@
     <!-- Right: Form -->
     <div class="pk-contact__form-col">
       <div class="pk-contact__form-inner">
-        <span class="pk-contact__label">Drop Us A Line</span>
-        <h2 class="pk-contact__title">Get in Touch</h2>
-        <p class="pk-contact__subtitle">Comments? Questions? We want to hear from you. Please fill out this contact form and a representative will be in touch shortly.</p>
+        <span class="pk-contact__label">{{section.settings.form_label}}</span>
+        <h2 class="pk-contact__title">{{section.settings.form_heading}}</h2>
+        <p class="pk-contact__subtitle">{{section.settings.form_subheading}}</p>
 
         <h3 class="pk-contact__social-title">Follow Us</h3>
         <div class="pk-contact__social-row">
@@ -232,7 +255,16 @@
           </a>
         </div>
 
-        <form class="pk-contact__form" id="pk-contact-form" onsubmit="pkContactSubmit(event)">
+        {{#form "contact" class="pk-contact__form"}}
+          {{#if form.posted_successfully}}
+            <div class="pk-contact__success-msg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              {{section.settings.success_message}}
+            </div>
+          {{else}}
+            {{#if form.errors.messages}}
+              <div class="pk-contact__error-msg">{{form.errors.messages}}</div>
+            {{/if}}
           <div class="pk-contact__row">
             <div class="pk-contact__field">
               <span class="pk-contact__field-icon">
@@ -262,10 +294,11 @@
 
           <textarea name="contact[body]" placeholder="Send Us A Message *" required rows="5" class="pk-contact__textarea"></textarea>
 
-          <button type="submit" class="pk-contact__submit" id="pk-contact-submit">SUBMIT</button>
+          <button type="submit" class="pk-contact__submit">{{section.settings.submit_button_text}}</button>
 
           <p class="pk-contact__required"><span style="color:#ef4444;">*</span> Required fields</p>
-        </form>
+          {{/if}}
+        {{/form}}
       </div>
     </div>
   </section>
@@ -327,45 +360,20 @@
 
 </div>
 
-<script>
-function pkContactSubmit(e) {
-  e.preventDefault();
-  var form = document.getElementById('pk-contact-form');
-  var btn = document.getElementById('pk-contact-submit');
-  var data = new FormData(form);
-  data.append('form_type', 'contact');
-  data.append('utf8', '&#x2713;');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  fetch('/contact', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json' },
-    body: data
-  })
-  .then(function(r) {
-    if (r.ok) {
-      btn.textContent = '\u2713 Message Sent';
-      form.reset();
-      setTimeout(function() {
-        btn.textContent = 'SUBMIT';
-        btn.disabled = false;
-      }, 3000);
-    } else {
-      throw new Error('failed');
-    }
-  })
-  .catch(function() {
-    btn.textContent = 'SUBMIT';
-    btn.disabled = false;
-  });
-}
-</script>
 
 {{#schema}}
 {
-  "name": "PK Contact Page",
+  "name": "PK Contact Page [form]",
+  "tag": "form",
   "class": "pk-contact-section",
-  "settings": [],
+  "settings": [
+    { "type": "header",            "content": "Form Content" },
+    { "id": "form_label",          "type": "text",     "label": "Label (above heading)", "default": "Drop Us A Line" },
+    { "id": "form_heading",        "type": "text",     "label": "Heading",               "default": "Get in Touch" },
+    { "id": "form_subheading",     "type": "textarea", "label": "Subheading",            "default": "Comments? Questions? We want to hear from you. Please fill out this contact form and a representative will be in touch shortly." },
+    { "id": "submit_button_text",  "type": "text",     "label": "Submit Button",         "default": "SUBMIT" },
+    { "id": "success_message",     "type": "text",     "label": "Success Message",       "default": "Thank you for your message! A representative will be in touch shortly." }
+  ],
   "presets": [
     {
       "name": "PK Contact Page",

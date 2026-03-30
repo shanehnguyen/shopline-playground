@@ -254,6 +254,17 @@
   .pk-contractor__reset:hover { background: #a89060; }
 
   .pk-contractor__form-wrap { position: relative; }
+
+  .pk-contractor__form-server-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+  }
 </style>
 
 <div class="pk-contractor">
@@ -393,19 +404,39 @@
       <div class="pk-contractor__apply-form-col">
         <div class="pk-contractor__form-wrap">
 
-          <!-- Form View -->
-          <div id="pk-contractor-form-view">
-            <span class="pk-contractor__form-label">Contractor Partnership</span>
-            <h2 class="pk-contractor__form-title">Apply for Contractor Account</h2>
-            <p class="pk-contractor__form-desc">Join our professional network to unlock exclusive pricing, dedicated support, and priority fulfillment for your professional projects.</p>
+          {{#form "contact" id="pk-contractor-form" onsubmit="pkContractorSubmit(event)" novalidate}}
 
-            <form class="pk-contractor__form" id="pk-contractor-form" onsubmit="pkContractorSubmit(event)" novalidate>
+            {{#if form.posted_successfully}}
+              <!-- Success View -->
+              <div class="pk-contractor__success is-visible">
+                <div class="pk-contractor__success-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="pk-contractor__success-title">Application Received</h3>
+                  <p class="pk-contractor__success-body">{{section.settings.success_message}}</p>
+                </div>
+                <a class="pk-contractor__reset" href="">Submit Another</a>
+              </div>
+
+            {{else}}
+              {{#if form.errors.messages}}
+                <div class="pk-contractor__form-server-error">{{form.errors.messages}}</div>
+              {{/if}}
+
+              <span class="pk-contractor__form-label">{{section.settings.form_label}}</span>
+              <h2 class="pk-contractor__form-title">{{section.settings.form_heading}}</h2>
+              <p class="pk-contractor__form-desc">{{section.settings.form_subheading}}</p>
+
               <div class="pk-contractor__form-grid">
 
                 <!-- Full Name -->
                 <div class="pk-contractor__field">
                   <label for="pkc-name">Full Name *</label>
-                  <input type="text" id="pkc-name" name="pkc_name" placeholder="John Doe"
+                  <input type="text" id="pkc-name" name="contact[name]" placeholder="John Doe"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-name-err">Name is required</span>
                 </div>
@@ -413,7 +444,7 @@
                 <!-- Email -->
                 <div class="pk-contractor__field">
                   <label for="pkc-email">Email Address *</label>
-                  <input type="email" id="pkc-email" name="pkc_email" placeholder="john@company.com"
+                  <input type="email" id="pkc-email" name="contact[email]" placeholder="john@company.com"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-email-err">Valid email is required</span>
                 </div>
@@ -421,7 +452,7 @@
                 <!-- Company Name -->
                 <div class="pk-contractor__field">
                   <label for="pkc-company">Company Name *</label>
-                  <input type="text" id="pkc-company" name="pkc_company" placeholder="Your Business Ltd"
+                  <input type="text" id="pkc-company" name="contact[company]" placeholder="Your Business Ltd"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-company-err">Company name is required</span>
                 </div>
@@ -429,21 +460,21 @@
                 <!-- Website -->
                 <div class="pk-contractor__field">
                   <label for="pkc-website">Website</label>
-                  <input type="text" id="pkc-website" name="pkc_website" placeholder="www.yourbusiness.com"
+                  <input type="text" id="pkc-website" name="contact[website]" placeholder="www.yourbusiness.com"
                     class="pk-contractor__input" />
                 </div>
 
                 <!-- Invoice Address -->
                 <div class="pk-contractor__field">
                   <label for="pkc-address">Invoice Address</label>
-                  <input type="text" id="pkc-address" name="pkc_address" placeholder="123 Business St, City, State"
+                  <input type="text" id="pkc-address" name="contact[address]" placeholder="123 Business St, City, State"
                     class="pk-contractor__input" />
                 </div>
 
                 <!-- Phone -->
                 <div class="pk-contractor__field">
                   <label for="pkc-phone">Phone Number *</label>
-                  <input type="tel" id="pkc-phone" name="pkc_phone" placeholder="+1 (555) 000-0000"
+                  <input type="tel" id="pkc-phone" name="contact[phone]" placeholder="+1 (555) 000-0000"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-phone-err">Phone number is required</span>
                 </div>
@@ -452,7 +483,7 @@
                 <div class="pk-contractor__field">
                   <label for="pkc-type">Enquiry Type *</label>
                   <div class="pk-contractor__select-wrap">
-                    <select id="pkc-type" name="pkc_type" class="pk-contractor__select">
+                    <select id="pkc-type" name="contact[type]" class="pk-contractor__select">
                       <option value="" disabled selected>Select type</option>
                       <option value="Contractor">Contractor</option>
                       <option value="Interior Designer">Interior Designer</option>
@@ -467,7 +498,7 @@
                 <!-- Tax / Business ID -->
                 <div class="pk-contractor__field">
                   <label for="pkc-tax">Tax or Business ID</label>
-                  <input type="text" id="pkc-tax" name="pkc_tax" placeholder="EIN or Business License #"
+                  <input type="text" id="pkc-tax" name="contact[tax_id]" placeholder="EIN or Business License #"
                     class="pk-contractor__input" />
                 </div>
 
@@ -476,33 +507,19 @@
               <!-- Message -->
               <div class="pk-contractor__field">
                 <label for="pkc-message">Message</label>
-                <textarea id="pkc-message" name="pkc_message"
+                <textarea id="pkc-message" name="contact[body]"
                   placeholder="Tell us about your upcoming projects..."
                   class="pk-contractor__textarea"></textarea>
               </div>
 
               <div>
                 <button type="submit" class="pk-contractor__submit" id="pkc-submit-btn">
-                  Submit Application
+                  {{section.settings.submit_button_text}}
                 </button>
               </div>
-            </form>
-          </div>
+            {{/if}}
 
-          <!-- Success View -->
-          <div class="pk-contractor__success" id="pk-contractor-success">
-            <div class="pk-contractor__success-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                <polyline points="22 4 12 14.01 9 11.01"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="pk-contractor__success-title">Application Received</h3>
-              <p class="pk-contractor__success-body">Thank you for applying for a contractor account. Our team will review your application and get back to you within 24&ndash;48 hours.</p>
-            </div>
-            <button class="pk-contractor__reset" onclick="pkContractorReset()">Submit Another</button>
-          </div>
+          {{/form}}
 
         </div>
       </div>
@@ -513,8 +530,6 @@
 
 <script>
 function pkContractorSubmit(e) {
-  e.preventDefault();
-
   var valid = true;
 
   function setError(id, errId, condition) {
@@ -552,64 +567,28 @@ function pkContractorSubmit(e) {
     typeErr.classList.remove('is-visible');
   }
 
-  if (!valid) return;
+  if (!valid) {
+    e.preventDefault();
+    return;
+  }
 
-  var btn = document.getElementById('pkc-submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
-
-  // Build message body for contact endpoint
-  var website = document.getElementById('pkc-website').value.trim();
-  var address = document.getElementById('pkc-address').value.trim();
-  var tax = document.getElementById('pkc-tax').value.trim();
-  var message = document.getElementById('pkc-message').value.trim();
-
-  var body = 'Enquiry Type: ' + type + '\n'
-    + (company ? 'Company: ' + company + '\n' : '')
-    + (website ? 'Website: ' + website + '\n' : '')
-    + (address ? 'Invoice Address: ' + address + '\n' : '')
-    + (tax ? 'Tax/Business ID: ' + tax + '\n' : '')
-    + (message ? '\nMessage: ' + message : '');
-
-  var data = new FormData();
-  data.append('form_type', 'contact');
-  data.append('utf8', '\u2713');
-  data.append('contact[name]', name);
-  data.append('contact[email]', email);
-  data.append('contact[phone]', phone);
-  data.append('contact[body]', body);
-
-  fetch('/contact', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json' },
-    body: data
-  })
-  .then(function(r) {
-    document.getElementById('pk-contractor-form-view').style.display = 'none';
-    document.getElementById('pk-contractor-success').classList.add('is-visible');
-  })
-  .catch(function() {
-    // Still show success — form data captured
-    document.getElementById('pk-contractor-form-view').style.display = 'none';
-    document.getElementById('pk-contractor-success').classList.add('is-visible');
-  });
-}
-
-function pkContractorReset() {
-  document.getElementById('pk-contractor-form').reset();
-  document.getElementById('pk-contractor-form-view').style.display = '';
-  document.getElementById('pk-contractor-success').classList.remove('is-visible');
-  var btn = document.getElementById('pkc-submit-btn');
-  btn.disabled = false;
-  btn.textContent = 'Submit Application';
+  // Valid — allow native form submission
 }
 </script>
 
 {{#schema}}
 {
-  "name": "PK Contractor Page",
+  "name": "PK Contractor Page [form]",
+  "tag": "form",
   "class": "pk-contractor-section",
-  "settings": [],
+  "settings": [
+    { "type": "header",              "content": "Form Content" },
+    { "id": "form_label",            "type": "text",     "label": "Form Label",        "default": "Apply Today" },
+    { "id": "form_heading",          "type": "text",     "label": "Heading",            "default": "Contractor Application" },
+    { "id": "form_subheading",       "type": "textarea", "label": "Subheading",         "default": "Fill out the form below to apply for our contractor program and start enjoying exclusive benefits." },
+    { "id": "submit_button_text",    "type": "text",     "label": "Submit Button Text", "default": "Submit Application" },
+    { "id": "success_message",       "type": "text",     "label": "Success Message",    "default": "Thank you for your application. A representative will be in touch within 1-2 business days." }
+  ],
   "presets": [
     {
       "name": "PK Contractor Page",

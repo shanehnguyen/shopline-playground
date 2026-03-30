@@ -1,0 +1,182 @@
+<style>
+  .pk-pop-doors * { box-sizing: border-box; }
+
+  /* ── Section wrapper ── */
+  .pk-pop-doors {
+    padding: 48px 16px;
+    background: #ffffff;
+  }
+  @media (min-width: 768px) {
+    .pk-pop-doors { padding: 72px 32px; }
+  }
+
+  .pk-pop-doors__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── Heading ── */
+  .pk-pop-doors__head {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  @media (min-width: 768px) {
+    .pk-pop-doors__head { margin-bottom: 64px; }
+  }
+
+  .pk-pop-doors__label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #a89060;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── Grid ── */
+  .pk-pop-doors__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (min-width: 768px) {
+    .pk-pop-doors__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .pk-pop-doors__grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+    }
+  }
+
+  /* ── Card ── */
+  .pk-pop-doors__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* ── Image ── */
+  .pk-pop-doors__img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #eeebe6;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .pk-pop-doors__img-wrap picture,
+  .pk-pop-doors__img-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .pk-pop-doors__card:hover .pk-pop-doors__img-wrap picture,
+  .pk-pop-doors__card:hover .pk-pop-doors__img-wrap img {
+    transform: scale(1.05);
+  }
+
+  /* ── Info ── */
+  .pk-pop-doors__info {
+    text-align: center;
+    width: 100%;
+  }
+
+  .pk-pop-doors__name {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.35;
+    margin: 0 0 4px;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.2s;
+  }
+  .pk-pop-doors__card:hover .pk-pop-doors__name {
+    color: #a89060;
+  }
+
+  .pk-pop-doors__price {
+    font-size: 13px;
+    color: #6b6258;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── Empty state ── */
+  .pk-pop-doors__empty {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #6b6258;
+    padding: 48px 0;
+  }
+</style>
+
+<section class="pk-pop-doors">
+  <div class="pk-pop-doors__inner">
+
+    <div class="pk-pop-doors__head">
+      <span class="pk-pop-doors__label">{{section.settings.heading}}</span>
+    </div>
+
+    {{#if section.settings.collection}}
+      {{#paginate section.settings.collection.products by=6}}
+        <div class="pk-pop-doors__grid">
+          {{#each section.settings.collection.products}}
+            <a class="pk-pop-doors__card" href="{{url}}">
+              <div class="pk-pop-doors__img-wrap">
+                {{#if featured_image}}
+                  {{snippet "image" data=featured_image}}
+                {{/if}}
+              </div>
+              <div class="pk-pop-doors__info">
+                <h3 class="pk-pop-doors__name">{{title}}</h3>
+                <p class="pk-pop-doors__price">{{money price}}</p>
+              </div>
+            </a>
+          {{/each}}
+        </div>
+      {{/paginate}}
+    {{else}}
+      <p class="pk-pop-doors__empty">Select a collection in section settings to display sample doors.</p>
+    {{/if}}
+
+  </div>
+</section>
+
+{{#schema}}
+{
+  "name": "PK Popular Sample Doors",
+  "class": "pk-popular-sample-doors-section",
+  "settings": [
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Section Label",
+      "default": "Popular Sample Doors"
+    },
+    {
+      "id": "collection",
+      "type": "collection_picker",
+      "label": "Sample Doors Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PK Popular Sample Doors",
+      "category": "Custom"
+    }
+  ]
+}
+{{/schema}}

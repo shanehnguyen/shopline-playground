@@ -1,0 +1,458 @@
+/*
+ * pk-global.css
+ * PK Cabinet — Design Tokens & Non-PK Page Overrides
+ * ─────────────────────────────────────────────────────────────────────────────
+ *
+ * Section 1 · PK design tokens — all values as CSS custom properties at :root
+ * Section 2 · Global element defaults  (buttons, form fields)
+ * Section 3 · Account pages            (.customer, .account-section, .navbar)
+ * Section 4 · Address management       (.address, address--default)
+ * Section 5 · Edit / modal dialogs     (.modify-info__modal)
+ * Section 6 · General page template    (.main-page, .custom-page)
+ * Section 7 · Gift card                (#giftCardPage)
+ * Section 8 · Order pages              (.section-main-order-*)
+ * Section 9 · Password / store-lock    (.main-password)
+ * Section 10 · Default cart page       (.main-cart-*)
+ * Section 11 · Rich text sections      (.section-rich-text)
+ *
+ * RULES
+ *   ✔ Targets only non-PK default theme classes and elements
+ *   ✘ Never touches .pk-* selectors — those sections are self-contained
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. PK DESIGN TOKENS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Core palette ── */
+  --pk-dark:           #1a1a1a;   /* primary text, active states, dark buttons */
+  --pk-muted:          #6b6258;   /* secondary text, icons, labels            */
+  --pk-gold:           #a89060;   /* accent — hover, focus, underlines         */
+  --pk-gold-dark:      #8a7248;   /* gold hover / pressed state                */
+  --pk-border:         #e0dcd5;   /* dividers, card borders, default inputs    */
+  --pk-input-border:   #c8c0b4;   /* slightly darker — hover borders           */
+  --pk-placeholder-bg: #eeebe6;   /* image placeholders, skeleton fills        */
+  --pk-bg:             #ffffff;   /* page background                           */
+  --pk-surface:        #f7f5f2;   /* alternate light surface                   */
+
+  /* ── Semantic — success ── */
+  --pk-success-bg:     #f0fdf4;
+  --pk-success-border: #bbf7d0;
+  --pk-success-text:   #166534;
+
+  /* ── Semantic — error ── */
+  --pk-error-bg:       #fef2f2;
+  --pk-error-border:   #fecaca;
+  --pk-error-text:     #991b1b;
+  --pk-error-accent:   #ef4444;
+
+  /* ── Typography ── */
+  --pk-font-heading:   'Cabinet Grotesk', 'Inter', sans-serif;  /* editorial */
+  --pk-font-serif:     Georgia, 'Times New Roman', serif;        /* contractor / hero */
+  --pk-font-ui:        'Inter', sans-serif;                      /* all UI / body     */
+
+  /* ── Type scale ── */
+  --pk-label-size:     11px;
+  --pk-label-weight:   700;
+  --pk-label-spacing:  0.12em;
+  --pk-body-size:      14px;
+  --pk-body-line:      1.7;
+
+  /* ── Spacing ── */
+  --pk-space-xs:       8px;
+  --pk-space-sm:       16px;
+  --pk-space-md:       24px;
+  --pk-space-lg:       48px;
+  --pk-space-xl:       72px;
+  --pk-max-width:      1280px;
+
+  /* ── Shape ── */
+  --pk-radius:         0;      /* PK design is sharp-cornered throughout */
+  --pk-radius-sm:      2px;    /* minimal rounding for badges / tooltips  */
+
+  /* ── Shadows ── */
+  --pk-shadow-card:    0 8px 30px rgba(0, 0, 0, 0.12);
+  --pk-shadow-header:  0 2px 16px rgba(26, 26, 26, 0.07);
+  --pk-shadow-drop:    0 10px 32px rgba(0, 0, 0, 0.12);
+
+  /* ── Transitions ── */
+  --pk-t-fast:         0.15s;
+  --pk-t-base:         0.2s;
+  --pk-t-slow:         0.3s;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. GLOBAL ELEMENT DEFAULTS
+   Targets the Shopline theme's .button and .field classes.
+   PK sections never use these classes — they use .pk-*__submit / .pk-*__input.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* — Buttons — */
+.button {
+  font-family: var(--pk-font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--pk-radius);
+  transition: background var(--pk-t-base), color var(--pk-t-base),
+              border-color var(--pk-t-base);
+}
+
+.button--secondary {
+  border-color: var(--pk-border);
+  color: var(--pk-dark);
+}
+.button--secondary:hover {
+  border-color: var(--pk-input-border);
+}
+
+/* — Form fields — */
+.field {
+  border-radius: var(--pk-radius);
+  transition: border-color var(--pk-t-base);
+}
+.field:focus-within {
+  border-color: var(--pk-gold);
+}
+
+.field__input {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-body-size);
+  color: var(--pk-dark);
+  border-radius: var(--pk-radius);
+}
+.field__input::placeholder {
+  color: var(--pk-muted);
+}
+
+.field__label {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-muted);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. ACCOUNT PAGES — login, register, forgot password, account overview
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Account nav tabs */
+.navbar__item {
+  font-family: var(--pk-font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color var(--pk-t-base), opacity var(--pk-t-base);
+}
+.navbar__item.active {
+  border-color: var(--pk-gold);
+}
+
+/* Customer form wrapper */
+.customer {
+  font-family: var(--pk-font-ui);
+}
+
+/* Headings on customer forms */
+.customer h1,
+.customer-form-title {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  color: var(--pk-dark);
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+.customer h1 {
+  font-size: 32px;
+}
+@media (min-width: 768px) {
+  .customer h1 {
+    font-size: 42px;
+  }
+}
+
+/* Subheading / hint text under the form title */
+.customer-form-hint {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-muted);
+  font-size: 15px;
+  line-height: var(--pk-body-line);
+}
+
+/* Login / register tab switcher */
+.customer .tab .active {
+  color: var(--pk-dark);
+  text-decoration-color: var(--pk-gold);
+}
+
+/* Inline error from server */
+.customer #customer-error-message {
+  color: var(--pk-error-text);
+  font-family: var(--pk-font-ui);
+}
+
+/* "Forgot password" / auxiliary action links */
+.customer .actions a {
+  color: var(--pk-muted);
+  text-underline-offset: 3px;
+  transition: color var(--pk-t-base);
+}
+.customer .actions a:hover {
+  color: var(--pk-dark);
+}
+
+/* Back to sign-in link */
+.customer .backToSignIn a,
+.customer .sign-up__company-register a {
+  color: var(--pk-muted);
+  transition: color var(--pk-t-base);
+}
+.customer .backToSignIn a:hover,
+.customer .sign-up__company-register a:hover {
+  color: var(--pk-dark);
+}
+
+/* Third-party login divider */
+.customer-third-login .customer-third-login__desc::before {
+  border-color: var(--pk-border);
+}
+
+/* Account section card borders */
+.account-section .card-container + .card-container {
+  border-color: var(--pk-border);
+}
+
+/* Delete account link */
+.account-section .customer__delete-account {
+  font-family: var(--pk-font-ui);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Edit action footer */
+.edit__action-buttons {
+  border-color: var(--pk-border);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. ADDRESS MANAGEMENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.address .address__item {
+  border-color: var(--pk-border);
+  font-family: var(--pk-font-ui);
+}
+
+.address--default {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-label-size);
+  font-weight: var(--pk-label-weight);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--pk-placeholder-bg);
+  color: var(--pk-muted);
+  border-radius: var(--pk-radius);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. EDIT / MODAL DIALOGS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modify-info__modal {
+  font-family: var(--pk-font-ui);
+  border-radius: var(--pk-radius);
+}
+
+.modify-info__modal .modify-info__title {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--pk-dark);
+}
+
+.modify-info__modal .modify-info__desc {
+  color: var(--pk-muted);
+  line-height: var(--pk-body-line);
+}
+
+.modify-info__modal .modify-info__content .modify-info__input {
+  border-radius: var(--pk-radius);
+  border-color: var(--pk-border);
+  transition: border-color var(--pk-t-base);
+}
+.modify-info__modal .modify-info__content .modify-info__input:focus-within {
+  border-color: var(--pk-gold);
+}
+
+.modify-info__modal .field-error-message,
+.modify-info__modal .common-error-message {
+  color: var(--pk-error-text);
+  font-family: var(--pk-font-ui);
+  font-size: 12px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. GENERAL PAGE TEMPLATE (.main-page, .custom-page)
+   Applies to Shopline's default "page" template — policy pages, blank pages,
+   and any page not using a custom PK section.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.main-page .page-title,
+.custom-page .page-title {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  color: var(--pk-dark);
+  letter-spacing: -0.02em;
+}
+
+.main-page h1, .main-page h2, .main-page h3,
+.main-page h4, .main-page h5, .main-page h6,
+.custom-page h1, .custom-page h2, .custom-page h3,
+.custom-page h4, .custom-page h5, .custom-page h6 {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  color: var(--pk-dark);
+  letter-spacing: -0.02em;
+}
+
+.main-page p,
+.custom-page p {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-muted);
+  line-height: var(--pk-body-line);
+}
+
+.main-page a:not(.button),
+.custom-page a:not(.button) {
+  color: var(--pk-dark);
+  text-underline-offset: 3px;
+  transition: color var(--pk-t-base);
+}
+.main-page a:not(.button):hover,
+.custom-page a:not(.button):hover {
+  color: var(--pk-gold);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. GIFT CARD PAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#giftCardPage {
+  font-family: var(--pk-font-ui);
+}
+
+#giftCardPage .store-name {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  color: var(--pk-dark);
+  letter-spacing: -0.02em;
+}
+
+#giftCardPage .gift-card-status {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-muted);
+  font-weight: 400;
+}
+
+#giftCardPage .gift-card-wrapper {
+  border-radius: var(--pk-radius);
+  box-shadow: var(--pk-shadow-card);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. ORDER PAGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.section-main-order-detail,
+.section-main-order-list,
+.section-main-order-tracking {
+  font-family: var(--pk-font-ui);
+}
+
+.section-main-order-detail h1,
+.section-main-order-detail h2,
+.section-main-order-detail h3,
+.section-main-order-list h1,
+.section-main-order-list h2,
+.section-main-order-list h3,
+.section-main-order-tracking h1,
+.section-main-order-tracking h2,
+.section-main-order-tracking h3 {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  color: var(--pk-dark);
+  letter-spacing: -0.02em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. PASSWORD / STORE-LOCK PAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.main-password .password-body .password__wrapper {
+  border-radius: var(--pk-radius);
+  font-family: var(--pk-font-ui);
+}
+
+.main-password .password-body .password__wrapper h1,
+.main-password .password-body .password__wrapper h2 {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10. NATIVE CART PAGE
+   Targets the default Shopline cart page template, not the custom pk-main-cart
+   section — which has its own .pk-cart__* classes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.main-cart-items h1,
+.main-cart-footer h2,
+.main-cart-footer h3,
+.main-cart-footer h4 {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  color: var(--pk-dark);
+  letter-spacing: -0.02em;
+}
+
+.main-cart-items,
+.main-cart-footer {
+  font-family: var(--pk-font-ui);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11. RICH TEXT SECTIONS (default theme)
+   Targets the default section-rich-text, not PK page sections.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.section-rich-text h1,
+.section-rich-text h2,
+.section-rich-text h3,
+.section-rich-text h4,
+.section-rich-text h5,
+.section-rich-text h6 {
+  font-family: var(--pk-font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--pk-dark);
+}
+
+.section-rich-text p,
+.section-rich-text li {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-muted);
+  line-height: var(--pk-body-line);
+}
