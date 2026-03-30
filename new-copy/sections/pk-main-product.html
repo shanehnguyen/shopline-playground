@@ -143,15 +143,6 @@
 .pk-pdp__rec-name { font-size: 14px; color: #1a1a1a; font-weight: 500; margin-bottom: 4px; }
 .pk-pdp__rec-price { font-size: 13px; color: #6b6258; }
 
-/* ── Trust Bar ── */
-.pk-pdp__trust { border-top: 1px solid #e0dcd5; border-bottom: 1px solid #e0dcd5; padding: 48px 32px; }
-.pk-pdp__trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 900px; margin: 0 auto; }
-@media (min-width: 768px) { .pk-pdp__trust-grid { grid-template-columns: repeat(5, 1fr); gap: 24px; } }
-.pk-pdp__trust-item { text-align: center; }
-.pk-pdp__trust-icon { font-size: 28px; margin-bottom: 8px; }
-.pk-pdp__trust-heading { font-size: 13px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
-.pk-pdp__trust-sub { font-size: 12px; color: #a89060; margin: 0; }
-
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .pk-pdp__upper { flex-direction: column; }
@@ -159,7 +150,6 @@
   .pk-pdp__sidebar { max-width: 100%; flex: none; position: static; }
   .pk-pdp__details { padding: 40px 16px; }
   .pk-pdp__recs { padding: 32px 16px; }
-  .pk-pdp__trust { padding: 32px 16px; }
   .pk-pdp__rec-card { flex: 0 0 calc(50% - 10px); }
 }
 
@@ -253,39 +243,12 @@
           <button class="pk-pdp__qty-btn" type="button" data-qty-action="plus" data-target="pk-qty-input-{{section.id}}" aria-label="Increase quantity">+</button>
         </div>
         <div class="pk-pdp__atc-wrap">
-          <product-form
-            id="{{append product_form_id '__wrapper'}}"
-            class="product-form"
-            data-default-error-message="An error occurred. Please try again."
-          >
-            <div class="product-form__error-message-wrapper" hidden>
-              <span class="product-form__error-message"></span>
-            </div>
-            {{#form "product" product id=product_form_id}}
-              <input type="hidden" name="id" value="{{default_variant_id}}" />
-              <button
-                id="{{product_form_id}}-submit"
-                type="submit"
-                name="add"
-                class="pk-pdp__atc"
-                data-selected_or_first_available_variant="{{product.selected_or_first_available_variant.available}}"
-                {{#unless product.selected_or_first_available_variant.available}}disabled{{/unless}}
-                {{#unless default_variant_id}}disabled{{/unless}}
-              >
-                <span>
-                  {{#if default_variant_id}}
-                    {{#if product.selected_or_first_available_variant.available}}
-                      Add to Cart
-                    {{else}}
-                      Sold Out
-                    {{/if}}
-                  {{else}}
-                    Unavailable
-                  {{/if}}
-                </span>
-              </button>
-            {{/form}}
-          </product-form>
+          {{snippet
+            "product-buy-buttons"
+            section=section
+            product=product
+            product_form_id=product_form_id
+          }}
         </div>
       </div>
 
@@ -415,37 +378,6 @@
         </div>
       {{/if}}
     </product-recommendations>
-  </div>
-
-  <!-- ── Trust Bar ── -->
-  <div class="pk-pdp__trust">
-    <div class="pk-pdp__trust-grid">
-      <div class="pk-pdp__trust-item">
-        <div class="pk-pdp__trust-icon">🛡️</div>
-        <p class="pk-pdp__trust-heading">5-Year Warranty</p>
-        <p class="pk-pdp__trust-sub">Peace of mind guaranteed</p>
-      </div>
-      <div class="pk-pdp__trust-item">
-        <div class="pk-pdp__trust-icon">🚚</div>
-        <p class="pk-pdp__trust-heading">Free Delivery</p>
-        <p class="pk-pdp__trust-sub">On orders over $3,500</p>
-      </div>
-      <div class="pk-pdp__trust-item">
-        <div class="pk-pdp__trust-icon">✨</div>
-        <p class="pk-pdp__trust-heading">Premium Quality</p>
-        <p class="pk-pdp__trust-sub">Solid wood construction</p>
-      </div>
-      <div class="pk-pdp__trust-item">
-        <div class="pk-pdp__trust-icon">↩️</div>
-        <p class="pk-pdp__trust-heading">14-Day Returns</p>
-        <p class="pk-pdp__trust-sub">Hassle-free process</p>
-      </div>
-      <div class="pk-pdp__trust-item">
-        <div class="pk-pdp__trust-icon">💬</div>
-        <p class="pk-pdp__trust-heading">Expert Support</p>
-        <p class="pk-pdp__trust-sub">Mon–Fri, 8AM–4PM PST</p>
-      </div>
-    </div>
   </div>
 
 </div>
