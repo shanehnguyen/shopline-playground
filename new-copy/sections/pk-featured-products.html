@@ -77,19 +77,13 @@
 /* Scroll container */
 .pk-feat__scroll {
   display: flex;
-  gap: 32px;
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  gap: 20px;
+  overflow: hidden;
   padding-bottom: 32px;
-  scroll-snap-type: x mandatory;
 }
-.pk-feat__scroll::-webkit-scrollbar { display: none; }
 /* Product Card */
 .pk-feat__card {
-  min-width: 320px;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+  flex: 0 0 calc(25% - 15px);
   cursor: pointer;
 }
 .pk-feat__img-wrap {
@@ -151,7 +145,7 @@
   .pk-feat { padding: 48px 16px; }
   .pk-feat__title { font-size: 32px; }
   .pk-feat__hd { margin-bottom: 40px; }
-  .pk-feat__card { min-width: 80%; }
+  .pk-feat__card { flex: 0 0 calc(50% - 10px); }
 }
 </style>
 
