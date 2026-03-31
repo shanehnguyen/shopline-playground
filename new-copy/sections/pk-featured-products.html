@@ -1,7 +1,7 @@
 <style>
 .pk-feat {
   background: #f9f9f7;
-  padding: 72px 32px;
+  padding: 72px 32px 24px;
   overflow: hidden;
 }
 .pk-feat__inner { max-width: 1280px; margin: 0 auto; }
@@ -77,13 +77,13 @@
 /* Scroll container */
 .pk-feat__scroll {
   display: flex;
-  gap: 20px;
+  gap: 32px;
   overflow: hidden;
   padding-bottom: 32px;
 }
-/* Product Card */
+/* Product Card — 4 visible: (100% - 3×32px gap) / 4 = 25% - 24px */
 .pk-feat__card {
-  flex: 0 0 calc(25% - 15px);
+  flex: 0 0 calc(25% - 24px);
   cursor: pointer;
 }
 .pk-feat__img-wrap {
@@ -142,10 +142,10 @@
   margin-left: 8px;
 }
 @media (max-width: 959px) {
-  .pk-feat { padding: 48px 16px; }
+  .pk-feat { padding: 48px 16px 24px; }
   .pk-feat__title { font-size: 32px; }
   .pk-feat__hd { margin-bottom: 40px; }
-  .pk-feat__card { flex: 0 0 calc(50% - 10px); }
+  .pk-feat__card { flex: 0 0 calc(50% - 16px); }
 }
 </style>
 
@@ -171,7 +171,7 @@
 
     <div class="pk-feat__scroll" id="pk-feat-scroll">
       {{#if section.settings.collection}}
-        {{#paginate section.settings.collection.products by=12}}
+        {{#paginate section.settings.collection.products by=8}}
           {{#each section.settings.collection.products}}
           <div class="pk-feat__card">
             <div class="pk-feat__img-wrap">
