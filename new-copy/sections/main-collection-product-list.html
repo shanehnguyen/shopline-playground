@@ -20,15 +20,11 @@
 {{/or}}
 
 <style>
-/* Fix facets sidebar vertical text rendering */
-#main-collection-filters,
-#main-collection-filters *,
-.facets-wrapper,
-.facets-wrapper * {
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-  flex-direction: unset !important;
-}
+/* Fix facets sidebar — the facets-vertical class makes this a flex row,
+   but PK breadcrumbs are an extra child that squeezes the sidebar.
+   Allow wrapping so breadcrumbs take full width on their own line. */
+.pk-prod__inner.facets-vertical { flex-wrap: wrap; }
+.pk-prod__inner.facets-vertical > .pk-prod__crumbs { flex-basis: 100%; }
 
 /* ── PK Products Page ── */
 .pk-prod {
