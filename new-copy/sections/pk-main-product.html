@@ -70,8 +70,12 @@
 }
 .pk-pdp .product-form__submit:hover:not(:disabled) { background: #8a7248; }
 .pk-pdp .product-form__submit:disabled { opacity: 0.5; cursor: not-allowed; }
-/* Hide BUY NOW / dynamic checkout button */
+/* Hide BUY NOW / dynamic checkout button — target all possible selectors */
 .pk-pdp .product-form__buttons .shopline-payment-button { display: none !important; }
+.pk-pdp .product-form__buttons .shopify-payment-button { display: none !important; }
+.pk-pdp .product-form__buttons .dynamic-checkout { display: none !important; }
+.pk-pdp .product-form__buttons [data-shopline-payment-button] { display: none !important; }
+.pk-pdp .product-form__buttons > :not(.product-form__submit):not(button[type="submit"]) { display: none !important; }
 .pk-pdp__help { font-size: 13px; color: #6b6258; margin: 0 0 24px; }
 .pk-pdp__help a { color: #a89060; text-decoration: none; }
 .pk-pdp__help a:hover { text-decoration: underline; }
@@ -142,7 +146,7 @@
 /* 4 cards visible: (100% - 3 gaps of 20px) / 4 */
 .pk-pdp__recs-track { display: flex; gap: 20px; transition: transform 0.35s ease; will-change: transform; }
 .pk-pdp__rec-card { flex: 0 0 calc(25% - 15px); text-decoration: none; }
-.pk-pdp__rec-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: #f7f5f2; margin-bottom: 10px; }
+.pk-pdp__rec-img { width: 100%; height: 280px; object-fit: cover; display: block; background: #f7f5f2; margin-bottom: 10px; }
 .pk-pdp__rec-name { font-size: 14px; color: #1a1a1a; font-weight: 500; margin-bottom: 4px; }
 .pk-pdp__rec-price { font-size: 13px; color: #6b6258; }
 
@@ -364,7 +368,7 @@
       </div>
     </div>
     <product-recommendations
-      data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=8"
+      data-url="{{routes.product_recommendations_url}}?section_id={{section.id}}&product_id={{product.id}}&limit=16"
       id="pk-recs-{{section.id}}"
     >
       {{#if recommendations.products_count}}
