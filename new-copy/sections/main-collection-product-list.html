@@ -30,39 +30,63 @@
 /* Grid spacing */
 .main-collection-container .product-list-content.grid { gap: 32px; row-gap: 64px; }
 
-/* Card wrapper */
+/* Card wrapper — flat, no rounded corners, white background */
 .main-collection-container .product-card-wrapper {
   font-family: 'Inter', sans-serif;
   --color-card-background: 255, 255, 255;
+  --product-card-border-radius: 0px;
+  border-radius: 0;
 }
 .main-collection-container .product-card-wrapper,
-.main-collection-container .card__inner--wrapper { box-shadow: none; border: none; }
+.main-collection-container .card__inner--wrapper {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+.main-collection-container .global-product-card-border-shadow {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
 
-/* Image container */
+/* Image container — flat white, no rounded corners */
 .main-collection-container .card__inner {
   --ratio-percent: 100%;
   --image-fill-type: contain;
+  --badge-border-radius: 0px;
   background: #ffffff;
+  border-radius: 0;
+}
+.main-collection-container .card__media {
+  border-radius: 0;
 }
 .main-collection-container .card__media img {
   object-fit: contain;
   background: #ffffff;
   transition: opacity 0.3s ease;
+  border-radius: 0;
 }
+
 /* Secondary image hover */
 .main-collection-container .media--hover-effect img + img { opacity: 0; transition: opacity 0.3s ease; }
 .main-collection-container .media--hover-effect:hover img + img { opacity: 1; }
 .main-collection-container .media--hover-effect:hover img:first-child { opacity: 0; }
 
+/* Hide cart icon overlay / quick-add buttons */
+.main-collection-container .quick-add { display: none !important; }
+.main-collection-container .quick-add-button--hover { display: none !important; }
+.main-collection-container .quick-add--tiled { display: none !important; }
+.main-collection-container .card__button { display: none !important; }
+
 /* Card content area */
 .main-collection-container .card__content { padding: 24px 0 0; }
 
-/* Title */
+/* Title — dark, Georgia serif */
 .main-collection-container .product__title {
   font-size: 15px;
   font-weight: 500;
   color: #1a1a1a;
-  font-family: 'Inter', sans-serif;
+  font-family: Georgia, 'Times New Roman', serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -81,15 +105,19 @@
 .main-collection-container .price .price-item--sale { color: #1a1a1a; }
 .main-collection-container .price .price-item--regular { color: #6b6258; }
 
-/* Badge (sold out / discount) */
+/* Badge (sold out / discount) — flat */
 .main-collection-container .card__badge {
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  border-radius: 0;
 }
 
-/* Hide card border/shadow from theme defaults */
-.main-collection-container .global-product-card-border-shadow { box-shadow: none; border: none; }
+/* Subtle bottom border on each product card */
+.main-collection-container .product-block {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0dcd5;
+}
 
 @media (max-width: 959px) {
   .main-collection-container .product-list-content.grid { gap: 16px; row-gap: 40px; }
