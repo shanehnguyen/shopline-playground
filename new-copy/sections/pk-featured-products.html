@@ -149,6 +149,11 @@
 }
 </style>
 
+{{#if settings.enable_quick_view}}
+  {{snippet "stylesheet" href=(asset_url "component-quick-add.css") lazy=true}}
+  <script src="{{asset_url 'component-quick-add.js'}}" defer="defer"></script>
+{{/if}}
+
 <div class="pk-feat">
   <div class="pk-feat__inner">
     <div class="pk-feat__hd">
@@ -180,6 +185,23 @@
               {{else}}
                 <div style="width:100%;height:100%;background:#eeebe6;"></div>
               {{/if}}
+              {{#if settings.enable_quick_view}}
+                {{assign "pk_feat_qv_id" (append "pk-feat-qv-" id)}}
+                <div class="quick-add quick-add-button--hover">
+                  <modal-opener data-modal="#QuickAdd-{{id}}">
+                    <button
+                      id="{{pk_feat_qv_id}}"
+                      type="submit"
+                      name="add"
+                      class="quick-add-icon__opener"
+                      data-product-url="{{url}}"
+                    >
+                      <i class="loading-hidden">{{snippet "icon-quick-add"}}</i>
+                      {{snippet "loading-overlay-spinner"}}
+                    </button>
+                  </modal-opener>
+                </div>
+              {{/if}}
             </div>
             <a class="pk-feat__card-name" href="{{url}}">{{title}}</a>
             <div class="pk-feat__card-meta">
@@ -198,6 +220,20 @@
               {{money_with_currency price}}
               {{#if compare_at_price}}<span class="pk-feat__price-old">{{money_with_currency compare_at_price}}</span>{{/if}}
             </p>
+            {{#if settings.enable_quick_view}}
+              <quick-add-modal id="QuickAdd-{{id}}">
+                <details>
+                  <summary class="display-none"></summary>
+                  <div class="modal__overlay"></div>
+                  <div class="modal__content quick-add-modal__content">
+                    <button id="ModalClose-{{id}}" type="button" class="quick-add-modal__toggle" name="close">
+                      {{snippet "icon-close"}}
+                    </button>
+                    <div id="QuickAddInfo-{{id}}" class="quick-add-modal__content-info"></div>
+                  </div>
+                </details>
+              </quick-add-modal>
+            {{/if}}
           </div>
           {{/each}}
         {{/paginate}}
@@ -230,6 +266,12 @@
       "id": "collection",
       "type": "collection_picker",
       "label": "Featured Collection"
+    },
+    {
+      "id": "enable_quick_view",
+      "type": "switch",
+      "label": "Enable Quick View",
+      "default": true
     }
   ],
   "presets": [{
