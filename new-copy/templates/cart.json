@@ -10,7 +10,7 @@
       "blocks": {}
     },
     "cart-footer": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-cart-footer",
       "settings": {},
       "blocks": {
@@ -142,17 +142,36 @@
       ]
     },
     "1774753011892f70c678": {
-      "disabled": false,
+      "disabled": true,
       "type": "pk-main-cart",
       "settings": {},
       "blocks": {},
       "block_order": []
+    },
+    "17749303238508e9452e": {
+      "disabled": false,
+      "type": "pk-trust-icons",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    },
+    "177493034809688ffca1": {
+      "disabled": false,
+      "type": "pk-featured-products",
+      "settings": {
+        "collection": "12271737555845623814262145"
+      },
+      "blocks": {},
+      "block_order": [],
+      "custom_css": []
     }
   },
   "order": [
     "cart-items",
     "1774753011892f70c678",
     "cart-footer",
-    "1740130996446f523832"
+    "1740130996446f523832",
+    "177493034809688ffca1",
+    "17749303238508e9452e"
   ]
 }
