@@ -91,6 +91,9 @@
    PK sections never use these classes — they use .pk-*__submit / .pk-*__input.
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* — Page background — */
+body { background-color: #ffffff; }
+
 /* — Buttons — */
 .button {
   font-family: var(--pk-font-ui);

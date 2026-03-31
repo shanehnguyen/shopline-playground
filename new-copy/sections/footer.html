@@ -212,14 +212,15 @@
     <!-- Brand -->
     <div class="pk-footer__brand">
       <a href="{{routes.root_url}}" class="pk-footer__logo">
-        {{#if settings.logo}}
+        {{#if section.settings.logo.src}}
           <img
-            src="{{img_url settings.logo.src width=120}}"
+            src="{{img_url section.settings.logo.src width=120}}"
             alt="{{shop.name}}"
             class="pk-footer__logo-img"
           />
+        {{else}}
+          <span class="pk-footer__logo-name">{{shop.name}}</span>
         {{/if}}
-        <span class="pk-footer__logo-name">{{shop.name}}</span>
       </a>
       <p class="pk-footer__tagline">{{section.settings.tagline}}</p>
     </div>
