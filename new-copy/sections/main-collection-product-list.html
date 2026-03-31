@@ -25,6 +25,77 @@
   <script src="{{asset_url 'component-cache-breadcrumb.js'}}" defer="defer"></script>
 {{/or}}
 
+<!-- PK Cabinet card styling overrides -->
+<style>
+/* Grid spacing */
+.main-collection-container .product-list-content.grid { gap: 32px; row-gap: 64px; }
+
+/* Card wrapper */
+.main-collection-container .product-card-wrapper {
+  font-family: 'Inter', sans-serif;
+  --color-card-background: 255, 255, 255;
+}
+.main-collection-container .product-card-wrapper,
+.main-collection-container .card__inner--wrapper { box-shadow: none; border: none; }
+
+/* Image container */
+.main-collection-container .card__inner {
+  --ratio-percent: 100%;
+  --image-fill-type: contain;
+  background: #ffffff;
+}
+.main-collection-container .card__media img {
+  object-fit: contain;
+  background: #ffffff;
+  transition: opacity 0.3s ease;
+}
+/* Secondary image hover */
+.main-collection-container .media--hover-effect img + img { opacity: 0; transition: opacity 0.3s ease; }
+.main-collection-container .media--hover-effect:hover img + img { opacity: 1; }
+.main-collection-container .media--hover-effect:hover img:first-child { opacity: 0; }
+
+/* Card content area */
+.main-collection-container .card__content { padding: 24px 0 0; }
+
+/* Title */
+.main-collection-container .product__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 6px;
+  transition: color 0.2s;
+}
+.main-collection-container .product-card-wrapper:hover .product__title { color: #a89060; }
+
+/* Price */
+.main-collection-container .price {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+}
+.main-collection-container .price .price-item--sale { color: #1a1a1a; }
+.main-collection-container .price .price-item--regular { color: #6b6258; }
+
+/* Badge (sold out / discount) */
+.main-collection-container .card__badge {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Hide card border/shadow from theme defaults */
+.main-collection-container .global-product-card-border-shadow { box-shadow: none; border: none; }
+
+@media (max-width: 959px) {
+  .main-collection-container .product-list-content.grid { gap: 16px; row-gap: 40px; }
+}
+</style>
+
 {{snippet
   "section-padding-creator"
   section_id=section.id
