@@ -257,7 +257,7 @@
           "header_division_bottom": false,
           "show_country_selector": false,
           "show_locale_selector": false,
-          "show_search_entry": false,
+          "show_search_entry": true,
           "transparent_header": false,
           "transparent_title_color": "#ffffff",
           "main_menu_style": "dropdown",

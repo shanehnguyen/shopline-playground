@@ -21,7 +21,7 @@
       ]
     },
     "main-collection-product-list": {
-      "disabled": true,
+      "disabled": false,
       "type": "main-collection-product-list",
       "settings": {
         "products_per_page": 30,
@@ -32,7 +32,7 @@
         "enable_infinite_scroll_button": true,
         "price_show_type": "from_lowest_price",
         "show_origin_price": true,
-        "product_image_ratio": "150",
+        "product_image_ratio": "100",
         "image_fill_type": "contain",
         "image_display_area": "center center",
         "show_secondary_image": true,

@@ -677,7 +677,8 @@
       "disabled": false,
       "type": "pk-featured-products",
       "settings": {
-        "view_all_link": ""
+        "view_all_link": "",
+        "collection": "12271737670656474985182145"
       },
       "blocks": {
         "17747291610827289aa2": {
@@ -688,7 +689,10 @@
             "rating": "4.9",
             "reviews": "312"
           },
-          "blockId": "17747291610827289aa2"
+          "blockId": "17747291610827289aa2",
+          "sectionId": "1774729161081ad2ab74",
+          "canAddBlock": true,
+          "overLimit": false
         },
         "17747291610821c8feb9": {
           "type": "product",
@@ -698,7 +702,10 @@
             "rating": "4.8",
             "reviews": "198"
           },
-          "blockId": "17747291610821c8feb9"
+          "blockId": "17747291610821c8feb9",
+          "sectionId": "1774729161081ad2ab74",
+          "canAddBlock": true,
+          "overLimit": false
         },
         "1774729161087028441b": {
           "type": "product",
@@ -708,7 +715,10 @@
             "rating": "5.0",
             "reviews": "87"
           },
-          "blockId": "1774729161087028441b"
+          "blockId": "1774729161087028441b",
+          "sectionId": "1774729161081ad2ab74",
+          "canAddBlock": true,
+          "overLimit": false
         },
         "1774729161087dc36c4f": {
           "type": "product",
@@ -718,7 +728,10 @@
             "rating": "4.9",
             "reviews": "143"
           },
-          "blockId": "1774729161087dc36c4f"
+          "blockId": "1774729161087dc36c4f",
+          "sectionId": "1774729161081ad2ab74",
+          "canAddBlock": true,
+          "overLimit": false
         },
         "177472916108745bb37e": {
           "type": "product",
@@ -728,7 +741,10 @@
             "rating": "4.7",
             "reviews": "256"
           },
-          "blockId": "177472916108745bb37e"
+          "blockId": "177472916108745bb37e",
+          "sectionId": "1774729161081ad2ab74",
+          "canAddBlock": true,
+          "overLimit": false
         },
         "177472916108719e78cc": {
           "type": "product",
@@ -738,7 +754,10 @@
             "rating": "4.8",
             "reviews": "174"
           },
-          "blockId": "177472916108719e78cc"
+          "blockId": "177472916108719e78cc",
+          "sectionId": "1774729161081ad2ab74",
+          "canAddBlock": true,
+          "overLimit": false
         }
       },
       "block_order": [
