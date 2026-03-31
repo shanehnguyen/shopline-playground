@@ -302,8 +302,8 @@
               "image_3_link_text": "Shop",
               "image_3_link": "",
               "image_3_position": "right",
-              "image_1": "shopline://shop_images/output (19).jpg",
-              "image_2": "shopline://shop_images/output (21).jpg"
+              "image_2": "shopline://shop_images/output (21).jpg",
+              "image_1": "shopline://shop_images/output (19).jpg"
             },
             "blockId": "menuImage1",
             "parent": {
@@ -2002,7 +2002,9 @@
           },
           "show_country_selector": false,
           "show_locale_selector": false,
-          "copyright_menu_type": "copyright_top"
+          "copyright_menu_type": "copyright_top",
+          "privacy_url": "shopline://pages/7456177256169251907",
+          "tos_url": "shopline://pages/7456176649085689894"
         },
         "blocks": {
           "footer-menu1": {
@@ -8793,12 +8795,12 @@
             "type": "link_column",
             "settings": {
               "heading": "Shop",
-              "link_1_url": "shopline://pages/7455666429016187920",
+              "link_1_url": "shopline://collections/12270082518244582437392145",
               "link_1_label": "Product",
               "link_2_label": "Collections",
               "link_2_url": "shopline://pages/7455666682469589005",
               "link_3_label": "Sample Doors",
-              "link_3_url": "shopline://pages/7455667076415397905",
+              "link_3_url": "shopline://collections/12274115937987387757462145",
               "link_4_label": "Contractor",
               "link_4_url": "shopline://pages/7456175846077801535"
             },
@@ -8810,10 +8812,10 @@
               "heading": "Support",
               "link_1_url": "shopline://pages/7456175983986516004",
               "link_1_label": "FAQ",
-              "link_2_label": "Contact",
-              "link_2_url": "shopline://pages/7455667428770489362",
-              "link_3_label": "Design",
-              "link_3_url": "shopline://pages/7455666921779798031",
+              "link_2_label": "",
+              "link_2_url": "",
+              "link_3_label": "",
+              "link_3_url": "",
               "link_4_label": "Shipping & Delivery",
               "link_4_url": "shopline://pages/7456176885526996033",
               "link_5_label": "Returns & Exchanges",
@@ -8826,13 +8828,13 @@
           "17748374266421c72b41": {
             "type": "link_column",
             "settings": {
-              "heading": "Company",
+              "heading": "Contact",
               "link_1_url": "shopline://pages/7455667233114595347",
               "link_1_label": "About",
-              "link_2_label": "Privacy",
-              "link_2_url": "shopline://pages/7456177256169251907",
-              "link_3_label": "Terms of Service",
-              "link_3_url": "shopline://pages/7456176649085689894",
+              "link_2_label": "Design",
+              "link_2_url": "shopline://pages/7455666921779798031",
+              "link_3_label": "Contact",
+              "link_3_url": "shopline://pages/7455667428770489362",
               "link_4_label": "",
               "link_4_url": "",
               "link_5_label": "",

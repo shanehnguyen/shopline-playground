@@ -28,7 +28,7 @@
         "columns_desktop": 5,
         "columns_mobile": 2,
         "pagination_style": "simple",
-        "enable_infinite_scroll": true,
+        "enable_infinite_scroll": false,
         "enable_infinite_scroll_button": true,
         "price_show_type": "from_lowest_price",
         "show_origin_price": true,
@@ -163,7 +163,7 @@
       "custom_css": []
     },
     "1774804135186ad613f5": {
-      "disabled": false,
+      "disabled": true,
       "type": "pk-products",
       "settings": {
         "show_collection_filter": true,

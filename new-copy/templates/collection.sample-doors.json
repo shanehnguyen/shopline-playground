@@ -1,7 +1,7 @@
 {
   "sections": {
     "main-collection-banner": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-collection-banner",
       "settings": {
         "show_collection_description": true,
@@ -30,7 +30,7 @@
         "enable_infinite_scroll_button": false,
         "price_show_type": "from_lowest_price",
         "show_origin_price": true,
-        "product_image_ratio": "150",
+        "product_image_ratio": "100",
         "image_fill_type": "contain",
         "image_display_area": "center center",
         "show_secondary_image": true,
@@ -46,7 +46,7 @@
       "custom_css": []
     },
     "1740129743218d3361f9": {
-      "disabled": false,
+      "disabled": true,
       "type": "shopline://apps/高阶组件库/sections/logo-list/01405986-ae6f-4fcc-adaa-2a21f14efc9f",
       "settings": {
         "icon_width": 48,
@@ -160,7 +160,7 @@
       "custom_css": []
     },
     "17421902777475cfc85d": {
-      "disabled": false,
+      "disabled": true,
       "type": "image-with-text",
       "settings": {
         "image_height": "auto",
