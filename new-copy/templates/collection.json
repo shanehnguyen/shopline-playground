@@ -30,7 +30,7 @@
         "pagination_style": "simple",
         "enable_infinite_scroll": false,
         "enable_infinite_scroll_button": true,
-        "price_show_type": "from_lowest_price",
+        "price_show_type": "lowest_price",
         "show_origin_price": true,
         "product_image_ratio": "100",
         "image_fill_type": "contain",
