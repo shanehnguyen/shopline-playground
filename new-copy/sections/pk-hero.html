@@ -189,7 +189,7 @@
   document.getElementById('pk-hero-prev').addEventListener('click', function(){ goTo(cur - 1); });
   document.getElementById('pk-hero-next').addEventListener('click', function(){ goTo(cur + 1); });
   dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+this.dataset.i); }); });
-  setInterval(function(){ goTo(cur + 1); }, 5000);
+  setInterval(function(){ goTo(cur + 1); }, {{#if section.settings.autoplay_speed}}{{section.settings.autoplay_speed}}{{else}}5{{/if}} * 1000);
 })();
 </script>
 
@@ -197,7 +197,9 @@
 {
   "name": "PK Hero",
   "class": "section",
-  "settings": [],
+  "settings": [
+    { "id": "autoplay_speed", "type": "range", "label": "Auto-rotate (seconds)", "default": 5, "min": 3, "max": 15, "step": 1 }
+  ],
   "blocks": [
     {
       "type": "slide",
