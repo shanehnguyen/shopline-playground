@@ -85,8 +85,8 @@
 
 <div class="pk-coll">
   <div class="pk-coll__inner">
-    <span class="pk-coll__label">Collections</span>
-    <h2 class="pk-coll__title">Our Signature Series</h2>
+    <span class="pk-coll__label">{{#if section.settings.label}}{{section.settings.label}}{{else}}Collections{{/if}}</span>
+    <h2 class="pk-coll__title">{{#if section.settings.heading}}{{section.settings.heading}}{{else}}Our Signature Series{{/if}}</h2>
     <div class="pk-coll__grid">
       {{#each section.blocks}}
       <a class="pk-coll__card" href="{{#if settings.link}}{{settings.link}}{{else}}javascript:;{{/if}}">
@@ -110,7 +110,10 @@
 {
   "name": "PK Collections Grid",
   "class": "section",
-  "settings": [],
+  "settings": [
+    { "id": "label",   "type": "text", "label": "Section Label", "default": "Collections" },
+    { "id": "heading", "type": "text", "label": "Heading",       "default": "Our Signature Series" }
+  ],
   "blocks": [
     {
       "type": "collection",
