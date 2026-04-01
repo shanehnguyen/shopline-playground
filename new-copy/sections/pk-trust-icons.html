@@ -66,36 +66,36 @@
       <span class="pk-icons__icon">
         <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
       </span>
-      <p class="pk-icons__title">3-Day Quick Ship</p>
-      <p class="pk-icons__sub">In stock &amp; ready</p>
+      <p class="pk-icons__title">{{#if section.settings.icon_1_title}}{{section.settings.icon_1_title}}{{else}}3-Day Quick Ship{{/if}}</p>
+      <p class="pk-icons__sub">{{#if section.settings.icon_1_sub}}{{section.settings.icon_1_sub}}{{else}}In stock &amp; ready{{/if}}</p>
     </div>
     <div class="pk-icons__item">
       <span class="pk-icons__icon">
         <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
       </span>
-      <p class="pk-icons__title">Free Shipping</p>
-      <p class="pk-icons__sub">On orders over $5,000</p>
+      <p class="pk-icons__title">{{#if section.settings.icon_2_title}}{{section.settings.icon_2_title}}{{else}}Free Shipping{{/if}}</p>
+      <p class="pk-icons__sub">{{#if section.settings.icon_2_sub}}{{section.settings.icon_2_sub}}{{else}}On orders over $5,000{{/if}}</p>
     </div>
     <div class="pk-icons__item">
       <span class="pk-icons__icon">
         <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </span>
-      <p class="pk-icons__title">Best Price Guarantee</p>
-      <p class="pk-icons__sub">We'll match + 10% off</p>
+      <p class="pk-icons__title">{{#if section.settings.icon_3_title}}{{section.settings.icon_3_title}}{{else}}Best Price Guarantee{{/if}}</p>
+      <p class="pk-icons__sub">{{#if section.settings.icon_3_sub}}{{section.settings.icon_3_sub}}{{else}}We'll match + 10% off{{/if}}</p>
     </div>
     <div class="pk-icons__item">
       <span class="pk-icons__icon">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
       </span>
-      <p class="pk-icons__title">5-Year Warranty</p>
-      <p class="pk-icons__sub">Comprehensive coverage</p>
+      <p class="pk-icons__title">{{#if section.settings.icon_4_title}}{{section.settings.icon_4_title}}{{else}}5-Year Warranty{{/if}}</p>
+      <p class="pk-icons__sub">{{#if section.settings.icon_4_sub}}{{section.settings.icon_4_sub}}{{else}}Comprehensive coverage{{/if}}</p>
     </div>
     <div class="pk-icons__item">
       <span class="pk-icons__icon">
         <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </span>
-      <p class="pk-icons__title">30-Day Returns</p>
-      <p class="pk-icons__sub">Hassle-free policy</p>
+      <p class="pk-icons__title">{{#if section.settings.icon_5_title}}{{section.settings.icon_5_title}}{{else}}30-Day Returns{{/if}}</p>
+      <p class="pk-icons__sub">{{#if section.settings.icon_5_sub}}{{section.settings.icon_5_sub}}{{else}}Hassle-free policy{{/if}}</p>
     </div>
   </div>
 </div>
@@ -104,7 +104,28 @@
 {
   "name": "PK Trust Icons",
   "class": "section",
-  "settings": [],
-  "presets": [{ "name": "PK Trust Icons", "category": "Custom" }]
+  "settings": [
+    { "id": "icon_1_title", "type": "text", "label": "Icon 1 Title", "default": "3-Day Quick Ship" },
+    { "id": "icon_1_sub",   "type": "text", "label": "Icon 1 Subtitle", "default": "In stock & ready" },
+    { "id": "icon_2_title", "type": "text", "label": "Icon 2 Title", "default": "Free Shipping" },
+    { "id": "icon_2_sub",   "type": "text", "label": "Icon 2 Subtitle", "default": "On orders over $5,000" },
+    { "id": "icon_3_title", "type": "text", "label": "Icon 3 Title", "default": "Best Price Guarantee" },
+    { "id": "icon_3_sub",   "type": "text", "label": "Icon 3 Subtitle", "default": "We'll match + 10% off" },
+    { "id": "icon_4_title", "type": "text", "label": "Icon 4 Title", "default": "5-Year Warranty" },
+    { "id": "icon_4_sub",   "type": "text", "label": "Icon 4 Subtitle", "default": "Comprehensive coverage" },
+    { "id": "icon_5_title", "type": "text", "label": "Icon 5 Title", "default": "30-Day Returns" },
+    { "id": "icon_5_sub",   "type": "text", "label": "Icon 5 Subtitle", "default": "Hassle-free policy" }
+  ],
+  "presets": [{
+    "name": "PK Trust Icons",
+    "category": "Custom",
+    "settings": {
+      "icon_1_title": "3-Day Quick Ship", "icon_1_sub": "In stock & ready",
+      "icon_2_title": "Free Shipping",    "icon_2_sub": "On orders over $5,000",
+      "icon_3_title": "Best Price Guarantee", "icon_3_sub": "We'll match + 10% off",
+      "icon_4_title": "5-Year Warranty",  "icon_4_sub": "Comprehensive coverage",
+      "icon_5_title": "30-Day Returns",   "icon_5_sub": "Hassle-free policy"
+    }
+  }]
 }
 {{/schema}}
