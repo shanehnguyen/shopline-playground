@@ -68,31 +68,31 @@
 
 <div class="pk-trustbar">
   <div class="pk-trustbar__inner">
-    <span class="pk-trustbar__label">In Stock and Ready to Ship in 3 Days</span>
+    <span class="pk-trustbar__label">{{#if section.settings.banner_text}}{{section.settings.banner_text}}{{else}}In Stock and Ready to Ship in 3 Days{{/if}}</span>
     <div class="pk-trustbar__divider pk-trustbar__divider--first"></div>
     <div class="pk-trustbar__item">
-      <span class="pk-trustbar__value">3-Day</span>
-      <span class="pk-trustbar__sub">Quick Ship</span>
+      <span class="pk-trustbar__value">{{#if section.settings.item_1_value}}{{section.settings.item_1_value}}{{else}}3-Day{{/if}}</span>
+      <span class="pk-trustbar__sub">{{#if section.settings.item_1_label}}{{section.settings.item_1_label}}{{else}}Quick Ship{{/if}}</span>
     </div>
     <div class="pk-trustbar__divider"></div>
     <div class="pk-trustbar__item">
-      <span class="pk-trustbar__value">Free</span>
-      <span class="pk-trustbar__sub">Shipping over $5k</span>
+      <span class="pk-trustbar__value">{{#if section.settings.item_2_value}}{{section.settings.item_2_value}}{{else}}Free{{/if}}</span>
+      <span class="pk-trustbar__sub">{{#if section.settings.item_2_label}}{{section.settings.item_2_label}}{{else}}Shipping over $5k{{/if}}</span>
     </div>
     <div class="pk-trustbar__divider"></div>
     <div class="pk-trustbar__item">
-      <span class="pk-trustbar__value">Best Price</span>
-      <span class="pk-trustbar__sub">Guarantee</span>
+      <span class="pk-trustbar__value">{{#if section.settings.item_3_value}}{{section.settings.item_3_value}}{{else}}Best Price{{/if}}</span>
+      <span class="pk-trustbar__sub">{{#if section.settings.item_3_label}}{{section.settings.item_3_label}}{{else}}Guarantee{{/if}}</span>
     </div>
     <div class="pk-trustbar__divider"></div>
     <div class="pk-trustbar__item">
-      <span class="pk-trustbar__value">5-Year</span>
-      <span class="pk-trustbar__sub">Warranty</span>
+      <span class="pk-trustbar__value">{{#if section.settings.item_4_value}}{{section.settings.item_4_value}}{{else}}5-Year{{/if}}</span>
+      <span class="pk-trustbar__sub">{{#if section.settings.item_4_label}}{{section.settings.item_4_label}}{{else}}Warranty{{/if}}</span>
     </div>
     <div class="pk-trustbar__divider"></div>
     <div class="pk-trustbar__item">
-      <span class="pk-trustbar__value">30-Day</span>
-      <span class="pk-trustbar__sub">Returns</span>
+      <span class="pk-trustbar__value">{{#if section.settings.item_5_value}}{{section.settings.item_5_value}}{{else}}30-Day{{/if}}</span>
+      <span class="pk-trustbar__sub">{{#if section.settings.item_5_label}}{{section.settings.item_5_label}}{{else}}Returns{{/if}}</span>
     </div>
   </div>
 </div>
@@ -101,7 +101,30 @@
 {
   "name": "PK Trust Bar",
   "class": "section",
-  "settings": [],
-  "presets": [{ "name": "PK Trust Bar", "category": "Custom" }]
+  "settings": [
+    { "id": "banner_text",   "type": "text", "label": "Banner Text",       "default": "In Stock and Ready to Ship in 3 Days" },
+    { "id": "item_1_value",  "type": "text", "label": "Item 1 Value",      "default": "3-Day" },
+    { "id": "item_1_label",  "type": "text", "label": "Item 1 Label",      "default": "Quick Ship" },
+    { "id": "item_2_value",  "type": "text", "label": "Item 2 Value",      "default": "Free" },
+    { "id": "item_2_label",  "type": "text", "label": "Item 2 Label",      "default": "Shipping over $5k" },
+    { "id": "item_3_value",  "type": "text", "label": "Item 3 Value",      "default": "Best Price" },
+    { "id": "item_3_label",  "type": "text", "label": "Item 3 Label",      "default": "Guarantee" },
+    { "id": "item_4_value",  "type": "text", "label": "Item 4 Value",      "default": "5-Year" },
+    { "id": "item_4_label",  "type": "text", "label": "Item 4 Label",      "default": "Warranty" },
+    { "id": "item_5_value",  "type": "text", "label": "Item 5 Value",      "default": "30-Day" },
+    { "id": "item_5_label",  "type": "text", "label": "Item 5 Label",      "default": "Returns" }
+  ],
+  "presets": [{
+    "name": "PK Trust Bar",
+    "category": "Custom",
+    "settings": {
+      "banner_text": "In Stock and Ready to Ship in 3 Days",
+      "item_1_value": "3-Day", "item_1_label": "Quick Ship",
+      "item_2_value": "Free",  "item_2_label": "Shipping over $5k",
+      "item_3_value": "Best Price", "item_3_label": "Guarantee",
+      "item_4_value": "5-Year", "item_4_label": "Warranty",
+      "item_5_value": "30-Day", "item_5_label": "Returns"
+    }
+  }]
 }
 {{/schema}}

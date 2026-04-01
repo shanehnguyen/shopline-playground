@@ -138,35 +138,27 @@
   <div class="pk-testi__inner">
 
     <div class="pk-testi__left">
-      <span class="pk-testi__label">Testimonials</span>
-      <h2 class="pk-testi__title">A Few Words from<br>Happy Clients</h2>
-      <p class="pk-testi__subtitle">Trusted by contractors and builders nationwide.</p>
-      <p class="pk-testi__body">We pride ourselves on the relationships we build with our clients. Every project is a collaboration.</p>
-      <a class="pk-testi__btn" href="/pages/contact">Contact Us →</a>
+      <span class="pk-testi__label">{{#if section.settings.label}}{{section.settings.label}}{{else}}Testimonials{{/if}}</span>
+      <h2 class="pk-testi__title">{{#if section.settings.heading}}{{section.settings.heading}}{{else}}A Few Words from<br>Happy Clients{{/if}}</h2>
+      <p class="pk-testi__subtitle">{{#if section.settings.subtitle}}{{section.settings.subtitle}}{{else}}Trusted by contractors and builders nationwide.{{/if}}</p>
+      <p class="pk-testi__body">{{#if section.settings.body}}{{section.settings.body}}{{else}}We pride ourselves on the relationships we build with our clients. Every project is a collaboration.{{/if}}</p>
+      <a class="pk-testi__btn" href="{{#if section.settings.button_link}}{{section.settings.button_link}}{{else}}/pages/contact{{/if}}">{{#if section.settings.button_text}}{{section.settings.button_text}}{{else}}Contact Us →{{/if}}</a>
     </div>
 
     <div class="pk-testi__right">
       <div id="pk-testi-slides">
-        <div class="pk-testi__slide is-active">
+        {{#each section.blocks}}
+        <div class="pk-testi__slide {{#if @first}}is-active{{/if}}">
           <span class="pk-testi__quote">"</span>
-          <p class="pk-testi__text">"We were honestly surprised by how solid and well-made these cabinets are. The materials feel premium, and the finish looks beautiful in our kitchen. Delivery arrived in just a few days, packed carefully and in perfect condition."</p>
-          <p class="pk-testi__author">— Jean Goolsby</p>
+          <p class="pk-testi__text">{{#if settings.quote}}{{settings.quote}}{{else}}Testimonial text{{/if}}</p>
+          <p class="pk-testi__author">{{#if settings.author}}{{settings.author}}{{else}}— Customer{{/if}}</p>
         </div>
-        <div class="pk-testi__slide">
-          <span class="pk-testi__quote">"</span>
-          <p class="pk-testi__text">"From start to finish, the experience was smooth and professional. The cabinets are sturdy, well-constructed, and look far more expensive than they are. The 3 to 5 day delivery helped keep our renovation on schedule."</p>
-          <p class="pk-testi__author">— Jessica Lopez</p>
-        </div>
-        <div class="pk-testi__slide">
-          <span class="pk-testi__quote">"</span>
-          <p class="pk-testi__text">"These cabinets exceeded our expectations. The craftsmanship is excellent with clean lines and durable construction. Delivery was incredibly fast and installation was easy. Great quality, great value, reliable service."</p>
-          <p class="pk-testi__author">— Jason Yoon</p>
-        </div>
+        {{/each}}
       </div>
       <div class="pk-testi__dots" id="pk-testi-dots">
-        <button class="pk-testi__dot is-active" data-i="0"></button>
-        <button class="pk-testi__dot" data-i="1"></button>
-        <button class="pk-testi__dot" data-i="2"></button>
+        {{#each section.blocks}}
+        <button class="pk-testi__dot {{#if @first}}is-active{{/if}}" data-i="{{@index}}"></button>
+        {{/each}}
       </div>
     </div>
 
@@ -186,7 +178,7 @@
     dots[cur].classList.add('is-active');
   }
   dots.forEach(function(d){ d.addEventListener('click', function(){ goTo(+this.dataset.i); }); });
-  setInterval(function(){ goTo((cur + 1) % slides.length); }, 6000);
+  setInterval(function(){ goTo((cur + 1) % slides.length); }, {{#if section.settings.autoplay_speed}}{{section.settings.autoplay_speed}}{{else}}6{{/if}} * 1000);
 })();
 </script>
 
@@ -194,7 +186,41 @@
 {
   "name": "PK Testimonials",
   "class": "section",
-  "settings": [],
-  "presets": [{ "name": "PK Testimonials", "category": "Custom" }]
+  "settings": [
+    { "id": "label",        "type": "text",     "label": "Section Label",   "default": "Testimonials" },
+    { "id": "heading",      "type": "text",     "label": "Heading",         "default": "A Few Words from<br>Happy Clients" },
+    { "id": "subtitle",     "type": "text",     "label": "Subtitle",        "default": "Trusted by contractors and builders nationwide." },
+    { "id": "body",         "type": "textarea", "label": "Body Text",       "default": "We pride ourselves on the relationships we build with our clients. Every project is a collaboration." },
+    { "id": "button_text",  "type": "text",     "label": "Button Text",     "default": "Contact Us →" },
+    { "id": "button_link",  "type": "url",      "label": "Button Link" },
+    { "id": "autoplay_speed", "type": "range",  "label": "Auto-rotate (seconds)", "default": 6, "min": 3, "max": 15, "step": 1 }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "id": "quote",  "type": "textarea", "label": "Quote" },
+        { "id": "author", "type": "text",     "label": "Author" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "PK Testimonials",
+    "category": "Custom",
+    "settings": {
+      "label": "Testimonials",
+      "heading": "A Few Words from<br>Happy Clients",
+      "subtitle": "Trusted by contractors and builders nationwide.",
+      "body": "We pride ourselves on the relationships we build with our clients. Every project is a collaboration.",
+      "button_text": "Contact Us →",
+      "autoplay_speed": 6
+    },
+    "blocks": [
+      { "type": "testimonial", "settings": { "quote": "\"We were honestly surprised by how solid and well-made these cabinets are. The materials feel premium, and the finish looks beautiful in our kitchen. Delivery arrived in just a few days, packed carefully and in perfect condition.\"", "author": "— Jean Goolsby" } },
+      { "type": "testimonial", "settings": { "quote": "\"From start to finish, the experience was smooth and professional. The cabinets are sturdy, well-constructed, and look far more expensive than they are. The 3 to 5 day delivery helped keep our renovation on schedule.\"", "author": "— Jessica Lopez" } },
+      { "type": "testimonial", "settings": { "quote": "\"These cabinets exceeded our expectations. The craftsmanship is excellent with clean lines and durable construction. Delivery was incredibly fast and installation was easy. Great quality, great value, reliable service.\"", "author": "— Jason Yoon" } }
+    ]
+  }]
 }
 {{/schema}}

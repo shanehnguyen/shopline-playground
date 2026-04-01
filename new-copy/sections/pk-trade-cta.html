@@ -66,11 +66,11 @@
 <div class="pk-trade">
   <div class="pk-trade__inner">
     <div class="pk-trade__text">
-      <span class="pk-trade__label">Trade Program</span>
-      <h2 class="pk-trade__title">Are You A <span>Designer or Contractor?</span></h2>
-      <p class="pk-trade__body">Join our exclusive trade programme to access professional bulk pricing, priority lead times, and a dedicated account manager.</p>
+      <span class="pk-trade__label">{{#if section.settings.label}}{{section.settings.label}}{{else}}Trade Program{{/if}}</span>
+      <h2 class="pk-trade__title">{{#if section.settings.heading}}{{section.settings.heading}}{{else}}Are You A <span>Designer or Contractor?</span>{{/if}}</h2>
+      <p class="pk-trade__body">{{#if section.settings.body}}{{section.settings.body}}{{else}}Join our exclusive trade programme to access professional bulk pricing, priority lead times, and a dedicated account manager.{{/if}}</p>
     </div>
-    <a class="pk-trade__btn" href="/pages/contractor">Apply for Trade Pricing →</a>
+    <a class="pk-trade__btn" href="{{#if section.settings.button_link}}{{section.settings.button_link}}{{else}}/pages/contractor{{/if}}">{{#if section.settings.button_text}}{{section.settings.button_text}}{{else}}Apply for Trade Pricing →{{/if}}</a>
   </div>
 </div>
 
@@ -78,7 +78,22 @@
 {
   "name": "PK Trade CTA",
   "class": "section",
-  "settings": [],
-  "presets": [{ "name": "PK Trade CTA", "category": "Custom" }]
+  "settings": [
+    { "id": "label",        "type": "text",     "label": "Section Label",   "default": "Trade Program" },
+    { "id": "heading",      "type": "text",     "label": "Heading",         "default": "Are You A <span>Designer or Contractor?</span>" },
+    { "id": "body",         "type": "textarea", "label": "Body Text",       "default": "Join our exclusive trade programme to access professional bulk pricing, priority lead times, and a dedicated account manager." },
+    { "id": "button_text",  "type": "text",     "label": "Button Text",     "default": "Apply for Trade Pricing →" },
+    { "id": "button_link",  "type": "url",      "label": "Button Link" }
+  ],
+  "presets": [{
+    "name": "PK Trade CTA",
+    "category": "Custom",
+    "settings": {
+      "label": "Trade Program",
+      "heading": "Are You A <span>Designer or Contractor?</span>",
+      "body": "Join our exclusive trade programme to access professional bulk pricing, priority lead times, and a dedicated account manager.",
+      "button_text": "Apply for Trade Pricing →"
+    }
+  }]
 }
 {{/schema}}

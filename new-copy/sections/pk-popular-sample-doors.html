@@ -131,7 +131,7 @@
     </div>
 
     {{#if section.settings.collection}}
-      {{#paginate section.settings.collection.products by=6}}
+      {{#paginate section.settings.collection.products by=section.settings.products_per_page}}
         <div class="pk-pop-doors__grid">
           {{#each section.settings.collection.products}}
             <a class="pk-pop-doors__card" href="{{url}}">
@@ -170,6 +170,15 @@
       "id": "collection",
       "type": "collection_picker",
       "label": "Sample Doors Collection"
+    },
+    {
+      "id": "products_per_page",
+      "type": "range",
+      "label": "Products to show",
+      "default": 6,
+      "min": 3,
+      "max": 12,
+      "step": 1
     }
   ],
   "presets": [
