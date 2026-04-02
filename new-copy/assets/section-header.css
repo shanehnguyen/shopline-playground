@@ -1188,3 +1188,74 @@ predictive-search[data-focus][loading]
 /* @custom-media --tablet (max-width: 959px); */
 /* @custom-media --gt-mobile (min-width: 751px); */
 /* detectingScreen need to consider the configuration of the tablet */
+
+/* ── PK Search Overlay Overrides ── */
+.search-modal__content {
+  background: #F5F3EE;
+  font-family: 'Inter', sans-serif;
+}
+
+.predictive-search {
+  background: #F5F3EE;
+  border: none;
+  box-shadow: none;
+}
+
+.search-modal__input {
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #111;
+}
+
+.search-modal__input::placeholder {
+  color: #aaa;
+}
+
+.predictive-search__suggested-menu {
+  font-family: 'Inter', sans-serif;
+}
+
+.predictive-search__suggested-menu__link {
+  font-size: 13px;
+  color: #555;
+  background: #eeeae2;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.predictive-search__suggested-menu__link:hover {
+  background: #e0dcd4;
+  color: #111;
+}
+
+.predictive-search__item {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.predictive-search__item-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.predictive-search__item-head {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
+}
+
+.predictive-search__item-price {
+  font-size: 13px;
+  color: #888;
+}
+
+.predictive-search__head {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #888;
+}
