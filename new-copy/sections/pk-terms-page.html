@@ -33,82 +33,20 @@
   <div class="pk-terms__inner">
     <div class="pk-terms__sections">
 
+      {{#each section.blocks}}
       <section>
-        <h2 class="pk-terms__h2">1. Acceptance of Terms</h2>
-        <ul class="pk-terms__ul">
-          <li>By accessing and using PK Cabinet's website, you accept and agree to be bound by these Terms of Service.</li>
-          <li>If you do not agree to these terms, please do not use our services or access our website.</li>
-        </ul>
+        <h2 class="pk-terms__h2">{{settings.heading}}</h2>
+        <p class="pk-terms__p">{{settings.body}}</p>
       </section>
-
-      <section>
-        <h2 class="pk-terms__h2">2. Use of Website</h2>
-        <ul class="pk-terms__ul">
-          <li>The website is provided for personal and commercial use related to purchasing our products.</li>
-          <li>Prohibited activities include data scraping, unauthorized access to our systems, and any malicious use that interferes with website functionality.</li>
-          <li>All content, including images, text, and designs, are the intellectual property of PK Cabinet.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">3. Product Information</h2>
-        <ul class="pk-terms__ul">
-          <li>We strive for accuracy in product descriptions and pricing; however, errors may occur.</li>
-          <li>We reserve the right to modify prices, specifications, and availability without prior notice.</li>
-          <li>Please note that actual product colors and finishes may vary slightly from what is displayed on your screen due to monitor settings and natural wood characteristics.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">4. Orders and Payment</h2>
-        <ul class="pk-terms__ul">
-          <li>Order acceptance occurs when we send a confirmation email. We reserve the right to refuse any order.</li>
-          <li>We accept major credit cards and other secure payment methods as specified at checkout.</li>
-          <li>All prices are in USD. We reserve the right to cancel orders due to pricing errors.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">5. Shipping and Delivery</h2>
-        <ul class="pk-terms__ul">
-          <li>Delivery timeframes are estimates. Please refer to our <a href="/pages/shipping">Shipping &amp; Delivery</a> page for details.</li>
-          <li>Risk of loss and title for products pass to you upon delivery to the carrier or delivery location.</li>
-          <li>Customers are required to inspect all items upon receipt and report any damage within 48 hours.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">6. Returns and Refunds</h2>
-        <p class="pk-terms__p">Our return process is governed by our <a href="/pages/refund-policy">Refund Policy</a>. Generally, requests must be submitted within 14 days of receipt for unused and unassembled items.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">7. Warranty</h2>
-        <p class="pk-terms__p">Products are covered by a limited warranty as detailed on our <a href="/pages/guarantee">Guarantee and Warranty</a> page. Liability is limited to the repair or replacement of defective components.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">8. Limitation of Liability</h2>
-        <p class="pk-terms__p">PK Cabinet shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products. Our maximum liability is limited to the purchase price of the specific product in question.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">9. Dispute Resolution</h2>
-        <p class="pk-terms__p">These terms are governed by the laws of the State of California. Any disputes shall be resolved through binding arbitration in Los Angeles County, California.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-terms__h2">10. Changes to Terms</h2>
-        <p class="pk-terms__p">We reserve the right to modify these terms at any time. Continued use of the website following changes constitutes your acceptance of the new terms.</p>
-      </section>
+      {{/each}}
 
       <section class="pk-terms__divider">
-        <h2 class="pk-terms__h2">11. Contact Information</h2>
+        <h2 class="pk-terms__h2">{{#if section.settings.contact_heading}}{{section.settings.contact_heading}}{{else}}Contact Information{{/if}}</h2>
         <div class="pk-terms__contact">
-          <p>PK Cabinet</p>
-          <p>Email: <a href="mailto:support@pkcabinet.com">support@pkcabinet.com</a></p>
-          <p>Phone: <a href="tel:5626256101">562-625-6101</a></p>
-          <p>Address: 123 Cabinet Way, Los Angeles, CA 90001</p>
+          {{#if section.settings.contact_name}}<p>{{section.settings.contact_name}}</p>{{/if}}
+          {{#if section.settings.contact_email}}<p>Email: <a href="mailto:{{section.settings.contact_email}}">{{section.settings.contact_email}}</a></p>{{/if}}
+          {{#if section.settings.contact_phone}}<p>Phone: <a href="tel:{{section.settings.contact_phone}}">{{section.settings.contact_phone}}</a></p>{{/if}}
+          {{#if section.settings.contact_address}}<p>Address: {{section.settings.contact_address}}</p>{{/if}}
         </div>
       </section>
 
@@ -120,12 +58,46 @@
 {
   "name": "PK Terms of Service Page",
   "class": "section",
-  "settings": [],
-  "presets": [
+  "max_blocks": 20,
+  "settings": [
+    { "id": "contact_heading", "type": "text", "label": "Contact Heading", "default": "11. Contact Information" },
+    { "id": "contact_name", "type": "text", "label": "Contact Name", "default": "PK Cabinet" },
+    { "id": "contact_email", "type": "text", "label": "Contact Email", "default": "support@pkcabinet.com" },
+    { "id": "contact_phone", "type": "text", "label": "Contact Phone", "default": "562-625-6101" },
+    { "id": "contact_address", "type": "text", "label": "Contact Address", "default": "123 Cabinet Way, Los Angeles, CA 90001" }
+  ],
+  "blocks": [
     {
-      "name": "PK Terms of Service Page",
-      "category": "Custom"
+      "type": "terms_section",
+      "name": "Terms Section",
+      "settings": [
+        { "id": "heading", "type": "text", "label": "Heading" },
+        { "id": "body", "type": "textarea", "label": "Body Text" }
+      ]
     }
-  ]
+  ],
+  "presets": [{
+    "name": "PK Terms of Service Page",
+    "category": "Custom",
+    "settings": {
+      "contact_heading": "11. Contact Information",
+      "contact_name": "PK Cabinet",
+      "contact_email": "support@pkcabinet.com",
+      "contact_phone": "562-625-6101",
+      "contact_address": "123 Cabinet Way, Los Angeles, CA 90001"
+    },
+    "blocks": [
+      { "type": "terms_section", "settings": { "heading": "1. Acceptance of Terms", "body": "By accessing and using PK Cabinet's website, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services or access our website." } },
+      { "type": "terms_section", "settings": { "heading": "2. Use of Website", "body": "The website is provided for personal and commercial use related to purchasing our products. Prohibited activities include data scraping, unauthorized access to our systems, and any malicious use that interferes with website functionality. All content, including images, text, and designs, are the intellectual property of PK Cabinet." } },
+      { "type": "terms_section", "settings": { "heading": "3. Product Information", "body": "We strive for accuracy in product descriptions and pricing; however, errors may occur. We reserve the right to modify prices, specifications, and availability without prior notice. Please note that actual product colors and finishes may vary slightly from what is displayed on your screen due to monitor settings and natural wood characteristics." } },
+      { "type": "terms_section", "settings": { "heading": "4. Orders and Payment", "body": "Order acceptance occurs when we send a confirmation email. We reserve the right to refuse any order. We accept major credit cards and other secure payment methods as specified at checkout. All prices are in USD. We reserve the right to cancel orders due to pricing errors." } },
+      { "type": "terms_section", "settings": { "heading": "5. Shipping and Delivery", "body": "Delivery timeframes are estimates. Please refer to our Shipping and Delivery page for details. Risk of loss and title for products pass to you upon delivery to the carrier or delivery location. Customers are required to inspect all items upon receipt and report any damage within 48 hours." } },
+      { "type": "terms_section", "settings": { "heading": "6. Returns and Refunds", "body": "Our return process is governed by our Refund Policy. Generally, requests must be submitted within 14 days of receipt for unused and unassembled items." } },
+      { "type": "terms_section", "settings": { "heading": "7. Warranty", "body": "Products are covered by a limited warranty as detailed on our Guarantee and Warranty page. Liability is limited to the repair or replacement of defective components." } },
+      { "type": "terms_section", "settings": { "heading": "8. Limitation of Liability", "body": "PK Cabinet shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products. Our maximum liability is limited to the purchase price of the specific product in question." } },
+      { "type": "terms_section", "settings": { "heading": "9. Dispute Resolution", "body": "These terms are governed by the laws of the State of California. Any disputes shall be resolved through binding arbitration in Los Angeles County, California." } },
+      { "type": "terms_section", "settings": { "heading": "10. Changes to Terms", "body": "We reserve the right to modify these terms at any time. Continued use of the website following changes constitutes your acceptance of the new terms." } }
+    ]
+  }]
 }
 {{/schema}}
