@@ -282,7 +282,7 @@
 
     <div class="pk-contractor__benefits-inner">
       <div class="pk-contractor__benefits-head">
-        <h2 class="pk-contractor__benefits-title">Contractor Benefits</h2>
+        <h2 class="pk-contractor__benefits-title">{{#if section.settings.benefits_heading}}{{section.settings.benefits_heading}}{{else}}Contractor Benefits{{/if}}</h2>
         <hr class="pk-contractor__benefits-divider" />
       </div>
 
@@ -298,8 +298,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="pk-contractor__benefit-title">Exclusive Discounts</h3>
-            <p class="pk-contractor__benefit-desc">Enjoy extra savings on every order, every day&mdash;no matter the size.</p>
+            <h3 class="pk-contractor__benefit-title">{{#if section.settings.benefit_1_title}}{{section.settings.benefit_1_title}}{{else}}Exclusive Discounts{{/if}}</h3>
+            <p class="pk-contractor__benefit-desc">{{#if section.settings.benefit_1_desc}}{{section.settings.benefit_1_desc}}{{else}}Enjoy extra savings on every order, every day — no matter the size.{{/if}}</p>
           </div>
         </div>
 
@@ -313,8 +313,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="pk-contractor__benefit-title">Dedicated Account Manager</h3>
-            <p class="pk-contractor__benefit-desc">Receive personalized support designed to help you streamline your business.</p>
+            <h3 class="pk-contractor__benefit-title">{{#if section.settings.benefit_2_title}}{{section.settings.benefit_2_title}}{{else}}Dedicated Account Manager{{/if}}</h3>
+            <p class="pk-contractor__benefit-desc">{{#if section.settings.benefit_2_desc}}{{section.settings.benefit_2_desc}}{{else}}Receive personalized support designed to help you streamline your business.{{/if}}</p>
           </div>
         </div>
 
@@ -329,8 +329,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="pk-contractor__benefit-title">Showroom Resources</h3>
-            <p class="pk-contractor__benefit-desc">Enhance your sales with premium showroom materials. Pro members can order 12&rdquo; base and wall sample cabinets at minimal cost with free shipping to showcase product quality and design.</p>
+            <h3 class="pk-contractor__benefit-title">{{#if section.settings.benefit_3_title}}{{section.settings.benefit_3_title}}{{else}}Showroom Resources{{/if}}</h3>
+            <p class="pk-contractor__benefit-desc">{{#if section.settings.benefit_3_desc}}{{section.settings.benefit_3_desc}}{{else}}Enhance your sales with premium showroom materials. Pro members can order 12-inch base and wall sample cabinets at minimal cost with free shipping to showcase product quality and design.{{/if}}</p>
           </div>
         </div>
 
@@ -344,8 +344,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="pk-contractor__benefit-title">Branded Dropshipping</h3>
-            <p class="pk-contractor__benefit-desc">Deliver products directly to your customers&mdash;custom-branded with your logo.</p>
+            <h3 class="pk-contractor__benefit-title">{{#if section.settings.benefit_4_title}}{{section.settings.benefit_4_title}}{{else}}Branded Dropshipping{{/if}}</h3>
+            <p class="pk-contractor__benefit-desc">{{#if section.settings.benefit_4_desc}}{{section.settings.benefit_4_desc}}{{else}}Deliver products directly to your customers — custom-branded with your logo.{{/if}}</p>
           </div>
         </div>
 
@@ -360,8 +360,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="pk-contractor__benefit-title">Free Local Customer Referrals</h3>
-            <p class="pk-contractor__benefit-desc">We connect you with local homeowners to help expand your customer base.</p>
+            <h3 class="pk-contractor__benefit-title">{{#if section.settings.benefit_5_title}}{{section.settings.benefit_5_title}}{{else}}Free Local Customer Referrals{{/if}}</h3>
+            <p class="pk-contractor__benefit-desc">{{#if section.settings.benefit_5_desc}}{{section.settings.benefit_5_desc}}{{else}}We connect you with local homeowners to help expand your customer base.{{/if}}</p>
           </div>
         </div>
 
@@ -377,8 +377,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="pk-contractor__benefit-title">Complimentary Sample Doors</h3>
-            <p class="pk-contractor__benefit-desc">Get up to 5 free sample doors with your Pro account&mdash;ideal for client presentations.</p>
+            <h3 class="pk-contractor__benefit-title">{{#if section.settings.benefit_6_title}}{{section.settings.benefit_6_title}}{{else}}Complimentary Sample Doors{{/if}}</h3>
+            <p class="pk-contractor__benefit-desc">{{#if section.settings.benefit_6_desc}}{{section.settings.benefit_6_desc}}{{else}}Get up to 5 free sample doors with your Pro account — ideal for client presentations.{{/if}}</p>
           </div>
         </div>
 
@@ -586,7 +586,21 @@ function pkContractorSubmit(e) {
     { "id": "form_heading",          "type": "text",     "label": "Heading",            "default": "Contractor Application" },
     { "id": "form_subheading",       "type": "textarea", "label": "Subheading",         "default": "Fill out the form below to apply for our contractor program and start enjoying exclusive benefits." },
     { "id": "submit_button_text",    "type": "text",     "label": "Submit Button Text", "default": "Submit Application" },
-    { "id": "success_message",       "type": "text",     "label": "Success Message",    "default": "Thank you for your application. A representative will be in touch within 1-2 business days." }
+    { "id": "success_message",       "type": "text",     "label": "Success Message",    "default": "Thank you for your application. A representative will be in touch within 1-2 business days." },
+    { "type": "header",              "content": "Benefits Section" },
+    { "id": "benefits_heading",      "type": "text",     "label": "Benefits Heading",   "default": "Contractor Benefits" },
+    { "id": "benefit_1_title",       "type": "text",     "label": "Benefit 1 Title",    "default": "Exclusive Discounts" },
+    { "id": "benefit_1_desc",        "type": "textarea", "label": "Benefit 1 Description", "default": "Enjoy extra savings on every order, every day — no matter the size." },
+    { "id": "benefit_2_title",       "type": "text",     "label": "Benefit 2 Title",    "default": "Dedicated Account Manager" },
+    { "id": "benefit_2_desc",        "type": "textarea", "label": "Benefit 2 Description", "default": "Receive personalized support designed to help you streamline your business." },
+    { "id": "benefit_3_title",       "type": "text",     "label": "Benefit 3 Title",    "default": "Showroom Resources" },
+    { "id": "benefit_3_desc",        "type": "textarea", "label": "Benefit 3 Description", "default": "Enhance your sales with premium showroom materials. Pro members can order 12-inch base and wall sample cabinets at minimal cost with free shipping to showcase product quality and design." },
+    { "id": "benefit_4_title",       "type": "text",     "label": "Benefit 4 Title",    "default": "Branded Dropshipping" },
+    { "id": "benefit_4_desc",        "type": "textarea", "label": "Benefit 4 Description", "default": "Deliver products directly to your customers — custom-branded with your logo." },
+    { "id": "benefit_5_title",       "type": "text",     "label": "Benefit 5 Title",    "default": "Free Local Customer Referrals" },
+    { "id": "benefit_5_desc",        "type": "textarea", "label": "Benefit 5 Description", "default": "We connect you with local homeowners to help expand your customer base." },
+    { "id": "benefit_6_title",       "type": "text",     "label": "Benefit 6 Title",    "default": "Complimentary Sample Doors" },
+    { "id": "benefit_6_desc",        "type": "textarea", "label": "Benefit 6 Description", "default": "Get up to 5 free sample doors with your Pro account — ideal for client presentations." }
   ],
   "presets": [
     {
