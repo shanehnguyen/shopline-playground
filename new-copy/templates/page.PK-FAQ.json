@@ -192,16 +192,306 @@
       "custom_css": []
     },
     "177472946584633c804c": {
-      "disabled": false,
+      "disabled": true,
       "type": "pk-faq-page",
       "settings": {},
       "blocks": {},
       "block_order": []
+    },
+    "17750891799753e756a7": {
+      "disabled": false,
+      "type": "pk-faq-page",
+      "settings": {},
+      "blocks": {
+        "17750891799769dc3006": {
+          "type": "faq_item",
+          "settings": {
+            "category": "shipping",
+            "question": "Do you ship outside California?",
+            "answer": "Yes, we ship to all 48 contiguous states in the US. Shipping rates and delivery times vary by location. Please enter your zip code at checkout for an accurate shipping estimate."
+          },
+          "blockId": "17750891799769dc3006"
+        },
+        "1775089179976211bcf9": {
+          "type": "faq_item",
+          "settings": {
+            "category": "shipping",
+            "question": "Can I pick up my order from your warehouse?",
+            "answer": "Absolutely. Local pickup is available at our La Mirada distribution center. Select Local Pickup at checkout and we will notify you when your order is ready for collection."
+          },
+          "blockId": "1775089179976211bcf9"
+        },
+        "177508917997699e7f3c": {
+          "type": "faq_item",
+          "settings": {
+            "category": "shipping",
+            "question": "Can I choose my delivery date?",
+            "answer": "Once your order has been dispatched, our freight partner will contact you via phone or email to schedule a specific delivery window that works for you."
+          },
+          "blockId": "177508917997699e7f3c"
+        },
+        "1775089179976f59595d": {
+          "type": "faq_item",
+          "settings": {
+            "category": "shipping",
+            "question": "Where is PK Cabinet located?",
+            "answer": "Our main distribution center and headquarters are located in La Mirada, California. This central location allows us to efficiently manage inventory and shipping."
+          },
+          "blockId": "1775089179976f59595d"
+        },
+        "17750891799760dc2cfa": {
+          "type": "faq_item",
+          "settings": {
+            "category": "shipping",
+            "question": "How long does delivery take after ordering?",
+            "answer": "Most in-stock orders are processed within 24-48 hours. Delivery typically takes 3 to 5 business days depending on your distance from our California warehouse."
+          },
+          "blockId": "17750891799760dc2cfa"
+        },
+        "1775089179976abe4908": {
+          "type": "faq_item",
+          "settings": {
+            "category": "assembly",
+            "question": "Do the cabinets come with installation hardware?",
+            "answer": "Yes, all our cabinets include the necessary assembly hardware and soft-close hinges. However, specific wall-mounting screws may need to be purchased separately based on your wall type."
+          },
+          "blockId": "1775089179976abe4908"
+        },
+        "1775089179976ff2105f": {
+          "type": "faq_item",
+          "settings": {
+            "category": "assembly",
+            "question": "Are PK Cabinet cabinets sold assembled or unassembled?",
+            "answer": "We offer both options. Our standard shipping is for RTA (Ready-To-Assemble) cabinets, which are easier to ship and more cost-effective. Pre-assembly services are available for local orders."
+          },
+          "blockId": "1775089179976ff2105f"
+        },
+        "17750891799761cb8b52": {
+          "type": "faq_item",
+          "settings": {
+            "category": "assembly",
+            "question": "Do you offer installation services?",
+            "answer": "While we specialize in manufacturing and distribution, we have a network of preferred contractors in Southern California. Contact our trade desk for recommendations."
+          },
+          "blockId": "17750891799761cb8b52"
+        },
+        "177508917997653bf185": {
+          "type": "faq_item",
+          "settings": {
+            "category": "assembly",
+            "question": "What tools do I need for installation?",
+            "answer": "For RTA assembly, you will typically need a screwdriver (or power drill), wood glue, and a rubber mallet. For installation, a level, shims, and a stud finder are essential."
+          },
+          "blockId": "177508917997653bf185"
+        },
+        "177508917997629bf445": {
+          "type": "faq_item",
+          "settings": {
+            "category": "orders",
+            "question": "How do I place an order?",
+            "answer": "You can place an order directly through our website by adding items to your cart. For large commercial projects or contractor orders, please contact our sales team for a custom quote."
+          },
+          "blockId": "177508917997629bf445"
+        },
+        "177508917997644a5af7": {
+          "type": "faq_item",
+          "settings": {
+            "category": "orders",
+            "question": "Can I modify or cancel my order?",
+            "answer": "Orders can be modified or cancelled within 24 hours of placement. Once an order has entered the processing or shipping phase, standard return policies will apply."
+          },
+          "blockId": "177508917997644a5af7"
+        },
+        "1775089179976e737a85": {
+          "type": "faq_item",
+          "settings": {
+            "category": "orders",
+            "question": "Do you offer bulk or trade discounts?",
+            "answer": "Yes, we have a dedicated Trade Program for contractors, developers, and interior designers. Please visit our Trade page to apply for professional pricing."
+          },
+          "blockId": "1775089179976e737a85"
+        },
+        "1775089179976604c836": {
+          "type": "faq_item",
+          "settings": {
+            "category": "orders",
+            "question": "What payment methods do you accept?",
+            "answer": "We accept all major credit cards (Visa, Mastercard, Amex, Discover), PayPal, and Apple Pay. Financing options are also available through our partners."
+          },
+          "blockId": "1775089179976604c836"
+        },
+        "1775089179976103fd76": {
+          "type": "faq_item",
+          "settings": {
+            "category": "product",
+            "question": "What materials are used in PK Cabinet cabinets?",
+            "answer": "Our cabinets feature Grade-A plywood boxes and solid wood frames. We do not use particle board in any of our structural components."
+          },
+          "blockId": "1775089179976103fd76"
+        },
+        "17750891799762e00c6c": {
+          "type": "faq_item",
+          "settings": {
+            "category": "product",
+            "question": "Are your cabinets solid wood?",
+            "answer": "Yes, our doors and face frames are made from solid hardwood (typically Maple or Birch), while the cabinet boxes are constructed from high-quality furniture-grade plywood."
+          },
+          "blockId": "17750891799762e00c6c"
+        },
+        "177508917997667c733c": {
+          "type": "faq_item",
+          "settings": {
+            "category": "product",
+            "question": "What is the warranty on your products?",
+            "answer": "We offer a 5-year limited warranty on all cabinet boxes and a lifetime warranty on our soft-close hardware and hinges against manufacturing defects."
+          },
+          "blockId": "177508917997667c733c"
+        },
+        "17750891799767b16457": {
+          "type": "faq_item",
+          "settings": {
+            "category": "product",
+            "question": "Do you offer sample doors?",
+            "answer": "Yes, we highly recommend ordering a sample door to see the finish and quality in your own home. Sample doors are available for purchase in our Products section."
+          },
+          "blockId": "17750891799767b16457"
+        },
+        "17750891799765e275e9": {
+          "type": "faq_item",
+          "settings": {
+            "category": "designs",
+            "question": "What Shaker styles do you offer?",
+            "answer": "We specialize in the classic Shaker aesthetic, offering several variations including Slim Shaker, Inset Shaker, and Traditional Shaker in multiple premium finishes."
+          },
+          "blockId": "17750891799765e275e9"
+        },
+        "177508917997676cd663": {
+          "type": "faq_item",
+          "settings": {
+            "category": "designs",
+            "question": "Can I get a custom size cabinet?",
+            "answer": "While our cabinets come in a wide range of standard modular sizes, we do offer limited customization for specific filler pieces and trim to ensure a perfect fit."
+          },
+          "blockId": "177508917997676cd663"
+        },
+        "17750891799768c2e26e": {
+          "type": "faq_item",
+          "settings": {
+            "category": "designs",
+            "question": "How do I choose the right finish?",
+            "answer": "Consider your kitchens natural light and overall style. Our White Shaker is timeless and bright, while our Grey and Navy options offer a more modern, sophisticated look."
+          },
+          "blockId": "17750891799768c2e26e"
+        },
+        "1775089179976e71129e": {
+          "type": "faq_item",
+          "settings": {
+            "category": "returns",
+            "question": "What is your return policy?",
+            "answer": "Unopened items in their original packaging can be returned within 30 days of delivery. A 20% restocking fee applies to all returns, and the customer is responsible for return shipping."
+          },
+          "blockId": "1775089179976e71129e"
+        },
+        "1775089179976cca0435": {
+          "type": "faq_item",
+          "settings": {
+            "category": "returns",
+            "question": "How do I initiate a return?",
+            "answer": "To start a return, please contact our support team with your order number. We will provide you with a Return Merchandise Authorization (RMA) and shipping instructions."
+          },
+          "blockId": "1775089179976cca0435"
+        },
+        "177508917997637ba2b4": {
+          "type": "faq_item",
+          "settings": {
+            "category": "returns",
+            "question": "What if my order arrives damaged?",
+            "answer": "Please inspect your delivery immediately. If you notice damage, note it on the delivery receipt and contact us within 48 hours. We will ship replacement parts at no cost."
+          },
+          "blockId": "177508917997637ba2b4"
+        },
+        "1775089179976076e457": {
+          "type": "faq_item",
+          "settings": {
+            "category": "returns",
+            "question": "Are sample doors refundable?",
+            "answer": "Sample doors are non-refundable, but the cost of your sample can be applied as a credit toward your full kitchen order (minimum purchase applies)."
+          },
+          "blockId": "1775089179976076e457"
+        },
+        "17750891799764dd024e": {
+          "type": "faq_item",
+          "settings": {
+            "category": "financing",
+            "question": "Do you offer financing options?",
+            "answer": "Yes, we partner with leading financing providers to offer flexible payment plans, including 0% APR options for qualified buyers."
+          },
+          "blockId": "17750891799764dd024e"
+        },
+        "17750891799768b8a5a0": {
+          "type": "faq_item",
+          "settings": {
+            "category": "financing",
+            "question": "What are the installment terms?",
+            "answer": "Terms range from 3 to 24 months depending on the order total and credit approval. You can see your specific options by selecting Financing at checkout."
+          },
+          "blockId": "17750891799768b8a5a0"
+        },
+        "17750891799767af249a": {
+          "type": "faq_item",
+          "settings": {
+            "category": "financing",
+            "question": "Is there a minimum order for financing?",
+            "answer": "Financing is typically available for orders over $500. The exact minimum may vary depending on the specific financing partner selected."
+          },
+          "blockId": "17750891799767af249a"
+        },
+        "1775089179976a90dfb4": {
+          "type": "faq_item",
+          "settings": {
+            "category": "financing",
+            "question": "How do I apply for financing?",
+            "answer": "Simply select the financing option at checkout. You will be redirected to a secure application that provides an instant decision without affecting your credit score."
+          },
+          "blockId": "1775089179976a90dfb4"
+        }
+      },
+      "block_order": [
+        "17750891799769dc3006",
+        "1775089179976211bcf9",
+        "177508917997699e7f3c",
+        "1775089179976f59595d",
+        "17750891799760dc2cfa",
+        "1775089179976abe4908",
+        "1775089179976ff2105f",
+        "17750891799761cb8b52",
+        "177508917997653bf185",
+        "177508917997629bf445",
+        "177508917997644a5af7",
+        "1775089179976e737a85",
+        "1775089179976604c836",
+        "1775089179976103fd76",
+        "17750891799762e00c6c",
+        "177508917997667c733c",
+        "17750891799767b16457",
+        "17750891799765e275e9",
+        "177508917997676cd663",
+        "17750891799768c2e26e",
+        "1775089179976e71129e",
+        "1775089179976cca0435",
+        "177508917997637ba2b4",
+        "1775089179976076e457",
+        "17750891799764dd024e",
+        "17750891799768b8a5a0",
+        "17750891799767af249a",
+        "1775089179976a90dfb4"
+      ]
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "177472946584633c804c"
+    "177472946584633c804c",
+    "17750891799753e756a7"
   ]
 }

@@ -192,16 +192,69 @@
       "custom_css": []
     },
     "1774837064613dc913ce": {
-      "disabled": false,
+      "disabled": true,
       "type": "pk-guarantee-page",
       "settings": {},
       "blocks": {},
       "block_order": []
+    },
+    "1775088994295ca05b54": {
+      "disabled": false,
+      "type": "pk-guarantee-page",
+      "settings": {
+        "footer_text": "For warranty claims or inquiries, please contact our support team with your original invoice and proof of purchase."
+      },
+      "blocks": {
+        "1775088994295fc06892": {
+          "type": "content_section",
+          "settings": {
+            "heading": "General Warranty Details",
+            "body": "The kitchen cabinets and vanity cabinets sold by PK Cabinet are covered by a 5-year limited warranty against manufacturer defects in material and workmanship under normal use, starting from the original date of purchase invoice. This warranty applies specifically to cabinets used in residential applications within the United States and is valid only for PK Cabinet direct customers. It does not extend to any third parties and is non-transferable. Proof of purchase and the original invoice are necessary for any warranty claim submission.",
+            "note": "Important Note: In order to be eligible for warranty consideration, cabinets must be installed within 90 days of purchase."
+          },
+          "blockId": "1775088994295fc06892"
+        },
+        "1775088994295f809646": {
+          "type": "content_section",
+          "settings": {
+            "heading": "Limited Warranty Terms by PK Cabinet",
+            "body": "Our limited warranty ensures that your investment is protected against structural failures and material defects. We stand behind the quality of our craftsmanship and the durability of our products."
+          },
+          "blockId": "1775088994295f809646"
+        },
+        "1775088994295ff3f778": {
+          "type": "exclusion_list",
+          "settings": {
+            "heading": "Exclusions from Warranty Coverage",
+            "item_1": "The warranty does not cover cabinets that have been mishandled, modified, damaged, improperly installed, or stored in a manner that exceeds industry standards.",
+            "item_2": "Exclusions also include damage resulting from misuse, neglect, acts of God, exposure to moisture, extreme temperatures, or use in non-residential applications.",
+            "item_3": "Additional exclusions encompass RTA cabinets subjected to outdoor installation, misuse, physical or chemical abuse, and exposure to extreme conditions such as direct sunlight, fire, or flood.",
+            "item_4": "Natural characteristics of wood, including variations in color, separation lines, darkening due to aging, and color inconsistency resulting from exposure to sunlight, are not covered under the warranty.",
+            "item_5": "Excluded factors also encompass separation lines at joints between pieces of wood due to temperature or humidity changes, which may occur unavoidably.",
+            "item_6": "Normal wear and tear, improper installation, care, and maintenance are not covered under the warranty.",
+            "item_7": "Damage or defects resulting from misuse, alteration, negligence, abuse, improper handling, and extreme temperature changes are not covered by the warranty.",
+            "item_8": "Labor costs for removal, reinstallation, transportation, and shipping expenses are excluded from coverage.",
+            "item_9": "Products that have been modified in any way are not eligible for warranty coverage.",
+            "item_10": "Surface staining or etching caused by leaving acidic or aggressive chemicals in contact with the material for excessive periods of time is not covered by the warranty.",
+            "item_11": "Surface chipping and scratching resulting from negligence and abuse are excluded from warranty coverage.",
+            "item_12": "Warping caused by extreme temperature changes is not covered under the warranty.",
+            "item_13": "The warranty does not extend to flooring, tile, sink, accessories, countertops, appliances, plumbing fixtures, or any associated labor costs for removal and reinstallation.",
+            "item_14": "Please note that the warranty becomes void if cabinets are modified, moved from their original installation, improperly installed, or damaged due to the installation process."
+          },
+          "blockId": "1775088994295ff3f778"
+        }
+      },
+      "block_order": [
+        "1775088994295fc06892",
+        "1775088994295f809646",
+        "1775088994295ff3f778"
+      ]
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "1774837064613dc913ce"
+    "1774837064613dc913ce",
+    "1775088994295ca05b54"
   ]
 }

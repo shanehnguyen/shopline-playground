@@ -192,16 +192,131 @@
       "custom_css": []
     },
     "17748368372497bf9618": {
-      "disabled": false,
+      "disabled": true,
       "type": "pk-privacy-page",
       "settings": {},
       "blocks": {},
       "block_order": []
+    },
+    "1775089096585af5e092": {
+      "disabled": false,
+      "type": "pk-privacy-page",
+      "settings": {
+        "contact_heading": "12. Contact Us",
+        "contact_name": "PK Cabinet Privacy Office",
+        "contact_email": "support@pkcabinet.com",
+        "contact_phone": "562-625-6101",
+        "contact_address": "123 Cabinet Way, Los Angeles, CA 90001"
+      },
+      "blocks": {
+        "1775089096586746a421": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "1. Introduction",
+            "body": "At PK Cabinet, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website, place orders, or communicate with us."
+          },
+          "blockId": "1775089096586746a421"
+        },
+        "177508909658655dbdd6": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "2. Information We Collect",
+            "body": "Personal Information: Name, email address, phone number, and billing/shipping address. Payment information (processed securely through third-party processors; we do not store full card details). Automatically Collected Information: IP address, browser type, and device information. Cookies and tracking technologies to enhance your experience. Website usage data and analytics."
+          },
+          "blockId": "177508909658655dbdd6"
+        },
+        "1775089096586d6f0265": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "3. How We Use Your Information",
+            "body": "To process and fulfill your orders and manage deliveries. To provide customer support and respond to inquiries. To send marketing and promotional emails (you may opt-out at any time). To improve our website, products, and overall customer experience. To comply with legal obligations and prevent fraud."
+          },
+          "blockId": "1775089096586d6f0265"
+        },
+        "17750890965861fff338": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "4. Information Sharing and Disclosure",
+            "body": "We share information with third-party service providers (e.g., payment processors, shipping carriers) only as necessary to fulfill our services. We may disclose information if required by law or in response to valid legal requests. In the event of a business transfer or acquisition, your data may be transferred to the new owner. We do NOT sell your personal information to third parties."
+          },
+          "blockId": "17750890965861fff338"
+        },
+        "1775089096586f1eeb06": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "5. Cookies and Tracking Technologies",
+            "body": "We use essential cookies for website functionality, analytics cookies to understand usage, and marketing cookies for personalized experiences. You can manage your cookie preferences through your browser settings."
+          },
+          "blockId": "1775089096586f1eeb06"
+        },
+        "1775089096586e989a59": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "6. Data Security",
+            "body": "We implement industry-standard security measures, including SSL encryption, to protect your data. While we strive for maximum security, no method of transmission over the internet is 100% secure."
+          },
+          "blockId": "1775089096586e989a59"
+        },
+        "1775089096586d1f5811": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "7. Your Rights and Choices",
+            "body": "You have the right to access, update, or correct your personal information. You can opt-out of marketing communications using the unsubscribe link in our emails. You may request the deletion of your account or personal data, subject to legal retention requirements."
+          },
+          "blockId": "1775089096586d1f5811"
+        },
+        "177508909658644f5d78": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "8. Third-Party Links",
+            "body": "Our website may contain links to external sites. We are not responsible for the privacy practices or content of these third-party websites."
+          },
+          "blockId": "177508909658644f5d78"
+        },
+        "1775089096586195cd7f": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "9. Children's Privacy",
+            "body": "Our website is not intended for users under the age of 16. We do not knowingly collect data from children."
+          },
+          "blockId": "1775089096586195cd7f"
+        },
+        "1775089096586eb08722": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "10. International Users",
+            "body": "Your data is processed and stored in the United States. By using our services, you consent to this transfer and processing."
+          },
+          "blockId": "1775089096586eb08722"
+        },
+        "1775089096586524dbfb": {
+          "type": "policy_section",
+          "settings": {
+            "heading": "11. Changes to Privacy Policy",
+            "body": "We reserve the right to update this policy. Material changes will be notified via email or a prominent notice on our website."
+          },
+          "blockId": "1775089096586524dbfb"
+        }
+      },
+      "block_order": [
+        "1775089096586746a421",
+        "177508909658655dbdd6",
+        "1775089096586d6f0265",
+        "17750890965861fff338",
+        "1775089096586f1eeb06",
+        "1775089096586e989a59",
+        "1775089096586d1f5811",
+        "177508909658644f5d78",
+        "1775089096586195cd7f",
+        "1775089096586eb08722",
+        "1775089096586524dbfb"
+      ]
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "17748368372497bf9618"
+    "17748368372497bf9618",
+    "1775089096585af5e092"
   ]
 }

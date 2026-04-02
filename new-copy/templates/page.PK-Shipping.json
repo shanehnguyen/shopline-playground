@@ -192,16 +192,55 @@
       "custom_css": []
     },
     "1774837099980d48bf24": {
-      "disabled": false,
+      "disabled": true,
       "type": "pk-shipping-page",
       "settings": {},
       "blocks": {},
       "block_order": []
+    },
+    "17750889647264024466": {
+      "disabled": false,
+      "type": "pk-shipping-page",
+      "settings": {
+        "footer_text": "For any questions regarding your delivery, please contact our support team at support@pkcabinet.com or call us at 562-625-6101."
+      },
+      "blocks": {
+        "177508896473193b214e": {
+          "type": "shipping_section",
+          "settings": {
+            "heading": "Free Shipping",
+            "body": "All qualifying orders will receive final mile delivery service at no additional charge. Orders over $3,500 qualify for FREE shipping. Some restrictions may apply in select areas."
+          },
+          "blockId": "177508896473193b214e"
+        },
+        "1775088964731b7eceb8": {
+          "type": "shipping_section",
+          "settings": {
+            "heading": "What To Expect For Your Final Mile Delivery",
+            "body": "Box truck transportation. Hassle-free, respectful, and courteous delivery experience. Professional delivery personnel in appropriate branded uniforms. Call ahead and text notifications. Your order delivered to the first dry space at your delivery location. Customer satisfaction and a great delivery experience."
+          },
+          "blockId": "1775088964731b7eceb8"
+        },
+        "1775088964731798ee74": {
+          "type": "shipping_section",
+          "settings": {
+            "heading": "Delivery Process",
+            "body": "1. You will receive a call from our delivery company to schedule your in-home delivery appointment.\n\n2. You will receive a call the day before the scheduled delivery date to provide you with a 4-hour delivery window.\n\n3. Your driver will call you 30 minutes to 1 hour before arrival.\n\n4. You will receive a customer satisfaction follow-up call after delivery. We encourage all feedback."
+          },
+          "blockId": "1775088964731798ee74"
+        }
+      },
+      "block_order": [
+        "177508896473193b214e",
+        "1775088964731b7eceb8",
+        "1775088964731798ee74"
+      ]
     }
   },
   "order": [
     "main",
     "1772118945712b046bc8",
-    "1774837099980d48bf24"
+    "1774837099980d48bf24",
+    "17750889647264024466"
   ]
 }

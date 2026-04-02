@@ -1,13 +1,13 @@
 {
   "sections": {
     "main": {
-      "disabled": false,
+      "disabled": true,
       "type": "main-page",
       "settings": {},
       "blocks": {}
     },
     "1772118945712b046bc8": {
-      "disabled": false,
+      "disabled": true,
       "type": "collection-list",
       "settings": {
         "title": "Frameless Collections",
@@ -190,10 +190,45 @@
         "1772119141815d516df3"
       ],
       "custom_css": []
+    },
+    "177472951031263a4f47": {
+      "disabled": false,
+      "type": "pk-contractor-page",
+      "settings": {},
+      "blocks": {},
+      "block_order": []
+    },
+    "1775089154029b2deb20": {
+      "disabled": true,
+      "type": "pk-contractor-page",
+      "settings": {
+        "form_label": "Apply Today",
+        "form_heading": "Contractor Application",
+        "form_subheading": "Fill out the form below to apply for our contractor program and start enjoying exclusive benefits.",
+        "submit_button_text": "Submit Application",
+        "success_message": "Thank you for your application. A representative will be in touch within 1-2 business days.",
+        "benefits_heading": "Contractor Benefits",
+        "benefit_1_title": "Exclusive Discounts",
+        "benefit_1_desc": "Enjoy extra savings on every order, every day — no matter the size.",
+        "benefit_2_title": "Dedicated Account Manager",
+        "benefit_2_desc": "Receive personalized support designed to help you streamline your business.",
+        "benefit_3_title": "Showroom Resources",
+        "benefit_3_desc": "Enhance your sales with premium showroom materials. Pro members can order 12-inch base and wall sample cabinets at minimal cost with free shipping to showcase product quality and design.",
+        "benefit_4_title": "Branded Dropshipping",
+        "benefit_4_desc": "Deliver products directly to your customers — custom-branded with your logo.",
+        "benefit_5_title": "Free Local Customer Referrals",
+        "benefit_5_desc": "We connect you with local homeowners to help expand your customer base.",
+        "benefit_6_title": "Complimentary Sample Doors",
+        "benefit_6_desc": "Get up to 5 free sample doors with your Pro account — ideal for client presentations."
+      },
+      "blocks": {},
+      "block_order": []
     }
   },
   "order": [
     "main",
-    "1772118945712b046bc8"
+    "1772118945712b046bc8",
+    "177472951031263a4f47",
+    "1775089154029b2deb20"
   ]
 }
