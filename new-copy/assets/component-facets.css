@@ -753,3 +753,23 @@ a.facets__reset:hover {
 /* @custom-media --gt-mobile (min-width: 751px); */
 
 /* detectingScreen need to consider the configuration of the tablet */
+
+/* ── PK Facets Font Overrides ── */
+.facets__summary,
+.facets__label,
+.facets__option,
+.facets__price,
+.facet-filters__sort,
+.facet-filters__label {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-dark);
+}
+
+.facets__heading {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-label-size);
+  font-weight: var(--pk-label-weight);
+  letter-spacing: var(--pk-label-spacing);
+  text-transform: uppercase;
+  color: var(--pk-dark);
+}
