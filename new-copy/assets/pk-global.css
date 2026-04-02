@@ -27,6 +27,10 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root {
+  /* ── Override Shopline theme fonts ── */
+  --body-font: 'Inter', sans-serif;
+  --title-font: 'Cabinet Grotesk', 'Inter', sans-serif;
+
   /* ── Core palette ── */
   --pk-dark:           #1a1a1a;   /* primary text, active states, dark buttons */
   --pk-muted:          #6b6258;   /* secondary text, icons, labels            */
