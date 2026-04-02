@@ -41,53 +41,16 @@
 <div class="pk-ship">
   <div class="pk-ship__inner">
 
-    <!-- Free Shipping -->
+    {{#each section.blocks}}
     <div class="pk-ship__section">
-      <h2 class="pk-ship__h2">Free Shipping</h2>
-      <p class="pk-ship__p">All qualifying orders will receive final mile delivery service at no additional charge. Orders over $3,500 qualify for FREE shipping. Some restrictions may apply in select areas.</p>
+      <h2 class="pk-ship__h2">{{settings.heading}}</h2>
+      <p class="pk-ship__p">{{settings.body}}</p>
     </div>
-
-    <!-- What To Expect -->
-    <div class="pk-ship__section">
-      <h2 class="pk-ship__h2">What To Expect For Your Final Mile Delivery</h2>
-      <ul class="pk-ship__dot-list">
-        <li class="pk-ship__dot-item"><span class="pk-ship__dot"></span><span>Box truck transportation</span></li>
-        <li class="pk-ship__dot-item"><span class="pk-ship__dot"></span><span>Hassle-free, respectful, and courteous delivery experience</span></li>
-        <li class="pk-ship__dot-item"><span class="pk-ship__dot"></span><span>Professional delivery personnel in appropriate branded uniforms</span></li>
-        <li class="pk-ship__dot-item"><span class="pk-ship__dot"></span><span>Call ahead and text notifications</span></li>
-        <li class="pk-ship__dot-item"><span class="pk-ship__dot"></span><span>Your order delivered to the first dry space at your delivery location</span></li>
-        <li class="pk-ship__dot-item"><span class="pk-ship__dot"></span><span>Customer satisfaction and a great delivery experience</span></li>
-      </ul>
-    </div>
-
-    <!-- Delivery Process -->
-    <div class="pk-ship__section">
-      <h2 class="pk-ship__h2">Delivery Process</h2>
-      <div class="pk-ship__steps">
-        <div class="pk-ship__step">
-          <span class="pk-ship__num">1</span>
-          <p class="pk-ship__p">You will receive a call from our delivery company to schedule your in-home delivery appointment</p>
-        </div>
-        <div class="pk-ship__step">
-          <span class="pk-ship__num">2</span>
-          <p class="pk-ship__p">You will receive a call the day before the scheduled delivery date to provide you with a 4-hour delivery window</p>
-        </div>
-        <div class="pk-ship__step">
-          <span class="pk-ship__num">3</span>
-          <p class="pk-ship__p">Your driver will call you 30 minutes to 1 hour before arrival</p>
-        </div>
-        <div class="pk-ship__step">
-          <span class="pk-ship__num">4</span>
-          <p class="pk-ship__p">You will receive a customer satisfaction follow-up call after delivery. We encourage all feedback.</p>
-        </div>
-      </div>
-    </div>
+    {{/each}}
 
     <!-- Footer Note -->
     <hr class="pk-ship__divider" />
-    <p class="pk-ship__footer">
-      For any questions regarding your delivery, please contact our support team at <a href="mailto:support@pkcabinet.com" style="color:#a89060;">support@pkcabinet.com</a> or call us at <a href="tel:5626256101" style="color:#a89060;">562-625-6101</a>.
-    </p>
+    <p class="pk-ship__footer">{{#if section.settings.footer_text}}{{section.settings.footer_text}}{{else}}For any questions regarding your delivery, please contact our support team.{{/if}}</p>
 
   </div>
 </div>
@@ -96,12 +59,31 @@
 {
   "name": "PK Shipping Page",
   "class": "section",
-  "settings": [],
-  "presets": [
+  "max_blocks": 15,
+  "settings": [
+    { "id": "footer_text", "type": "textarea", "label": "Footer Text", "default": "For any questions regarding your delivery, please contact our support team at support@pkcabinet.com or call us at 562-625-6101." }
+  ],
+  "blocks": [
     {
-      "name": "PK Shipping Page",
-      "category": "Custom"
+      "type": "shipping_section",
+      "name": "Shipping Section",
+      "settings": [
+        { "id": "heading", "type": "text", "label": "Heading" },
+        { "id": "body", "type": "textarea", "label": "Body Text" }
+      ]
     }
-  ]
+  ],
+  "presets": [{
+    "name": "PK Shipping Page",
+    "category": "Custom",
+    "settings": {
+      "footer_text": "For any questions regarding your delivery, please contact our support team at support@pkcabinet.com or call us at 562-625-6101."
+    },
+    "blocks": [
+      { "type": "shipping_section", "settings": { "heading": "Free Shipping", "body": "All qualifying orders will receive final mile delivery service at no additional charge. Orders over $3,500 qualify for FREE shipping. Some restrictions may apply in select areas." } },
+      { "type": "shipping_section", "settings": { "heading": "What To Expect For Your Final Mile Delivery", "body": "Box truck transportation. Hassle-free, respectful, and courteous delivery experience. Professional delivery personnel in appropriate branded uniforms. Call ahead and text notifications. Your order delivered to the first dry space at your delivery location. Customer satisfaction and a great delivery experience." } },
+      { "type": "shipping_section", "settings": { "heading": "Delivery Process", "body": "1. You will receive a call from our delivery company to schedule your in-home delivery appointment.\n\n2. You will receive a call the day before the scheduled delivery date to provide you with a 4-hour delivery window.\n\n3. Your driver will call you 30 minutes to 1 hour before arrival.\n\n4. You will receive a customer satisfaction follow-up call after delivery. We encourage all feedback." } }
+    ]
+  }]
 }
 {{/schema}}
