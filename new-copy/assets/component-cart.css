@@ -85,3 +85,38 @@
 /* @custom-media --gt-mobile (min-width: 751px); */
 
 /* detectingScreen need to consider the configuration of the tablet */
+
+/* ── PK Cart Item Overrides ── */
+.cart-drawer .cart-item {
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0;
+}
+
+.cart-drawer .cart-item__media {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.cart-drawer .cart-item__media img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.cart-drawer .cart-item__name {
+  font-family: 'Inter', sans-serif;
+  color: #111;
+}
+
+.cart-drawer .cart-item__totals {
+  text-align: right;
+  font-weight: 500;
+  font-size: 14px;
+  color: #111;
+}
+
+.cart-drawer .final__price {
+  font-size: 13px;
+  color: #888;
+}
