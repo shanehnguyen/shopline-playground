@@ -116,7 +116,7 @@ body { background-color: #ffffff; }
 /* — Buttons — */
 .button {
   font-family: var(--pk-font-ui);
-  font-size: 12px;
+  font-size: var(--pk-meta-size);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -251,7 +251,7 @@ body { background-color: #ffffff; }
 /* Delete account link */
 .account-section .customer__delete-account {
   font-family: var(--pk-font-ui);
-  font-size: 12px;
+  font-size: var(--pk-meta-size);
   letter-spacing: 0.05em;
 }
 
@@ -316,7 +316,7 @@ body { background-color: #ffffff; }
 .modify-info__modal .common-error-message {
   color: var(--pk-error-text);
   font-family: var(--pk-font-ui);
-  font-size: 12px;
+  font-size: var(--pk-meta-size);
 }
 
 
