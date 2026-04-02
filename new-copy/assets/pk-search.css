@@ -213,7 +213,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   color: var(--pk-muted, #6b6258);
   text-align: left;
   line-height: 32px;
@@ -378,7 +378,7 @@
   transform: rotate(40deg);
 }
 .pk-search-category-text {
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   color: var(--pk-muted, #6b6258);
   font-family: inherit;
   transition: color 0.2s;
@@ -403,7 +403,7 @@
   margin-bottom: 24px;
 }
 .pk-search-results-count {
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   color: var(--pk-muted, #6b6258);
   font-family: inherit;
   margin: 0;
@@ -417,7 +417,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   color: var(--pk-muted, #6b6258);
   background: none;
   border: none;
@@ -458,7 +458,7 @@
   display: block;
   width: 100%;
   padding: 8px 16px;
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   font-family: inherit;
   background: none;
   border: none;
@@ -544,7 +544,7 @@
 }
 @media (min-width: 768px) {
   .pk-search-product-card__name {
-    font-size: 14px;
+    font-size: var(--pk-body-size);
   }
 }
 .pk-search-product-card__meta {
@@ -574,7 +574,7 @@
   color: var(--pk-muted, #6b6258);
 }
 .pk-search-product-card__price {
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   font-weight: 500;
   color: var(--pk-dark, #1a1a1a);
   margin: auto 0 0;
@@ -603,7 +603,7 @@
   font-family: inherit;
 }
 .pk-search-empty__text {
-  font-size: 14px;
+  font-size: var(--pk-body-size);
   color: var(--pk-muted, #6b6258);
   margin: 0;
   font-family: inherit;

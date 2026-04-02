@@ -86,7 +86,7 @@
 .pk-cart__qty .quantity__input {
   width: 48px; height: 40px; text-align: center; border: none;
   border-left: 1px solid #e0dcd5; border-right: 1px solid #e0dcd5;
-  font-size: 14px; font-weight: 500; color: #1a1a1a; -moz-appearance: textfield;
+  font-size: var(--pk-body-size); font-weight: 500; color: #1a1a1a; -moz-appearance: textfield;
   font-family: inherit; border-radius: 0; background: transparent;
 }
 .pk-cart__qty-input::-webkit-outer-spin-button,
@@ -100,7 +100,7 @@
   text-decoration: none; transition: color 0.2s; font-family: inherit;
 }
 .pk-cart__remove:hover { color: #1a1a1a; }
-.pk-cart__remove-icon { font-size: 14px; line-height: 1; }
+.pk-cart__remove-icon { font-size: var(--pk-body-size); line-height: 1; }
 
 /* ── Empty State ── */
 .pk-cart__empty {
@@ -147,7 +147,7 @@
 .pk-cart__notes-body { overflow: hidden; transition: max-height 0.25s ease; max-height: 0; }
 .pk-cart__notes-body.is-open { max-height: 200px; }
 .pk-cart__notes-textarea {
-  width: 100%; height: 128px; padding: 16px; font-size: 14px;
+  width: 100%; height: 128px; padding: 16px; font-size: var(--pk-body-size);
   border: 1px solid #e0dcd5; outline: none; resize: none;
   transition: border-color 0.2s; font-family: inherit; margin-top: 12px;
 }
@@ -156,9 +156,9 @@
 /* Totals */
 .pk-cart__totals { display: flex; flex-direction: column; gap: 16px; }
 .pk-cart__total-row { display: flex; align-items: flex-end; justify-content: space-between; }
-.pk-cart__total-label { font-size: 14px; color: #6b6258; }
+.pk-cart__total-label { font-size: var(--pk-body-size); color: #6b6258; }
 .pk-cart__total-value { font-size: 24px; font-weight: 700; color: #1a1a1a; }
-.pk-cart__shipping-value { font-size: 14px; color: #6b6258; font-style: italic; }
+.pk-cart__shipping-value { font-size: var(--pk-body-size); color: #6b6258; font-style: italic; }
 .pk-cart__grand-row {
   display: flex; align-items: flex-end; justify-content: space-between;
   border-top: 1px solid #e0dcd5; padding-top: 16px;
@@ -169,7 +169,7 @@
 /* Checkout button */
 .pk-cart__checkout-btn {
   display: block; width: 100%; padding: 20px 24px; background: #1a1a1a; color: #fff;
-  border: none; cursor: pointer; font-size: 14px; font-weight: 700;
+  border: none; cursor: pointer; font-size: var(--pk-body-size); font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em; transition: background 0.2s;
   font-family: inherit;
 }
