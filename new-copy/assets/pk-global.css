@@ -60,6 +60,18 @@
   --pk-label-spacing:  0.12em;
   --pk-body-size:      14px;
   --pk-body-line:      1.7;
+  --pk-heading-size:   48px;
+  --pk-heading-weight: 500;
+  --pk-subheading-size:  15px;
+  --pk-subheading-weight: 500;
+  --pk-price-size:     15px;
+  --pk-price-weight:   500;
+  --pk-meta-size:      12px;
+  --pk-btn-size:       13px;
+  --pk-btn-weight:     700;
+  --pk-btn-spacing:    0.12em;
+  --pk-link-size:      13px;
+  --pk-link-weight:    500;
 
   /* ── Spacing ── */
   --pk-space-xs:       8px;
@@ -82,6 +94,13 @@
   --pk-t-fast:         0.15s;
   --pk-t-base:         0.2s;
   --pk-t-slow:         0.3s;
+}
+
+/* ── Global PK base ── */
+[class*="pk-"] {
+  font-family: var(--pk-font-ui);
+  color: var(--pk-dark);
+  line-height: var(--pk-body-line);
 }
 
 
