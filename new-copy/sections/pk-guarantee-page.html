@@ -42,49 +42,45 @@
 <div class="pk-guar">
   <div class="pk-guar__inner">
 
-    <!-- General Warranty Details -->
-    <div class="pk-guar__section">
-      <h2 class="pk-guar__h2">General Warranty Details</h2>
-      <p class="pk-guar__p">
-        The kitchen cabinets and vanity cabinets sold by PK Cabinet are covered by a 5-year limited warranty against manufacturer defects in material and workmanship under normal use, starting from the original date of purchase invoice. This warranty applies specifically to cabinets used in residential applications within the United States and is valid only for PK Cabinet direct customers. It does not extend to any third parties and is non-transferable. Proof of purchase and the original invoice are necessary for any warranty claim submission.
-      </p>
-      <div class="pk-guar__note">
-        <p>Important Note: In order to be eligible for warranty consideration, cabinets must be installed within 90 days of purchase.</p>
+    {{#each section.blocks}}
+      {{#if (compare type "==" "content_section")}}
+      <div class="pk-guar__section">
+        <h2 class="pk-guar__h2">{{settings.heading}}</h2>
+        <p class="pk-guar__p">{{settings.body}}</p>
+        {{#if settings.note}}
+        <div class="pk-guar__note">
+          <p>{{settings.note}}</p>
+        </div>
+        {{/if}}
       </div>
-    </div>
+      {{/if}}
 
-    <!-- Limited Warranty Terms -->
-    <div class="pk-guar__section">
-      <h2 class="pk-guar__h2">Limited Warranty Terms by PK Cabinet</h2>
-      <p class="pk-guar__p">
-        Our limited warranty ensures that your investment is protected against structural failures and material defects. We stand behind the quality of our craftsmanship and the durability of our products.
-      </p>
-    </div>
-
-    <!-- Exclusions -->
-    <div class="pk-guar__section">
-      <h2 class="pk-guar__h2">Exclusions from Warranty Coverage</h2>
-      <ul class="pk-guar__list">
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>The warranty does not cover cabinets that have been mishandled, modified, damaged, improperly installed, or stored in a manner that exceeds industry standards.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Exclusions also include damage resulting from misuse, neglect, acts of God, exposure to moisture, extreme temperatures, or use in non-residential applications.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Additional exclusions encompass RTA cabinets subjected to outdoor installation, misuse, physical or chemical abuse, and exposure to extreme conditions such as direct sunlight, fire, or flood.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Natural characteristics of wood, including variations in color, separation lines, darkening due to aging, and color inconsistency resulting from exposure to sunlight, are not covered under the warranty.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Excluded factors also encompass separation lines at joints between pieces of wood due to temperature or humidity changes, which may occur unavoidably.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Normal wear and tear, improper installation, care, and maintenance are not covered under the warranty.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Damage or defects resulting from misuse, alteration, negligence, abuse, improper handling, and extreme temperature changes are not covered by the warranty.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Labor costs for removal, reinstallation, transportation, and shipping expenses are excluded from coverage.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Products that have been modified in any way are not eligible for warranty coverage.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Surface staining or etching caused by leaving acidic or aggressive chemicals in contact with the material for excessive periods of time is not covered by the warranty.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Surface chipping and scratching resulting from negligence and abuse are excluded from warranty coverage.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Warping caused by extreme temperature changes is not covered under the warranty.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>The warranty does not extend to flooring, tile, sink, accessories, countertops, appliances, plumbing fixtures, or any associated labor costs for removal and reinstallation.</span></li>
-        <li class="pk-guar__li"><span class="pk-guar__dot"></span><span>Please note that the warranty becomes void if cabinets are modified, moved from their original installation, improperly installed, or damaged due to the installation process.</span></li>
-      </ul>
-    </div>
+      {{#if (compare type "==" "exclusion_list")}}
+      <div class="pk-guar__section">
+        <h2 class="pk-guar__h2">{{settings.heading}}</h2>
+        <ul class="pk-guar__list">
+          {{#if settings.item_1}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_1}}</span></li>{{/if}}
+          {{#if settings.item_2}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_2}}</span></li>{{/if}}
+          {{#if settings.item_3}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_3}}</span></li>{{/if}}
+          {{#if settings.item_4}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_4}}</span></li>{{/if}}
+          {{#if settings.item_5}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_5}}</span></li>{{/if}}
+          {{#if settings.item_6}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_6}}</span></li>{{/if}}
+          {{#if settings.item_7}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_7}}</span></li>{{/if}}
+          {{#if settings.item_8}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_8}}</span></li>{{/if}}
+          {{#if settings.item_9}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_9}}</span></li>{{/if}}
+          {{#if settings.item_10}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_10}}</span></li>{{/if}}
+          {{#if settings.item_11}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_11}}</span></li>{{/if}}
+          {{#if settings.item_12}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_12}}</span></li>{{/if}}
+          {{#if settings.item_13}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_13}}</span></li>{{/if}}
+          {{#if settings.item_14}}<li class="pk-guar__li"><span class="pk-guar__dot"></span><span>{{settings.item_14}}</span></li>{{/if}}
+        </ul>
+      </div>
+      {{/if}}
+    {{/each}}
 
     <!-- Footer -->
     <div class="pk-guar__divider">
-      <p class="pk-guar__footer">For warranty claims or inquiries, please contact our support team with your original invoice and proof of purchase.</p>
+      <p class="pk-guar__footer">{{#if section.settings.footer_text}}{{section.settings.footer_text}}{{else}}For warranty claims or inquiries, please contact our support team with your original invoice and proof of purchase.{{/if}}</p>
     </div>
 
   </div>
@@ -94,12 +90,52 @@
 {
   "name": "PK Guarantee Page",
   "class": "section",
-  "settings": [],
-  "presets": [
+  "settings": [
+    { "id": "footer_text", "type": "textarea", "label": "Footer Text", "default": "For warranty claims or inquiries, please contact our support team with your original invoice and proof of purchase." }
+  ],
+  "blocks": [
     {
-      "name": "PK Guarantee Page",
-      "category": "Custom"
+      "type": "content_section",
+      "name": "Content Section",
+      "settings": [
+        { "id": "heading", "type": "text", "label": "Heading" },
+        { "id": "body", "type": "textarea", "label": "Body Text" },
+        { "id": "note", "type": "text", "label": "Note (optional, displayed in dark box)" }
+      ]
+    },
+    {
+      "type": "exclusion_list",
+      "name": "Exclusion List",
+      "settings": [
+        { "id": "heading", "type": "text", "label": "Heading", "default": "Exclusions from Warranty Coverage" },
+        { "id": "item_1", "type": "textarea", "label": "Item 1" },
+        { "id": "item_2", "type": "textarea", "label": "Item 2" },
+        { "id": "item_3", "type": "textarea", "label": "Item 3" },
+        { "id": "item_4", "type": "textarea", "label": "Item 4" },
+        { "id": "item_5", "type": "textarea", "label": "Item 5" },
+        { "id": "item_6", "type": "textarea", "label": "Item 6" },
+        { "id": "item_7", "type": "textarea", "label": "Item 7" },
+        { "id": "item_8", "type": "textarea", "label": "Item 8" },
+        { "id": "item_9", "type": "textarea", "label": "Item 9" },
+        { "id": "item_10", "type": "textarea", "label": "Item 10" },
+        { "id": "item_11", "type": "textarea", "label": "Item 11" },
+        { "id": "item_12", "type": "textarea", "label": "Item 12" },
+        { "id": "item_13", "type": "textarea", "label": "Item 13" },
+        { "id": "item_14", "type": "textarea", "label": "Item 14" }
+      ]
     }
-  ]
+  ],
+  "presets": [{
+    "name": "PK Guarantee Page",
+    "category": "Custom",
+    "settings": {
+      "footer_text": "For warranty claims or inquiries, please contact our support team with your original invoice and proof of purchase."
+    },
+    "blocks": [
+      { "type": "content_section", "settings": { "heading": "General Warranty Details", "body": "The kitchen cabinets and vanity cabinets sold by PK Cabinet are covered by a 5-year limited warranty against manufacturer defects in material and workmanship under normal use, starting from the original date of purchase invoice. This warranty applies specifically to cabinets used in residential applications within the United States and is valid only for PK Cabinet direct customers. It does not extend to any third parties and is non-transferable. Proof of purchase and the original invoice are necessary for any warranty claim submission.", "note": "Important Note: In order to be eligible for warranty consideration, cabinets must be installed within 90 days of purchase." } },
+      { "type": "content_section", "settings": { "heading": "Limited Warranty Terms by PK Cabinet", "body": "Our limited warranty ensures that your investment is protected against structural failures and material defects. We stand behind the quality of our craftsmanship and the durability of our products." } },
+      { "type": "exclusion_list", "settings": { "heading": "Exclusions from Warranty Coverage", "item_1": "The warranty does not cover cabinets that have been mishandled, modified, damaged, improperly installed, or stored in a manner that exceeds industry standards.", "item_2": "Exclusions also include damage resulting from misuse, neglect, acts of God, exposure to moisture, extreme temperatures, or use in non-residential applications.", "item_3": "Additional exclusions encompass RTA cabinets subjected to outdoor installation, misuse, physical or chemical abuse, and exposure to extreme conditions such as direct sunlight, fire, or flood.", "item_4": "Natural characteristics of wood, including variations in color, separation lines, darkening due to aging, and color inconsistency resulting from exposure to sunlight, are not covered under the warranty.", "item_5": "Excluded factors also encompass separation lines at joints between pieces of wood due to temperature or humidity changes, which may occur unavoidably.", "item_6": "Normal wear and tear, improper installation, care, and maintenance are not covered under the warranty.", "item_7": "Damage or defects resulting from misuse, alteration, negligence, abuse, improper handling, and extreme temperature changes are not covered by the warranty.", "item_8": "Labor costs for removal, reinstallation, transportation, and shipping expenses are excluded from coverage.", "item_9": "Products that have been modified in any way are not eligible for warranty coverage.", "item_10": "Surface staining or etching caused by leaving acidic or aggressive chemicals in contact with the material for excessive periods of time is not covered by the warranty.", "item_11": "Surface chipping and scratching resulting from negligence and abuse are excluded from warranty coverage.", "item_12": "Warping caused by extreme temperature changes is not covered under the warranty.", "item_13": "The warranty does not extend to flooring, tile, sink, accessories, countertops, appliances, plumbing fixtures, or any associated labor costs for removal and reinstallation.", "item_14": "Please note that the warranty becomes void if cabinets are modified, moved from their original installation, improperly installed, or damaged due to the installation process." } }
+    ]
+  }]
 }
 {{/schema}}
