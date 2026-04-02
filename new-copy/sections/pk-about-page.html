@@ -133,9 +133,9 @@
   <!-- Pull-quote / Mission -->
   <section class="pk-about__mission">
     <div class="pk-about__mission-inner">
-      <span class="pk-about__mission-label">Our Mission.</span>
+      <span class="pk-about__mission-label">{{#if section.settings.mission_label}}{{section.settings.mission_label}}{{else}}Our Mission.{{/if}}</span>
       <p class="pk-about__mission-quote">
-        "Operating through a factory direct network, PK Cabinet lets you purchase high-quality cabinetry directly from the factory — eliminating the middleman and the extra costs."
+        {{#if section.settings.mission_quote}}{{section.settings.mission_quote}}{{else}}"Operating through a factory direct network, PK Cabinet lets you purchase high-quality cabinetry directly from the factory — eliminating the middleman and the extra costs."{{/if}}
       </p>
     </div>
   </section>
@@ -144,9 +144,9 @@
   <section class="pk-about__craft">
     <div class="pk-about__craft-inner">
       <div class="pk-about__craft-left">
-        <span class="pk-about__craft-sublabel">Our Craft</span>
-        <h2 class="pk-about__craft-title">The Perfect Combination of Quality and Value</h2>
-        <p class="pk-about__craft-body">Every piece of cabinetry is carefully crafted to ensure exceptional quality standards. We pay attention to every detail and are committed to providing durable, beautiful solutions for your home. We're especially known for our signature Shaker style — acclaimed for its simplicity, timeless appeal, and versatility.</p>
+        <span class="pk-about__craft-sublabel">{{#if section.settings.craft_label}}{{section.settings.craft_label}}{{else}}Our Craft{{/if}}</span>
+        <h2 class="pk-about__craft-title">{{#if section.settings.craft_heading}}{{section.settings.craft_heading}}{{else}}The Perfect Combination of Quality and Value{{/if}}</h2>
+        <p class="pk-about__craft-body">{{#if section.settings.craft_body}}{{section.settings.craft_body}}{{else}}Every piece of cabinetry is carefully crafted to ensure exceptional quality standards. We pay attention to every detail and are committed to providing durable, beautiful solutions for your home. We're especially known for our signature Shaker style — acclaimed for its simplicity, timeless appeal, and versatility.{{/if}}</p>
       </div>
       <div class="pk-about__craft-right">
         <div class="pk-about__craft-img-wrap">
@@ -177,16 +177,16 @@
     <div class="pk-about__why-inner">
       <div class="pk-about__why-grid">
         <div class="pk-about__why-item">
-          <span class="pk-about__why-label">Quality &amp; Value</span>
-          <p class="pk-about__why-body">Every cabinet is built to exceptional standards. We pay attention to every detail — durable, beautiful, and built to last.</p>
+          <span class="pk-about__why-label">{{#if section.settings.why_1_title}}{{section.settings.why_1_title}}{{else}}Quality &amp; Value{{/if}}</span>
+          <p class="pk-about__why-body">{{#if section.settings.why_1_body}}{{section.settings.why_1_body}}{{else}}Every cabinet is built to exceptional standards. We pay attention to every detail — durable, beautiful, and built to last.{{/if}}</p>
         </div>
         <div class="pk-about__why-item">
-          <span class="pk-about__why-label">One-Stop Solutions</span>
-          <p class="pk-about__why-body">From design to installation, we offer comprehensive kitchen and bathroom cabinet services. Professional support at every step.</p>
+          <span class="pk-about__why-label">{{#if section.settings.why_2_title}}{{section.settings.why_2_title}}{{else}}One-Stop Solutions{{/if}}</span>
+          <p class="pk-about__why-body">{{#if section.settings.why_2_body}}{{section.settings.why_2_body}}{{else}}From design to installation, we offer comprehensive kitchen and bathroom cabinet services. Professional support at every step.{{/if}}</p>
         </div>
         <div class="pk-about__why-item">
-          <span class="pk-about__why-label">Fast &amp; Affordable</span>
-          <p class="pk-about__why-body">Efficient, fast, and cost-effective. Whether a home renovation or commercial project, we help you save time and money.</p>
+          <span class="pk-about__why-label">{{#if section.settings.why_3_title}}{{section.settings.why_3_title}}{{else}}Fast &amp; Affordable{{/if}}</span>
+          <p class="pk-about__why-body">{{#if section.settings.why_3_body}}{{section.settings.why_3_body}}{{else}}Efficient, fast, and cost-effective. Whether a home renovation or commercial project, we help you save time and money.{{/if}}</p>
         </div>
       </div>
     </div>
@@ -207,11 +207,21 @@
   "name": "PK About Page",
   "class": "pk-about-section",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "craft_image",
-      "label": "Our Craft Section Image"
-    }
+    { "type": "header", "content": "Mission Section" },
+    { "id": "mission_label",   "type": "text",     "label": "Mission Label",   "default": "Our Mission." },
+    { "id": "mission_quote",   "type": "textarea", "label": "Mission Quote",   "default": "\"Operating through a factory direct network, PK Cabinet lets you purchase high-quality cabinetry directly from the factory — eliminating the middleman and the extra costs.\"" },
+    { "type": "header", "content": "Our Craft Section" },
+    { "id": "craft_label",    "type": "text",     "label": "Craft Label",    "default": "Our Craft" },
+    { "id": "craft_heading",  "type": "text",     "label": "Craft Heading",  "default": "The Perfect Combination of Quality and Value" },
+    { "id": "craft_body",     "type": "textarea", "label": "Craft Body",     "default": "Every piece of cabinetry is carefully crafted to ensure exceptional quality standards. We pay attention to every detail and are committed to providing durable, beautiful solutions for your home. We're especially known for our signature Shaker style — acclaimed for its simplicity, timeless appeal, and versatility." },
+    { "id": "craft_image",    "type": "image_picker", "label": "Craft Image" },
+    { "type": "header", "content": "Why Choose Us" },
+    { "id": "why_1_title",    "type": "text",     "label": "Benefit 1 Title",       "default": "Quality & Value" },
+    { "id": "why_1_body",     "type": "textarea", "label": "Benefit 1 Description", "default": "Every cabinet is built to exceptional standards. We pay attention to every detail — durable, beautiful, and built to last." },
+    { "id": "why_2_title",    "type": "text",     "label": "Benefit 2 Title",       "default": "One-Stop Solutions" },
+    { "id": "why_2_body",     "type": "textarea", "label": "Benefit 2 Description", "default": "From design to installation, we offer comprehensive kitchen and bathroom cabinet services. Professional support at every step." },
+    { "id": "why_3_title",    "type": "text",     "label": "Benefit 3 Title",       "default": "Fast & Affordable" },
+    { "id": "why_3_body",     "type": "textarea", "label": "Benefit 3 Description", "default": "Efficient, fast, and cost-effective. Whether a home renovation or commercial project, we help you save time and money." }
   ],
   "presets": [
     {
