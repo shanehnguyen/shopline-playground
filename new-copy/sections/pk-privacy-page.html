@@ -36,93 +36,20 @@
   <div class="pk-priv__inner">
     <div class="pk-priv__sections">
 
-      <section>
-        <h2 class="pk-priv__h2">1. Introduction</h2>
-        <p class="pk-priv__p">At PK Cabinet, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website, place orders, or communicate with us.</p>
+      {{#each section.blocks}}
+      <section {{#if @last}}class="pk-priv__divider"{{/if}}>
+        <h2 class="pk-priv__h2">{{settings.heading}}</h2>
+        <p class="pk-priv__p">{{settings.body}}</p>
       </section>
-
-      <section>
-        <h2 class="pk-priv__h2">2. Information We Collect</h2>
-        <h3 class="pk-priv__h3">Personal Information:</h3>
-        <ul class="pk-priv__ul">
-          <li>Name, email address, phone number, and billing/shipping address.</li>
-          <li>Payment information (processed securely through third-party processors; we do not store full card details).</li>
-        </ul>
-        <h3 class="pk-priv__h3">Automatically Collected Information:</h3>
-        <ul class="pk-priv__ul">
-          <li>IP address, browser type, and device information.</li>
-          <li>Cookies and tracking technologies to enhance your experience.</li>
-          <li>Website usage data and analytics.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">3. How We Use Your Information</h2>
-        <ul class="pk-priv__ul">
-          <li>To process and fulfill your orders and manage deliveries.</li>
-          <li>To provide customer support and respond to inquiries.</li>
-          <li>To send marketing and promotional emails (you may opt-out at any time).</li>
-          <li>To improve our website, products, and overall customer experience.</li>
-          <li>To comply with legal obligations and prevent fraud.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">4. Information Sharing and Disclosure</h2>
-        <ul class="pk-priv__ul">
-          <li>We share information with third-party service providers (e.g., payment processors, shipping carriers) only as necessary to fulfill our services.</li>
-          <li>We may disclose information if required by law or in response to valid legal requests.</li>
-          <li>In the event of a business transfer or acquisition, your data may be transferred to the new owner.</li>
-          <li><strong>We do NOT sell your personal information to third parties.</strong></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">5. Cookies and Tracking Technologies</h2>
-        <p class="pk-priv__p">We use essential cookies for website functionality, analytics cookies to understand usage, and marketing cookies for personalized experiences. You can manage your cookie preferences through your browser settings.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">6. Data Security</h2>
-        <p class="pk-priv__p">We implement industry-standard security measures, including SSL encryption, to protect your data. While we strive for maximum security, no method of transmission over the internet is 100% secure.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">7. Your Rights and Choices</h2>
-        <ul class="pk-priv__ul">
-          <li>You have the right to access, update, or correct your personal information.</li>
-          <li>You can opt-out of marketing communications using the "unsubscribe" link in our emails.</li>
-          <li>You may request the deletion of your account or personal data, subject to legal retention requirements.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">8. Third-Party Links</h2>
-        <p class="pk-priv__p">Our website may contain links to external sites. We are not responsible for the privacy practices or content of these third-party websites.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">9. Children's Privacy</h2>
-        <p class="pk-priv__p">Our website is not intended for users under the age of 16. We do not knowingly collect data from children.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">10. International Users</h2>
-        <p class="pk-priv__p">Your data is processed and stored in the United States. By using our services, you consent to this transfer and processing.</p>
-      </section>
-
-      <section>
-        <h2 class="pk-priv__h2">11. Changes to Privacy Policy</h2>
-        <p class="pk-priv__p">We reserve the right to update this policy. Material changes will be notified via email or a prominent notice on our website.</p>
-      </section>
+      {{/each}}
 
       <section class="pk-priv__divider">
-        <h2 class="pk-priv__h2">12. Contact Us</h2>
+        <h2 class="pk-priv__h2">{{#if section.settings.contact_heading}}{{section.settings.contact_heading}}{{else}}Contact Us{{/if}}</h2>
         <div class="pk-priv__contact">
-          <p>PK Cabinet Privacy Office</p>
-          <p>Email: <a href="mailto:support@pkcabinet.com">support@pkcabinet.com</a></p>
-          <p>Phone: <a href="tel:5626256101">562-625-6101</a></p>
-          <p>Mailing Address: 123 Cabinet Way, Los Angeles, CA 90001</p>
+          {{#if section.settings.contact_name}}<p>{{section.settings.contact_name}}</p>{{/if}}
+          {{#if section.settings.contact_email}}<p>Email: <a href="mailto:{{section.settings.contact_email}}">{{section.settings.contact_email}}</a></p>{{/if}}
+          {{#if section.settings.contact_phone}}<p>Phone: <a href="tel:{{section.settings.contact_phone}}">{{section.settings.contact_phone}}</a></p>{{/if}}
+          {{#if section.settings.contact_address}}<p>Mailing Address: {{section.settings.contact_address}}</p>{{/if}}
         </div>
       </section>
 
@@ -134,12 +61,47 @@
 {
   "name": "PK Privacy Policy Page",
   "class": "section",
-  "settings": [],
-  "presets": [
+  "max_blocks": 25,
+  "settings": [
+    { "id": "contact_heading", "type": "text", "label": "Contact Section Heading", "default": "12. Contact Us" },
+    { "id": "contact_name", "type": "text", "label": "Contact Name", "default": "PK Cabinet Privacy Office" },
+    { "id": "contact_email", "type": "text", "label": "Contact Email", "default": "support@pkcabinet.com" },
+    { "id": "contact_phone", "type": "text", "label": "Contact Phone", "default": "562-625-6101" },
+    { "id": "contact_address", "type": "text", "label": "Mailing Address", "default": "123 Cabinet Way, Los Angeles, CA 90001" }
+  ],
+  "blocks": [
     {
-      "name": "PK Privacy Policy Page",
-      "category": "Custom"
+      "type": "policy_section",
+      "name": "Policy Section",
+      "settings": [
+        { "id": "heading", "type": "text", "label": "Heading" },
+        { "id": "body", "type": "textarea", "label": "Body Text" }
+      ]
     }
-  ]
+  ],
+  "presets": [{
+    "name": "PK Privacy Policy Page",
+    "category": "Custom",
+    "settings": {
+      "contact_heading": "12. Contact Us",
+      "contact_name": "PK Cabinet Privacy Office",
+      "contact_email": "support@pkcabinet.com",
+      "contact_phone": "562-625-6101",
+      "contact_address": "123 Cabinet Way, Los Angeles, CA 90001"
+    },
+    "blocks": [
+      { "type": "policy_section", "settings": { "heading": "1. Introduction", "body": "At PK Cabinet, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you use our website, place orders, or communicate with us." } },
+      { "type": "policy_section", "settings": { "heading": "2. Information We Collect", "body": "Personal Information: Name, email address, phone number, and billing/shipping address. Payment information (processed securely through third-party processors; we do not store full card details). Automatically Collected Information: IP address, browser type, and device information. Cookies and tracking technologies to enhance your experience. Website usage data and analytics." } },
+      { "type": "policy_section", "settings": { "heading": "3. How We Use Your Information", "body": "To process and fulfill your orders and manage deliveries. To provide customer support and respond to inquiries. To send marketing and promotional emails (you may opt-out at any time). To improve our website, products, and overall customer experience. To comply with legal obligations and prevent fraud." } },
+      { "type": "policy_section", "settings": { "heading": "4. Information Sharing and Disclosure", "body": "We share information with third-party service providers (e.g., payment processors, shipping carriers) only as necessary to fulfill our services. We may disclose information if required by law or in response to valid legal requests. In the event of a business transfer or acquisition, your data may be transferred to the new owner. We do NOT sell your personal information to third parties." } },
+      { "type": "policy_section", "settings": { "heading": "5. Cookies and Tracking Technologies", "body": "We use essential cookies for website functionality, analytics cookies to understand usage, and marketing cookies for personalized experiences. You can manage your cookie preferences through your browser settings." } },
+      { "type": "policy_section", "settings": { "heading": "6. Data Security", "body": "We implement industry-standard security measures, including SSL encryption, to protect your data. While we strive for maximum security, no method of transmission over the internet is 100% secure." } },
+      { "type": "policy_section", "settings": { "heading": "7. Your Rights and Choices", "body": "You have the right to access, update, or correct your personal information. You can opt-out of marketing communications using the unsubscribe link in our emails. You may request the deletion of your account or personal data, subject to legal retention requirements." } },
+      { "type": "policy_section", "settings": { "heading": "8. Third-Party Links", "body": "Our website may contain links to external sites. We are not responsible for the privacy practices or content of these third-party websites." } },
+      { "type": "policy_section", "settings": { "heading": "9. Children's Privacy", "body": "Our website is not intended for users under the age of 16. We do not knowingly collect data from children." } },
+      { "type": "policy_section", "settings": { "heading": "10. International Users", "body": "Your data is processed and stored in the United States. By using our services, you consent to this transfer and processing." } },
+      { "type": "policy_section", "settings": { "heading": "11. Changes to Privacy Policy", "body": "We reserve the right to update this policy. Material changes will be notified via email or a prominent notice on our website." } }
+    ]
+  }]
 }
 {{/schema}}

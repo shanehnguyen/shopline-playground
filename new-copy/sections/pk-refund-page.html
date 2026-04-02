@@ -62,122 +62,31 @@
 <div class="pk-refd">
   <div class="pk-refd__inner">
 
-    <!-- Conditions for Returns -->
+    {{#each section.blocks}}
     <div class="pk-refd__section">
-      <h3 class="pk-refd__h3">Conditions for Returns</h3>
-      <ol class="pk-refd__num-list">
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">1</span>
-          <p class="pk-refd__p"><strong>Request Period:</strong> You may request a return within 14 days of receiving the item.</p>
-        </li>
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">2</span>
-          <p class="pk-refd__p"><strong>Product Condition:</strong> Returned items must be unused, unassembled, and in the same condition as received. The packaging, accessories, and manuals must also be intact and in original condition.</p>
-        </li>
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">3</span>
-          <p class="pk-refd__p"><strong>Damaged or Defective Items:</strong> If the product is damaged during shipping or has manufacturing defects, please contact us within 48 hours of receipt and provide photos as proof.</p>
-        </li>
-      </ol>
+      <h3 class="pk-refd__h3">{{settings.heading}}</h3>
+      <p class="pk-refd__p">{{settings.body}}</p>
     </div>
-
-    <!-- Conditions for Exchanges -->
-    <div class="pk-refd__section">
-      <h3 class="pk-refd__h3">Conditions for Exchanges</h3>
-      <ol class="pk-refd__num-list">
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">1</span>
-          <p class="pk-refd__p"><strong>Request Period:</strong> Exchanges can be requested within 14 days of receiving the item.</p>
-        </li>
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">2</span>
-          <p class="pk-refd__p"><strong>Eligible Items:</strong> The product must be unused, unassembled, and in its original condition with all packaging and components intact.</p>
-        </li>
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">3</span>
-          <p class="pk-refd__p"><strong>Damaged or Defective Items:</strong> If you received a damaged or defective product and prefer an exchange instead of a return, please notify us within 48 hours of receiving the item, providing photos as proof.</p>
-        </li>
-        <li class="pk-refd__num-item">
-          <span class="pk-refd__num">4</span>
-          <p class="pk-refd__p"><strong>Product Availability:</strong> Exchanges are subject to product availability. If the requested replacement item is out of stock, we will assist with alternative solutions, such as a refund or selecting a similar product.</p>
-        </li>
-      </ol>
-    </div>
-
-    <!-- Returns Not Accepted -->
-    <div class="pk-refd__section">
-      <h3 class="pk-refd__h3">Returns Not Accepted</h3>
-      <ul class="pk-refd__dot-list">
-        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Items that have been assembled or used are not eligible</span></li>
-        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Damage caused by improper assembly due to failure to follow the instructions</span></li>
-        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Customized cabinets, including special sizes, colors, or configurations are non-returnable</span></li>
-        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>Requests submitted after the return period will not be accepted</span></li>
-      </ul>
-    </div>
-
-    <!-- Return Process -->
-    <div class="pk-refd__section">
-      <h3 class="pk-refd__h3">Return Process</h3>
-      <div style="display:flex;flex-direction:column;gap:32px;">
-        <div class="pk-refd__step">
-          <span class="pk-refd__num">1</span>
-          <div class="pk-refd__step-body">
-            <p class="pk-refd__p"><strong>Contact Us:</strong> Please reach out to us via email or customer service with the following information:</p>
-            <ul class="pk-refd__sub">
-              <li><span class="dot"></span>Purchase order number</li>
-              <li><span class="dot"></span>Product name and model</li>
-              <li><span class="dot"></span>Reason for the return, along with photos of the issue (if applicable)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pk-refd__step">
-          <span class="pk-refd__num">2</span>
-          <p class="pk-refd__p"><strong>Return Authorization:</strong> Once the return conditions are verified, we will provide a return authorization and the return address.</p>
-        </div>
-        <div class="pk-refd__step">
-          <span class="pk-refd__num">3</span>
-          <p class="pk-refd__p"><strong>Return the Item:</strong> For both returns and exchanges, please send the item back within 7 days after receiving the return authorization and provide the tracking number.</p>
-        </div>
-        <div class="pk-refd__step">
-          <span class="pk-refd__num">4</span>
-          <div class="pk-refd__step-body">
-            <p class="pk-refd__p"><strong>Refund Process:</strong></p>
-            <ul class="pk-refd__dot-list" style="padding-left:8px;">
-              <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span><strong style="color:#1a1a1a;">For returns:</strong> Once the item is received, inspected and approved, we will process your refund within 7–10 business days to the original payment method.</span></li>
-              <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span><strong style="color:#1a1a1a;">For exchanges:</strong> The replacement item will be shipped once the returned item is received, inspected and approved.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Shipping Costs -->
-    <div class="pk-refd__section">
-      <h3 class="pk-refd__h3">Return &amp; Exchange Shipping Costs</h3>
-      <ul class="pk-refd__dot-list">
-        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>For returns due to product defects or shipping damage, we will cover the return shipping costs</span></li>
-        <li class="pk-refd__dot-item"><span class="pk-refd__dot"></span><span>For returns due to personal reasons (e.g., change of mind or dissatisfaction with the product), the buyer is responsible for covering the return shipping costs</span></li>
-      </ul>
-    </div>
+    {{/each}}
 
     <!-- Contact Information -->
     <div class="pk-refd__section pk-refd__divider">
-      <h3 class="pk-refd__h3">Contact Information</h3>
+      <h3 class="pk-refd__h3">{{#if section.settings.contact_heading}}{{section.settings.contact_heading}}{{else}}Contact Information{{/if}}</h3>
       <div class="pk-refd__contact-grid">
         <div>
           <p class="pk-refd__contact-label">Email</p>
-          <p class="pk-refd__contact-val"><a href="mailto:support@pkcabinet.com">support@pkcabinet.com</a></p>
+          <p class="pk-refd__contact-val"><a href="mailto:{{section.settings.contact_email}}">{{#if section.settings.contact_email}}{{section.settings.contact_email}}{{else}}support@pkcabinet.com{{/if}}</a></p>
         </div>
         <div>
           <p class="pk-refd__contact-label">Customer Service Line</p>
-          <p class="pk-refd__contact-val"><a href="tel:5626256101">562-625-6101</a></p>
+          <p class="pk-refd__contact-val"><a href="tel:{{section.settings.contact_phone}}">{{#if section.settings.contact_phone}}{{section.settings.contact_phone}}{{else}}562-625-6101{{/if}}</a></p>
         </div>
         <div class="pk-refd__contact-full">
           <p class="pk-refd__contact-label">Business Hours</p>
-          <p class="pk-refd__contact-val">Monday to Friday, 8:00 AM – 4:00 PM (PST)</p>
+          <p class="pk-refd__contact-val">{{#if section.settings.business_hours}}{{section.settings.business_hours}}{{else}}Monday to Friday, 8:00 AM – 4:00 PM (PST){{/if}}</p>
         </div>
       </div>
-      <p class="pk-refd__quote">"We are committed to providing you with high-quality service. Thank you for your understanding and cooperation!"</p>
+      <p class="pk-refd__quote">{{#if section.settings.closing_quote}}{{section.settings.closing_quote}}{{else}}We are committed to providing you with high-quality service. Thank you for your understanding and cooperation!{{/if}}</p>
     </div>
 
   </div>
@@ -187,12 +96,41 @@
 {
   "name": "PK Refund Policy Page",
   "class": "section",
-  "settings": [],
-  "presets": [
+  "max_blocks": 20,
+  "settings": [
+    { "id": "contact_heading", "type": "text", "label": "Contact Heading", "default": "Contact Information" },
+    { "id": "contact_email", "type": "text", "label": "Contact Email", "default": "support@pkcabinet.com" },
+    { "id": "contact_phone", "type": "text", "label": "Contact Phone", "default": "562-625-6101" },
+    { "id": "business_hours", "type": "text", "label": "Business Hours", "default": "Monday to Friday, 8:00 AM - 4:00 PM (PST)" },
+    { "id": "closing_quote", "type": "textarea", "label": "Closing Quote", "default": "We are committed to providing you with high-quality service. Thank you for your understanding and cooperation!" }
+  ],
+  "blocks": [
     {
-      "name": "PK Refund Policy Page",
-      "category": "Custom"
+      "type": "policy_section",
+      "name": "Policy Section",
+      "settings": [
+        { "id": "heading", "type": "text", "label": "Heading" },
+        { "id": "body", "type": "textarea", "label": "Body Text" }
+      ]
     }
-  ]
+  ],
+  "presets": [{
+    "name": "PK Refund Policy Page",
+    "category": "Custom",
+    "settings": {
+      "contact_heading": "Contact Information",
+      "contact_email": "support@pkcabinet.com",
+      "contact_phone": "562-625-6101",
+      "business_hours": "Monday to Friday, 8:00 AM - 4:00 PM (PST)",
+      "closing_quote": "We are committed to providing you with high-quality service. Thank you for your understanding and cooperation!"
+    },
+    "blocks": [
+      { "type": "policy_section", "settings": { "heading": "Conditions for Returns", "body": "1. Request Period: You may request a return within 14 days of receiving the item.\n\n2. Product Condition: Returned items must be unused, unassembled, and in the same condition as received. The packaging, accessories, and manuals must also be intact and in original condition.\n\n3. Damaged or Defective Items: If the product is damaged during shipping or has manufacturing defects, please contact us within 48 hours of receipt and provide photos as proof." } },
+      { "type": "policy_section", "settings": { "heading": "Conditions for Exchanges", "body": "1. Request Period: Exchanges can be requested within 14 days of receiving the item.\n\n2. Eligible Items: The product must be unused, unassembled, and in its original condition with all packaging and components intact.\n\n3. Damaged or Defective Items: If you received a damaged or defective product and prefer an exchange instead of a return, please notify us within 48 hours of receiving the item, providing photos as proof.\n\n4. Product Availability: Exchanges are subject to product availability. If the requested replacement item is out of stock, we will assist with alternative solutions, such as a refund or selecting a similar product." } },
+      { "type": "policy_section", "settings": { "heading": "Returns Not Accepted", "body": "Items that have been assembled or used are not eligible. Damage caused by improper assembly due to failure to follow the instructions. Customized cabinets, including special sizes, colors, or configurations are non-returnable. Requests submitted after the return period will not be accepted." } },
+      { "type": "policy_section", "settings": { "heading": "Return Process", "body": "1. Contact Us: Please reach out to us via email or customer service with your purchase order number, product name and model, and reason for the return along with photos of the issue if applicable.\n\n2. Return Authorization: Once the return conditions are verified, we will provide a return authorization and the return address.\n\n3. Return the Item: For both returns and exchanges, please send the item back within 7 days after receiving the return authorization and provide the tracking number.\n\n4. Refund Process: For returns, once the item is received, inspected and approved, we will process your refund within 7-10 business days to the original payment method. For exchanges, the replacement item will be shipped once the returned item is received, inspected and approved." } },
+      { "type": "policy_section", "settings": { "heading": "Return and Exchange Shipping Costs", "body": "For returns due to product defects or shipping damage, we will cover the return shipping costs. For returns due to personal reasons (e.g., change of mind or dissatisfaction with the product), the buyer is responsible for covering the return shipping costs." } }
+    ]
+  }]
 }
 {{/schema}}

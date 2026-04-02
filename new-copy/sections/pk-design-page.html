@@ -195,8 +195,8 @@
             </svg>
           </div>
           <div class="pk-design__step-body">
-            <h3 class="pk-design__step-title">Step 1: Fill Out the Form</h3>
-            <p class="pk-design__step-desc">Share your kitchen dimensions, style preferences, and budget with our design team.</p>
+            <h3 class="pk-design__step-title">{{#if section.settings.step_1_title}}{{section.settings.step_1_title}}{{else}}Step 1: Fill Out the Form{{/if}}</h3>
+            <p class="pk-design__step-desc">{{#if section.settings.step_1_desc}}{{section.settings.step_1_desc}}{{else}}Share your kitchen dimensions, style preferences, and budget with our design team.{{/if}}</p>
           </div>
         </div>
         <div class="pk-design__step">
@@ -206,8 +206,8 @@
             </svg>
           </div>
           <div class="pk-design__step-body">
-            <h3 class="pk-design__step-title">Step 2: Receive Your Free Design</h3>
-            <p class="pk-design__step-desc">Our expert designers craft a custom cabinet layout tailored specifically to your space.</p>
+            <h3 class="pk-design__step-title">{{#if section.settings.step_2_title}}{{section.settings.step_2_title}}{{else}}Step 2: Receive Your Free Design{{/if}}</h3>
+            <p class="pk-design__step-desc">{{#if section.settings.step_2_desc}}{{section.settings.step_2_desc}}{{else}}Our expert designers craft a custom cabinet layout tailored specifically to your space.{{/if}}</p>
           </div>
         </div>
         <div class="pk-design__step">
@@ -217,8 +217,8 @@
             </svg>
           </div>
           <div class="pk-design__step-body">
-            <h3 class="pk-design__step-title">Step 3: Order &amp; Install</h3>
-            <p class="pk-design__step-desc">Approve your design, place your order, and we'll ship your cabinets directly to your door.</p>
+            <h3 class="pk-design__step-title">{{#if section.settings.step_3_title}}{{section.settings.step_3_title}}{{else}}Step 3: Order &amp; Install{{/if}}</h3>
+            <p class="pk-design__step-desc">{{#if section.settings.step_3_desc}}{{section.settings.step_3_desc}}{{else}}Approve your design, place your order, and we'll ship your cabinets directly to your door.{{/if}}</p>
           </div>
         </div>
       </div>
@@ -368,7 +368,14 @@ function pkDesignToggle(btn) {
     { "id": "form_subheading",     "type": "textarea", "label": "Form Subheading", "default": "Please fill out the form below and a designer will reach out to you shortly." },
     { "id": "form_subject",        "type": "text",     "label": "Email Subject",   "default": "Free Design Request" },
     { "id": "submit_button_text",  "type": "text",     "label": "Submit Button",   "default": "SUBMIT" },
-    { "id": "success_message",     "type": "text",     "label": "Success Message", "default": "Thank you! Your design request has been received. A designer will reach out shortly." }
+    { "id": "success_message",     "type": "text",     "label": "Success Message", "default": "Thank you! Your design request has been received. A designer will reach out shortly." },
+    { "type": "header",            "content": "Process Steps" },
+    { "id": "step_1_title",        "type": "text",     "label": "Step 1 Title",       "default": "Step 1: Fill Out the Form" },
+    { "id": "step_1_desc",         "type": "textarea", "label": "Step 1 Description", "default": "Share your kitchen dimensions, style preferences, and budget with our design team." },
+    { "id": "step_2_title",        "type": "text",     "label": "Step 2 Title",       "default": "Step 2: Receive Your Free Design" },
+    { "id": "step_2_desc",         "type": "textarea", "label": "Step 2 Description", "default": "Our expert designers craft a custom cabinet layout tailored specifically to your space." },
+    { "id": "step_3_title",        "type": "text",     "label": "Step 3 Title",       "default": "Step 3: Order & Install" },
+    { "id": "step_3_desc",         "type": "textarea", "label": "Step 3 Description", "default": "Approve your design, place your order, and we'll ship your cabinets directly to your door." }
   ],
   "presets": [
     {

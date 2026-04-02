@@ -173,11 +173,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
           <h2 class="pk-faq__group-title">Shipping</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Do you ship outside California?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Yes, we ship to all 48 contiguous states in the US. Shipping rates and delivery times vary by location. Please enter your zip code at checkout for an accurate shipping estimate.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Can I pick up my order from your warehouse?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Absolutely. Local pickup is available at our La Mirada distribution center. Select 'Local Pickup' at checkout and we will notify you when your order is ready for collection.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Can I choose my delivery date?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Once your order has been dispatched, our freight partner will contact you via phone or email to schedule a specific delivery window that works for you.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Where is PK Cabinet located?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Our main distribution center and headquarters are located in La Mirada, California. This central location allows us to efficiently manage inventory and shipping.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">How long does delivery take after ordering?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Most in-stock orders are processed within 24–48 hours. Delivery typically takes 3 to 5 business days depending on your distance from our California warehouse.</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "shipping")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
       <!-- Assembly & Installation -->
@@ -186,10 +184,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
           <h2 class="pk-faq__group-title">Assembly &amp; Installation</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Do the cabinets come with installation hardware?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Yes, all our cabinets include the necessary assembly hardware and soft-close hinges. However, specific wall-mounting screws may need to be purchased separately based on your wall type.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Are PK Cabinet cabinets sold assembled or unassembled?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">We offer both options. Our standard shipping is for RTA (Ready-To-Assemble) cabinets, which are easier to ship and more cost-effective. Pre-assembly services are available for local orders.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Do you offer installation services?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">While we specialize in manufacturing and distribution, we have a network of preferred contractors in Southern California. Contact our trade desk for recommendations.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What tools do I need for installation?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">For RTA assembly, you will typically need a screwdriver (or power drill), wood glue, and a rubber mallet. For installation, a level, shims, and a stud finder are essential.</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "assembly")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
       <!-- Orders -->
@@ -198,10 +195,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
           <h2 class="pk-faq__group-title">Orders</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">How do I place an order?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">You can place an order directly through our website by adding items to your cart. For large commercial projects or contractor orders, please contact our sales team for a custom quote.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Can I modify or cancel my order?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Orders can be modified or cancelled within 24 hours of placement. Once an order has entered the processing or shipping phase, standard return policies will apply.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Do you offer bulk or trade discounts?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Yes, we have a dedicated Trade Program for contractors, developers, and interior designers. Please visit our 'Trade' page to apply for professional pricing.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What payment methods do you accept?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">We accept all major credit cards (Visa, Mastercard, Amex, Discover), PayPal, and Apple Pay. Financing options are also available through our partners.</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "orders")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
       <!-- Product -->
@@ -210,10 +206,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
           <h2 class="pk-faq__group-title">Product</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What materials are used in PK Cabinet cabinets?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Our cabinets feature Grade-A plywood boxes and solid wood frames. We do not use particle board in any of our structural components.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Are your cabinets solid wood?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Yes, our doors and face frames are made from solid hardwood (typically Maple or Birch), while the cabinet boxes are constructed from high-quality furniture-grade plywood.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What is the warranty on your products?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">We offer a 5-year limited warranty on all cabinet boxes and a lifetime warranty on our soft-close hardware and hinges against manufacturing defects.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Do you offer sample doors?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Yes, we highly recommend ordering a sample door to see the finish and quality in your own home. Sample doors are available for purchase in our 'Products' section.</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "product")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
       <!-- Designs -->
@@ -222,9 +217,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
           <h2 class="pk-faq__group-title">Designs</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What Shaker styles do you offer?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">We specialize in the classic Shaker aesthetic, offering several variations including Slim Shaker, Inset Shaker, and Traditional Shaker in multiple premium finishes.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Can I get a custom size cabinet?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">While our cabinets come in a wide range of standard modular sizes, we do offer limited customization for specific filler pieces and trim to ensure a perfect fit.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">How do I choose the right finish?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Consider your kitchen's natural light and overall style. Our White Shaker is timeless and bright, while our Grey and Navy options offer a more modern, sophisticated look.</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "designs")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
       <!-- Returns -->
@@ -233,10 +228,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg></span>
           <h2 class="pk-faq__group-title">Returns</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What is your return policy?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Unopened items in their original packaging can be returned within 30 days of delivery. A 20% restocking fee applies to all returns, and the customer is responsible for return shipping.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">How do I initiate a return?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">To start a return, please contact our support team with your order number. We will provide you with a Return Merchandise Authorization (RMA) and shipping instructions.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What if my order arrives damaged?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Please inspect your delivery immediately. If you notice damage, note it on the delivery receipt and contact us within 48 hours. We will ship replacement parts at no cost.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Are sample doors refundable?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Sample doors are non-refundable, but the cost of your sample can be applied as a credit toward your full kitchen order (minimum purchase applies).</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "returns")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
       <!-- Financing -->
@@ -245,10 +239,9 @@
           <span class="pk-faq__group-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
           <h2 class="pk-faq__group-title">Financing</h2>
         </div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Do you offer financing options?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Yes, we partner with leading financing providers to offer flexible payment plans, including 0% APR options for qualified buyers.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">What are the installment terms?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Terms range from 3 to 24 months depending on the order total and credit approval. You can see your specific options by selecting 'Financing' at checkout.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">Is there a minimum order for financing?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Financing is typically available for orders over $500. The exact minimum may vary depending on the specific financing partner selected.</div></div>
-        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">How do I apply for financing?</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">Simply select the financing option at checkout. You will be redirected to a secure application that provides an instant decision without affecting your credit score.</div></div>
+        {{#each section.blocks}}{{#if (compare settings.category "==" "financing")}}
+        <div class="pk-faq__item"><button class="pk-faq__q" onclick="pkFaqToggle(this)"><span class="pk-faq__q-text">{{settings.question}}</span><span class="pk-faq__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="pk-faq__a">{{settings.answer}}</div></div>
+        {{/if}}{{/each}}
       </div>
 
     </div>
@@ -278,12 +271,64 @@ function pkFaqScroll(e, id) {
 {{#schema}}
 {
   "name": "PK FAQ Page",
+  "max_blocks": 50,
   "settings": [],
-  "presets": [
+  "blocks": [
     {
-      "name": "PK FAQ Page",
-      "category": "Custom"
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "id": "category", "type": "select", "label": "Category",
+          "options": [
+            { "value": "shipping", "label": "Shipping" },
+            { "value": "assembly", "label": "Assembly & Installation" },
+            { "value": "orders", "label": "Orders" },
+            { "value": "product", "label": "Product" },
+            { "value": "designs", "label": "Designs" },
+            { "value": "returns", "label": "Returns" },
+            { "value": "financing", "label": "Financing" }
+          ],
+          "default": "shipping"
+        },
+        { "id": "question", "type": "text", "label": "Question" },
+        { "id": "answer", "type": "textarea", "label": "Answer" }
+      ]
     }
-  ]
+  ],
+  "presets": [{
+    "name": "PK FAQ Page",
+    "category": "Custom",
+    "blocks": [
+      { "type": "faq_item", "settings": { "category": "shipping", "question": "Do you ship outside California?", "answer": "Yes, we ship to all 48 contiguous states in the US. Shipping rates and delivery times vary by location. Please enter your zip code at checkout for an accurate shipping estimate." } },
+      { "type": "faq_item", "settings": { "category": "shipping", "question": "Can I pick up my order from your warehouse?", "answer": "Absolutely. Local pickup is available at our La Mirada distribution center. Select Local Pickup at checkout and we will notify you when your order is ready for collection." } },
+      { "type": "faq_item", "settings": { "category": "shipping", "question": "Can I choose my delivery date?", "answer": "Once your order has been dispatched, our freight partner will contact you via phone or email to schedule a specific delivery window that works for you." } },
+      { "type": "faq_item", "settings": { "category": "shipping", "question": "Where is PK Cabinet located?", "answer": "Our main distribution center and headquarters are located in La Mirada, California. This central location allows us to efficiently manage inventory and shipping." } },
+      { "type": "faq_item", "settings": { "category": "shipping", "question": "How long does delivery take after ordering?", "answer": "Most in-stock orders are processed within 24-48 hours. Delivery typically takes 3 to 5 business days depending on your distance from our California warehouse." } },
+      { "type": "faq_item", "settings": { "category": "assembly", "question": "Do the cabinets come with installation hardware?", "answer": "Yes, all our cabinets include the necessary assembly hardware and soft-close hinges. However, specific wall-mounting screws may need to be purchased separately based on your wall type." } },
+      { "type": "faq_item", "settings": { "category": "assembly", "question": "Are PK Cabinet cabinets sold assembled or unassembled?", "answer": "We offer both options. Our standard shipping is for RTA (Ready-To-Assemble) cabinets, which are easier to ship and more cost-effective. Pre-assembly services are available for local orders." } },
+      { "type": "faq_item", "settings": { "category": "assembly", "question": "Do you offer installation services?", "answer": "While we specialize in manufacturing and distribution, we have a network of preferred contractors in Southern California. Contact our trade desk for recommendations." } },
+      { "type": "faq_item", "settings": { "category": "assembly", "question": "What tools do I need for installation?", "answer": "For RTA assembly, you will typically need a screwdriver (or power drill), wood glue, and a rubber mallet. For installation, a level, shims, and a stud finder are essential." } },
+      { "type": "faq_item", "settings": { "category": "orders", "question": "How do I place an order?", "answer": "You can place an order directly through our website by adding items to your cart. For large commercial projects or contractor orders, please contact our sales team for a custom quote." } },
+      { "type": "faq_item", "settings": { "category": "orders", "question": "Can I modify or cancel my order?", "answer": "Orders can be modified or cancelled within 24 hours of placement. Once an order has entered the processing or shipping phase, standard return policies will apply." } },
+      { "type": "faq_item", "settings": { "category": "orders", "question": "Do you offer bulk or trade discounts?", "answer": "Yes, we have a dedicated Trade Program for contractors, developers, and interior designers. Please visit our Trade page to apply for professional pricing." } },
+      { "type": "faq_item", "settings": { "category": "orders", "question": "What payment methods do you accept?", "answer": "We accept all major credit cards (Visa, Mastercard, Amex, Discover), PayPal, and Apple Pay. Financing options are also available through our partners." } },
+      { "type": "faq_item", "settings": { "category": "product", "question": "What materials are used in PK Cabinet cabinets?", "answer": "Our cabinets feature Grade-A plywood boxes and solid wood frames. We do not use particle board in any of our structural components." } },
+      { "type": "faq_item", "settings": { "category": "product", "question": "Are your cabinets solid wood?", "answer": "Yes, our doors and face frames are made from solid hardwood (typically Maple or Birch), while the cabinet boxes are constructed from high-quality furniture-grade plywood." } },
+      { "type": "faq_item", "settings": { "category": "product", "question": "What is the warranty on your products?", "answer": "We offer a 5-year limited warranty on all cabinet boxes and a lifetime warranty on our soft-close hardware and hinges against manufacturing defects." } },
+      { "type": "faq_item", "settings": { "category": "product", "question": "Do you offer sample doors?", "answer": "Yes, we highly recommend ordering a sample door to see the finish and quality in your own home. Sample doors are available for purchase in our Products section." } },
+      { "type": "faq_item", "settings": { "category": "designs", "question": "What Shaker styles do you offer?", "answer": "We specialize in the classic Shaker aesthetic, offering several variations including Slim Shaker, Inset Shaker, and Traditional Shaker in multiple premium finishes." } },
+      { "type": "faq_item", "settings": { "category": "designs", "question": "Can I get a custom size cabinet?", "answer": "While our cabinets come in a wide range of standard modular sizes, we do offer limited customization for specific filler pieces and trim to ensure a perfect fit." } },
+      { "type": "faq_item", "settings": { "category": "designs", "question": "How do I choose the right finish?", "answer": "Consider your kitchens natural light and overall style. Our White Shaker is timeless and bright, while our Grey and Navy options offer a more modern, sophisticated look." } },
+      { "type": "faq_item", "settings": { "category": "returns", "question": "What is your return policy?", "answer": "Unopened items in their original packaging can be returned within 30 days of delivery. A 20% restocking fee applies to all returns, and the customer is responsible for return shipping." } },
+      { "type": "faq_item", "settings": { "category": "returns", "question": "How do I initiate a return?", "answer": "To start a return, please contact our support team with your order number. We will provide you with a Return Merchandise Authorization (RMA) and shipping instructions." } },
+      { "type": "faq_item", "settings": { "category": "returns", "question": "What if my order arrives damaged?", "answer": "Please inspect your delivery immediately. If you notice damage, note it on the delivery receipt and contact us within 48 hours. We will ship replacement parts at no cost." } },
+      { "type": "faq_item", "settings": { "category": "returns", "question": "Are sample doors refundable?", "answer": "Sample doors are non-refundable, but the cost of your sample can be applied as a credit toward your full kitchen order (minimum purchase applies)." } },
+      { "type": "faq_item", "settings": { "category": "financing", "question": "Do you offer financing options?", "answer": "Yes, we partner with leading financing providers to offer flexible payment plans, including 0% APR options for qualified buyers." } },
+      { "type": "faq_item", "settings": { "category": "financing", "question": "What are the installment terms?", "answer": "Terms range from 3 to 24 months depending on the order total and credit approval. You can see your specific options by selecting Financing at checkout." } },
+      { "type": "faq_item", "settings": { "category": "financing", "question": "Is there a minimum order for financing?", "answer": "Financing is typically available for orders over $500. The exact minimum may vary depending on the specific financing partner selected." } },
+      { "type": "faq_item", "settings": { "category": "financing", "question": "How do I apply for financing?", "answer": "Simply select the financing option at checkout. You will be redirected to a secure application that provides an instant decision without affecting your credit score." } }
+    ]
+  }]
 }
 {{/schema}}
