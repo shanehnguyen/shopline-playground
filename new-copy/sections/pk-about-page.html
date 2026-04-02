@@ -11,8 +11,8 @@
   .pk-about__mission-inner { max-width: 700px; width: 100%; }
   .pk-about__mission-label {
     display: block;
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: var(--pk-label-size); font-weight: var(--pk-label-weight);
+    text-transform: uppercase; letter-spacing: var(--pk-label-spacing);
     color: #a89060; margin-bottom: 24px;
   }
   .pk-about__mission-quote {
@@ -42,7 +42,7 @@
     display: block;
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 11px; font-style: italic;
-    color: #a89060; letter-spacing: 0.12em;
+    color: #a89060; letter-spacing: var(--pk-label-spacing);
     text-transform: uppercase; margin-bottom: 8px;
   }
   .pk-about__craft-title {
@@ -105,8 +105,8 @@
   @media (min-width: 768px) { .pk-about__why-grid { grid-template-columns: repeat(3, 1fr); } }
   .pk-about__why-item { display: flex; flex-direction: column; gap: 16px; }
   .pk-about__why-label {
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: var(--pk-label-size); font-weight: var(--pk-label-weight);
+    text-transform: uppercase; letter-spacing: var(--pk-label-spacing);
     color: #a89060;
   }
   .pk-about__why-body { font-size: 15px; color: #6b6258; line-height: 1.6; margin: 0; }

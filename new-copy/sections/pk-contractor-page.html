@@ -41,7 +41,7 @@
     font-size: 32px; font-weight: 400; color: #fff;
     margin: 0;
   }
-  @media (min-width: 768px) { .pk-contractor__benefits-title { font-size: 48px; } }
+  @media (min-width: 768px) { .pk-contractor__benefits-title { font-size: var(--pk-heading-size); } }
 
   .pk-contractor__benefits-divider {
     width: 96px; height: 4px;
@@ -128,8 +128,8 @@
   /* Form head */
   .pk-contractor__form-label {
     display: block;
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: var(--pk-label-size); font-weight: var(--pk-label-weight);
+    text-transform: uppercase; letter-spacing: var(--pk-label-spacing);
     color: #a89060; margin-bottom: 16px;
   }
   .pk-contractor__form-title {
@@ -156,7 +156,7 @@
   }
   .pk-contractor__field { display: flex; flex-direction: column; gap: 6px; }
   .pk-contractor__field label {
-    font-size: 11px; font-weight: 700;
+    font-size: var(--pk-label-size); font-weight: var(--pk-label-weight);
     text-transform: uppercase; letter-spacing: 0.1em;
     color: #1a1a1a;
   }
@@ -168,7 +168,7 @@
     background: transparent;
     border: 1px solid #e0dcd5;
     outline: none;
-    font-size: 14px; color: #1a1a1a;
+    font-size: var(--pk-body-size); color: #1a1a1a;
     transition: border-color 0.2s;
     font-family: inherit;
   }
@@ -260,7 +260,7 @@
     border: 1px solid #fecaca;
     color: #991b1b;
     font-family: inherit;
-    font-size: 14px;
+    font-size: var(--pk-body-size);
     padding: 14px 16px;
     margin-bottom: 24px;
     border-radius: 2px;
