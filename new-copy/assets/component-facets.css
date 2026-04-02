@@ -756,20 +756,17 @@ a.facets__reset:hover {
 
 /* ── PK Facets Font Overrides ── */
 .facets__summary,
-.facets__label,
-.facets__option,
-.facets__price,
-.facet-filters__sort,
-.facet-filters__label {
+.facet-checkbox > span,
+.sort-option,
+.facets__selected,
+.stock-filter-text {
   font-family: var(--pk-font-ui);
   color: var(--pk-dark);
 }
 
-.facets__heading {
-  font-family: var(--pk-font-ui);
+.facets__summary {
   font-size: var(--pk-label-size);
   font-weight: var(--pk-label-weight);
   letter-spacing: var(--pk-label-spacing);
   text-transform: uppercase;
-  color: var(--pk-dark);
 }
