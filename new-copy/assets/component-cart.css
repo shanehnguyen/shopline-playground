@@ -245,3 +245,55 @@
   font-family: 'Inter', sans-serif;
   margin-bottom: 12px;
 }
+
+/* ── PK Recommend Card (inline card in cart empty state) ── */
+.pk-rec__card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.pk-rec__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--pk-surface);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.pk-rec__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pk-rec__name {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-subheading-size);
+  font-weight: var(--pk-subheading-weight);
+  color: var(--pk-dark);
+  margin: 0 0 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pk-rec__price {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-meta-size);
+  color: var(--pk-muted);
+  margin: 0 0 6px;
+}
+
+.pk-rec__view {
+  font-family: var(--pk-font-ui);
+  font-size: var(--pk-label-size);
+  font-weight: var(--pk-label-weight);
+  letter-spacing: var(--pk-label-spacing);
+  text-transform: uppercase;
+  color: var(--pk-gold);
+  border-bottom: 1px solid var(--pk-gold);
+  display: inline-block;
+}

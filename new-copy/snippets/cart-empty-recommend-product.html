@@ -29,21 +29,15 @@
         
           {{assign "limit" (multiply settings.cart_empty_recommend_product_to_show 1)}}
           {{#for settings.cart_empty_recommend_collection.products limit=limit as |product|}}
-            <li
-              id="Slide-{{section.id}}-product-recommend"
-              class="grid__item slider__slide"
-            >
-              {{snippet
-                "product-card"
-                product_data=product
-                image_ratio=settings.cart_empty_recommend_product_image_ratio
-                show_secondary_image=false
-                section_id=section.id
-                desktop_grid_cols="4"
-                mobile_grid_cols="2"
-                image_fill_type=settings.cart_empty_recommend_product_image_fill_type
-                theme_settings=settings
-              }}
+            <li class="grid__item slider__slide">
+              <a href="{{product.url}}" class="pk-rec__card">
+                <div class="pk-rec__img">
+                  <img src="{{img_url product.featured_image.src width=400}}" alt="{{product.title}}" />
+                </div>
+                <p class="pk-rec__name">{{product.title}}</p>
+                <p class="pk-rec__price">{{money_with_currency product.price}}</p>
+                <span class="pk-rec__view">VIEW</span>
+              </a>
             </li>
           {{/for}}
       </ul>
