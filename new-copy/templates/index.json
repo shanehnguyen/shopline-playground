@@ -348,7 +348,7 @@
       "custom_css": []
     },
     "17750900217059e8f4d7": {
-      "disabled": false,
+      "disabled": true,
       "type": "contact-form",
       "settings": {
         "heading": "Contact us",
