@@ -203,7 +203,7 @@
 .cart__empty-product-recommend .card__media {
   height: 160px;
   overflow: hidden;
-  background: #f7f5f2;
+  background: #ffffff;
   border-radius: 4px;
 }
 
@@ -257,7 +257,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: var(--pk-surface);
+  background: #ffffff;
   border-radius: 4px;
   margin-bottom: 8px;
 }
