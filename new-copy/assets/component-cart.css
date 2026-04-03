@@ -123,7 +123,7 @@
 
 /* ── PK Empty State Overrides ── */
 .cart-drawer .cart__warnings {
-  background: #F5F3EE;
+  background: #ffffff;
   font-family: 'Inter', sans-serif;
 }
 
@@ -152,7 +152,7 @@
 
 /* ── PK Empty Recommendations Overrides ── */
 .cart-drawer .cart__empty-product-recommend {
-  background: #F5F3EE;
+  background: #ffffff;
   padding: 20px 0;
   font-family: 'Inter', sans-serif;
 }
@@ -265,7 +265,7 @@
 .pk-rec__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .pk-rec__name {

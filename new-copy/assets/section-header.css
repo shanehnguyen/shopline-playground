@@ -1191,12 +1191,12 @@ predictive-search[data-focus][loading]
 
 /* ── PK Search Overlay Overrides ── */
 .search-modal__content {
-  background: #F5F3EE;
+  background: #ffffff;
   font-family: 'Inter', sans-serif;
 }
 
 .predictive-search {
-  background: #F5F3EE;
+  background: #ffffff;
   border: none;
   box-shadow: none;
 }
@@ -1263,7 +1263,7 @@ predictive-search[data-focus][loading]
 .predictive-search__item-image {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
   background: var(--pk-surface);
   border-radius: 4px;
 }
@@ -1290,4 +1290,9 @@ predictive-search[data-focus][loading]
   font-family: var(--pk-font-ui);
   gap: 10px;
   padding: 10px 0;
+}
+
+.search-modal__content,
+.predictive-search {
+  background: #ffffff;
 }
