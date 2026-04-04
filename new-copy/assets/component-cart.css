@@ -155,6 +155,22 @@
   background: #ffffff;
   padding: 20px 0;
   font-family: 'Inter', sans-serif;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cart-drawer .cart__empty-product-recommend .slider,
+.cart-drawer .cart__empty-product-recommend .grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+}
+
+.cart-drawer .cart__empty-product-recommend .grid__item {
+  flex: 0 0 140px;
+  min-width: 140px;
 }
 
 .cart-drawer .cart__empty-product-recommend-title {
