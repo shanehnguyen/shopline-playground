@@ -404,29 +404,28 @@
       <div class="pk-contractor__apply-form-col">
         <div class="pk-contractor__form-wrap">
 
-          {{#form "contact" id="pk-contractor-form" onsubmit="pkContractorSubmit(event)"}}
+          <form id="pk-contractor-form-{{section.id}}" onsubmit="pkContractorSubmit(event)">
+            <input type="hidden" name="access_key" value="377b7f7c-5ba2-43c1-a591-2bb101faf366" />
+            <input type="hidden" name="subject" value="{{#if section.settings.form_subject}}{{section.settings.form_subject}}{{else}}PK Cabinets - Contractor Application{{/if}}" />
+            <input type="hidden" name="from_name" value="PK Cabinets Website" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
 
-            {{#if form.posted_successfully}}
-              <!-- Success View -->
-              <div class="pk-contractor__success is-visible">
-                <div class="pk-contractor__success-icon">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="pk-contractor__success-title">Application Received</h3>
-                  <p class="pk-contractor__success-body">{{section.settings.success_message}}</p>
-                </div>
-                <a class="pk-contractor__reset" href="">Submit Another</a>
+            <!-- Success View -->
+            <div class="pk-contractor__success" id="pk-contractor-success-{{section.id}}" style="display:none;">
+              <div class="pk-contractor__success-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
               </div>
+              <div>
+                <h3 class="pk-contractor__success-title">Application Received</h3>
+                <p class="pk-contractor__success-body">{{section.settings.success_message}}</p>
+              </div>
+            </div>
+            <div class="pk-contractor__form-server-error" id="pk-contractor-error-{{section.id}}" style="display:none;"></div>
 
-            {{else}}
-              {{#if form.errors.messages}}
-                <div class="pk-contractor__form-server-error">{{form.errors.messages}}</div>
-              {{/if}}
-
+            <div id="pk-contractor-fields-{{section.id}}">
               <span class="pk-contractor__form-label">{{section.settings.form_label}}</span>
               <h2 class="pk-contractor__form-title">{{section.settings.form_heading}}</h2>
               <p class="pk-contractor__form-desc">{{section.settings.form_subheading}}</p>
@@ -436,7 +435,7 @@
                 <!-- Full Name -->
                 <div class="pk-contractor__field">
                   <label for="pkc-name">Full Name *</label>
-                  <input type="text" id="pkc-name" name="contact[name]" placeholder="John Doe"
+                  <input type="text" id="pkc-name" name="name" placeholder="John Doe"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-name-err">Name is required</span>
                 </div>
@@ -444,7 +443,7 @@
                 <!-- Email -->
                 <div class="pk-contractor__field">
                   <label for="pkc-email">Email Address *</label>
-                  <input type="email" id="pkc-email" name="contact[email]" placeholder="john@company.com"
+                  <input type="email" id="pkc-email" name="email" placeholder="john@company.com"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-email-err">Valid email is required</span>
                 </div>
@@ -452,7 +451,7 @@
                 <!-- Company Name -->
                 <div class="pk-contractor__field">
                   <label for="pkc-company">Company Name *</label>
-                  <input type="text" id="pkc-company" name="contact[company]" placeholder="Your Business Ltd"
+                  <input type="text" id="pkc-company" name="company" placeholder="Your Business Ltd"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-company-err">Company name is required</span>
                 </div>
@@ -460,21 +459,21 @@
                 <!-- Website -->
                 <div class="pk-contractor__field">
                   <label for="pkc-website">Website</label>
-                  <input type="text" id="pkc-website" name="contact[website]" placeholder="www.yourbusiness.com"
+                  <input type="text" id="pkc-website" name="website" placeholder="www.yourbusiness.com"
                     class="pk-contractor__input" />
                 </div>
 
                 <!-- Invoice Address -->
                 <div class="pk-contractor__field">
                   <label for="pkc-address">Invoice Address</label>
-                  <input type="text" id="pkc-address" name="contact[address]" placeholder="123 Business St, City, State"
+                  <input type="text" id="pkc-address" name="address" placeholder="123 Business St, City, State"
                     class="pk-contractor__input" />
                 </div>
 
                 <!-- Phone -->
                 <div class="pk-contractor__field">
                   <label for="pkc-phone">Phone Number *</label>
-                  <input type="tel" id="pkc-phone" name="contact[phone]" placeholder="+1 (555) 000-0000"
+                  <input type="tel" id="pkc-phone" name="phone" placeholder="+1 (555) 000-0000"
                     class="pk-contractor__input" />
                   <span class="pk-contractor__field-error" id="pkc-phone-err">Phone number is required</span>
                 </div>
@@ -483,7 +482,7 @@
                 <div class="pk-contractor__field">
                   <label for="pkc-type">Enquiry Type *</label>
                   <div class="pk-contractor__select-wrap">
-                    <select id="pkc-type" name="contact[type]" class="pk-contractor__select">
+                    <select id="pkc-type" name="type" class="pk-contractor__select">
                       <option value="" disabled selected>Select type</option>
                       <option value="Contractor">Contractor</option>
                       <option value="Interior Designer">Interior Designer</option>
@@ -498,7 +497,7 @@
                 <!-- Tax / Business ID -->
                 <div class="pk-contractor__field">
                   <label for="pkc-tax">Tax or Business ID</label>
-                  <input type="text" id="pkc-tax" name="contact[tax_id]" placeholder="EIN or Business License #"
+                  <input type="text" id="pkc-tax" name="tax_id" placeholder="EIN or Business License #"
                     class="pk-contractor__input" />
                 </div>
 
@@ -507,7 +506,7 @@
               <!-- Message -->
               <div class="pk-contractor__field">
                 <label for="pkc-message">Message</label>
-                <textarea id="pkc-message" name="contact[body]"
+                <textarea id="pkc-message" name="message"
                   placeholder="Tell us about your upcoming projects..."
                   class="pk-contractor__textarea"></textarea>
               </div>
@@ -517,9 +516,9 @@
                   {{section.settings.submit_button_text}}
                 </button>
               </div>
-            {{/if}}
+            </div>
 
-          {{/form}}
+          </form>
 
         </div>
       </div>
@@ -530,6 +529,8 @@
 
 <script>
 function pkContractorSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
   var valid = true;
 
   function setError(id, errId, condition) {
@@ -567,12 +568,35 @@ function pkContractorSubmit(e) {
     typeErr.classList.remove('is-visible');
   }
 
-  if (!valid) {
-    e.preventDefault();
-    return;
-  }
+  if (!valid) return;
 
-  // Valid — allow native form submission
+  var successEl = form.querySelector('[id*="-success-"]');
+  var errorEl = form.querySelector('[id*="-error-"]');
+  var fieldsEl = form.querySelector('[id*="-fields-"]');
+  var btn = form.querySelector('button[type="submit"]');
+  var btnText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.success) {
+      if (fieldsEl) fieldsEl.style.display = 'none';
+      if (successEl) { successEl.style.display = 'flex'; successEl.classList.add('is-visible'); }
+      form.reset();
+    } else {
+      if (errorEl) { errorEl.textContent = data.message || 'Something went wrong.'; errorEl.style.display = 'block'; }
+    }
+  })
+  .catch(function() {
+    if (errorEl) { errorEl.textContent = 'Network error. Please try again.'; errorEl.style.display = 'block'; }
+  })
+  .finally(function() { btn.innerHTML = btnText; btn.disabled = false; });
 }
 </script>
 
@@ -587,6 +611,7 @@ function pkContractorSubmit(e) {
     { "id": "form_subheading",       "type": "textarea", "label": "Subheading",         "default": "Fill out the form below to apply for our contractor program and start enjoying exclusive benefits." },
     { "id": "submit_button_text",    "type": "text",     "label": "Submit Button Text", "default": "Submit Application" },
     { "id": "success_message",       "type": "text",     "label": "Success Message",    "default": "Thank you for your application. A representative will be in touch within 1-2 business days." },
+    { "id": "form_subject",          "type": "text",     "label": "Email Subject",      "default": "PK Cabinets - Contractor Application" },
     { "type": "header",              "content": "Benefits Section" },
     { "id": "benefits_heading",      "type": "text",     "label": "Benefits Heading",   "default": "Contractor Benefits" },
     { "id": "benefit_1_title",       "type": "text",     "label": "Benefit 1 Title",    "default": "Exclusive Discounts" },
