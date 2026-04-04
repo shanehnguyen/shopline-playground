@@ -27,7 +27,7 @@
         class="{{grid_class}} slider contains-product-card-slider slider--mobile slider-full-screen "
       >
         
-          {{assign "limit" (multiply settings.cart_empty_recommend_product_to_show 1)}}
+          {{assign "limit" 10}}
           {{#for settings.cart_empty_recommend_collection.products limit=limit as |product|}}
             <li class="grid__item slider__slide">
               <a href="{{product.url}}" class="pk-rec__card">
