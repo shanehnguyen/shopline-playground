@@ -203,7 +203,7 @@
 .cart__empty-product-recommend .card__media {
   height: 160px;
   overflow: hidden;
-  background: #f7f5f2;
+  background: #ffffff;
   border-radius: 4px;
 }
 
@@ -257,7 +257,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: var(--pk-surface);
+  background: #ffffff;
   border-radius: 4px;
   margin-bottom: 8px;
 }
@@ -296,4 +296,15 @@
   color: var(--pk-gold);
   border-bottom: 1px solid var(--pk-gold);
   display: inline-block;
+}
+
+/* ── Cart Drawer White Background Override ── */
+cart-drawer,
+.cart-drawer-container,
+.cart-drawer__body,
+.cart-drawer__inner,
+.cart-drawer__inner-wrapper,
+.cart__warnings,
+.cart-drawer__fixed-checkout {
+  background: #ffffff;
 }
