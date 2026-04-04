@@ -214,7 +214,7 @@
               </span>
               <span class="pk-feat__rating">4.7/5</span>
               <span class="pk-feat__sep">|</span>
-              <span class="pk-feat__reviews">37 reviews</span>
+              {{#if available}}<span class="pk-feat__reviews" style="color:var(--pk-gold);">In Stock</span>{{else}}<span class="pk-feat__reviews" style="color:var(--pk-muted);">Out of Stock</span>{{/if}}
             </div>
             <p class="pk-feat__price">
               {{money_with_currency price}}
