@@ -251,45 +251,87 @@
         </a>
       </div>
 
-      {{#form "contact" class="pk-contact__fields"}}
-        {{#if form.posted_successfully}}
-          <div class="pk-contact__success-msg">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            {{section.settings.success_message}}
-          </div>
-        {{else}}
-          {{#if form.errors.messages}}
-            <div class="pk-contact__error-msg">{{form.errors.messages}}</div>
-          {{/if}}
+      <form class="pk-contact__fields" id="pk-contact-form-{{section.id}}" onsubmit="pkWeb3Submit(event, this)">
+        <input type="hidden" name="access_key" value="377b7f7c-5ba2-43c1-a591-2bb101faf366" />
+        <input type="hidden" name="subject" value="{{#if section.settings.form_subject}}{{section.settings.form_subject}}{{else}}PK Cabinets - Contact Form{{/if}}" />
+        <input type="hidden" name="from_name" value="PK Cabinets Website" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+        <div class="pk-contact__success-msg" id="pk-contact-success-{{section.id}}" style="display:none;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          {{#if section.settings.success_message}}{{section.settings.success_message}}{{else}}Thank you! Your message has been sent. A representative will be in touch shortly.{{/if}}
+        </div>
+        <div class="pk-contact__error-msg" id="pk-contact-error-{{section.id}}" style="display:none;"></div>
+
+        <div id="pk-contact-fields-{{section.id}}">
         <div class="pk-contact__row">
           <div class="pk-contact__field">
             <span class="pk-contact__field-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-            <input class="pk-contact__input" type="text" name="contact[name]" placeholder="{{#if section.settings.placeholder_name}}{{section.settings.placeholder_name}}{{else}}Name *{{/if}}" required />
+            <input class="pk-contact__input" type="text" name="name" placeholder="{{#if section.settings.placeholder_name}}{{section.settings.placeholder_name}}{{else}}Name *{{/if}}" required />
           </div>
           <div class="pk-contact__field">
             <span class="pk-contact__field-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-            <input class="pk-contact__input" type="email" name="contact[email]" placeholder="{{#if section.settings.placeholder_email}}{{section.settings.placeholder_email}}{{else}}Email *{{/if}}" required />
+            <input class="pk-contact__input" type="email" name="email" placeholder="{{#if section.settings.placeholder_email}}{{section.settings.placeholder_email}}{{else}}Email *{{/if}}" required />
           </div>
         </div>
         <div class="pk-contact__field">
           <span class="pk-contact__field-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.09-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-          <input class="pk-contact__input" type="tel" name="contact[phone]" placeholder="{{#if section.settings.placeholder_phone}}{{section.settings.placeholder_phone}}{{else}}Phone{{/if}}" />
+          <input class="pk-contact__input" type="tel" name="phone" placeholder="{{#if section.settings.placeholder_phone}}{{section.settings.placeholder_phone}}{{else}}Phone{{/if}}" />
         </div>
         <div class="pk-contact__row">
-          <input class="pk-contact__input pk-contact__input--no-icon" type="text" name="contact[city]" placeholder="{{#if section.settings.placeholder_city}}{{section.settings.placeholder_city}}{{else}}City{{/if}}" />
-          <input class="pk-contact__input pk-contact__input--no-icon" type="text" name="contact[state]" placeholder="{{#if section.settings.placeholder_state}}{{section.settings.placeholder_state}}{{else}}State{{/if}}" />
+          <input class="pk-contact__input pk-contact__input--no-icon" type="text" name="city" placeholder="{{#if section.settings.placeholder_city}}{{section.settings.placeholder_city}}{{else}}City{{/if}}" />
+          <input class="pk-contact__input pk-contact__input--no-icon" type="text" name="state" placeholder="{{#if section.settings.placeholder_state}}{{section.settings.placeholder_state}}{{else}}State{{/if}}" />
         </div>
-        <textarea class="pk-contact__textarea" name="contact[body]" placeholder="{{#if section.settings.placeholder_message}}{{section.settings.placeholder_message}}{{else}}Send Us A Message *{{/if}}" required rows="5"></textarea>
+        <textarea class="pk-contact__textarea" name="message" placeholder="{{#if section.settings.placeholder_message}}{{section.settings.placeholder_message}}{{else}}Send Us A Message *{{/if}}" required rows="5"></textarea>
         <button class="pk-contact__submit" type="submit">
           {{section.settings.submit_button_text}}
           <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
         <p class="pk-contact__required"><span>*</span> Required fields</p>
-        {{/if}}
-      {{/form}}
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
+<script>
+function pkWeb3Submit(e, form) {
+  e.preventDefault();
+  var sid = form.id.replace('pk-contact-form-','').replace('pk-contractor-form-','').replace('pk-design-form-','').replace('pk-contactpage-form-','');
+  var successEl = form.querySelector('[id^="pk-contact-success-"], [id^="pk-contractor-success-"], [id^="pk-design-success-"], [id^="pk-contactpage-success-"]');
+  var errorEl = form.querySelector('[id^="pk-contact-error-"], [id^="pk-contractor-error-"], [id^="pk-design-error-"], [id^="pk-contactpage-error-"]');
+  var fieldsEl = form.querySelector('[id^="pk-contact-fields-"], [id^="pk-contractor-fields-"], [id^="pk-design-fields-"], [id^="pk-contactpage-fields-"]');
+  var btn = form.querySelector('button[type="submit"]');
+  var btnText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+  if (successEl) successEl.style.display = 'none';
+  if (errorEl) errorEl.style.display = 'none';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.success) {
+      if (fieldsEl) fieldsEl.style.display = 'none';
+      if (successEl) successEl.style.display = 'flex';
+      form.reset();
+    } else {
+      if (errorEl) { errorEl.textContent = data.message || 'Something went wrong. Please try again.'; errorEl.style.display = 'block'; }
+    }
+  })
+  .catch(function() {
+    if (errorEl) { errorEl.textContent = 'Network error. Please check your connection and try again.'; errorEl.style.display = 'block'; }
+  })
+  .finally(function() {
+    btn.innerHTML = btnText;
+    btn.disabled = false;
+  });
+}
+</script>
 
 {{#schema}}
 {
@@ -301,6 +343,7 @@
     { "id": "form_subheading","type": "textarea","label": "Subheading",     "default": "Comments? Questions? We want to hear from you. Please fill out this contact form and a representative will be in touch shortly." },
     { "id": "submit_button_text","type": "text","label": "Submit Button",   "default": "Submit" },
     { "id": "success_message","type": "text",  "label": "Success Message",  "default": "Thank you! Your message has been sent. A representative will be in touch shortly." },
+    { "id": "form_subject",  "type": "text",  "label": "Email Subject",    "default": "PK Cabinets - Contact Form" },
     { "type": "header",       "content": "Media & Social" },
     { "id": "image",          "type": "image_picker", "label": "Left Image" },
     { "id": "facebook",       "type": "url",   "label": "Facebook URL" },
