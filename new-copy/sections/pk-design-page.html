@@ -233,27 +233,29 @@
         <p class="pk-design__form-sub">{{section.settings.form_subheading}}</p>
       </div>
 
-      {{#form "contact" class="pk-design__form"}}
-        <input type="hidden" name="contact[subject]" value="{{section.settings.form_subject}}" />
-        {{#if form.posted_successfully}}
-          <div class="pk-design__success-msg">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            {{section.settings.success_message}}
-          </div>
-        {{else}}
-          {{#if form.errors.messages}}
-            <div class="pk-design__error-msg">{{form.errors.messages}}</div>
-          {{/if}}
+      <form class="pk-design__form" id="pk-design-form-{{section.id}}" onsubmit="pkWeb3Submit(event, this)">
+        <input type="hidden" name="access_key" value="377b7f7c-5ba2-43c1-a591-2bb101faf366" />
+        <input type="hidden" name="subject" value="{{#if section.settings.form_subject}}{{section.settings.form_subject}}{{else}}PK Cabinets - Free Design Request{{/if}}" />
+        <input type="hidden" name="from_name" value="PK Cabinets Website" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+        <div class="pk-design__success-msg" id="pk-design-success-{{section.id}}" style="display:none;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          {{#if section.settings.success_message}}{{section.settings.success_message}}{{else}}Thank you! Your design request has been received.{{/if}}
+        </div>
+        <div class="pk-design__error-msg" id="pk-design-error-{{section.id}}" style="display:none;"></div>
+
+        <div id="pk-design-fields-{{section.id}}">
 
         <!-- Name Row -->
         <div class="pk-design__row">
           <div class="pk-design__field">
             <label class="pk-design__label">First Name *</label>
-            <input type="text" name="contact[first_name]" placeholder="First Name" required class="pk-design__input" />
+            <input type="text" name="first_name" placeholder="First Name" required class="pk-design__input" />
           </div>
           <div class="pk-design__field">
             <label class="pk-design__label">Last Name *</label>
-            <input type="text" name="contact[last_name]" placeholder="Last Name" required class="pk-design__input" />
+            <input type="text" name="last_name" placeholder="Last Name" required class="pk-design__input" />
           </div>
         </div>
 
@@ -261,18 +263,18 @@
         <div class="pk-design__row">
           <div class="pk-design__field">
             <label class="pk-design__label">Email *</label>
-            <input type="email" name="contact[email]" placeholder="Email Address" required class="pk-design__input" />
+            <input type="email" name="email" placeholder="Email Address" required class="pk-design__input" />
           </div>
           <div class="pk-design__field">
             <label class="pk-design__label">Phone Number *</label>
-            <input type="tel" name="contact[phone]" placeholder="Phone Number" required class="pk-design__input" />
+            <input type="tel" name="phone" placeholder="Phone Number" required class="pk-design__input" />
           </div>
         </div>
 
         <!-- Project Type Toggle -->
         <div class="pk-design__toggle-group">
           <p class="pk-design__toggle-label">What type of project do you have?</p>
-          <input type="hidden" name="contact[project_type]" id="pk-project-type-val" value="" />
+          <input type="hidden" name="project_type" id="pk-project-type-val" value="" />
           <div class="pk-design__toggle-row">
             <button type="button" class="pk-design__toggle-btn" data-group="project" data-value="Remodel" onclick="pkDesignToggle(this)">Remodel</button>
             <button type="button" class="pk-design__toggle-btn" data-group="project" data-value="New Construction" onclick="pkDesignToggle(this)">New Construction</button>
@@ -282,7 +284,7 @@
         <!-- Decided Style Toggle -->
         <div class="pk-design__toggle-group">
           <p class="pk-design__toggle-label">Have you decided on a cabinet door style?</p>
-          <input type="hidden" name="contact[decided_style]" id="pk-style-val" value="" />
+          <input type="hidden" name="decided_style" id="pk-style-val" value="" />
           <div class="pk-design__toggle-row">
             <button type="button" class="pk-design__toggle-btn" data-group="style" data-value="Yes" onclick="pkDesignToggle(this)">Yes</button>
             <button type="button" class="pk-design__toggle-btn" data-group="style" data-value="No" onclick="pkDesignToggle(this)">No</button>
@@ -292,14 +294,14 @@
         <!-- Textarea -->
         <div class="pk-design__field">
           <label class="pk-design__label">Tell us more about your space</label>
-          <textarea name="contact[body]" placeholder="Ceiling height, appliance sizes, or any specific requests..." rows="5" class="pk-design__textarea"></textarea>
+          <textarea name="message" placeholder="Ceiling height, appliance sizes, or any specific requests..." rows="5" class="pk-design__textarea"></textarea>
         </div>
 
         <!-- Dropdowns -->
         <div class="pk-design__field">
           <label class="pk-design__label">How did you hear about us?</label>
           <div class="pk-design__select-wrap">
-            <select name="contact[how_heard]" class="pk-design__select">
+            <select name="how_heard" class="pk-design__select">
               <option value="" disabled selected>Select an option</option>
               <option value="Google Search">Google Search</option>
               <option value="Social Media">Social Media</option>
@@ -312,7 +314,7 @@
         <div class="pk-design__field">
           <label class="pk-design__label">Best way to contact you?</label>
           <div class="pk-design__select-wrap">
-            <select name="contact[contact_method]" class="pk-design__select">
+            <select name="contact_method" class="pk-design__select">
               <option value="" disabled selected>Select an option</option>
               <option value="Email">Email</option>
               <option value="Phone Call">Phone Call</option>
@@ -324,7 +326,7 @@
 
         <!-- SMS Consent -->
         <div class="pk-design__consent">
-          <input type="checkbox" id="pk-sms-consent" name="contact[sms_consent]" value="yes" />
+          <input type="checkbox" id="pk-sms-consent" name="sms_consent" value="yes" />
           <label for="pk-sms-consent" class="pk-design__consent-text">
             I agree to receive SMS messages from PK Cabinet for project updates and design consultations. Message and data rates may apply. Reply STOP to opt out. View our <a href="/pages/privacy">Privacy Policy</a> and <a href="/pages/terms">Terms of Service</a>.
           </label>
@@ -332,8 +334,8 @@
 
         <!-- Submit -->
         <button type="submit" class="pk-design__submit">{{section.settings.submit_button_text}}</button>
-        {{/if}}
-      {{/form}}
+        </div>
+      </form>
     </div>
   </section>
 
@@ -355,6 +357,40 @@ function pkDesignToggle(btn) {
   btn.classList.add('is-active');
   var hiddenId = group === 'project' ? 'pk-project-type-val' : 'pk-style-val';
   document.getElementById(hiddenId).value = value;
+}
+
+if (typeof pkWeb3Submit === 'undefined') {
+function pkWeb3Submit(e, form) {
+  e.preventDefault();
+  var successEl = form.querySelector('[id*="-success-"]');
+  var errorEl = form.querySelector('[id*="-error-"]');
+  var fieldsEl = form.querySelector('[id*="-fields-"]');
+  var btn = form.querySelector('button[type="submit"]');
+  var btnText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+  if (successEl) successEl.style.display = 'none';
+  if (errorEl) errorEl.style.display = 'none';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.success) {
+      if (fieldsEl) fieldsEl.style.display = 'none';
+      if (successEl) successEl.style.display = 'flex';
+      form.reset();
+    } else {
+      if (errorEl) { errorEl.textContent = data.message || 'Something went wrong.'; errorEl.style.display = 'block'; }
+    }
+  })
+  .catch(function() {
+    if (errorEl) { errorEl.textContent = 'Network error. Please try again.'; errorEl.style.display = 'block'; }
+  })
+  .finally(function() { btn.innerHTML = btnText; btn.disabled = false; });
+}
 }
 </script>
 
