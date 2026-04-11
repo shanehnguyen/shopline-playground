@@ -142,8 +142,8 @@
           "type": "collection",
           "settings": {
             "name": "Mallorca",
-            "link": "shopline://pages/7455666429016187920",
-            "image": "shopline://shop_images/Mallorca Collection Dolphin Gray (Frameless).jpg"
+            "link": "https://www.pkcabinet.com/collections/mallorca-collection-white-shaker",
+            "image": "shopline://shop_images/Mallorca White Shaker Collection.png"
           },
           "blockId": "1774729209738047174d",
           "custom_css": []
@@ -152,8 +152,8 @@
           "type": "collection",
           "settings": {
             "name": "Shady",
-            "link": "shopline://pages/7455666429016187920",
-            "image": "shopline://shop_images/Shady-Collection-Slim-Gray-Shaker-(Frameless)_7454090190463706594.webp"
+            "link": "https://www.pkcabinet.com/collections/mallorca-collection-white-shaker",
+            "image": "shopline://shop_images/Shady Slim White Collection.jpg"
           },
           "blockId": "17747292097384e23507",
           "custom_css": []
@@ -162,7 +162,7 @@
           "type": "collection",
           "settings": {
             "name": "Franco",
-            "link": "shopline://pages/7455666429016187920",
+            "link": "https://www.pkcabinet.com/collections/franco-collection-white-shaker",
             "image": "shopline://shop_images/Franco Collection White Shaker (Framed).jpg"
           },
           "blockId": "177472920973872895e5",
@@ -172,7 +172,7 @@
           "type": "collection",
           "settings": {
             "name": "Irena",
-            "link": "shopline://pages/7455666429016187920",
+            "link": "https://www.pkcabinet.com/collections/irena-collection-white-dual-shaker",
             "image": "shopline://shop_images/Irena Collection White Dual Shaker (Frameless).jpg"
           },
           "blockId": "17747292097385978808",
@@ -182,7 +182,7 @@
           "type": "collection",
           "settings": {
             "name": "Newport",
-            "link": "shopline://pages/7455666429016187920",
+            "link": "https://www.pkcabinet.com/collections/newport-collection-umbria-elm",
             "image": "shopline://shop_images/Newport Collection Umbria Elm (Frameless).jpg"
           },
           "blockId": "1774729209738410bd30",
@@ -192,7 +192,7 @@
           "type": "collection",
           "settings": {
             "name": "Aspen",
-            "link": "shopline://pages/7455666429016187920",
+            "link": "https://www.pkcabinet.com/collections/aspen-collection-raven-solids",
             "image": "shopline://shop_images/Aspen Collection Raven Solids (Frameless).jpg"
           },
           "blockId": "1774729209738bab9604",
@@ -266,7 +266,7 @@
         "title": "Shady Collection",
         "subtitle": "Gray Shaker — Modern Minimalist Elegance",
         "link_text": "Explore Collection",
-        "image": "shopline://shop_images/Shady Collection Slim Natural Shaker (Frameless).jpg"
+        "image": "shopline://shop_images/Shady Slim Oak Collection.png"
       },
       "blocks": {},
       "block_order": [],
