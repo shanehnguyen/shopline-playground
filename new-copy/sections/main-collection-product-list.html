@@ -138,6 +138,12 @@
 }
 /* ── PK Filter Bar Styling ── */
 
+/* Facets sidebar — align top with product grid */
+.pk-prod__inner .facets-wrapper {
+  padding-top: 0;
+  margin-top: 0;
+}
+
 /* Filter bar container — white background, bottom border */
 .pk-prod__inner .facets-container {
   background: #ffffff;
@@ -151,14 +157,14 @@
   gap: 0 24px;
 }
 
-/* Filter & sort dropdown labels */
+/* Section headers — match .pk-pdp__qty-label (12px/600/0.08em) */
 .pk-prod__inner .facets__summary {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
   font-weight: 600;
   color: #1a1a1a;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 }
 
 /* Filter disclosure — no rounded corners */
@@ -177,59 +183,79 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Checkbox labels inside dropdowns */
-.pk-prod__inner .facet-checkbox > span,
+/* Option labels — match PDP small UI text (13px) */
+.pk-prod__inner .facet-checkbox > span {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #1a1a1a;
+}
+
+/* Sort options — match PDP small UI text (13px) */
 .pk-prod__inner .sort-option {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #1a1a1a;
 }
 
-/* Item count */
+/* Filter value counts — muted */
+.pk-prod__inner .facets__selected {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #6b6258;
+}
+
+/* Item count — muted */
 .pk-prod__inner .product-count {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: #6b6258;
 }
 
-/* Active filter chips — gold bg, white text, no rounded corners */
+/* Active filter chips — match ATC button (11px/700/0.04em, gold bg) */
 .pk-prod__inner .active-facets .active-facets__button {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+.pk-prod__inner .active-facets .active-facets__button-inner {
   background: #a89060;
   color: #ffffff;
-  border-radius: 0;
   border: none;
+  border-radius: 0;
+  padding: 6px 12px;
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
-.pk-prod__inner .active-facets .active-facets__button .icon-close {
-  color: #ffffff;
-}
-.pk-prod__inner .active-facets .active-facets__button-inner {
+.pk-prod__inner .active-facets .active-facets__button-inner .icon-close {
   color: #ffffff;
 }
 
-/* Clear all link */
+/* Clear all link — match .pk-pdp__read-more (12px/600/0.05em) */
 .pk-prod__inner .active-facets .active-facets__button-remove {
-  color: #a89060;
   font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #a89060;
 }
 
-/* Vertical filter sidebar labels */
+/* Vertical filter sidebar labels — same as horizontal */
 .pk-prod__inner .facets__disclosure-vertical .facets__summary {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
   font-weight: 600;
   color: #1a1a1a;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 }
 
 /* Stock filter toggle label */
 .pk-prod__inner .stock-filter-text {
   font-family: 'Inter', sans-serif;
+  font-size: 13px;
   color: #1a1a1a;
 }
 </style>
