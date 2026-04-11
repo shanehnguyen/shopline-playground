@@ -761,12 +761,14 @@ a.facets__reset:hover {
 .facets__selected,
 .stock-filter-text {
   font-family: var(--pk-font-ui);
-  color: var(--pk-dark);
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .facets__summary {
-  font-size: var(--pk-label-size);
-  font-weight: var(--pk-label-weight);
-  letter-spacing: var(--pk-label-spacing);
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
 }
