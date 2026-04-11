@@ -144,7 +144,7 @@
   margin-top: 0;
 }
 
-/* Filter bar container — white background, bottom border */
+/* Filter bar container */
 .pk-prod__inner .facets-container {
   background: #ffffff;
   padding-bottom: 16px;
@@ -152,28 +152,39 @@
   border-bottom: 1px solid #e0dcd5;
 }
 
-/* Horizontal form layout — filters left, sort + count right */
 .pk-prod__inner .facets__form {
   gap: 0 24px;
 }
 
-/* Section headers */
-.pk-prod__inner .facets__summary {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600 !important;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+/* ALL filter text — 13px/500 Inter #1a1a1a, matching product grid names */
+.pk-prod__inner .facets__summary,
+.pk-prod__inner .facets__disclosure-vertical .facets__summary,
+.pk-prod__inner .facets__price-details .facets__summary,
+.pk-prod__inner .facet-checkbox > span,
+.pk-prod__inner .sort-option,
+.pk-prod__inner .stock-filter-text {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
 }
 
-/* Filter disclosure — no rounded corners */
+/* Muted counts */
+.pk-prod__inner .facets__selected,
+.pk-prod__inner .product-count {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #6b6258 !important;
+}
+
+/* Filter panels — flat, no shadow */
 .pk-prod__inner .facets__disclosure,
 .pk-prod__inner .facets__sorting-details {
   border-radius: 0;
 }
-
-/* Filter dropdown panel — clean border, no rounded corners */
 .pk-prod__inner .facets__display,
 .pk-prod__inner .facets__display-vertical,
 .pk-prod__inner .facets__sorting-content {
@@ -183,35 +194,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Option labels — match PDP small UI text (13px) */
-.pk-prod__inner .facet-checkbox > span {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #1a1a1a;
-}
-
-/* Sort options — match PDP small UI text (13px) */
-.pk-prod__inner .sort-option {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #1a1a1a;
-}
-
-/* Filter value counts — muted */
-.pk-prod__inner .facets__selected {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #6b6258;
-}
-
-/* Item count — muted */
-.pk-prod__inner .product-count {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #6b6258;
-}
-
-/* Active filter chips — match ATC button (11px/700/0.04em, gold bg) */
+/* Active filter chips — gold pill, 13px/500 */
 .pk-prod__inner .active-facets .active-facets__button {
   background: transparent;
   border: none;
@@ -219,44 +202,40 @@
 }
 .pk-prod__inner .active-facets .active-facets__button-inner {
   background: #a89060;
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
   border-radius: 0;
   padding: 6px 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-transform: none;
+  letter-spacing: 0;
 }
 .pk-prod__inner .active-facets .active-facets__button-inner .icon-close {
   color: #ffffff;
 }
 
-/* Clear all link — match .pk-pdp__read-more (12px/600/0.05em) */
+/* Clear all link */
 .pk-prod__inner .active-facets .active-facets__button-remove {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
-  letter-spacing: 0.05em;
-  color: #a89060;
+  letter-spacing: 0;
+  color: #a89060 !important;
 }
 
-/* Vertical filter sidebar labels — same as horizontal */
-.pk-prod__inner .facets__disclosure-vertical .facets__summary {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600 !important;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+/* Mobile facets drawer */
+.mobile-facets__summary,
+.mobile-facets__heading,
+.mobile-facets .facets__summary {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #1a1a1a !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
 }
-
-/* Stock filter toggle label */
-.pk-prod__inner .stock-filter-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: #1a1a1a;
 }
 </style>
 
