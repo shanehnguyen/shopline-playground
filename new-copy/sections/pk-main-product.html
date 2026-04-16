@@ -219,9 +219,7 @@
       </p>
 
       <div class="pk-pdp__meta">
-        <span class="pk-pdp__stars">★★★★★</span>
-        <span class="pk-pdp__rating">4.8</span>
-        <span class="pk-pdp__meta-divider"></span>
+        {{#if product.product_type}}<span class="pk-pdp__sku">{{product.product_type}}</span><span class="pk-pdp__meta-divider"></span>{{/if}}
         {{#if product.available}}<span class="pk-pdp__reviews-link" style="color:var(--pk-gold);border:none;">In Stock</span>{{else}}<span class="pk-pdp__reviews-link" style="color:var(--pk-muted);border:none;">Out of Stock</span>{{/if}}
         <span class="pk-pdp__meta-divider"></span>
         <span class="pk-pdp__sku">SKU: {{#if product.selected_or_first_available_variant.sku}}{{product.selected_or_first_available_variant.sku}}{{else}}{{product.variants.[0].sku}}{{/if}}</span>
@@ -346,12 +344,6 @@
           <summary>Delivery <span class="pk-pdp__accord-icon">+</span></summary>
           <div class="pk-pdp__accord-body">
             <p>Orders over $3,500 qualify for free final-mile delivery. A delivery specialist will contact you to schedule your appointment. <a href="/pages/shipping" style="color:#a89060;">Learn more</a></p>
-          </div>
-        </details>
-        <details class="pk-pdp__accord-item" id="pk-reviews-{{section.id}}">
-          <summary>Reviews <span class="pk-pdp__accord-icon">+</span></summary>
-          <div class="pk-pdp__accord-body">
-            <p>★★★★☆ — "Exceptional quality and finish. Exactly what we were looking for."</p>
           </div>
         </details>
       </div>
