@@ -205,15 +205,7 @@
             </div>
             <a class="pk-feat__card-name" href="{{url}}">{{title}}</a>
             <div class="pk-feat__card-meta">
-              <span class="pk-feat__stars">
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              </span>
-              <span class="pk-feat__rating">4.7/5</span>
-              <span class="pk-feat__sep">|</span>
+              {{#if product_type}}<span class="pk-feat__reviews">{{product_type}}</span><span class="pk-feat__sep">|</span>{{/if}}
               {{#if available}}<span class="pk-feat__reviews" style="color:var(--pk-gold);">In Stock</span>{{else}}<span class="pk-feat__reviews" style="color:var(--pk-muted);">Out of Stock</span>{{/if}}
             </div>
             <p class="pk-feat__price">
