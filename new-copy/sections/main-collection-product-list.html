@@ -322,7 +322,24 @@
                 <div class="pk-prod__info">
                   <span class="pk-prod__name">{{title}}</span>
                   <div class="pk-prod__meta">
-                    {{#if product_type}}<span class="pk-prod__subtitle">{{product_type}}</span><span class="pk-prod__sep">|</span>{{/if}}
+                    {{assign "pk_tag_exclude" (toRegex "collection|quick-order|hidden|featured|homepage|sample" flags="i")}}
+                    {{assign "pk_has_tags" false}}
+                    {{#each tags}}
+                      {{#unless (test this ../pk_tag_exclude)}}
+                        {{assign "pk_has_tags" true}}
+                      {{/unless}}
+                    {{/each}}
+                    {{#if pk_has_tags}}
+                      {{assign "pk_tag_first" true}}
+                      {{#each tags}}
+                        {{#unless (test this ../pk_tag_exclude)}}
+                          {{#unless ../pk_tag_first}}<span class="pk-prod__sep">|</span>{{/unless}}
+                          <span class="pk-prod__subtitle">{{this}}</span>
+                          {{assign "pk_tag_first" false}}
+                        {{/unless}}
+                      {{/each}}
+                      <span class="pk-prod__sep">|</span>
+                    {{/if}}
                     {{#if available}}<span class="pk-prod__reviews" style="color:var(--pk-gold);">In Stock</span>{{else}}<span class="pk-prod__reviews" style="color:var(--pk-muted);">Out of Stock</span>{{/if}}
                   </div>
                   <p class="pk-prod__price">{{money_with_currency price}}</p>

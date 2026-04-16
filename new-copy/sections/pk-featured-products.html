@@ -205,7 +205,24 @@
             </div>
             <a class="pk-feat__card-name" href="{{url}}">{{title}}</a>
             <div class="pk-feat__card-meta">
-              {{#if product_type}}<span class="pk-feat__reviews">{{product_type}}</span><span class="pk-feat__sep">|</span>{{/if}}
+              {{assign "pk_tag_exclude" (toRegex "collection|quick-order|hidden|featured|homepage|sample" flags="i")}}
+              {{assign "pk_has_tags" false}}
+              {{#each tags}}
+                {{#unless (test this ../pk_tag_exclude)}}
+                  {{assign "pk_has_tags" true}}
+                {{/unless}}
+              {{/each}}
+              {{#if pk_has_tags}}
+                {{assign "pk_tag_first" true}}
+                {{#each tags}}
+                  {{#unless (test this ../pk_tag_exclude)}}
+                    {{#unless ../pk_tag_first}}<span class="pk-feat__sep">|</span>{{/unless}}
+                    <span class="pk-feat__reviews">{{this}}</span>
+                    {{assign "pk_tag_first" false}}
+                  {{/unless}}
+                {{/each}}
+                <span class="pk-feat__sep">|</span>
+              {{/if}}
               {{#if available}}<span class="pk-feat__reviews" style="color:var(--pk-gold);">In Stock</span>{{else}}<span class="pk-feat__reviews" style="color:var(--pk-muted);">Out of Stock</span>{{/if}}
             </div>
             <p class="pk-feat__price">
